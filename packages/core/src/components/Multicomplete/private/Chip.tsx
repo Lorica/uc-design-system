@@ -1,28 +1,22 @@
-import React from 'react'
-import IconCloseAlt from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconCloseAlt'
-import Chip from '../../Chip'
+import React from 'react';
+import IconCloseAlt from '@lorica/uc-design-system-icons/lib/interface/IconCloseAlt';
+import Chip from '../../Chip';
 
 export type MulticompleteChipProps = {
   /** Value to display. */
-  value: string
+  value: string;
   /** Callback when the icon is clicked. */
-  onClick: (value: string, event: React.MouseEvent<HTMLElement>) => void
-}
+  onClick: (value: string, event: React.MouseEvent<HTMLElement>) => void;
+};
 
-export default function MulticompleteChip({
-  value,
-  onClick,
-}: MulticompleteChipProps) {
+export default function MulticompleteChip({ value, onClick }: MulticompleteChipProps) {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    onClick(value, event)
-  }
+    onClick(value, event);
+  };
 
   return (
-    <Chip
-      afterIcon={<IconCloseAlt decorative size="2em" />}
-      onIconClick={handleClick}
-    >
+    <Chip afterIcon={<IconCloseAlt decorative size="2em" />} onIconClick={handleClick}>
       {value}
     </Chip>
-  )
+  );
 }

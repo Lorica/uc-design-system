@@ -1,206 +1,191 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Enzyme from 'enzyme'
-import {
-  mountWithStyles,
-  shallowWithStyles,
-} from '@lorica/uc-design-systemsign-system-test-utils'
-import Overlay, {
-  OverlayProps,
-  OverlayState,
-} from '../../src/components/Overlay'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Enzyme from 'enzyme';
+import { mountWithStyles, shallowWithStyles } from '@lorica/uc-design-system-test-utils';
+import Overlay, { OverlayProps, OverlayState } from '../../src/components/Overlay';
 import Portal, {
   Portal as BasePortal,
   PortalProps,
   PortalState,
-} from '../../src/components/Overlay/Portal'
-import { ESCAPE } from '../../src/keys'
+} from '../../src/components/Overlay/Portal';
+import { ESCAPE } from '../../src/keys';
 
 // eslint-disable-next-line unicorn/consistent-function-scoping
-jest.mock('lodash/throttle', () => (value: unknown) => value)
+jest.mock('lodash/throttle', () => (value: unknown) => value);
 
 // eslint-disable-next-line unicorn/consistent-function-scoping
-jest.mock('lodash/debounce', () => (value: unknown) => value)
+jest.mock('lodash/debounce', () => (value: unknown) => value);
 
 describe('<Overlay />', () => {
   const props = {
     onClose() {},
-  }
+  };
 
   it('makes a portal', () => {
-    const portalSpy = jest.spyOn(ReactDOM, 'createPortal')
-    const eventSpy = jest.spyOn(window, 'addEventListener')
-    const closeSpy = jest.fn()
-    const wrapper = mountWithStyles(
-      <Overlay onClose={closeSpy}>hello world</Overlay>
-    )
-    wrapper.setState({ targetRectReady: true })
+    const portalSpy = jest.spyOn(ReactDOM, 'createPortal');
+    const eventSpy = jest.spyOn(window, 'addEventListener');
+    const closeSpy = jest.fn();
+    const wrapper = mountWithStyles(<Overlay onClose={closeSpy}>hello world</Overlay>);
+    wrapper.setState({ targetRectReady: true });
 
-    expect(portalSpy).toHaveBeenCalledWith(null, expect.anything())
+    expect(portalSpy).toHaveBeenCalledWith(null, expect.anything());
 
-    wrapper.setProps({ open: true })
+    wrapper.setProps({ open: true });
 
-    expect(portalSpy).toHaveBeenCalledWith(expect.anything(), expect.anything())
-    expect(eventSpy).toHaveBeenCalledWith('keydown', expect.any(Function))
-    expect(closeSpy).not.toHaveBeenCalled()
+    expect(portalSpy).toHaveBeenCalledWith(expect.anything(), expect.anything());
+    expect(eventSpy).toHaveBeenCalledWith('keydown', expect.any(Function));
+    expect(closeSpy).not.toHaveBeenCalled();
 
-    wrapper.find(Portal).find('div[role="presentation"]').simulate('click')
+    wrapper.find(Portal).find('div[role="presentation"]').simulate('click');
 
-    expect(closeSpy).toHaveBeenCalled()
+    expect(closeSpy).toHaveBeenCalled();
 
-    wrapper.unmount()
-    portalSpy.mockRestore()
-    eventSpy.mockRestore()
-  })
+    wrapper.unmount();
+    portalSpy.mockRestore();
+    eventSpy.mockRestore();
+  });
 
   it('forces an update on resize', () => {
     const wrapper = mountWithStyles<Overlay>(
       <Overlay {...props} open>
         hello world
-      </Overlay>
-    )
-    wrapper.setState({ targetRectReady: true })
-    const spy = jest.spyOn(wrapper.instance(), 'forceUpdate')
+      </Overlay>,
+    );
+    wrapper.setState({ targetRectReady: true });
+    const spy = jest.spyOn(wrapper.instance(), 'forceUpdate');
 
-    wrapper.find(Portal).prop('onResize')()
+    wrapper.find(Portal).prop('onResize')();
 
-    expect(spy).toHaveBeenCalled()
-  })
+    expect(spy).toHaveBeenCalled();
+  });
 
   it('does not calls addScrollListeners', () => {
-    const wrapper = mountWithStyles<Overlay>(
-      <Overlay {...props}>hello world</Overlay>
-    )
-    wrapper.setState({ targetRectReady: true })
+    const wrapper = mountWithStyles<Overlay>(<Overlay {...props}>hello world</Overlay>);
+    wrapper.setState({ targetRectReady: true });
     // @ts-ignore Method not being found on class
-    const spy = jest.spyOn(wrapper.instance(), 'addScrollListeners')
+    const spy = jest.spyOn(wrapper.instance(), 'addScrollListeners');
 
-    expect(spy).not.toHaveBeenCalled()
+    expect(spy).not.toHaveBeenCalled();
 
-    wrapper.setProps({ open: true })
+    wrapper.setProps({ open: true });
 
-    expect(spy).not.toHaveBeenCalled()
-  })
+    expect(spy).not.toHaveBeenCalled();
+  });
 
   describe('noBackground', () => {
-    let wrapper: Enzyme.ReactWrapper<OverlayProps, OverlayState, Overlay>
+    let wrapper: Enzyme.ReactWrapper<OverlayProps, OverlayState, Overlay>;
 
     beforeEach(() => {
       wrapper = mountWithStyles(
         <Overlay {...props} noBackground>
           hello world
-        </Overlay>
-      )
-      wrapper.setState({ targetRectReady: true })
-    })
+        </Overlay>,
+      );
+      wrapper.setState({ targetRectReady: true });
+    });
 
     it('calls addScrollListeners when open', () => {
       // @ts-ignore Method not being found on class
-      const spy = jest.spyOn(wrapper.instance(), 'addScrollListeners')
+      const spy = jest.spyOn(wrapper.instance(), 'addScrollListeners');
 
-      expect(spy).not.toHaveBeenCalled()
+      expect(spy).not.toHaveBeenCalled();
 
-      wrapper.setProps({ open: true })
+      wrapper.setProps({ open: true });
 
-      expect(spy).toHaveBeenCalled()
-    })
+      expect(spy).toHaveBeenCalled();
+    });
 
     it('handleScroll closes the overlay', () => {
-      const spy = jest.fn()
+      const spy = jest.fn();
 
-      wrapper.setProps({ open: true, onClose: spy })
+      wrapper.setProps({ open: true, onClose: spy });
 
-      expect(spy).not.toHaveBeenCalled()
+      expect(spy).not.toHaveBeenCalled();
 
       // @ts-ignore Allow private access
-      ;(wrapper.instance() as Overlay).handleScroll()
+      (wrapper.instance() as Overlay).handleScroll();
 
-      expect(spy).toHaveBeenCalled()
-    })
-  })
+      expect(spy).toHaveBeenCalled();
+    });
+  });
 
   describe('<Portal /> handler functions', () => {
-    let wrapper: Enzyme.ShallowWrapper<PortalProps, PortalState, BasePortal>
-    let instance: BasePortal
-    let closeSpy: jest.Mock
-    let resizeSpy: jest.Mock
+    let wrapper: Enzyme.ShallowWrapper<PortalProps, PortalState, BasePortal>;
+    let instance: BasePortal;
+    let closeSpy: jest.Mock;
+    let resizeSpy: jest.Mock;
 
     beforeEach(() => {
-      closeSpy = jest.fn()
-      resizeSpy = jest.fn()
+      closeSpy = jest.fn();
+      resizeSpy = jest.fn();
 
       wrapper = shallowWithStyles(
-        <Portal
-          {...props}
-          noBackground
-          onResize={resizeSpy}
-          onClose={closeSpy}
-        />
-      )
-      instance = wrapper.instance()
-    })
+        <Portal {...props} noBackground onResize={resizeSpy} onClose={closeSpy} />,
+      );
+      instance = wrapper.instance();
+    });
 
     describe('handleClick()', () => {
       it('calls `onClose` if target matches ref', () => {
-        const target = document.createElement('div')
+        const target = document.createElement('div');
 
-        instance.ref = { current: target }
+        instance.ref = { current: target };
 
-        wrapper.find('div').at(0).simulate('click', { target })
+        wrapper.find('div').at(0).simulate('click', { target });
 
         wrapper
           .find('div')
           .at(0)
-          .simulate('click', { target: document.createElement('button') })
+          .simulate('click', { target: document.createElement('button') });
 
-        expect(closeSpy).toHaveBeenCalledTimes(1)
-      })
-    })
+        expect(closeSpy).toHaveBeenCalledTimes(1);
+      });
+    });
 
     describe('handleKeyDown()', () => {
       it('default', () => {
-        window.dispatchEvent(new KeyboardEvent('keydown'))
+        window.dispatchEvent(new KeyboardEvent('keydown'));
 
-        expect(closeSpy).not.toHaveBeenCalled()
-        expect(wrapper.state()).toMatchSnapshot()
-      })
+        expect(closeSpy).not.toHaveBeenCalled();
+        expect(wrapper.state()).toMatchSnapshot();
+      });
 
       it('ESCAPE', () => {
         const event = new KeyboardEvent('keydown', {
           key: ESCAPE,
-        })
+        });
 
-        window.dispatchEvent(event)
+        window.dispatchEvent(event);
 
-        expect(closeSpy).toHaveBeenCalled()
-      })
-    })
+        expect(closeSpy).toHaveBeenCalled();
+      });
+    });
 
     describe('handleResize()', () => {
       it('calls `onResize`', () => {
-        window.dispatchEvent(new Event('resize'))
+        window.dispatchEvent(new Event('resize'));
 
-        expect(resizeSpy).toHaveBeenCalled()
-      })
-    })
+        expect(resizeSpy).toHaveBeenCalled();
+      });
+    });
 
     describe('handleScroll()', () => {
       it('sets height using ref', () => {
-        const ref = document.createElement('div')
+        const ref = document.createElement('div');
 
-        Object.defineProperty(ref, 'scrollHeight', { value: 1000 })
+        Object.defineProperty(ref, 'scrollHeight', { value: 1000 });
 
         wrapper.setProps({
           noBackground: false,
-        })
+        });
 
-        instance.ref = { current: ref }
+        instance.ref = { current: ref };
 
-        wrapper.find('div').at(0).simulate('scroll')
+        wrapper.find('div').at(0).simulate('scroll');
 
-        expect(closeSpy).not.toHaveBeenCalled()
-        expect(wrapper.state('height')).toBe(1000)
-      })
-    })
-  })
-})
+        expect(closeSpy).not.toHaveBeenCalled();
+        expect(wrapper.state('height')).toBe(1000);
+      });
+    });
+  });
+});

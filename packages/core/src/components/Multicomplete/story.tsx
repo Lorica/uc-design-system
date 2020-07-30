@@ -1,17 +1,17 @@
-import React from 'react'
-import IconCloseAlt from '@lorica/uc-design-systemsign-system-icons/src/interface/IconCloseAlt'
-import Text from '../Text'
-import Multicomplete from '.'
-import IconButton from '../IconButton'
-import Row from '../Row'
-import StatusText from '../StatusText'
+import React from 'react';
+import IconCloseAlt from '@lorica/uc-design-system-icons/src/interface/IconCloseAlt';
+import Text from '../Text';
+import Multicomplete from '.';
+import IconButton from '../IconButton';
+import Row from '../Row';
+import StatusText from '../StatusText';
 
 export default {
   title: 'Core/Multicomplete',
   parameters: {
     inspectComponents: [Multicomplete],
   },
-}
+};
 
 export function anAutocompleteThatSupportsSelectingMultipleItems() {
   return (
@@ -33,16 +33,16 @@ export function anAutocompleteThatSupportsSelectingMultipleItems() {
             { value: 'black', name: 'Black' },
             { value: 'blue', name: 'Blue' },
             { value: 'green', name: 'Green' },
-          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase()))
+          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase())),
         )
       }
     />
-  )
+  );
 }
 
 anAutocompleteThatSupportsSelectingMultipleItems.story = {
   name: 'An autocomplete that supports selecting multiple items.',
-}
+};
 
 export function supportsPrePopulatingMultipleItems() {
   return (
@@ -65,16 +65,16 @@ export function supportsPrePopulatingMultipleItems() {
             { value: 'black', name: 'Black' },
             { value: 'blue', name: 'Blue' },
             { value: 'green', name: 'Green' },
-          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase()))
+          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase())),
         )
       }
     />
-  )
+  );
 }
 
 supportsPrePopulatingMultipleItems.story = {
   name: 'Supports pre-populating multiple items.',
-}
+};
 
 export function loadItemsOnFocusStory() {
   return (
@@ -98,19 +98,16 @@ export function loadItemsOnFocusStory() {
             { value: 'black', name: 'Black' },
             { value: 'blue', name: 'Blue' },
             { value: 'green', name: 'Green' },
-          ].filter(
-            (item) =>
-              !value || item.name.toLowerCase().match(value.toLowerCase())
-          )
+          ].filter((item) => !value || item.name.toLowerCase().match(value.toLowerCase())),
         )
       }
     />
-  )
+  );
 }
 
 loadItemsOnFocusStory.story = {
   name: 'Load items on focus.',
-}
+};
 
 export function canSelectUnknownValueWhenHittingEnter() {
   return (
@@ -133,16 +130,16 @@ export function canSelectUnknownValueWhenHittingEnter() {
             { value: 'black', name: 'Black' },
             { value: 'blue', name: 'Blue' },
             { value: 'green', name: 'Green' },
-          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase()))
+          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase())),
         )
       }
     />
-  )
+  );
 }
 
 canSelectUnknownValueWhenHittingEnter.story = {
   name: 'Can select unknown value when hitting enter.',
-}
+};
 
 export function renderACustomChip() {
   return (
@@ -185,16 +182,16 @@ export function renderACustomChip() {
             { value: 'black', name: 'Black' },
             { value: 'blue', name: 'Blue' },
             { value: 'green', name: 'Green' },
-          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase()))
+          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase())),
         )
       }
     />
-  )
+  );
 }
 
 renderACustomChip.story = {
   name: 'Render a custom selected value instead of a Chip.',
-}
+};
 
 export function asSmall() {
   return (
@@ -217,16 +214,16 @@ export function asSmall() {
             { value: 'black', name: 'Black' },
             { value: 'blue', name: 'Blue' },
             { value: 'green', name: 'Green' },
-          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase()))
+          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase())),
         )
       }
     />
-  )
+  );
 }
 
 asSmall.story = {
   name: 'As small.',
-}
+};
 
 export function asLarge() {
   return (
@@ -249,13 +246,13 @@ export function asLarge() {
             { value: 'black', name: 'Black' },
             { value: 'blue', name: 'Blue' },
             { value: 'green', name: 'Green' },
-          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase()))
+          ].filter((item) => item.name.toLowerCase().match(value.toLowerCase())),
         )
       }
     />
-  )
+  );
 }
 
 asLarge.story = {
   name: 'As large.',
-}
+};

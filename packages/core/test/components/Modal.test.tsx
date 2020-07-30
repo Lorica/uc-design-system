@@ -1,21 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {
-  mountWithStyles,
-  shallowWithStyles,
-} from '@lorica/uc-design-systemsign-system-test-utils'
-import Modal, { ModalProps } from '../../src/components/Modal'
-import ModalImageLayout from '../../src/components/Modal/private/ImageLayout'
-import ModalInner from '../../src/components/Modal/private/Inner'
-import ModalInnerContent from '../../src/components/Modal/private/InnerContent'
-import Text from '../../src/components/Text'
-import Title from '../../src/components/Title'
-import { ESCAPE } from '../../src/keys'
-import focusFirstFocusableChild from '../../src/utils/focus/focusFirstFocusableChild'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { mountWithStyles, shallowWithStyles } from '@lorica/uc-design-system-test-utils';
+import Modal, { ModalProps } from '../../src/components/Modal';
+import ModalImageLayout from '../../src/components/Modal/private/ImageLayout';
+import ModalInner from '../../src/components/Modal/private/Inner';
+import ModalInnerContent from '../../src/components/Modal/private/InnerContent';
+import Text from '../../src/components/Text';
+import Title from '../../src/components/Title';
+import { ESCAPE } from '../../src/keys';
+import focusFirstFocusableChild from '../../src/utils/focus/focusFirstFocusableChild';
 
-jest.mock('../../src/utils/focus/focusFirstFocusableChild')
+jest.mock('../../src/utils/focus/focusFirstFocusableChild');
 
-type EventMap = { [key: string]: ((event?: Event) => void) | null }
+type EventMap = { [key: string]: ((event?: Event) => void) | null };
 
 describe('<Modal />', () => {
   function setup(override = {}, isShallow = true) {
@@ -24,171 +21,163 @@ describe('<Modal />', () => {
       onClose() {},
       title: 'Modal test',
       ...override,
-    }
+    };
 
     const wrapper = isShallow
       ? shallowWithStyles(<Modal {...props} />)
-      : mountWithStyles(<Modal {...props} />)
+      : mountWithStyles(<Modal {...props} />);
 
-    return { wrapper }
+    return { wrapper };
   }
 
   it('makes a portal', () => {
-    const portalSpy = jest.spyOn(ReactDOM, 'createPortal')
-    const { wrapper } = setup({}, false /* isShallow */)
+    const portalSpy = jest.spyOn(ReactDOM, 'createPortal');
+    const { wrapper } = setup({}, false /* isShallow */);
 
-    expect(portalSpy).toHaveBeenCalled()
+    expect(portalSpy).toHaveBeenCalled();
 
-    wrapper.unmount()
-    portalSpy.mockRestore()
-  })
+    wrapper.unmount();
+    portalSpy.mockRestore();
+  });
 
   it('closes the modal only when escape is pressed', () => {
-    const closeSpy = jest.fn()
-    const { wrapper } = setup({ onClose: closeSpy })
+    const closeSpy = jest.fn();
+    const { wrapper } = setup({ onClose: closeSpy });
 
-    wrapper.find('div[role="presentation"]').simulate('keyup', {})
+    wrapper.find('div[role="presentation"]').simulate('keyup', {});
 
-    expect(closeSpy).not.toHaveBeenCalled()
+    expect(closeSpy).not.toHaveBeenCalled();
 
     const event = new KeyboardEvent('keyup', {
       key: ESCAPE,
-    })
+    });
 
-    wrapper.find('div[role="presentation"]').simulate('keyup', event)
+    wrapper.find('div[role="presentation"]').simulate('keyup', event);
 
-    expect(closeSpy).toHaveBeenCalled()
-  })
+    expect(closeSpy).toHaveBeenCalled();
+  });
 
   it('closes when clicked outside', () => {
-    const closeSpy = jest.fn()
+    const closeSpy = jest.fn();
 
     const eventMap: EventMap = {
       click: null,
       mouseup: null,
       mousedown: null,
-    }
+    };
 
     jest.spyOn(document, 'addEventListener').mockImplementation((event, cb) => {
       // @ts-ignore
-      eventMap[event] = cb
-    })
+      eventMap[event] = cb;
+    });
 
-    shallowWithStyles(<ModalInner onClose={closeSpy}>Foo</ModalInner>)
+    shallowWithStyles(<ModalInner onClose={closeSpy}>Foo</ModalInner>);
 
-    eventMap.click!()
+    eventMap.click!();
 
-    expect(closeSpy).toHaveBeenCalled()
-  })
+    expect(closeSpy).toHaveBeenCalled();
+  });
 
   it('doesnt close when clicked outside and persist is enabled', () => {
-    const closeSpy = jest.fn()
+    const closeSpy = jest.fn();
 
     const eventMap: EventMap = {
       click: null,
       mouseup: null,
       mousedown: null,
-    }
+    };
 
     jest.spyOn(document, 'addEventListener').mockImplementation((event, cb) => {
       // @ts-ignore
-      eventMap[event] = cb
-    })
+      eventMap[event] = cb;
+    });
 
     shallowWithStyles(
       <ModalInner persistOnOutsideClick onClose={closeSpy}>
         Foo
-      </ModalInner>
-    )
+      </ModalInner>,
+    );
 
-    eventMap.click!()
+    eventMap.click!();
 
-    expect(closeSpy).not.toHaveBeenCalled()
-  })
+    expect(closeSpy).not.toHaveBeenCalled();
+  });
 
   it('does not close when clicked on self', () => {
-    const target = document.createElement('div')
-    const closeSpy = jest.fn()
+    const target = document.createElement('div');
+    const closeSpy = jest.fn();
 
     const eventMap: EventMap = {
       click: null,
       mouseup: null,
       mousedown: null,
-    }
+    };
 
     jest.spyOn(document, 'addEventListener').mockImplementation((event, cb) => {
       // @ts-ignore
-      eventMap[event] = cb
-    })
+      eventMap[event] = cb;
+    });
 
-    const wrapper = shallowWithStyles(
-      <ModalInner onClose={closeSpy}>Foo</ModalInner>
-    )
-    const instance = wrapper.instance()
+    const wrapper = shallowWithStyles(<ModalInner onClose={closeSpy}>Foo</ModalInner>);
+    const instance = wrapper.instance();
 
     // @ts-ignore
-    instance.dialogRef = { current: target }
+    instance.dialogRef = { current: target };
 
     // @ts-ignore
-    eventMap.click!({ preventDefault: jest.fn(), target })
+    eventMap.click!({ preventDefault: jest.fn(), target });
 
-    expect(closeSpy).toHaveBeenCalledTimes(0)
-  })
+    expect(closeSpy).toHaveBeenCalledTimes(0);
+  });
 
   describe('componentDidMount', () => {
     it('adds event listener', () => {
-      const eventSpy = jest.spyOn(document, 'addEventListener')
+      const eventSpy = jest.spyOn(document, 'addEventListener');
 
-      shallowWithStyles(<ModalInner onClose={() => {}}>Foo</ModalInner>)
+      shallowWithStyles(<ModalInner onClose={() => {}}>Foo</ModalInner>);
 
-      expect(eventSpy).toHaveBeenCalledWith('click', expect.any(Function), true)
+      expect(eventSpy).toHaveBeenCalledWith('click', expect.any(Function), true);
 
-      eventSpy.mockRestore()
-    })
-  })
+      eventSpy.mockRestore();
+    });
+  });
 
   describe('componentWillUnmount', () => {
     it('removes event listener', () => {
-      const eventSpy = jest.spyOn(document, 'removeEventListener')
+      const eventSpy = jest.spyOn(document, 'removeEventListener');
 
-      const wrapper = shallowWithStyles(
-        <ModalInner onClose={() => {}}>Foo</ModalInner>
-      )
+      const wrapper = shallowWithStyles(<ModalInner onClose={() => {}}>Foo</ModalInner>);
 
       // @ts-ignore
-      wrapper.instance().componentWillUnmount()
+      wrapper.instance().componentWillUnmount();
 
-      expect(eventSpy).toHaveBeenCalledWith('click', expect.any(Function), true)
+      expect(eventSpy).toHaveBeenCalledWith('click', expect.any(Function), true);
 
-      eventSpy.mockRestore()
-    })
-  })
+      eventSpy.mockRestore();
+    });
+  });
 
   it('different class for small size', () => {
-    const wrapper = shallowWithStyles(
-      <ModalInner onClose={jest.fn()}>Foo</ModalInner>
-    )
+    const wrapper = shallowWithStyles(<ModalInner onClose={jest.fn()}>Foo</ModalInner>);
     const small = shallowWithStyles(
       <ModalInner small onClose={jest.fn()}>
         Foo
-      </ModalInner>
-    )
+      </ModalInner>,
+    );
 
-    expect(wrapper.prop('className')).not.toBe(small.prop('className'))
-  })
+    expect(wrapper.prop('className')).not.toBe(small.prop('className'));
+  });
 
   it('different class for large size', () => {
-    const wrapper = shallowWithStyles(
-      <ModalInner onClose={jest.fn()}>Foo</ModalInner>
-    )
+    const wrapper = shallowWithStyles(<ModalInner onClose={jest.fn()}>Foo</ModalInner>);
     const large = shallowWithStyles(
       <ModalInner large onClose={jest.fn()}>
         Foo
-      </ModalInner>
-    )
+      </ModalInner>,
+    );
 
-    expect(wrapper.prop('className')).not.toBe(large.prop('className'))
-  })
+    expect(wrapper.prop('className')).not.toBe(large.prop('className'));
+  });
 
   it('same class for image as large size', () => {
     const wrapper = shallowWithStyles(
@@ -200,119 +189,117 @@ describe('<Modal />', () => {
         onClose={jest.fn()}
       >
         Foo
-      </ModalInner>
-    )
+      </ModalInner>,
+    );
     const large = shallowWithStyles(
       <ModalInner large onClose={jest.fn()}>
         Foo
-      </ModalInner>
-    )
+      </ModalInner>,
+    );
 
-    expect(wrapper.prop('className')).toBe(large.prop('className'))
-  })
+    expect(wrapper.prop('className')).toBe(large.prop('className'));
+  });
 
   it('different class for fluid size', () => {
-    const wrapper = shallowWithStyles(
-      <ModalInner onClose={jest.fn()}>Foo</ModalInner>
-    )
+    const wrapper = shallowWithStyles(<ModalInner onClose={jest.fn()}>Foo</ModalInner>);
     const fluid = shallowWithStyles(
       <ModalInner fluid onClose={jest.fn()}>
         Foo
-      </ModalInner>
-    )
+      </ModalInner>,
+    );
 
-    expect(wrapper.prop('className')).not.toBe(fluid.prop('className'))
-  })
+    expect(wrapper.prop('className')).not.toBe(fluid.prop('className'));
+  });
 
   it('focuses the first element on open', () => {
-    jest.useFakeTimers()
-    setup({}, false /* isShallow */)
+    jest.useFakeTimers();
+    setup({}, false /* isShallow */);
 
-    jest.runAllTimers()
-    jest.useRealTimers()
+    jest.runAllTimers();
+    jest.useRealTimers();
 
-    expect(focusFirstFocusableChild).toHaveBeenCalled()
-  })
+    expect(focusFirstFocusableChild).toHaveBeenCalled();
+  });
 
   it('re-focuses on the last focused element on close', () => {
-    const focused = document.createElement('input')
-    document.body.append(focused)
-    focused.focus()
+    const focused = document.createElement('input');
+    document.body.append(focused);
+    focused.focus();
 
-    const clearTimeoutSpy = jest.spyOn(window, 'clearTimeout')
-    clearTimeoutSpy.mockImplementation(() => {})
+    const clearTimeoutSpy = jest.spyOn(window, 'clearTimeout');
+    clearTimeoutSpy.mockImplementation(() => {});
 
-    const { wrapper } = setup({}, false /* isShallow */)
+    const { wrapper } = setup({}, false /* isShallow */);
 
-    wrapper.unmount()
+    wrapper.unmount();
 
-    expect(clearTimeoutSpy).toHaveBeenCalled()
-    expect(document.activeElement).toBe(focused)
+    expect(clearTimeoutSpy).toHaveBeenCalled();
+    expect(document.activeElement).toBe(focused);
 
-    clearTimeoutSpy.mockRestore()
-  })
+    clearTimeoutSpy.mockRestore();
+  });
 
   it('renders an image layout when an image config is provided', () => {
     const imageConfig = {
       sizes: ['a', 'b'],
       type: 'center',
       url: 'some_image',
-    }
+    };
     const { wrapper } = setup(
       {
         image: imageConfig,
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    const imageWrapper = wrapper.find(ModalImageLayout)
-    expect(imageWrapper).toHaveLength(1)
-    expect(imageWrapper.props()).toMatchObject(imageConfig)
-    expect(imageWrapper.find('img')).toHaveLength(1)
-    expect(imageWrapper.find('img').prop('sizes')).toMatch('a,b')
-  })
+    const imageWrapper = wrapper.find(ModalImageLayout);
+    expect(imageWrapper).toHaveLength(1);
+    expect(imageWrapper.props()).toMatchObject(imageConfig);
+    expect(imageWrapper.find('img')).toHaveLength(1);
+    expect(imageWrapper.find('img').prop('sizes')).toMatch('a,b');
+  });
 
   it('renders a covered image layout when an image config is provided', () => {
     const imageConfig = {
       sizes: ['a', 'b'],
       type: 'cover',
       url: 'some_image',
-    }
+    };
     const { wrapper } = setup(
       {
         image: imageConfig,
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    const imageWrapper = wrapper.find(ModalImageLayout)
-    expect(imageWrapper).toHaveLength(1)
-    expect(imageWrapper.props()).toMatchObject(imageConfig)
-    expect(imageWrapper.find('img')).toHaveLength(1)
-    expect(imageWrapper.find('img').prop('sizes')).toBeFalsy()
-  })
+    const imageWrapper = wrapper.find(ModalImageLayout);
+    expect(imageWrapper).toHaveLength(1);
+    expect(imageWrapper.props()).toMatchObject(imageConfig);
+    expect(imageWrapper.find('img')).toHaveLength(1);
+    expect(imageWrapper.find('img').prop('sizes')).toBeFalsy();
+  });
 
   it('renders standard content with an image config is not provided', () => {
-    const { wrapper } = setup({}, false /* isShallow */)
+    const { wrapper } = setup({}, false /* isShallow */);
 
-    expect(wrapper.find(ModalImageLayout)).toHaveLength(0)
-    expect(wrapper.find(ModalInnerContent)).toHaveLength(1)
-  })
+    expect(wrapper.find(ModalImageLayout)).toHaveLength(0);
+    expect(wrapper.find(ModalInnerContent)).toHaveLength(1);
+  });
 
   it('renders a title', () => {
     const { wrapper } = setup(
       {
         title: 'Title wave',
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    expect(wrapper.find('header')).toHaveLength(1)
+    expect(wrapper.find('header')).toHaveLength(1);
 
-    const titleWrapper = wrapper.find(Title)
-    expect(titleWrapper.prop('level')).toEqual(3)
-    expect(titleWrapper.prop('children')).toBe('Title wave')
-  })
+    const titleWrapper = wrapper.find(Title);
+    expect(titleWrapper.prop('level')).toEqual(3);
+    expect(titleWrapper.prop('children')).toBe('Title wave');
+  });
 
   it('renders a subtitle', () => {
     const { wrapper } = setup(
@@ -320,13 +307,13 @@ describe('<Modal />', () => {
         title: 'Title wave',
         subtitle: 'Subtitle',
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    expect(wrapper.find('header')).toHaveLength(1)
+    expect(wrapper.find('header')).toHaveLength(1);
 
-    expect(wrapper.find('header').find(Text).prop('children')).toBe('Subtitle')
-  })
+    expect(wrapper.find('header').find(Text).prop('children')).toBe('Subtitle');
+  });
 
   it('renders a top bar', () => {
     const { wrapper } = setup(
@@ -334,25 +321,25 @@ describe('<Modal />', () => {
         title: null,
         topBar: 'Top bar',
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    expect(wrapper.find('header')).toHaveLength(0)
+    expect(wrapper.find('header')).toHaveLength(0);
 
-    const div = wrapper.find(ModalInnerContent).find('div').at(1)
-    expect(div.text()).toContain('Top bar')
-  })
+    const div = wrapper.find(ModalInnerContent).find('div').at(1);
+    expect(div.text()).toContain('Top bar');
+  });
 
   it('no header if no title is provided', () => {
     const { wrapper } = setup(
       {
         title: null,
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    expect(wrapper.find('header')).toHaveLength(0)
-  })
+    expect(wrapper.find('header')).toHaveLength(0);
+  });
 
   it('no header if no title or subtitle are provided', () => {
     const { wrapper } = setup(
@@ -360,20 +347,20 @@ describe('<Modal />', () => {
         title: null,
         subtitle: null,
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    expect(wrapper.find('header')).toHaveLength(0)
-  })
+    expect(wrapper.find('header')).toHaveLength(0);
+  });
 
   it('renders a footer, if provided', () => {
     const { wrapper } = setup(
       {
         footer: 'Modal footsies',
       },
-      false /* isShallow */
-    )
+      false /* isShallow */,
+    );
 
-    expect(wrapper.find('footer').prop('children')).toBe('Modal footsies')
-  })
-})
+    expect(wrapper.find('footer').prop('children')).toBe('Modal footsies');
+  });
+});

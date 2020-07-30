@@ -1,64 +1,62 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import copy from 'copy-to-clipboard'
-import IconCopy from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconCopy'
-import Copy from '../../src/components/Copy'
-import IconButton from '../../src/components/IconButton'
-import { Tooltip } from '../../src/components/Tooltip'
+import React from 'react';
+import { shallow } from 'enzyme';
+import copy from 'copy-to-clipboard';
+import IconCopy from '@lorica/uc-design-system-icons/lib/interface/IconCopy';
+import Copy from '../../src/components/Copy';
+import IconButton from '../../src/components/IconButton';
+import { Tooltip } from '../../src/components/Tooltip';
 
-jest.mock('copy-to-clipboard', () => jest.fn(() => true))
+jest.mock('copy-to-clipboard', () => jest.fn(() => true));
 
 describe('<Copy />', () => {
   beforeEach(() => {
-    jest.useFakeTimers()
-  })
+    jest.useFakeTimers();
+  });
 
   afterEach(() => {
-    jest.useRealTimers()
-  })
+    jest.useRealTimers();
+  });
 
   it('renders an icon and link by default', () => {
-    const wrapper = shallow(<Copy text="foo" />)
+    const wrapper = shallow(<Copy text="foo" />);
 
-    expect(wrapper.find(IconCopy)).toHaveLength(1)
-    expect(wrapper.find(IconButton)).toHaveLength(1)
-  })
+    expect(wrapper.find(IconCopy)).toHaveLength(1);
+    expect(wrapper.find(IconButton)).toHaveLength(1);
+  });
 
   it('can add an id and trackingName to the IconButton', () => {
-    const wrapper = shallow(
-      <Copy text="foo" id="tracking-id" trackingName="tracking-name" />
-    )
+    const wrapper = shallow(<Copy text="foo" id="tracking-id" trackingName="tracking-name" />);
 
-    expect(wrapper.find(IconButton).prop('id')).toBe('tracking-id')
-    expect(wrapper.find(IconButton).prop('trackingName')).toBe('tracking-name')
-  })
+    expect(wrapper.find(IconButton).prop('id')).toBe('tracking-id');
+    expect(wrapper.find(IconButton).prop('trackingName')).toBe('tracking-name');
+  });
 
   it('can customize the child', () => {
-    const child = <button type="button">Click</button>
-    const wrapper = shallow(<Copy text="foo">{child}</Copy>)
+    const child = <button type="button">Click</button>;
+    const wrapper = shallow(<Copy text="foo">{child}</Copy>);
 
-    expect(wrapper.find(IconCopy)).toHaveLength(0)
-    expect(wrapper.find(IconButton)).toHaveLength(0)
-    expect(wrapper.find('button')).toHaveLength(1)
-  })
+    expect(wrapper.find(IconCopy)).toHaveLength(0);
+    expect(wrapper.find(IconButton)).toHaveLength(0);
+    expect(wrapper.find('button')).toHaveLength(1);
+  });
 
   it('copies the text when clicked', () => {
-    const spy = jest.fn()
-    const wrapper = shallow(<Copy text="foo" onCopy={spy} />)
+    const spy = jest.fn();
+    const wrapper = shallow(<Copy text="foo" onCopy={spy} />);
 
     wrapper.find(IconButton).simulate('click', {
       preventDefault() {},
-    })
+    });
 
-    expect(spy).toHaveBeenCalledWith('foo', true)
-    expect(copy).toHaveBeenCalledWith('foo')
-  })
+    expect(spy).toHaveBeenCalledWith('foo', true);
+    expect(copy).toHaveBeenCalledWith('foo');
+  });
 
   it('inverts the Tooltip if specified', () => {
-    const wrapper = shallow(<Copy invertTooltip={false} text="foo" />)
+    const wrapper = shallow(<Copy invertTooltip={false} text="foo" />);
 
-    expect(wrapper.dive().find(Tooltip).prop('inverted')).toBe(false)
-    wrapper.setProps({ invertTooltip: true })
-    expect(wrapper.dive().find(Tooltip).prop('inverted')).toBe(true)
-  })
-})
+    expect(wrapper.dive().find(Tooltip).prop('inverted')).toBe(false);
+    wrapper.setProps({ invertTooltip: true });
+    expect(wrapper.dive().find(Tooltip).prop('inverted')).toBe(true);
+  });
+});

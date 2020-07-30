@@ -1,13 +1,13 @@
-import React from 'react'
-import MutedButton from '.'
-import ButtonGroup from '../ButtonGroup'
+import React from 'react';
+import MutedButton from '.';
+import ButtonGroup from '../ButtonGroup';
 
 export default {
   title: 'Core/MutedButton',
   parameters: {
     inspectComponents: [MutedButton],
   },
-}
+};
 
 export function aMutedButtonWithAnInvertedVariant() {
   return (
@@ -15,37 +15,30 @@ export function aMutedButtonWithAnInvertedVariant() {
       <MutedButton>Button</MutedButton>
       <MutedButton inverted>Button</MutedButton>
     </ButtonGroup>
-  )
+  );
 }
 
 aMutedButtonWithAnInvertedVariant.story = {
   name: 'A muted button with an inverted variant.',
-}
+};
 
 export function anAnchorLinkWhenPassingHref() {
   return (
     <ButtonGroup>
-      <MutedButton
-        openInNewWindow
-        href="https://github.com/lorica/uc-design-systemsign-system"
-      >
+      <MutedButton openInNewWindow href="https://github.com/lorica/uc-design-system">
         Link
       </MutedButton>
 
-      <MutedButton
-        openInNewWindow
-        inverted
-        href="https://github.com/lorica/uc-design-systemsign-system"
-      >
+      <MutedButton openInNewWindow inverted href="https://github.com/lorica/uc-design-system">
         Link
       </MutedButton>
     </ButtonGroup>
-  )
+  );
 }
 
 anAnchorLinkWhenPassingHref.story = {
   name: 'An anchor link when passing `href`.',
-}
+};
 
 export function withEventHandlers() {
   return (
@@ -56,12 +49,12 @@ export function withEventHandlers() {
     >
       Button
     </MutedButton>
-  )
+  );
 }
 
 withEventHandlers.story = {
   name: 'With event handlers.',
-}
+};
 
 export function withDifferentSizingSmallRegularDefaultAndLarge() {
   return (
@@ -86,12 +79,12 @@ export function withDifferentSizingSmallRegularDefaultAndLarge() {
         </MutedButton>
       </ButtonGroup>
     </>
-  )
+  );
 }
 
 withDifferentSizingSmallRegularDefaultAndLarge.story = {
   name: 'With different sizing: small, regular (default), and large.',
-}
+};
 
 export function withDifferentStatesDisabledAndLoading() {
   return (
@@ -113,9 +106,9 @@ export function withDifferentStatesDisabledAndLoading() {
         </MutedButton>
       </ButtonGroup>
     </>
-  )
+  );
 }
 
 withDifferentStatesDisabledAndLoading.story = {
   name: 'With different states: disabled and loading.',
-}
+};

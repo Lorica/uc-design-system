@@ -1,9 +1,9 @@
-import React from 'react'
-import IconAdd from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconAddAlt'
-import IconRemove from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconRemoveAlt'
-import LoremIpsum from ':storybook/components/LoremIpsum'
-import Text from '../Text'
-import Tabs, { Tab } from '.'
+import React from 'react';
+import IconAdd from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt';
+import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemoveAlt';
+import LoremIpsum from ':storybook/components/LoremIpsum';
+import Text from '../Text';
+import Tabs, { Tab } from '.';
 
 export default {
   title: 'Core/Tabs',
@@ -11,7 +11,7 @@ export default {
     inspectComponents: [Tabs, Tab],
     happo: { delay: 500 },
   },
-}
+};
 
 export function standardTabsWithNoBodyContent() {
   return (
@@ -20,12 +20,12 @@ export function standardTabsWithNoBodyContent() {
       <Tab key="b" label="Clark K." />
       <Tab key="c" label="Peter P." />
     </Tabs>
-  )
+  );
 }
 
 standardTabsWithNoBodyContent.story = {
   name: 'Standard tabs with no body content.',
-}
+};
 
 export function smallTabsStretched() {
   return (
@@ -34,12 +34,12 @@ export function smallTabsStretched() {
       <Tab key="b" small label="Clark K." />
       <Tab key="c" small label="Peter P." />
     </Tabs>
-  )
+  );
 }
 
 smallTabsStretched.story = {
   name: 'Small tabs stretched.',
-}
+};
 
 export function secondaryTabs() {
   return (
@@ -55,21 +55,17 @@ export function secondaryTabs() {
         </Text>
       </Tab>
       <Tab key="c" disabled label="Dolor" />
-      <Tab
-        key="d"
-        label="another"
-        beforeIcon={<IconAdd decorative size="1.25em" />}
-      />
+      <Tab key="d" label="another" beforeIcon={<IconAdd decorative size="1.25em" />} />
       <Tab key="e" label="amazing item" />
       <Tab key="f" label="to be clicked " />
       <Tab key="g" label="and selected" />
     </Tabs>
-  )
+  );
 }
 
 secondaryTabs.story = {
   name: 'Secondary tabs.',
-}
+};
 
 export function secondarySmallTabs() {
   return (
@@ -86,12 +82,12 @@ export function secondarySmallTabs() {
       </Tab>
       <Tab key="c" disabled small label="Dolor" />
     </Tabs>
-  )
+  );
 }
 
 secondarySmallTabs.story = {
   name: 'Secondary small tabs.',
-}
+};
 
 export function secondaryTabsStretched() {
   return (
@@ -108,35 +104,26 @@ export function secondaryTabsStretched() {
       </Tab>
       <Tab key="c" disabled label="Dolor" />
     </Tabs>
-  )
+  );
 }
 
 secondaryTabsStretched.story = {
   name: 'Secondary stretched tabs.',
-}
+};
 
 export function borderlessTabsWithIcons() {
   return (
     <Tabs borderless>
-      <Tab
-        key="a"
-        label="Bruce W."
-        beforeIcon={<IconAdd decorative size="1.25em" />}
-      />
+      <Tab key="a" label="Bruce W." beforeIcon={<IconAdd decorative size="1.25em" />} />
       <Tab key="b" label="Clark K." />
-      <Tab
-        key="c"
-        disabled
-        label="Peter P."
-        afterIcon={<IconRemove decorative size="1.25em" />}
-      />
+      <Tab key="c" disabled label="Peter P." afterIcon={<IconRemove decorative size="1.25em" />} />
     </Tabs>
-  )
+  );
 }
 
 borderlessTabsWithIcons.story = {
   name: 'Borderless tabs with icons.',
-}
+};
 
 export function renderAnchorLinksWhenPassing() {
   return (
@@ -145,12 +132,12 @@ export function renderAnchorLinksWhenPassing() {
       <Tab key="b" href="#cp" label="Clark K." />
       <Tab key="c" href="#th" label="Peter P." />
     </Tabs>
-  )
+  );
 }
 
 renderAnchorLinksWhenPassing.story = {
   name: 'Render anchor links when passing .',
-}
+};
 
 export function withBodyContentAndADefaultSelectedIndex() {
   return (
@@ -173,12 +160,12 @@ export function withBodyContentAndADefaultSelectedIndex() {
         </Text>
       </Tab>
     </Tabs>
-  )
+  );
 }
 
 withBodyContentAndADefaultSelectedIndex.story = {
   name: 'With body content and a default selected index.',
-}
+};
 
 export function persistWithHashAndBackButton() {
   return (
@@ -195,14 +182,14 @@ export function persistWithHashAndBackButton() {
         </Text>
       </Tab>
     </Tabs>
-  )
+  );
 }
 
 persistWithHashAndBackButton.story = {
   name: 'Persist with hash and back button.',
-}
+};
 
-const onPushState = (...args: Array<unknown>) => action('onPushState')(args)
+const onPushState = (...args: Array<unknown>) => action('onPushState')(args);
 
 export function persistWithHashAndonPushState() {
   return (
@@ -219,12 +206,12 @@ export function persistWithHashAndonPushState() {
         </Text>
       </Tab>
     </Tabs>
-  )
+  );
 }
 
 persistWithHashAndonPushState.story = {
   name: 'Custom pushState function.',
-}
+};
 
 export function withScrollableVariableHeightTabs() {
   return (
@@ -255,12 +242,12 @@ export function withScrollableVariableHeightTabs() {
         <Tab key="e" label="Bruce B." />
       </Tabs>
     </div>
-  )
+  );
 }
 
 withScrollableVariableHeightTabs.story = {
   name: 'With scrollable variable height tabs.',
-}
+};
 
 export function withScrollableVariableHeightSecondaryTabs() {
   return (
@@ -291,9 +278,9 @@ export function withScrollableVariableHeightSecondaryTabs() {
         <Tab key="e" label="Bruce B." />
       </Tabs>
     </div>
-  )
+  );
 }
 
 withScrollableVariableHeightSecondaryTabs.story = {
   name: 'With scrollable variable height secondary tabs.',
-}
+};

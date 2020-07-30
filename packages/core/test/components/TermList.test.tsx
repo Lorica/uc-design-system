@@ -1,7 +1,7 @@
-import React from 'react'
-import { mountUseStyles } from '@lorica/uc-design-systemsign-system-test-utils'
-import TermList, { Term } from '../../src/components/TermList'
-import Link from '../../src/components/Link'
+import React from 'react';
+import { mountUseStyles } from '@lorica/uc-design-system-test-utils';
+import TermList, { Term } from '../../src/components/TermList';
+import Link from '../../src/components/Link';
 
 describe('<TermList />', () => {
   it('renders the expected number of Term items', () => {
@@ -10,11 +10,11 @@ describe('<TermList />', () => {
         <Term label="label">Data</Term>
         <Term label="label">Data</Term>
         <Term label="label">Data</Term>
-      </TermList>
-    )
+      </TermList>,
+    );
 
-    expect(wrapper.find(Term)).toHaveLength(3)
-  })
+    expect(wrapper.find(Term)).toHaveLength(3);
+  });
 
   it('renders the expected number of Term items horizontally', () => {
     const wrapper = mountUseStyles(
@@ -22,11 +22,11 @@ describe('<TermList />', () => {
         <Term label="label">Data</Term>
         <Term label="label">Data</Term>
         <Term label="label">Data</Term>
-      </TermList>
-    )
+      </TermList>,
+    );
 
-    expect(wrapper.find(Term)).toHaveLength(3)
-  })
+    expect(wrapper.find(Term)).toHaveLength(3);
+  });
 
   it('renders the expected number of Terms with different props', () => {
     const wrapper = mountUseStyles(
@@ -38,11 +38,11 @@ describe('<TermList />', () => {
         <Term endAlign label="label">
           Data
         </Term>
-      </TermList>
-    )
+      </TermList>,
+    );
 
-    expect(wrapper.find(Term)).toHaveLength(3)
-  })
+    expect(wrapper.find(Term)).toHaveLength(3);
+  });
 
   it('renders the expected number of detail Links', () => {
     const wrapper = mountUseStyles(
@@ -60,9 +60,9 @@ describe('<TermList />', () => {
         }
       >
         8
-      </Term>
-    )
+      </Term>,
+    );
 
-    expect(wrapper.find(Link)).toHaveLength(2)
-  })
-})
+    expect(wrapper.find(Link)).toHaveLength(2);
+  });
+});

@@ -295,7 +295,7 @@ export function popoverDisplaysWhenAnElementIsHovered() {
   const content = (
     <>
       <Text>Links inside popovers are clickable!</Text>
-      <Link openInNewWindow href="https://github.com/lorica/uc-design-systemsign-system">
+      <Link openInNewWindow href="https://github.com/lorica/uc-design-system">
         Click me!
       </Link>
     </>
@@ -422,7 +422,7 @@ export function popoverEscapesDataTableRow() {
                   <div>
                     <LoremIpsum short />
                   </div>
-                  <Link openInNewWindow href="https://github.com/lorica/uc-design-systemsign-system">
+                  <Link openInNewWindow href="https://github.com/lorica/uc-design-system">
                     Click me!
                   </Link>
                 </>
