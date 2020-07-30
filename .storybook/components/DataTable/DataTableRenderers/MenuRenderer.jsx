@@ -1,47 +1,47 @@
-import React from 'react';
-import Menu, { Item } from '@airbnb/lunar/src/components/Menu';
-import Button from '@airbnb/lunar/src/components/Button';
-import IconMenuDots from '@airbnb/lunar-icons/lib/interface/IconMenuDots';
+import React from 'react'
+import Menu, { Item } from '@lorica/uc-design-system/src/components/Menu'
+import Button from '@lorica/uc-design-system/src/components/Button'
+import IconMenuDots from '@lorica/uc-design-system-icons/lib/interface/IconMenuDots'
 
 export class InnerMenuRenderer extends React.Component {
   state = {
     open: false,
-  };
+  }
 
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleClick.bind(this));
+    document.addEventListener('mousedown', this.handleClick.bind(this))
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClick.bind(this));
+    document.removeEventListener('mousedown', this.handleClick.bind(this))
   }
 
   handleClick() {
     this.setState({
       open: false,
-    });
+    })
   }
 
-  toggleClick = event => {
-    event.stopPropagation();
+  toggleClick = (event) => {
+    event.stopPropagation()
 
     this.setState({
       open: !this.state.open,
-    });
-  };
+    })
+  }
 
   render() {
     const containerStyle = {
       width: 200,
       position: 'fixed',
       zIndex: 1000,
-    };
+    }
 
     const innerStyle = {
       position: 'relative',
       right: '148px',
       bottom: '5px',
-    };
+    }
 
     const menu = this.state.open && (
       <div style={containerStyle}>
@@ -52,7 +52,7 @@ export class InnerMenuRenderer extends React.Component {
           </Menu>
         </div>
       </div>
-    );
+    )
 
     return (
       <>
@@ -61,10 +61,10 @@ export class InnerMenuRenderer extends React.Component {
         </Button>
         {menu}
       </>
-    );
+    )
   }
 }
 
 export default function MenuRenderer() {
-  return <InnerMenuRenderer />;
+  return <InnerMenuRenderer />
 }

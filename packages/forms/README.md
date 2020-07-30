@@ -4,7 +4,7 @@ Provides a robust form management layer powered by
 [final-form](https://github.com/final-form/final-form).
 
 ```bash static
-yarn add @airbnb/lunar-forms
+yarn add @lorica/uc-design-system-forms
 ```
 
 ## Usage
@@ -16,9 +16,9 @@ instance, they are: `Autocomplete`, `CheckBox`, `CheckBoxController`, `DatePicke
 `DateTimeSelect`, `Input`, `RadioButtonController`, `Select`, `Switch`, `TextArea`, and much more.
 
 ```jsx static
-import Form, { Input, Select } from '@airbnb/lunar-forms';
+import Form, { Input, Select } from '@lorica/uc-design-system-forms'
 
-<Form onSubmit={this.handleSubmit}>
+;<Form onSubmit={this.handleSubmit}>
   <Input name="name" label="Name" />
 
   <Select name="fruit" label="Fruit">
@@ -27,5 +27,5 @@ import Form, { Input, Select } from '@airbnb/lunar-forms';
     <option value="orange">Orange</option>
     <option value="other">Other</option>
   </Select>
-</Form>;
+</Form>
 ```

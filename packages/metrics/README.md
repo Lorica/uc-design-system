@@ -7,7 +7,7 @@ This will also set the Google Analytics `userId` if `ga` is global and `userID` 
 `Metrics.initialize`.
 
 ```bash static
-yarn add @airbnb/lunar-metrics
+yarn add @lorica/uc-design-system-metrics
 ```
 
 ## Setup
@@ -15,7 +15,7 @@ yarn add @airbnb/lunar-metrics
 Initialize the metrics package with your Sentry key/project (optional) and the current user ID.
 
 ```js static
-import Metrics from '@airbnb/lunar-metrics';
+import Metrics from '@lorica/uc-design-system-metrics'
 
 Metrics.initialize({
   context: { additionalParams: 'toLog' },
@@ -23,7 +23,7 @@ Metrics.initialize({
   sentryKey: 'abcdef',
   sentryProject: 'project',
   userID: getUserID(),
-});
+})
 ```
 
 > This will automatically bootstrap NewRelic (if the global below exists) and Sentry (if the
@@ -38,9 +38,9 @@ project -> Application settings page, and looks something like the following.
 ```html static
 <script type="text/javascript">
   window.NREUM || (NREUM = {}),
-    (__nr_require = function(t, e, n) {
+    (__nr_require = function (t, e, n) {
       /* CODE */
-    });
+    })
   if (window.location.origin.indexOf('localhost') >= 0) {
     // development:
     NREUM.info = {
@@ -49,7 +49,7 @@ project -> Application settings page, and looks something like the following.
       licenseKey: 'foobarbaz',
       applicationID: '12345678',
       sa: 1,
-    };
+    }
   } else {
     // production:
     NREUM.info = {
@@ -58,7 +58,7 @@ project -> Application settings page, and looks something like the following.
       licenseKey: 'foobarbaz',
       applicationID: '12345678',
       sa: 1,
-    };
+    }
   }
 </script>
 ```
@@ -76,15 +76,15 @@ To log an error to both NewRelic and Sentry, use `captureError`. This function a
 2nd argument.
 
 ```js static
-import captureError from '@airbnb/lunar-metrics/lib/utils/captureError';
+import captureError from '@lorica/uc-design-system-metrics/lib/utils/captureError'
 
-captureError('Something is broken');
+captureError('Something is broken')
 
 captureError(new Error('Something is really really broken!'), {
   level: 'error',
-});
+})
 
-captureError(someDomEvent);
+captureError(someDomEvent)
 ```
 
 ### Capturing Breadcrumbs
@@ -93,7 +93,7 @@ If you'd like to capture a [Sentry breadcrumb](https://docs.sentry.io/learn/brea
 along side errors, use `captureBreadcrumb`.
 
 ```js static
-import captureBreadcrumb from '@airbnb/lunar-metrics/lib/utils/captureBreadcrumb';
+import captureBreadcrumb from '@lorica/uc-design-system-metrics/lib/utils/captureBreadcrumb'
 
 captureBreadcrumb({
   message: 'Failed to login',
@@ -101,5 +101,5 @@ captureBreadcrumb({
   data: {
     username: 'foobar',
   },
-});
+})
 ```

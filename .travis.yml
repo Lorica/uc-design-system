@@ -57,7 +57,7 @@ jobs:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
         - git config --global user.name ${GITHUB_USER}
         - git config --global user.email ${GITHUB_EMAIL}
-        - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/airbnb/lunar.git" >
+        - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/lorica/uc-design-system.git" >
           /dev/null 2>&1
         - git checkout master
       deploy:

@@ -1,8 +1,8 @@
-import { StyleSheet } from '@airbnb/lunar/lib/hooks/useStyles';
+import { StyleSheet } from '@lorica/uc-design-system/lib/hooks/useStyles'
 
 export const styleSheetFilterMenu: StyleSheet = ({ unit, transition }) => ({
   controls: {
     display: 'flex',
     justifyContent: 'space-between',
   },
-});
+})

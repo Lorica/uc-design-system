@@ -1,4 +1,4 @@
-import { StyleSheet } from '@airbnb/lunar/lib/hooks/useStyles';
+import { StyleSheet } from '@lorica/uc-design-system/lib/hooks/useStyles'
 
 export const styleSheetSplitLayout: StyleSheet = () => ({
   wrapper: {
@@ -9,4 +9,4 @@ export const styleSheetSplitLayout: StyleSheet = () => ({
   column: {
     width: '50%',
   },
-});
+})

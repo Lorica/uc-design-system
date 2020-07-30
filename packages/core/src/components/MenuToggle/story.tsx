@@ -1,7 +1,7 @@
-import React from 'react';
-import IconMenuDots from '@airbnb/lunar-icons/lib/interface/IconMenuDots';
-import MenuToggle, { Item } from '.';
-import Emoji from '../Emoji';
+import React from 'react'
+import IconMenuDots from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconMenuDots'
+import MenuToggle, { Item } from '.'
+import Emoji from '../Emoji'
 
 const children = [
   <Item key="0" onClick={() => console.log('onClick')}>
@@ -13,28 +13,32 @@ const children = [
   <Item key="2" onClick={() => console.log('onClick')}>
     Log Out
   </Item>,
-];
+]
 
 export default {
   title: 'Core/MenuToggle',
-  decorators: [(story: Function) => <div style={{ width: 200, margin: 'auto' }}>{story()}</div>],
+  decorators: [
+    (story: Function) => (
+      <div style={{ width: 200, margin: 'auto' }}>{story()}</div>
+    ),
+  ],
   parameters: {
     happo: false,
     inspectComponents: [MenuToggle],
   },
-};
+}
 
 export function aBasicMenuWithMenuItems() {
   return (
     <MenuToggle accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 aBasicMenuWithMenuItems.story = {
   name: 'A basic menu with menu items.',
-};
+}
 
 export function withCustomTrigger() {
   return (
@@ -50,12 +54,12 @@ export function withCustomTrigger() {
     >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 withCustomTrigger.story = {
   name: 'With custom trigger.',
-};
+}
 
 export function withCustomIcon() {
   return (
@@ -67,36 +71,46 @@ export function withCustomIcon() {
     >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 withCustomIcon.story = {
   name: 'With custom icon.',
-};
+}
 
 export function closeOnClickOfAnItem() {
   return (
-    <MenuToggle closeOnClick accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+    <MenuToggle
+      closeOnClick
+      accessibilityLabel="Actions"
+      toggleLabel="Actions"
+      zIndex={10}
+    >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 closeOnClickOfAnItem.story = {
   name: 'Close on click of an item.',
-};
+}
 
 export function ignoreClickOnOutside() {
   return (
-    <MenuToggle ignoreClickOutside accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+    <MenuToggle
+      ignoreClickOutside
+      accessibilityLabel="Actions"
+      toggleLabel="Actions"
+      zIndex={10}
+    >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 ignoreClickOnOutside.story = {
   name: 'Ignore click on outside.',
-};
+}
 
 export function asLeftAlign() {
   return (
@@ -108,12 +122,12 @@ export function asLeftAlign() {
     >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 asLeftAlign.story = {
   name: 'As left align.',
-};
+}
 
 export function withMaxHeight() {
   return (
@@ -125,69 +139,95 @@ export function withMaxHeight() {
     >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 withMaxHeight.story = {
   name: 'With max height.',
-};
+}
 
 export function asLarge() {
   return (
-    <MenuToggle large accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+    <MenuToggle
+      large
+      accessibilityLabel="Actions"
+      toggleLabel="Actions"
+      zIndex={10}
+    >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 asLarge.story = {
   name: 'As large.',
-};
+}
 
 export function asSmall() {
   return (
-    <MenuToggle small accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+    <MenuToggle
+      small
+      accessibilityLabel="Actions"
+      toggleLabel="Actions"
+      zIndex={10}
+    >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 asSmall.story = {
   name: 'As small.',
-};
+}
 
 export function withDisabled() {
   return (
-    <MenuToggle disabled accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+    <MenuToggle
+      disabled
+      accessibilityLabel="Actions"
+      toggleLabel="Actions"
+      zIndex={10}
+    >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 withDisabled.story = {
   name: 'With disabled.',
-};
+}
 
 export function aBasicMutedMenuWithMenuItems() {
   return (
-    <MenuToggle muted accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+    <MenuToggle
+      muted
+      accessibilityLabel="Actions"
+      toggleLabel="Actions"
+      zIndex={10}
+    >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 aBasicMutedMenuWithMenuItems.story = {
   name: 'With muted.',
-};
+}
 
 export function aBasicMutedInvertedMenuWithMenuItems() {
   return (
-    <MenuToggle muted inverted accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+    <MenuToggle
+      muted
+      inverted
+      accessibilityLabel="Actions"
+      toggleLabel="Actions"
+      zIndex={10}
+    >
       {children}
     </MenuToggle>
-  );
+  )
 }
 
 aBasicMutedInvertedMenuWithMenuItems.story = {
   name: 'With muted and inverted.',
-};
+}

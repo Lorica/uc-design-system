@@ -37,11 +37,18 @@ To enable the actions menu, render the `Actions` component within the composer, 
 `ActionButton` component in the `beforeButton` prop.
 
 ```tsx
-import Composer, { Actions, ActionButton } from '@airbnb/lunar-composer';
+import Composer, {
+  Actions,
+  ActionButton,
+} from '@lorica/uc-design-system-composer'
 
-<Composer afterButton={<ActionButton />} onChange={onChange} onSubmit={onSubmit}>
+;<Composer
+  afterButton={<ActionButton />}
+  onChange={onChange}
+  onSubmit={onSubmit}
+>
   <Actions />
-</Composer>;
+</Composer>
 ```
 
 ### Props
@@ -64,11 +71,18 @@ render the `Emojis` component within the composer, and render the `EmojiButton` 
 `afterButton` prop (if you want the toggle button).
 
 ```tsx
-import Composer, { Emojis, EmojiButton } from '@airbnb/lunar-composer';
+import Composer, {
+  Emojis,
+  EmojiButton,
+} from '@lorica/uc-design-system-composer'
 
-<Composer afterButton={<EmojiButton />} onChange={onChange} onSubmit={onSubmit}>
+;<Composer
+  afterButton={<EmojiButton />}
+  onChange={onChange}
+  onSubmit={onSubmit}
+>
   <Emojis />
-</Composer>;
+</Composer>
 ```
 
 ### Props
@@ -89,9 +103,9 @@ To define a custom hotkey, render the `Hotkey` component within the composer. Fo
 current document.
 
 ```tsx
-import Composer, { Hotkey } from '@airbnb/lunar-composer';
+import Composer, { Hotkey } from '@lorica/uc-design-system-composer'
 
-<Composer onChange={onChange} onSubmit={onSubmit}>
+;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Hotkey
     name="print"
     label="to print"
@@ -99,7 +113,7 @@ import Composer, { Hotkey } from '@airbnb/lunar-composer';
     condition={() => true}
     onRun={printDocument}
   />
-</Composer>;
+</Composer>
 ```
 
 ### Props
@@ -127,11 +141,11 @@ submission. Perfect for double checking the message before submitting. To enable
 `Preview` component within the composer.
 
 ```tsx
-import Composer, { Preview } from '@airbnb/lunar-composer';
+import Composer, { Preview } from '@lorica/uc-design-system-composer'
 
-<Composer onChange={onChange} onSubmit={onSubmit}>
+;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Preview />
-</Composer>;
+</Composer>
 ```
 
 ### Props
@@ -149,15 +163,18 @@ To enable, define an `onProofread` loader, which fetches checks from an API. Mus
 that returns an array of matches.
 
 ```tsx
-import Composer, { Preview, ProofreaderParams } from '@airbnb/lunar-composer';
+import Composer, {
+  Preview,
+  ProofreaderParams,
+} from '@lorica/uc-design-system-composer'
 
 function checkText({ text, locale, action }: ProofreaderParams) {
-  return fetchFromLanguageToolLikeApi();
+  return fetchFromLanguageToolLikeApi()
 }
 
-<Composer onChange={onChange} onSubmit={onSubmit}>
+;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Preview onProofread={checkText} />
-</Composer>;
+</Composer>
 ```
 
 ### Props
@@ -176,9 +193,9 @@ executed when the input is submitted. To enable shortcuts, render the `Shortcuts
 the composer, with an array of `shortcuts`.
 
 ```tsx
-import Composer, { Shortcuts } from '@airbnb/lunar-composer';
+import Composer, { Shortcuts } from '@lorica/uc-design-system-composer'
 
-<Composer onChange={onChange} onSubmit={onSubmit}>
+;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Shortcuts
     shortcuts={[
       {
@@ -189,7 +206,7 @@ import Composer, { Shortcuts } from '@airbnb/lunar-composer';
       },
     ]}
   />
-</Composer>;
+</Composer>
 ```
 
 ### Config
@@ -219,11 +236,11 @@ To enable suggestions, render the `Suggestions` component within the composer, a
 `onLoad` prop that returns a suggestion list promise.
 
 ```tsx
-import Composer, { Suggestions } from '@airbnb/lunar-composer';
+import Composer, { Suggestions } from '@lorica/uc-design-system-composer'
 
-<Composer onChange={onChange} onSubmit={onSubmit}>
+;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Suggestions onLoad={loadSuggestionsFromEndpoint} />
-</Composer>;
+</Composer>
 ```
 
 ### Props

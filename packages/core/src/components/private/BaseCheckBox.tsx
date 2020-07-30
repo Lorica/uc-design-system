@@ -1,13 +1,13 @@
-import React from 'react';
-import IconCheck from '@airbnb/lunar-icons/lib/interface/IconCheck';
-import IconRemove from '@airbnb/lunar-icons/lib/interface/IconRemove';
-import useStyles, { StyleSheet } from '../../hooks/useStyles';
-import FormInput, { InputProps } from './FormInput';
-import inputStyleSheet from '../../themes/inputStyleSheet';
+import React from 'react'
+import IconCheck from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconCheck'
+import IconRemove from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconRemove'
+import useStyles, { StyleSheet } from '../../hooks/useStyles'
+import FormInput, { InputProps } from './FormInput'
+import inputStyleSheet from '../../themes/inputStyleSheet'
 
 export const styleSheetCheckbox: StyleSheet = (theme) => {
-  const styles = inputStyleSheet(theme);
-  const { pattern } = theme;
+  const styles = inputStyleSheet(theme)
+  const { pattern } = theme
 
   return {
     ...styles,
@@ -64,23 +64,27 @@ export const styleSheetCheckbox: StyleSheet = (theme) => {
     children: {
       marginLeft: theme.unit,
     },
-  };
-};
+  }
+}
 
 export type BaseCheckBoxProps<T extends string = string> = InputProps<T> & {
   /** Render the field as a large clickable button. */
-  button?: boolean;
+  button?: boolean
   /** Content to display when in button mode. Defaults to the current label bolded followed by the label description. */
-  children?: React.ReactNode;
+  children?: React.ReactNode
   /** Hide the native checkbox label. */
-  hideLabel?: boolean;
+  hideLabel?: boolean
   /** Callback fired when the value changes. */
-  onChange: (checked: boolean, value: T, event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    checked: boolean,
+    value: T,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void
   /** Mark the checkbox as greyed out with a dash to indicate an indeterminate state. */
-  indeterminate?: boolean;
+  indeterminate?: boolean
   /** Custom style sheet. */
-  styleSheet?: StyleSheet;
-};
+  styleSheet?: StyleSheet
+}
 
 export default function BaseCheckBox<T extends string = string>({
   button,
@@ -96,14 +100,17 @@ export default function BaseCheckBox<T extends string = string>({
   styleSheet,
   ...restProps
 }: BaseCheckBoxProps<T>) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetCheckbox);
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetCheckbox)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.currentTarget.checked, event.currentTarget.value as T, event);
-  };
+    onChange(event.currentTarget.checked, event.currentTarget.value as T, event)
+  }
 
   const checkbox = (
-    <label htmlFor={id} className={cx(styles.checkbox, hideLabel && styles.checkbox_hideLabel)}>
+    <label
+      htmlFor={id}
+      className={cx(styles.checkbox, hideLabel && styles.checkbox_hideLabel)}
+    >
       <FormInput
         {...restProps}
         hidden
@@ -123,7 +130,7 @@ export default function BaseCheckBox<T extends string = string>({
           indeterminate && styles.input_indeterminate,
           checked && styles.input_checked,
           invalid && styles.input_invalid,
-          disabled && styles.input_disabled,
+          disabled && styles.input_disabled
         )}
       >
         {checked && (
@@ -139,10 +146,10 @@ export default function BaseCheckBox<T extends string = string>({
         )}
       </span>
     </label>
-  );
+  )
 
   if (!button) {
-    return checkbox;
+    return checkbox
   }
 
   return (
@@ -154,12 +161,12 @@ export default function BaseCheckBox<T extends string = string>({
         checked && styles.button_checked,
         invalid && styles.button_invalid,
         disabled && styles.button_disabled,
-        small && styles.button_small,
+        small && styles.button_small
       )}
     >
       {checkbox}
 
       <div className={cx(styles.children)}>{children}</div>
     </label>
-  );
+  )
 }

@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 
-import React from 'react';
-import IconPhone from '@airbnb/lunar-icons/lib/general/IconPhone';
+import React from 'react'
+import IconPhone from '@lorica/uc-design-system-icons/lib/general/IconPhone'
 import Composer, {
   Actions,
   ActionButton,
@@ -15,7 +15,7 @@ import Composer, {
   SuggestionConfig,
   ActionConfig,
   DataSet,
-} from '.';
+} from '.'
 
 export const actions: ActionConfig[] = [
   {
@@ -23,10 +23,10 @@ export const actions: ActionConfig[] = [
     group: 'Do…',
     icon: IconPhone,
     onRun() {
-      alert('Call!');
+      alert('Call!')
     },
   },
-];
+]
 
 export const shortcuts: ShortcutConfig[] = [
   {
@@ -34,21 +34,21 @@ export const shortcuts: ShortcutConfig[] = [
     description: 'Select a prewritten response',
     arguments: [{ name: 'name', optional: true }],
     onRun() {
-      alert('Macro!');
+      alert('Macro!')
     },
   },
   {
     name: 'upload',
     description: 'Select and share PDFs, images, and more',
     onRun() {
-      alert('Upload!');
+      alert('Upload!')
     },
   },
   {
     name: 'call',
     description: 'Start a call',
     onRun() {
-      alert('Call!');
+      alert('Call!')
     },
   },
   {
@@ -59,16 +59,16 @@ export const shortcuts: ShortcutConfig[] = [
         name: 'code',
         validator(code: string) {
           if (!code.match(/\d+/)) {
-            throw new Error('Code must be a number!');
+            throw new Error('Code must be a number!')
           }
         },
       },
     ],
     onRun() {
-      alert('Cancel!');
+      alert('Cancel!')
     },
   },
-];
+]
 
 export const suggestions: { [phrase: string]: SuggestionConfig[] } = {
   he: [
@@ -86,23 +86,23 @@ export const suggestions: { [phrase: string]: SuggestionConfig[] } = {
       suggestion: 'Hello there General Kenobi!',
     },
   ],
-};
+}
 
 export function loadSuggestions(phrase: string): Promise<SuggestionConfig[]> {
   return new Promise((resolve) => {
     setTimeout(
       () => {
-        const key = phrase.toLowerCase();
+        const key = phrase.toLowerCase()
 
         if (suggestions[key]) {
-          resolve(suggestions[key]);
+          resolve(suggestions[key])
         } else {
-          resolve([]);
+          resolve([])
         }
       },
-      process.env.NODE_ENV === 'test' ? 0 : 500,
-    );
-  });
+      process.env.NODE_ENV === 'test' ? 0 : 500
+    )
+  })
 }
 
 export function checkText() {
@@ -163,68 +163,88 @@ export function checkText() {
       replacements: ['note'],
       rule_id: 'PLEASE_NOT_THAT',
     },
-  ]);
+  ])
 }
 
 const props = {
   onChange: typeof action === 'undefined' ? () => {} : action('onChange'),
   onSubmit(result: DataSet) {
-    alert('Submitted!');
+    alert('Submitted!')
   },
-};
+}
 
-function Wrapper({ children, message }: { children?: React.ReactNode; message?: string }) {
+function Wrapper({
+  children,
+  message,
+}: {
+  children?: React.ReactNode
+  message?: string
+}) {
   return (
     <div style={{ width: 450 }}>
       <div style={{ height: 300 }}>{message ?? 'Messages...'}</div>
       {children}
     </div>
-  );
+  )
 }
 
 export default {
   title: 'Composer',
-  excludeStories: ['actions', 'shortcuts', 'suggestions', 'loadSuggestions', 'checkText'],
+  excludeStories: [
+    'actions',
+    'shortcuts',
+    'suggestions',
+    'loadSuggestions',
+    'checkText',
+  ],
   parameters: {
-    inspectComponents: [Composer, Actions, Emojis, Hotkey, Preview, Shortcuts, Suggestions],
+    inspectComponents: [
+      Composer,
+      Actions,
+      Emojis,
+      Hotkey,
+      Preview,
+      Shortcuts,
+      Suggestions,
+    ],
   },
-};
+}
 
 export function defaultStory() {
   return (
     <Wrapper>
       <Composer {...props} />
     </Wrapper>
-  );
+  )
 }
 
 defaultStory.story = {
   name: 'Default.',
-};
+}
 
 export function submitsOnEnter() {
   return (
     <Wrapper>
       <Composer {...props} submitOnEnter />
     </Wrapper>
-  );
+  )
 }
 
 submitsOnEnter.story = {
   name: 'Submits on enter.',
-};
+}
 
 export function disabledInput() {
   return (
     <Wrapper>
       <Composer disabled {...props} />
     </Wrapper>
-  );
+  )
 }
 
 disabledInput.story = {
   name: 'Disabled input.',
-};
+}
 
 export function invalidInputWithErrorState() {
   return (
@@ -232,16 +252,16 @@ export function invalidInputWithErrorState() {
       <Composer
         {...props}
         onSubmit={() => {
-          throw new Error('Nope, good luck submitting this form!');
+          throw new Error('Nope, good luck submitting this form!')
         }}
       />
     </Wrapper>
-  );
+  )
 }
 
 invalidInputWithErrorState.story = {
   name: 'Invalid input with error state.',
-};
+}
 
 export function withActions() {
   return (
@@ -250,12 +270,12 @@ export function withActions() {
         <Actions actions={actions} />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withActions.story = {
   name: 'With actions.',
-};
+}
 
 export function withEmojis() {
   return (
@@ -264,12 +284,12 @@ export function withEmojis() {
         <Emojis internal />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withEmojis.story = {
   name: 'With emojis.',
-};
+}
 
 export function withHotkeys() {
   return (
@@ -284,12 +304,12 @@ export function withHotkeys() {
         />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withHotkeys.story = {
   name: 'With hotkeys.',
-};
+}
 
 export function withTypeAheadSuggestions() {
   return (
@@ -298,40 +318,46 @@ export function withTypeAheadSuggestions() {
         <Suggestions noCache onLoad={loadSuggestions} />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withTypeAheadSuggestions.story = {
   name: 'With type ahead suggestions.',
-};
+}
 
 export function withPreview() {
   return (
     <Wrapper>
-      <Composer {...props} defaultValues={{ value: 'Lorem ipsum dolor sit amet.' }}>
+      <Composer
+        {...props}
+        defaultValues={{ value: 'Lorem ipsum dolor sit amet.' }}
+      >
         <Preview />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withPreview.story = {
   name: 'With preview.',
-};
+}
 
 export function withPreviewConfirmation() {
   return (
     <Wrapper>
-      <Composer {...props} defaultValues={{ value: 'Lorem ipsum dolor sit amet.' }}>
+      <Composer
+        {...props}
+        defaultValues={{ value: 'Lorem ipsum dolor sit amet.' }}
+      >
         <Preview requireConfirmation />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withPreviewConfirmation.story = {
   name: 'With preview and required confirmation.',
-};
+}
 
 export function withProofreading() {
   return (
@@ -346,12 +372,12 @@ export function withProofreading() {
         <Preview onProofread={checkText} />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withProofreading.story = {
   name: 'With proofreading.',
-};
+}
 
 export function withShortcuts() {
   return (
@@ -360,19 +386,22 @@ export function withShortcuts() {
         <Shortcuts shortcuts={shortcuts} />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 withShortcuts.story = {
   name: 'With shortcuts.',
-};
+}
 
 export function everything() {
   return (
     <Wrapper>
       <Composer
         {...props}
-        defaultValues={{ emailTo: 'foo@domain.com', emailSubject: 'Airbnb Customer Support' }}
+        defaultValues={{
+          emailTo: 'foo@domain.com',
+          emailSubject: 'Airbnb Customer Support',
+        }}
         afterButton={<EmojiButton />}
         beforeButton={<ActionButton />}
       >
@@ -396,9 +425,9 @@ export function everything() {
         />
       </Composer>
     </Wrapper>
-  );
+  )
 }
 
 everything.story = {
   name: 'Everything.',
-};
+}

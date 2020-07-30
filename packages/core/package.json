@@ -1,5 +1,5 @@
 {
-  "name": "@airbnb/lunar",
+  "name": "@lorica/uc-design-system",
   "version": "3.23.1",
   "release": "1583350587083",
   "description": "React toolkit and design language for Airbnb open source and internal projects.",
@@ -8,7 +8,7 @@
   "types": "./lib/index.d.ts",
   "module": "./esm/index.js",
   "sideEffects": false,
-  "repository": "https://github.com/airbnb/lunar/tree/master/packages/core",
+  "repository": "https://github.com/lorica/uc-design-system/tree/master/packages/core",
   "publishConfig": {
     "access": "public"
   },
@@ -18,12 +18,12 @@
     "build:esm": "BUILD=esm babel --root-mode upward --extensions .ts,.tsx ./src --out-dir ./esm"
   },
   "peerDependencies": {
-    "@airbnb/lunar-icons": "^3.0.0",
+    "@lorica/uc-design-system-icons": "^3.0.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@airbnb/lunar-test-utils": "^3.0.2",
+    "@lorica/uc-design-system-test-utils": "^3.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },

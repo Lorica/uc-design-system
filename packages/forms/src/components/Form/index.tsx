@@ -1,6 +1,6 @@
-import React from 'react';
-import shallowEqual from 'shallowequal';
-import { v4 as uuid } from 'uuid';
+import React from 'react'
+import shallowEqual from 'shallowequal'
+import { v4 as uuid } from 'uuid'
 import {
   createForm,
   formSubscriptionItems,
@@ -15,14 +15,14 @@ import {
   FieldSubscriber,
   FieldValidator,
   MutableState,
-} from 'final-form';
-import arrayMutators, { Mutators as ArrayMutators } from 'final-form-arrays';
-import T from '@airbnb/lunar/lib/components/Translate';
-import { getErrorMessage } from '@airbnb/lunar/lib/components/ErrorMessage';
-import FormErrorMessage from '@airbnb/lunar/lib/components/FormErrorMessage';
-import FormContext from '../FormContext';
-import { Errors, Parse, Field, FieldData } from '../../types';
-import { throttleToSinglePromise } from '../../helpers';
+} from 'final-form'
+import arrayMutators, { Mutators as ArrayMutators } from 'final-form-arrays'
+import T from '@lorica/uc-design-system/lib/components/Translate'
+import { getErrorMessage } from '@lorica/uc-design-system/lib/components/ErrorMessage'
+import FormErrorMessage from '@lorica/uc-design-system/lib/components/FormErrorMessage'
+import FormContext from '../FormContext'
+import { Errors, Parse, Field, FieldData } from '../../types'
+import { throttleToSinglePromise } from '../../helpers'
 
 function mapSubscriptions(subscriptions: string[]): { [sub: string]: boolean } {
   return subscriptions.reduce(
@@ -30,44 +30,48 @@ function mapSubscriptions(subscriptions: string[]): { [sub: string]: boolean } {
       ...result,
       [key]: true,
     }),
-    {},
-  );
+    {}
+  )
 }
 
 export type FormProps<Data extends object> = {
   /** Form fields that will be registered and managed by the current form instance. */
   children:
     | NonNullable<React.ReactNode>
-    | ((state: FormState<Data>) => NonNullable<React.ReactNode>);
+    | ((state: FormState<Data>) => NonNullable<React.ReactNode>)
   /** @ignore Initial values for form fields. Optional, as default values are injected when fields are rendered. */
-  initialValues?: Data;
+  initialValues?: Data
   /** Type of HTTP method. */
-  method?: 'get' | 'post';
+  method?: 'get' | 'post'
   /** Callback fired when the form has failed to submit. */
-  onFailedSubmit?: (data: Data, error: Error) => void;
+  onFailedSubmit?: (data: Data, error: Error) => void
   /** Callback fired when the form data has failed validation. */
-  onFailedValidate?: (data: Data, errors: Errors) => void;
+  onFailedValidate?: (data: Data, errors: Errors) => void
   /** Callback fired when the form state updates, including field updates. */
-  onStateUpdate?: (state: FormState<Data>) => void;
+  onStateUpdate?: (state: FormState<Data>) => void
   /**
    * Callback fired when the form has passed validation and data is ready to be submitted.
    * Return a `Promise` to automatically handle form error states.
    */
-  onSubmit: (data: Data) => Promise<unknown>;
+  onSubmit: (data: Data) => Promise<unknown>
   /** Callback fired when the form is reset. */
-  onReset?: () => void;
+  onReset?: () => void
   /**
    * Callback fired after validation. Must return true for passed validation,
    * or false for failed validation.
    */
-  onValidate?: (data: Data, errors: Errors, fields: FieldState<unknown>[]) => boolean;
+  onValidate?: (
+    data: Data,
+    errors: Errors,
+    fields: FieldState<unknown>[]
+  ) => boolean
   /** A list of `final-form` subscriptions to listen to. */
-  subscriptions?: (keyof FormSubscription)[];
-};
+  subscriptions?: (keyof FormSubscription)[]
+}
 
 export type FormState<Data extends object> = FinalFormState<Data> & {
-  id: string;
-};
+  id: string
+}
 
 /**
  * A form manager built on [final-form](https://github.com/final-form/final-form).
@@ -85,16 +89,16 @@ export default class Form<Data extends object = {}> extends React.Component<
     onStateUpdate() {},
     onValidate: () => true,
     subscriptions: formSubscriptionItems,
-  };
+  }
 
-  form: FormApi<Data>;
+  form: FormApi<Data>
 
-  registeredFields: { [name: string]: Unsubscribe } = {};
+  registeredFields: { [name: string]: Unsubscribe } = {}
 
   constructor(props: FormProps<Data>) {
-    super(props);
+    super(props)
 
-    const { initialValues, subscriptions } = props;
+    const { initialValues, subscriptions } = props
 
     // Setup our form instance
     this.form = createForm<Data>({
@@ -106,21 +110,24 @@ export default class Form<Data extends object = {}> extends React.Component<
       },
       onSubmit: this.handleSubmit,
       validate: this.handleValidate,
-    });
+    })
 
-    this.form.subscribe(this.handleStateUpdate, mapSubscriptions(subscriptions as string[]));
+    this.form.subscribe(
+      this.handleStateUpdate,
+      mapSubscriptions(subscriptions as string[])
+    )
 
     // Wait until mounted
-    this.form.pauseValidation();
+    this.form.pauseValidation()
   }
 
   componentDidMount() {
-    this.form.resumeValidation();
+    this.form.resumeValidation()
   }
 
   componentDidUpdate({ initialValues }: FormProps<Data>) {
     if (!shallowEqual(initialValues, this.props.initialValues!)) {
-      this.form.initialize(this.props.initialValues!);
+      this.form.initialize(this.props.initialValues!)
     }
   }
 
@@ -129,10 +136,10 @@ export default class Form<Data extends object = {}> extends React.Component<
    */
   castValue(value: unknown, parse: Parse<unknown>) {
     if (Array.isArray(value)) {
-      return value.map(parse);
+      return value.map(parse)
     }
 
-    return parse(value);
+    return parse(value)
   }
 
   /**
@@ -142,38 +149,38 @@ export default class Form<Data extends object = {}> extends React.Component<
     const values = {
       ...batchValues,
       [name]: value,
-    };
+    }
 
     this.form.batch(() => {
       Object.entries(values).forEach(([fieldName, fieldValue]) => {
-        const field = this.form.getFieldState(fieldName);
+        const field = this.form.getFieldState(fieldName)
 
         if (field) {
-          this.form.change(fieldName, fieldValue);
+          this.form.change(fieldName, fieldValue)
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
   /**
    * Return a list of all field states.
    */
   getFields = (): FieldState<unknown>[] => {
     if (!this.form) {
-      return [];
+      return []
     }
 
     // @ts-ignore Not undefined
     return this.form
       .getRegisteredFields()
       .map((name) => this.form.getFieldState(name))
-      .filter((field) => typeof field !== 'undefined');
-  };
+      .filter((field) => typeof field !== 'undefined')
+  }
 
   /**
    * Return form state.
    */
-  getState = () => this.form.getState();
+  getState = () => this.form.getState()
 
   /**
    * Handle form submission once data has been validated.
@@ -182,52 +189,56 @@ export default class Form<Data extends object = {}> extends React.Component<
   private handleSubmit = (
     data: Data,
     form: FormApi<Data>,
-    setErrors?: (errors?: Errors) => void,
+    setErrors?: (errors?: Errors) => void
   ) => {
-    const preparedData = this.prepareData(data);
-    let promise;
+    const preparedData = this.prepareData(data)
+    let promise
 
     try {
-      promise = this.props.onSubmit(preparedData);
+      promise = this.props.onSubmit(preparedData)
     } catch (error) {
-      promise = Promise.reject(error);
+      promise = Promise.reject(error)
     }
 
     if (!(promise instanceof Promise)) {
-      promise = Promise.resolve(promise);
+      promise = Promise.resolve(promise)
     }
 
     return promise.catch((error) => {
       if (setErrors) {
         setErrors({
-          [FORM_ERROR]: T.phrase('lunar.form.submitFailed', 'Failed to submit form. %{error}', {
-            error: getErrorMessage(error),
-          }),
-        });
+          [FORM_ERROR]: T.phrase(
+            'lunar.form.submitFailed',
+            'Failed to submit form. %{error}',
+            {
+              error: getErrorMessage(error),
+            }
+          ),
+        })
       }
 
-      this.props.onFailedSubmit!(preparedData, error);
+      this.props.onFailedSubmit!(preparedData, error)
 
-      throw error;
-    });
-  };
+      throw error
+    })
+  }
 
   /**
    * Handle resetting the form natively.
    */
   private handleFormReset = () => {
-    this.form.reset();
-    this.props.onReset!();
-  };
+    this.form.reset()
+    this.props.onReset!()
+  }
 
   /**
    * Handle submitting the form natively.
    */
   private handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    this.form.submit();
-  };
+    this.form.submit()
+  }
 
   /**
    * Handle form state changes.
@@ -243,161 +254,173 @@ export default class Form<Data extends object = {}> extends React.Component<
           ...state,
         }),
         () => {
-          this.props.onStateUpdate!(this.state!);
-        },
-      );
+          this.props.onStateUpdate!(this.state!)
+        }
+      )
     } else {
       // eslint-disable-next-line react/no-direct-mutation-state
       this.state = {
         ...state,
         id: uuid(),
-      };
+      }
     }
-  };
+  }
 
   /**
    * Handle validating the entire form when a field's value changes.
    * https://github.com/final-form/final-form#validate-values-object--object--promiseobject
    */
   private handleValidate = throttleToSinglePromise(async (data: object) => {
-    const nextData = data as Data;
-    const errors = await this.validate(nextData);
-    const passes = this.props.onValidate!(nextData, errors, this.getFields());
-    let errorCount = Object.keys(errors).length;
+    const nextData = data as Data
+    const errors = await this.validate(nextData)
+    const passes = this.props.onValidate!(nextData, errors, this.getFields())
+    let errorCount = Object.keys(errors).length
 
     if (!passes && errorCount === 0) {
       errors[FORM_ERROR] = T.phrase(
         'lunar.form.validateFailed',
-        'Failed to validate form. Please try again.',
-      );
-      errorCount += 1;
+        'Failed to validate form. Please try again.'
+      )
+      errorCount += 1
     }
 
     if (errorCount > 0) {
-      this.props.onFailedValidate!(nextData, errors);
+      this.props.onFailedValidate!(nextData, errors)
     }
 
-    return errors;
-  });
+    return errors
+  })
 
   /**
    * Trim and type cast the dataset.
    */
   prepareData(initialData: Partial<Data>): Data {
     return this.getFields().reduce((data, { name, data: rawData }) => {
-      const fieldData = rawData as FieldData;
-      let value = getIn(data, name);
+      const fieldData = rawData as FieldData
+      let value = getIn(data, name)
 
       if (!fieldData || !fieldData.config) {
-        return data;
+        return data
       }
 
       // Type cast the value
       if (fieldData.config.parse) {
-        value = this.castValue(value, fieldData.config.parse);
+        value = this.castValue(value, fieldData.config.parse)
       }
 
       // Trim the value
       if (typeof value === 'string') {
-        value = value.trim();
+        value = value.trim()
       }
 
-      return setIn(data, name, value);
-    }, initialData) as Data;
+      return setIn(data, name, value)
+    }, initialData) as Data
   }
 
   /**
    * Register a new field and set their default value into the data set.
    * Optionally validate the default value if `validateDefaultValue` is true.
    */
-  registerField = <T extends unknown>(field: Field<unknown>, onUpdate: FieldSubscriber<T>) => {
-    const { name, isEqual, subscriptions = [], validateFields = [] } = field;
-    const unregister = this.form.registerField(name, onUpdate, mapSubscriptions(subscriptions), {
-      isEqual,
-      getValidator: () => this.wrapValidator(field.validator),
-      validateFields,
-    });
+  registerField = <T extends unknown>(
+    field: Field<unknown>,
+    onUpdate: FieldSubscriber<T>
+  ) => {
+    const { name, isEqual, subscriptions = [], validateFields = [] } = field
+    const unregister = this.form.registerField(
+      name,
+      onUpdate,
+      mapSubscriptions(subscriptions),
+      {
+        isEqual,
+        getValidator: () => this.wrapValidator(field.validator),
+        validateFields,
+      }
+    )
 
     // Only trigger this functionality on the first register.
     // Subsequent registers with the same name would clobber our internal state.
     // This typical happens when a component is mounted and unmounted repeatedly.
     if (!this.registeredFields[name]) {
-      this.form.mutators.setFieldConfig(name, field);
+      this.form.mutators.setFieldConfig(name, field)
     }
 
     this.registeredFields[name] = () => {
-      delete this.registeredFields[name];
-      unregister();
-    };
+      delete this.registeredFields[name]
+      unregister()
+    }
 
-    return this.registeredFields[name];
-  };
+    return this.registeredFields[name]
+  }
 
   /**
    * Form mutator to manually set a fields configuration and value.
    */
   setFieldConfig(
     [name, config]: [string, Field<unknown>],
-    { fields, formState }: MutableState<object>,
+    { fields, formState }: MutableState<object>
   ) {
-    const field = fields[name];
-    const initial = getIn(formState.initialValues!, name);
+    const field = fields[name]
+    const initial = getIn(formState.initialValues!, name)
     const value =
       getIn(formState.values!, name) ??
-      (typeof initial === 'undefined' ? config.defaultValue : initial);
+      (typeof initial === 'undefined' ? config.defaultValue : initial)
 
     if (!field) {
-      return;
+      return
     }
 
-    field.data.config = config;
+    field.data.config = config
     // @ts-ignore
-    field.initial = initial ?? value;
+    field.initial = initial ?? value
     // @ts-ignore
-    field.value = value;
-    field.touched = config.validateDefaultValue || false;
+    field.value = value
+    field.touched = config.validateDefaultValue || false
 
     // These are needed for form "reset" to work correctly!
     /* eslint-disable no-param-reassign */
-    formState.initialValues = setIn(formState.initialValues!, name, initial ?? value);
-    formState.values = setIn(formState.values, name, value);
+    formState.initialValues = setIn(
+      formState.initialValues!,
+      name,
+      initial ?? value
+    )
+    formState.values = setIn(formState.values, name, value)
     /* eslint-enable no-param-reassign */
   }
 
   /**
    * Manually submit the form.
    */
-  submitForm = () => Promise.resolve(this.form.submit());
+  submitForm = () => Promise.resolve(this.form.submit())
 
   /**
    * Validate data and return an object of errors.
    */
   async validate(data: Data): Promise<Errors> {
-    const fields = this.getFields();
-    let errors = {};
+    const fields = this.getFields()
+    let errors = {}
 
     await Promise.all(
       fields.map(async (field) => {
-        if (!field) return;
+        if (!field) return
 
-        const { name, data: rawData } = field;
-        const fieldData = rawData as FieldData;
+        const { name, data: rawData } = field
+        const fieldData = rawData as FieldData
 
         if (fieldData?.config?.validator) {
-          const value = getIn(data, name);
+          const value = getIn(data, name)
 
           if (typeof value !== 'undefined') {
             try {
-              await fieldData.config.validator(value, data);
+              await fieldData.config.validator(value, data)
             } catch (error) {
-              errors = setIn(errors, name, (error as Error).message);
+              errors = setIn(errors, name, (error as Error).message)
             }
           }
         }
-      }),
-    );
+      })
+    )
 
-    return errors;
+    return errors
   }
 
   /**
@@ -407,21 +430,22 @@ export default class Form<Data extends object = {}> extends React.Component<
     return async (value, data) => {
       if (validator) {
         try {
-          await validator(value, data);
+          await validator(value, data)
         } catch (error) {
-          return (error as Error).message;
+          return (error as Error).message
         }
       }
 
-      return undefined;
-    };
+      return undefined
+    }
   }
 
   render() {
-    const { children, method } = this.props;
-    const { id, submitError } = this.state!;
+    const { children, method } = this.props
+    const { id, submitError } = this.state!
     // @ts-ignore Bug: https://github.com/Microsoft/TypeScript/issues/26970
-    const content = typeof children === 'function' ? children(this.state!) : children;
+    const content =
+      typeof children === 'function' ? children(this.state!) : children
 
     return (
       <FormContext.Provider
@@ -447,6 +471,6 @@ export default class Form<Data extends object = {}> extends React.Component<
           {submitError && <FormErrorMessage id={id} error={submitError} />}
         </form>
       </FormContext.Provider>
-    );
+    )
   }
 }

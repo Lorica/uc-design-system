@@ -1,14 +1,14 @@
-import React from 'react';
-import IconChevronLeft from '@airbnb/lunar-icons/lib/interface/IconChevronLeft';
-import IconChevronRight from '@airbnb/lunar-icons/lib/interface/IconChevronRight';
-import DirectionalIcon from '.';
+import React from 'react'
+import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+import DirectionalIcon from '.'
 
 export default {
   title: 'Core/DirectionalIcon',
   parameters: {
     inspectComponents: [DirectionalIcon],
   },
-};
+}
 
 export function rendersLeftAndRightIconsBasedOnRtlSetting() {
   return (
@@ -31,9 +31,9 @@ export function rendersLeftAndRightIconsBasedOnRtlSetting() {
         size="3em"
       />
     </div>
-  );
+  )
 }
 
 rendersLeftAndRightIconsBasedOnRtlSetting.story = {
   name: 'Renders left and right icons based on RTL setting.',
-};
+}

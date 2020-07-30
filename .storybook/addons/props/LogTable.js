@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from '@storybook/components';
-import Table from './Table';
+import React from 'react'
+import { Link } from '@storybook/components'
+import Table from './Table'
 
 function TypeLabel({ type }) {
   const labels = {
@@ -19,13 +19,13 @@ function TypeLabel({ type }) {
     build: '🛠 Internals (Build)',
     test: '🛠 Internals (Test)',
     internal: '🛠 Internals',
-  };
-
-  if (labels[type]) {
-    return <span>{labels[type]}</span>;
   }
 
-  return <span>📋 Misc</span>;
+  if (labels[type]) {
+    return <span>{labels[type]}</span>
+  }
+
+  return <span>📋 Misc</span>
 }
 
 export default function LogTable({ logs }) {
@@ -51,7 +51,9 @@ export default function LogTable({ logs }) {
               <Link
                 cancel
                 onClick={() => {
-                  window.open(`https://github.com/airbnb/lunar/commit/${log.hash}`);
+                  window.open(
+                    `https://github.com/lorica/uc-design-system/commit/${log.hash}`
+                  )
                 }}
               >
                 {log.hash}
@@ -61,5 +63,5 @@ export default function LogTable({ logs }) {
         ))}
       </tbody>
     </Table>
-  );
+  )
 }

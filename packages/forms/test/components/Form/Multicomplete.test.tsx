@@ -1,17 +1,17 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import BaseMulticomplete from '@airbnb/lunar/lib/components/Multicomplete';
-import Multicomplete from '../../../src/components/Form/Multicomplete';
-import { toString } from '../../../src/helpers';
-import { Context } from '../../../src/types';
-import { WrappingFormComponent, createFormContext } from '../../utils';
+import React from 'react'
+import { mount } from 'enzyme'
+import BaseMulticomplete from '@lorica/uc-design-system/lib/components/Multicomplete'
+import Multicomplete from '../../../src/components/Form/Multicomplete'
+import { toString } from '../../../src/helpers'
+import { Context } from '../../../src/types'
+import { WrappingFormComponent, createFormContext } from '../../utils'
 
 describe('<Multicomplete />', () => {
-  let context: Context;
+  let context: Context
 
   beforeEach(() => {
-    context = createFormContext();
-  });
+    context = createFormContext()
+  })
 
   it('connects to the form', () => {
     const wrapper = mount(
@@ -26,14 +26,18 @@ describe('<Multicomplete />', () => {
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      },
-    );
+      }
+    )
 
     expect(context.register).toHaveBeenCalledWith(
-      expect.objectContaining({ name: 'foo', defaultValue: ['bar'], parse: toString }),
-      expect.anything(),
-    );
+      expect.objectContaining({
+        name: 'foo',
+        defaultValue: ['bar'],
+        parse: toString,
+      }),
+      expect.anything()
+    )
 
-    expect(wrapper.find(BaseMulticomplete)).toHaveLength(1);
-  });
-});
+    expect(wrapper.find(BaseMulticomplete)).toHaveLength(1)
+  })
+})

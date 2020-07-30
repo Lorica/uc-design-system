@@ -1,107 +1,117 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React from 'react';
-import IconAddAlt from '@airbnb/lunar-icons/lib/interface/IconAddAlt';
-import Link from '.';
+import React from 'react'
+import IconAddAlt from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt'
+import Link from '.'
 
 export default {
   title: 'Core/Link',
   parameters: {
     inspectComponents: [Link],
   },
-};
+}
 
 export function aStandardLink() {
-  return <Link href="https://github.com/airbnb/lunar">Link</Link>;
+  return <Link href="https://github.com/lorica/uc-design-system">Link</Link>
 }
 
 aStandardLink.story = {
   name: 'A standard link.',
-};
+}
 
 export function aButtonLink() {
-  return <Link onClick={() => console.log('onClick')}>Button</Link>;
+  return <Link onClick={() => console.log('onClick')}>Button</Link>
 }
 
 aButtonLink.story = {
   name: 'A button link.',
-};
+}
 
 export function withDifferentSizingMicroSmallRegularDefaultAndLarge() {
   return (
     <>
-      <Link micro href="https://github.com/airbnb/lunar">
+      <Link micro href="https://github.com/lorica/uc-design-system">
         Link
       </Link>{' '}
-      <Link small href="https://github.com/airbnb/lunar">
+      <Link small href="https://github.com/lorica/uc-design-system">
         Link
       </Link>{' '}
-      <Link href="https://github.com/airbnb/lunar">Link</Link>{' '}
-      <Link large href="https://github.com/airbnb/lunar">
+      <Link href="https://github.com/lorica/uc-design-system">Link</Link>{' '}
+      <Link large href="https://github.com/lorica/uc-design-system">
         Link
       </Link>
     </>
-  );
+  )
 }
 
 withDifferentSizingMicroSmallRegularDefaultAndLarge.story = {
   name: 'With different sizing: small, regular (default), and large.',
-};
+}
 
 export function withDifferentStatesMutedDisabledAndInverted() {
   return (
     <>
-      <Link muted href="https://github.com/airbnb/lunar">
+      <Link muted href="https://github.com/lorica/uc-design-system">
         Link
       </Link>{' '}
-      <Link disabled href="https://github.com/airbnb/lunar">
+      <Link disabled href="https://github.com/lorica/uc-design-system">
         Link
       </Link>{' '}
-      <Link inverted href="https://github.com/airbnb/lunar">
+      <Link inverted href="https://github.com/lorica/uc-design-system">
         Link
       </Link>
     </>
-  );
+  )
 }
 
 withDifferentStatesMutedDisabledAndInverted.story = {
   name: 'With different states: muted, disabled, and inverted.',
-};
+}
 
 export function withBeforeAndOrAfterIcons() {
   return (
     <div>
-      <Link href="https://github.com/airbnb/lunar" beforeIcon={<IconAddAlt decorative />}>
+      <Link
+        href="https://github.com/lorica/uc-design-system"
+        beforeIcon={<IconAddAlt decorative />}
+      >
         Link
       </Link>
       <br />
-      <Link href="https://github.com/airbnb/lunar" afterIcon={<IconAddAlt decorative />}>
+      <Link
+        href="https://github.com/lorica/uc-design-system"
+        afterIcon={<IconAddAlt decorative />}
+      >
         Link
       </Link>
     </div>
-  );
+  )
 }
 
 withBeforeAndOrAfterIcons.story = {
   name: 'With before and or after icons.',
-};
+}
 
 export function stopClickAndDefaultEventsWhenDisabled() {
   return (
-    <Link disabled href="https://github.com/airbnb/lunar" onClick={() => console.log('onClick')}>
+    <Link
+      disabled
+      href="https://github.com/lorica/uc-design-system"
+      onClick={() => console.log('onClick')}
+    >
       Link
     </Link>
-  );
+  )
 }
 
 stopClickAndDefaultEventsWhenDisabled.story = {
   name: 'Stop click and default events when disabled.',
-};
+}
 
 export function boldText() {
   return (
     <>
-      <Link bold href="https://github.com/airbnb/lunar">
+      <Link bold href="https://github.com/lorica/uc-design-system">
         Link
       </Link>
       <br />
@@ -109,9 +119,9 @@ export function boldText() {
         Button
       </Link>
     </>
-  );
+  )
 }
 
 boldText.story = {
   name: 'Bold text.',
-};
+}

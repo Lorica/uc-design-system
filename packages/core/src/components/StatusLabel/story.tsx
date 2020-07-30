@@ -1,14 +1,14 @@
-import React from 'react';
-import IconAddAlt from '@airbnb/lunar-icons/lib/interface/IconAddAlt';
-import Text from '../Text';
-import StatusLabel from '.';
+import React from 'react'
+import IconAddAlt from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt'
+import Text from '../Text'
+import StatusLabel from '.'
 
 export default {
   title: 'Core/StatusLabel',
   parameters: {
     inspectComponents: [StatusLabel],
   },
-};
+}
 
 export function defaultAndStatusLabels() {
   return (
@@ -21,12 +21,12 @@ export function defaultAndStatusLabels() {
       <StatusLabel danger>Danger</StatusLabel>
       <StatusLabel muted>Muted</StatusLabel>
     </>
-  );
+  )
 }
 
 defaultAndStatusLabels.story = {
   name: 'Default and status labels.',
-};
+}
 
 export function brandedStatusLabels() {
   return (
@@ -34,12 +34,12 @@ export function brandedStatusLabels() {
       <StatusLabel luxury>Luxury</StatusLabel>
       <StatusLabel plus>Plus</StatusLabel>
     </>
-  );
+  )
 }
 
 brandedStatusLabels.story = {
   name: 'Branded status labels.',
-};
+}
 
 export function colorInvertedAndUppercasedLabels() {
   return (
@@ -72,36 +72,37 @@ export function colorInvertedAndUppercasedLabels() {
         Plus
       </StatusLabel>
     </>
-  );
+  )
 }
 
 colorInvertedAndUppercasedLabels.story = {
   name: 'Color inverted and uppercased labels.',
-};
+}
 
 export function withABorderApplied() {
   return (
     <StatusLabel inverted bordered>
       Default
     </StatusLabel>
-  );
+  )
 }
 
 withABorderApplied.story = {
   name: 'With a border applied.',
-};
+}
 
 export function withinABlockOfText() {
   return (
     <Text>
-      Content before the label. <StatusLabel>Default</StatusLabel> Content after the label.
+      Content before the label. <StatusLabel>Default</StatusLabel> Content after
+      the label.
     </Text>
-  );
+  )
 }
 
 withinABlockOfText.story = {
   name: 'Within a block of text.',
-};
+}
 
 export function withBeforeAndOrAfterIcons() {
   return (
@@ -113,12 +114,12 @@ export function withBeforeAndOrAfterIcons() {
         After icon
       </StatusLabel>
     </div>
-  );
+  )
 }
 
 withBeforeAndOrAfterIcons.story = {
   name: 'With before and or after icons.',
-};
+}
 
 export function withCompactPadding() {
   return (
@@ -133,12 +134,12 @@ export function withCompactPadding() {
         Info Inverted
       </StatusLabel>
     </>
-  );
+  )
 }
 
 withCompactPadding.story = {
   name: 'With compact padding.',
-};
+}
 
 export function sameHeightWithOrWithoutBorderApplied() {
   return (
@@ -148,9 +149,9 @@ export function sameHeightWithOrWithoutBorderApplied() {
         Default
       </StatusLabel>
     </>
-  );
+  )
 }
 
 sameHeightWithOrWithoutBorderApplied.story = {
   name: 'Same height with or without border applied',
-};
+}

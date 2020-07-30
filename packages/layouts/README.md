@@ -3,7 +3,7 @@
 Provides pre-defined page layouts that support top and side navigation bars.
 
 ```bash static
-yarn add @airbnb/lunar-layouts
+yarn add @lorica/uc-design-system-layouts
 ```
 
 ## Usage
@@ -15,12 +15,12 @@ To use, import the `LayoutShell` and render near the root of the application. Co
 may then be rendered as children of the shell.
 
 ```jsx static
-import LayoutShell from '@airbnb/lunar-layouts';
-import ThreeColumnLayout from '@airbnb/lunar-layouts/lib/components/ThreeColumnLayout';
+import LayoutShell from '@lorica/uc-design-system-layouts'
+import ThreeColumnLayout from '@lorica/uc-design-system-layouts/lib/components/ThreeColumnLayout'
 
-<LayoutShell sideBar={<SideBar />}>
+;<LayoutShell sideBar={<SideBar />}>
   <ThreeColumnLayout fluid before={<LeftColumn />} after={<RightColumn />}>
     <Content />
   </ThreeColumnLayout>
-</LayoutShell>;
+</LayoutShell>
 ```

@@ -1,7 +1,7 @@
-import 'airbnb-js-shims';
-import { stripHexcode } from 'emojibase';
-import Lunar from '@airbnb/lunar/src'; // src required because of aliases
-import { THEME } from './constants';
+import 'airbnb-js-shims'
+import { stripHexcode } from 'emojibase'
+import Lunar from '@lorica/uc-design-system/src' // src required because of aliases
+import { THEME } from './constants'
 
 Lunar.initialize({
   name: 'Lunar',
@@ -11,4 +11,4 @@ Lunar.initialize({
     }/${stripHexcode(hexcode).toLowerCase()}.png`,
   logger: console.log,
   theme: THEME,
-});
+})

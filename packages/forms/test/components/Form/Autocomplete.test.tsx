@@ -1,17 +1,17 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import BaseAutocomplete from '@airbnb/lunar/lib/components/Autocomplete';
-import Autocomplete from '../../../src/components/Form/Autocomplete';
-import { toString } from '../../../src/helpers';
-import { Context } from '../../../src/types';
-import { WrappingFormComponent, createFormContext } from '../../utils';
+import React from 'react'
+import { mount } from 'enzyme'
+import BaseAutocomplete from '@lorica/uc-design-system/lib/components/Autocomplete'
+import Autocomplete from '../../../src/components/Form/Autocomplete'
+import { toString } from '../../../src/helpers'
+import { Context } from '../../../src/types'
+import { WrappingFormComponent, createFormContext } from '../../utils'
 
 describe('<Autocomplete />', () => {
-  let context: Context;
+  let context: Context
 
   beforeEach(() => {
-    context = createFormContext();
-  });
+    context = createFormContext()
+  })
 
   it('connects to the form', () => {
     const wrapper = mount(
@@ -26,14 +26,18 @@ describe('<Autocomplete />', () => {
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      },
-    );
+      }
+    )
 
     expect(context.register).toHaveBeenCalledWith(
-      expect.objectContaining({ name: 'foo', defaultValue: 'bar', parse: toString }),
-      expect.anything(),
-    );
+      expect.objectContaining({
+        name: 'foo',
+        defaultValue: 'bar',
+        parse: toString,
+      }),
+      expect.anything()
+    )
 
-    expect(wrapper.find(BaseAutocomplete)).toHaveLength(1);
-  });
-});
+    expect(wrapper.find(BaseAutocomplete)).toHaveLength(1)
+  })
+})

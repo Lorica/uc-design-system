@@ -1,50 +1,50 @@
-import React, { useContext, useEffect } from 'react';
-import T from '@airbnb/lunar/lib/components/Translate';
-import Interweave from '@airbnb/lunar/lib/components/Interweave';
-import Menu from '../Menu';
-import Hotkey from '../Hotkey';
-import ComposerContext from '../../contexts/ComposerContext';
-import { onSubmitShowPreview } from '../../helpers/preview';
-import { MENU_PREVIEW } from '../../constants';
-import Proofreader, { ProofreaderProps } from './Proofreader';
-import Window from './Window';
-import { isMac } from '../../helpers/platform';
+import React, { useContext, useEffect } from 'react'
+import T from '@lorica/uc-design-system/lib/components/Translate'
+import Interweave from '@lorica/uc-design-system/lib/components/Interweave'
+import Menu from '../Menu'
+import Hotkey from '../Hotkey'
+import ComposerContext from '../../contexts/ComposerContext'
+import { onSubmitShowPreview } from '../../helpers/preview'
+import { MENU_PREVIEW } from '../../constants'
+import Proofreader, { ProofreaderProps } from './Proofreader'
+import Window from './Window'
+import { isMac } from '../../helpers/platform'
 
 export type PreviewProps = {
   /** Require manual confirmation before submitting. */
-  requireConfirmation?: boolean;
-} & Omit<Partial<ProofreaderProps>, 'onConfirm' | 'value'>;
+  requireConfirmation?: boolean
+} & Omit<Partial<ProofreaderProps>, 'onConfirm' | 'value'>
 
 export default function Preview({
   requireConfirmation = false,
   onProofread,
   ...props
 }: PreviewProps) {
-  const context = useContext(ComposerContext);
+  const context = useContext(ComposerContext)
 
   // Handlers
   const handleConfirmPreview = () => {
-    context.setData('previewConfirmed', true);
+    context.setData('previewConfirmed', true)
 
     // Force a submission after context propagates
     window.setTimeout(() => {
-      const button = document.getElementById(`${context.id}-submit-button`);
+      const button = document.getElementById(`${context.id}-submit-button`)
 
       if (button) {
-        button.click();
+        button.click()
       }
-    }, 0);
-  };
+    }, 0)
+  }
 
   // Enable feature
-  context.flags.preview = true;
-  context.flags.previewConfirm = requireConfirmation;
+  context.flags.preview = true
+  context.flags.previewConfirm = requireConfirmation
 
   useEffect(() => {
     if (requireConfirmation) {
-      context.onSubmit(onSubmitShowPreview);
+      context.onSubmit(onSubmitShowPreview)
     }
-  }, [context, requireConfirmation]);
+  }, [context, requireConfirmation])
 
   return (
     <>
@@ -52,7 +52,10 @@ export default function Preview({
         preventDefault
         combo={isMac() ? 'cmd+p' : 'ctrl+p'}
         condition={({ data }) =>
-          !requireConfirmation && !!data.focused && data.value !== '' && !data.value.startsWith('/')
+          !requireConfirmation &&
+          !!data.focused &&
+          data.value !== '' &&
+          !data.value.startsWith('/')
         }
         name="showPreview"
         label={T.phrase('lunar.composer.hotkey.returnToPreview', 'to preview')}
@@ -79,5 +82,5 @@ export default function Preview({
         )}
       </Menu>
     </>
-  );
+  )
 }

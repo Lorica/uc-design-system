@@ -1,47 +1,49 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
-import T from '@airbnb/lunar/lib/components/Translate';
-import MenuToggle from '@airbnb/lunar/lib/components/MenuToggle';
-import { DropdownProps } from '@airbnb/lunar/lib/components/Dropdown';
-import { MenuProps } from '@airbnb/lunar/lib/components/Menu';
-import Link from '@airbnb/lunar/lib/components/Link';
-import SecondaryLink from '@airbnb/lunar/lib/components/SecondaryLink';
-import useStyles, { StyleSheet } from '@airbnb/lunar/lib/hooks/useStyles';
-import Row from './private/Row';
-import { styleSheetFilterMenu } from './styles';
+import React, { useState } from 'react'
+import T from '@lorica/uc-design-system/lib/components/Translate'
+import MenuToggle from '@lorica/uc-design-system/lib/components/MenuToggle'
+import { DropdownProps } from '@lorica/uc-design-system/lib/components/Dropdown'
+import { MenuProps } from '@lorica/uc-design-system/lib/components/Menu'
+import Link from '@lorica/uc-design-system/lib/components/Link'
+import SecondaryLink from '@lorica/uc-design-system/lib/components/SecondaryLink'
+import useStyles, {
+  StyleSheet,
+} from '@lorica/uc-design-system/lib/hooks/useStyles'
+import Row from './private/Row'
+import { styleSheetFilterMenu } from './styles'
 
 export type FilterMenuProps = {
   /** Accessibility label. */
-  accessibilityLabel: string;
+  accessibilityLabel: string
   /** Number of currently active filters. */
-  activeCount?: number;
+  activeCount?: number
   /** Form components to be shown on the expanded view. */
-  children?: React.ReactNode;
+  children?: React.ReactNode
   /** Props to pass to the `Dropdown` component. */
-  dropdownProps?: Partial<DropdownProps>;
+  dropdownProps?: Partial<DropdownProps>
   /** If true, will not close the menu when an outside element is clicked. */
-  ignoreClickOutside?: boolean;
+  ignoreClickOutside?: boolean
   /** If true, will not close the menu when the menu is reset and cleared. */
-  keepOpenOnClear?: boolean;
+  keepOpenOnClear?: boolean
   /** Increase font size to large. */
-  large?: boolean;
+  large?: boolean
   /** Props to pass to the `Menu` component. */
-  menuProps?: Partial<MenuProps>;
+  menuProps?: Partial<MenuProps>
   /** Callback fired when the apply button is clicked. */
-  onApply?: () => void;
+  onApply?: () => void
   /** Callback fired when the menu is reset and cleared. */
-  onClear?: () => void;
+  onClear?: () => void
   /** Callback fired when the menu popover is closed. */
-  onHide?: () => void;
+  onHide?: () => void
   /** Callback fired when the menu popover is opened. */
-  onShow?: () => void;
+  onShow?: () => void
   /** Decrease font size to small. */
-  small?: boolean;
+  small?: boolean
   /** Z-index of the menu. */
-  zIndex?: number;
+  zIndex?: number
   /** Custom style sheet. */
-  styleSheet?: StyleSheet;
-};
+  styleSheet?: StyleSheet
+}
 
 /** A button that opens a dropdown that shows filter options for a table or similar component. */
 export default function FilterMenu({
@@ -61,42 +63,42 @@ export default function FilterMenu({
   onShow,
   styleSheet,
 }: FilterMenuProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetFilterMenu);
-  const [opened, setOpened] = useState(false);
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetFilterMenu)
+  const [opened, setOpened] = useState(false)
 
   const handleShowFilters = () => {
-    setOpened(true);
+    setOpened(true)
 
     if (onShow) {
-      onShow();
+      onShow()
     }
-  };
+  }
 
   const handleHideFilters = () => {
-    setOpened(false);
+    setOpened(false)
 
     if (onHide) {
-      onHide();
+      onHide()
     }
-  };
+  }
 
   const handleApply = () => {
     if (onApply) {
-      onApply();
+      onApply()
     }
 
-    handleHideFilters();
-  };
+    handleHideFilters()
+  }
 
   const handleClear = () => {
     if (onClear) {
-      onClear();
+      onClear()
     }
 
     if (!keepOpenOnClear) {
-      handleHideFilters();
+      handleHideFilters()
     }
-  };
+  }
 
   const activeCountLabel =
     activeCount && activeCount > 0 ? (
@@ -105,13 +107,13 @@ export default function FilterMenu({
         phrase="%{smartCount} Filter||||%{smartCount} Filters"
         smartCount={activeCount}
       />
-    ) : null;
+    ) : null
 
   const toggleLabel = opened ? (
     <T k="lunar.form.filter.close" phrase="Close filters" />
   ) : (
     <T k="lunar.form.filter.open" phrase="Open filters" />
-  );
+  )
 
   return (
     <MenuToggle
@@ -142,7 +144,7 @@ export default function FilterMenu({
         </section>
       </Row>
     </MenuToggle>
-  );
+  )
 }
 
-export { Row };
+export { Row }

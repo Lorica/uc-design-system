@@ -1,4 +1,4 @@
-import { StyleSheet } from '@airbnb/lunar/lib/hooks/useStyles';
+import { StyleSheet } from '@lorica/uc-design-system/lib/hooks/useStyles'
 
 export const styleSheetSideBar: StyleSheet = ({ unit, color }) => ({
   bar: {
@@ -20,9 +20,14 @@ export const styleSheetSideBar: StyleSheet = ({ unit, color }) => ({
       },
     },
   },
-});
+})
 
-export const styleSheetItem: StyleSheet = ({ unit, color, pattern, transition }) => ({
+export const styleSheetItem: StyleSheet = ({
+  unit,
+  color,
+  pattern,
+  transition,
+}) => ({
   item: {
     ...pattern.resetButton,
     ...transition.box,
@@ -60,4 +65,4 @@ export const styleSheetItem: StyleSheet = ({ unit, color, pattern, transition })
     display: 'block',
     paddingTop: unit * 0.25,
   },
-});
+})

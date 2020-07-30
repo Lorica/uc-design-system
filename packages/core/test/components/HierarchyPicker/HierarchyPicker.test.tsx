@@ -1,17 +1,19 @@
-import React from 'react';
-import Enzyme from 'enzyme';
-import { shallowWithStyles } from '@airbnb/lunar-test-utils';
+import React from 'react'
+import Enzyme from 'enzyme'
+import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
 import HierarchyPicker, {
   HierarchyPicker as BaseHierarchyPicker,
   HierarchyPickerProps,
   HierarchyPickerState,
-} from '../../../src/components/HierarchyPicker';
-import { SPACE, ENTER } from '../../../src/keys';
-import Overlay from '../../../src/components/Overlay';
-import testItems from './mockItems';
-import Picker, { PickerProps } from '../../../src/components/HierarchyPicker/Picker';
+} from '../../../src/components/HierarchyPicker'
+import { SPACE, ENTER } from '../../../src/keys'
+import Overlay from '../../../src/components/Overlay'
+import testItems from './mockItems'
+import Picker, {
+  PickerProps,
+} from '../../../src/components/HierarchyPicker/Picker'
 
-jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
+jest.mock('lodash/debounce', () => jest.fn((fn) => fn))
 
 const props = {
   chosen: ['foo', 'bar'],
@@ -28,129 +30,136 @@ const props = {
   searchPlaceholder: 'search',
   searchWidth: 27,
   verticallyAlign: true,
-};
+}
 
 describe('<HierarchyPicker />', () => {
   describe('formatter', () => {
     it('default works', () => {
-      const wrapper = shallowWithStyles(<HierarchyPicker {...props} />);
-      const instance = wrapper.instance() as BaseHierarchyPicker;
+      const wrapper = shallowWithStyles(<HierarchyPicker {...props} />)
+      const instance = wrapper.instance() as BaseHierarchyPicker
 
-      expect(instance.boundFormatter(['foo'])).toBe('Foo');
-      expect(instance.boundFormatter(['foo', 'hello'])).toBe('Foo > hello');
-      expect(instance.boundFormatter(props.chosen)).toBe('Foo > Barrrrrr');
-      expect(instance.boundFormatter([])).toBe('Select from hierarchy');
-    });
+      expect(instance.boundFormatter(['foo'])).toBe('Foo')
+      expect(instance.boundFormatter(['foo', 'hello'])).toBe('Foo > hello')
+      expect(instance.boundFormatter(props.chosen)).toBe('Foo > Barrrrrr')
+      expect(instance.boundFormatter([])).toBe('Select from hierarchy')
+    })
 
     it('custom works', () => {
-      const formatter = jest.fn(() => 'test');
-      const wrapper = shallowWithStyles(<HierarchyPicker {...props} formatter={formatter} />);
-      const instance = wrapper.instance() as BaseHierarchyPicker;
+      const formatter = jest.fn(() => 'test')
+      const wrapper = shallowWithStyles(
+        <HierarchyPicker {...props} formatter={formatter} />
+      )
+      const instance = wrapper.instance() as BaseHierarchyPicker
 
-      expect(instance.boundFormatter([])).toBe('test');
-      expect(formatter).toHaveBeenCalledTimes(2); // shallow + above call
-    });
-  });
+      expect(instance.boundFormatter([])).toBe('test')
+      expect(formatter).toHaveBeenCalledTimes(2) // shallow + above call
+    })
+  })
 
   describe('handler functions', () => {
-    let wrapper: Enzyme.ShallowWrapper<HierarchyPickerProps, HierarchyPickerState>;
-    let instance: BaseHierarchyPicker;
-    let button: Enzyme.ShallowWrapper;
-    let handleToggle: jest.Mock;
+    let wrapper: Enzyme.ShallowWrapper<
+      HierarchyPickerProps,
+      HierarchyPickerState
+    >
+    let instance: BaseHierarchyPicker
+    let button: Enzyme.ShallowWrapper
+    let handleToggle: jest.Mock
 
     beforeEach(() => {
-      handleToggle = jest.fn();
-      wrapper = shallowWithStyles(<HierarchyPicker {...props} onPickerToggle={handleToggle} />);
-      instance = wrapper.instance() as BaseHierarchyPicker;
-      button = wrapper.find('div[role="button"]');
-    });
+      handleToggle = jest.fn()
+      wrapper = shallowWithStyles(
+        <HierarchyPicker {...props} onPickerToggle={handleToggle} />
+      )
+      instance = wrapper.instance() as BaseHierarchyPicker
+      button = wrapper.find('div[role="button"]')
+    })
 
     it('toggle and handleClose', () => {
-      expect(handleToggle).not.toHaveBeenCalled();
-      expect(instance.state.open).toBe(false);
-      instance.toggle();
-      expect(instance.state.open).toBe(true);
-      expect(handleToggle).toHaveBeenCalledWith(true);
-      wrapper.find(Overlay).simulate('close');
-      expect(instance.state.open).toBe(false);
-      expect(handleToggle).toHaveBeenCalledWith(false);
-    });
+      expect(handleToggle).not.toHaveBeenCalled()
+      expect(instance.state.open).toBe(false)
+      instance.toggle()
+      expect(instance.state.open).toBe(true)
+      expect(handleToggle).toHaveBeenCalledWith(true)
+      wrapper.find(Overlay).simulate('close')
+      expect(instance.state.open).toBe(false)
+      expect(handleToggle).toHaveBeenCalledWith(false)
+    })
 
     it('disabled prop prevents toggle', () => {
-      wrapper.setProps({ disabled: true });
-      expect(handleToggle).not.toHaveBeenCalled();
-      expect(instance.state.open).toBe(false);
-      instance.toggle();
-      expect(instance.state.open).toBe(false);
-      expect(handleToggle).not.toHaveBeenCalled();
-    });
+      wrapper.setProps({ disabled: true })
+      expect(handleToggle).not.toHaveBeenCalled()
+      expect(instance.state.open).toBe(false)
+      instance.toggle()
+      expect(instance.state.open).toBe(false)
+      expect(handleToggle).not.toHaveBeenCalled()
+    })
 
     it('handleClick', () => {
-      expect(handleToggle).not.toHaveBeenCalled();
-      expect(instance.state.open).toBe(false);
-      button.simulate('click');
+      expect(handleToggle).not.toHaveBeenCalled()
+      expect(instance.state.open).toBe(false)
+      button.simulate('click')
 
-      expect(instance.state.open).toBe(true);
-      expect(handleToggle).toHaveBeenCalledWith(true);
-      wrapper.find(Overlay).simulate('close');
-      expect(instance.state.open).toBe(false);
-      expect(handleToggle).toHaveBeenCalledWith(false);
-    });
+      expect(instance.state.open).toBe(true)
+      expect(handleToggle).toHaveBeenCalledWith(true)
+      wrapper.find(Overlay).simulate('close')
+      expect(instance.state.open).toBe(false)
+      expect(handleToggle).toHaveBeenCalledWith(false)
+    })
 
     describe('handleKeyDown', () => {
-      let event: object;
+      let event: object
 
       beforeEach(() => {
-        event = { preventDefault: jest.fn(), target: instance.ref.current };
-      });
+        event = { preventDefault: jest.fn(), target: instance.ref.current }
+      })
 
       it('default', () => {
-        button.simulate('keydown', event);
-        expect(instance.state.open).toBe(false);
-        expect(handleToggle).not.toHaveBeenCalled();
-      });
+        button.simulate('keydown', event)
+        expect(instance.state.open).toBe(false)
+        expect(handleToggle).not.toHaveBeenCalled()
+      })
 
       it('with wrong target', () => {
-        button.simulate('keydown', { ...event, target: null });
-        expect(instance.state.open).toBe(false);
-        expect(handleToggle).not.toHaveBeenCalled();
-      });
+        button.simulate('keydown', { ...event, target: null })
+        expect(instance.state.open).toBe(false)
+        expect(handleToggle).not.toHaveBeenCalled()
+      })
 
       it('ENTER', () => {
-        button.simulate('keydown', { ...event, key: ENTER });
-        expect(instance.state.open).toBe(true);
-        expect(handleToggle).toHaveBeenCalledWith(true);
-      });
+        button.simulate('keydown', { ...event, key: ENTER })
+        expect(instance.state.open).toBe(true)
+        expect(handleToggle).toHaveBeenCalledWith(true)
+      })
 
       it('SPACE', () => {
-        button.simulate('keydown', { ...event, key: SPACE });
-        expect(instance.state.open).toBe(true);
-        expect(handleToggle).toHaveBeenCalledWith(true);
-      });
-    });
-  });
+        button.simulate('keydown', { ...event, key: SPACE })
+        expect(instance.state.open).toBe(true)
+        expect(handleToggle).toHaveBeenCalledWith(true)
+      })
+    })
+  })
 
   describe('<Picker />', () => {
     it('renders a Picker', () => {
-      const wrapper = shallowWithStyles(<HierarchyPicker {...props} />);
-      expect(wrapper.find(Picker)).toHaveLength(1);
-    });
+      const wrapper = shallowWithStyles(<HierarchyPicker {...props} />)
+      expect(wrapper.find(Picker)).toHaveLength(1)
+    })
 
     it('passes through relevant props', () => {
-      const wrapper = shallowWithStyles(<HierarchyPicker {...props} />);
-      const pickerProps = wrapper.find(Picker).props() as PickerProps;
-      expect(pickerProps.chosen).toBe(props.chosen);
-      expect(pickerProps.hierarchyMaxHeight).toBe(props.hierarchyMaxHeight);
-      expect(pickerProps.hierarchyWidth).toBe(props.hierarchyWidth);
-      expect(pickerProps.indexParentPath).toBe(props.indexParentPath);
-      expect(pickerProps.items).toBe(props.items);
-      expect(pickerProps.noResultsLabel).toBe(props.noResultsLabel);
-      expect(pickerProps.searchMaxHeight).toBe(props.searchMaxHeight);
-      expect(pickerProps.searchPlaceholder).toBe(props.searchPlaceholder);
-      expect(pickerProps.searchWidth).toBe(props.searchWidth);
-      expect(pickerProps.renderItem).toBe(props.renderItem);
-      expect(pickerProps.searchPlaceholder).toBe(props.searchPlaceholder);
-      expect(pickerProps.verticallyAlign).toBe(props.verticallyAlign);
-    });
-  });
-});
+      const wrapper = shallowWithStyles(<HierarchyPicker {...props} />)
+      const pickerProps = wrapper.find(Picker).props() as PickerProps
+      expect(pickerProps.chosen).toBe(props.chosen)
+      expect(pickerProps.hierarchyMaxHeight).toBe(props.hierarchyMaxHeight)
+      expect(pickerProps.hierarchyWidth).toBe(props.hierarchyWidth)
+      expect(pickerProps.indexParentPath).toBe(props.indexParentPath)
+      expect(pickerProps.items).toBe(props.items)
+      expect(pickerProps.noResultsLabel).toBe(props.noResultsLabel)
+      expect(pickerProps.searchMaxHeight).toBe(props.searchMaxHeight)
+      expect(pickerProps.searchPlaceholder).toBe(props.searchPlaceholder)
+      expect(pickerProps.searchWidth).toBe(props.searchWidth)
+      expect(pickerProps.renderItem).toBe(props.renderItem)
+      expect(pickerProps.searchPlaceholder).toBe(props.searchPlaceholder)
+      expect(pickerProps.verticallyAlign).toBe(props.verticallyAlign)
+    })
+  })
+})

@@ -3,7 +3,7 @@
 Provides out of the box support for GraphQL, powered by [Apollo](https://www.apollographql.com).
 
 ```bash static
-yarn add @airbnb/lunar-apollo
+yarn add @lorica/uc-design-system-apollo
 ```
 
 This package relies on GraphQL related packages to also be installed.
@@ -20,16 +20,16 @@ customize this package.
 - `links` (ApolloLink[]) - Collection of Apollo links (middleware) to apply to the client.
 
 ```js static
-import Apollo, { HttpLink } from '@airbnb/lunar-apollo';
+import Apollo, { HttpLink } from '@lorica/uc-design-system-apollo'
 
 const httpLink = new HttpLink({
   uri: '/api/graphql',
   credentials: 'same-origin',
-});
+})
 
 Apollo.initialize({
   links: [httpLink],
-});
+})
 ```
 
 > The client can be accessed with `Apollo.getClient()`.
@@ -40,13 +40,13 @@ Once the Apollo client has been created, we can make it available to our queries
 wrapping our application in a provider.
 
 ```jsx static
-import { Provider } from '@airbnb/lunar-apollo';
+import { Provider } from '@lorica/uc-design-system-apollo'
 
 function Root() {
   return (
     <Provider>
       <App />
     </Provider>
-  );
+  )
 }
 ```

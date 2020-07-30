@@ -1,33 +1,33 @@
-import React from 'react';
-import IconChevronLeft from '@airbnb/lunar-icons/lib/interface/IconChevronLeft';
-import IconChevronRight from '@airbnb/lunar-icons/lib/interface/IconChevronRight';
-import useStyles, { StyleSheet } from '../../hooks/useStyles';
-import ButtonOrLink from '../private/ButtonOrLink';
-import DirectionalIcon from '../DirectionalIcon';
-import { styleSheetBreadcrumb } from './styles';
+import React from 'react'
+import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+import useStyles, { StyleSheet } from '../../hooks/useStyles'
+import ButtonOrLink from '../private/ButtonOrLink'
+import DirectionalIcon from '../DirectionalIcon'
+import { styleSheetBreadcrumb } from './styles'
 
 export type BreadcrumbProps = {
   /** Mark the breadcrumb as disabled. */
-  disabled?: boolean;
+  disabled?: boolean
   /** Hide the breadcrumb icon. */
-  hideIcon?: boolean;
+  hideIcon?: boolean
   /** Mark the breadcrumb as highlighted. */
-  highlighted?: boolean;
+  highlighted?: boolean
   /** Render an anchor link with a URL instead of a button. */
-  href?: string;
+  href?: string
   /** Pass an HTML element attribute id. */
-  id?: string;
+  id?: string
   /** Content to within the Breadcrumb. */
-  label: string;
+  label: string
   /** Callback fired when the breadcrumb is clicked. */
-  onClick?: () => void;
+  onClick?: () => void
   /** Mark the breadcrumb as selected. */
-  selected?: boolean;
+  selected?: boolean
   /** A tracking name to identify this component. */
-  trackingName?: string;
+  trackingName?: string
   /** Custom style sheet. */
-  styleSheet?: StyleSheet;
-};
+  styleSheet?: StyleSheet
+}
 
 /** A single breadcrumb button. Usually rendered amongst a collection of breadcrumbs. */
 export default function Breadcrumb({
@@ -42,15 +42,15 @@ export default function Breadcrumb({
   trackingName,
   styleSheet,
 }: BreadcrumbProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetBreadcrumb);
-  const clickable = !disabled && (!!href || !!onClick);
-  const aria = selected ? { 'aria-current': 'page' } : {};
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetBreadcrumb)
+  const clickable = !disabled && (!!href || !!onClick)
+  const aria = selected ? { 'aria-current': 'page' } : {}
 
   const handleClick = () => {
     if (onClick) {
-      onClick();
+      onClick()
     }
-  };
+  }
 
   return (
     <li>
@@ -62,7 +62,7 @@ export default function Breadcrumb({
           highlighted && styles.breadcrumb_highlighted,
           clickable && highlighted && styles.breadcrumb_highlighted_clickable,
           selected && styles.breadcrumb_selected,
-          disabled && styles.breadcrumb_disabled,
+          disabled && styles.breadcrumb_disabled
         )}
         afterIcon={
           hideIcon ? null : (
@@ -84,5 +84,5 @@ export default function Breadcrumb({
         {label}
       </ButtonOrLink>
     </li>
-  );
+  )
 }

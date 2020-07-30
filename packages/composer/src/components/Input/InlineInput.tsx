@@ -1,32 +1,39 @@
-import React, { useState, useContext } from 'react';
-import T from '@airbnb/lunar/lib/components/Translate';
-import IconCreate from '@airbnb/lunar-icons/lib/interface/IconCreate';
-import IconCloseAlt from '@airbnb/lunar-icons/lib/interface/IconCloseAlt';
-import Input from '@airbnb/lunar/lib/components/Input';
-import { Prefix, Suffix } from '@airbnb/lunar/lib/components/FormField';
-import Row from '@airbnb/lunar/lib/components/Row';
-import Text from '@airbnb/lunar/lib/components/Text';
-import Spacing from '@airbnb/lunar/lib/components/Spacing';
-import IconButton from '@airbnb/lunar/lib/components/IconButton';
-import ComposerContext from '../../contexts/ComposerContext';
+import React, { useState, useContext } from 'react'
+import T from '@lorica/uc-design-system/lib/components/Translate'
+import IconCreate from '@lorica/uc-design-system-icons/lib/interface/IconCreate'
+import IconCloseAlt from '@lorica/uc-design-system-icons/lib/interface/IconCloseAlt'
+import Input from '@lorica/uc-design-system/lib/components/Input'
+import {
+  Prefix,
+  Suffix,
+} from '@lorica/uc-design-system/lib/components/FormField'
+import Row from '@lorica/uc-design-system/lib/components/Row'
+import Text from '@lorica/uc-design-system/lib/components/Text'
+import Spacing from '@lorica/uc-design-system/lib/components/Spacing'
+import IconButton from '@lorica/uc-design-system/lib/components/IconButton'
+import ComposerContext from '../../contexts/ComposerContext'
 
 export type InlineInputProps = {
-  label: NonNullable<React.ReactNode>;
-  name: string;
-  value?: string;
-};
+  label: NonNullable<React.ReactNode>
+  name: string
+  value?: string
+}
 
 export default function InlineInput({ label, name, value }: InlineInputProps) {
-  const context = useContext(ComposerContext);
-  const [editing, setEditing] = useState(false);
+  const context = useContext(ComposerContext)
+  const [editing, setEditing] = useState(false)
 
   // Elements
   const textLabel = (
     <Text inline small muted bold>
       {label}
     </Text>
-  );
-  const editLabel = T.phrase('lunar.composer.labels.editField', 'Edit %{name} field', { name });
+  )
+  const editLabel = T.phrase(
+    'lunar.composer.labels.editField',
+    'Edit %{name} field',
+    { name }
+  )
   const editButton = (
     <IconButton onClick={() => setEditing(!editing)}>
       {editing ? (
@@ -35,7 +42,7 @@ export default function InlineInput({ label, name, value }: InlineInputProps) {
         <IconCreate accessibilityLabel={editLabel} size="1em" />
       )}
     </IconButton>
-  );
+  )
 
   if (editing) {
     return (
@@ -49,11 +56,11 @@ export default function InlineInput({ label, name, value }: InlineInputProps) {
           suffix={<Suffix small>{editButton}</Suffix>}
           value={value}
           onChange={(nextValue) => {
-            context.setData(name, nextValue);
+            context.setData(name, nextValue)
           }}
         />
       </Spacing>
-    );
+    )
   }
 
   return (
@@ -66,5 +73,5 @@ export default function InlineInput({ label, name, value }: InlineInputProps) {
         </Spacing>
       </Row>
     </Spacing>
-  );
+  )
 }

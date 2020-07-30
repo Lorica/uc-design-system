@@ -1,14 +1,14 @@
-import React from 'react';
-import IconCheck from '@airbnb/lunar-icons/lib/interface/IconCheck';
-import useStyles, { StyleSheet } from '../../hooks/useStyles';
-import FormInput, { InputProps } from './FormInput';
-import inputStyleSheet from '../../themes/inputStyleSheet';
+import React from 'react'
+import IconCheck from '@lorica/uc-design-systemsign-system-icons/lib/interface/IconCheck'
+import useStyles, { StyleSheet } from '../../hooks/useStyles'
+import FormInput, { InputProps } from './FormInput'
+import inputStyleSheet from '../../themes/inputStyleSheet'
 
 export const styleSheetSwitch: StyleSheet = (theme) => {
-  const { color, pattern, ui, unit } = theme;
-  const styles = inputStyleSheet(theme);
-  const width = unit * 5;
-  const height = unit * 3;
+  const { color, pattern, ui, unit } = theme
+  const styles = inputStyleSheet(theme)
+  const width = unit * 5
+  const height = unit * 3
 
   return {
     ...styles,
@@ -87,19 +87,23 @@ export const styleSheetSwitch: StyleSheet = (theme) => {
       top: 2.5,
       left: 2.5,
     },
-  };
-};
+  }
+}
 
 export type BaseSwitchProps<T extends string = string> = InputProps<T> & {
   /** Whether the switch is checked. */
-  checked?: boolean;
+  checked?: boolean
   /** Unique identifier. */
-  id: string;
+  id: string
   /** Callback fired when the value changes. */
-  onChange: (checked: boolean, value: T, event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    checked: boolean,
+    value: T,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void
   /** Custom style sheet. */
-  styleSheet?: StyleSheet;
-};
+  styleSheet?: StyleSheet
+}
 
 export default function BaseSwitch<T extends string = string>({
   checked,
@@ -110,11 +114,11 @@ export default function BaseSwitch<T extends string = string>({
   styleSheet,
   ...restProps
 }: BaseSwitchProps<T>) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetSwitch);
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetSwitch)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.currentTarget.checked, event.currentTarget.value as T, event);
-  };
+    onChange(event.currentTarget.checked, event.currentTarget.value as T, event)
+  }
 
   return (
     <label htmlFor={id} className={cx(styles.switch)}>
@@ -136,7 +140,7 @@ export default function BaseSwitch<T extends string = string>({
           styles.input,
           checked && styles.input_checked,
           invalid && styles.input_invalid,
-          disabled && styles.input_disabled,
+          disabled && styles.input_disabled
         )}
       >
         <span className={cx(styles.toggle, checked && styles.toggle_checked)}>
@@ -148,5 +152,5 @@ export default function BaseSwitch<T extends string = string>({
         </span>
       </span>
     </label>
-  );
+  )
 }
