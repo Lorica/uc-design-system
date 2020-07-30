@@ -1,10 +1,10 @@
 import 'airbnb-js-shims'
 import { stripHexcode } from 'emojibase'
-import Lunar from '@lorica/uc-design-system/src' // src required because of aliases
+import UCDS from '@lorica/uc-design-system/src' // src required because of aliases
 import { THEME } from './constants'
 
-Lunar.initialize({
-  name: 'Lunar',
+UCDS.initialize({
+  name: 'uc-design-system',
   emojiCDN: (hexcode, large) =>
     `https://cdn.jsdelivr.net/gh/joypixels/emoji-assets@latest/png/${
       large ? 64 : 32

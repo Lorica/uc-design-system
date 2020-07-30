@@ -1,7 +1,7 @@
 import React from 'react'
 import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
 import LoremIpsum from ':storybook/components/LoremIpsum'
-import lunar from ':storybook/images/lunar-logo.png'
+import ucDesignSystem from ':storybook/images/lunar-logo.png'
 import stars from ':storybook/images/stars.jpg'
 import moon from ':storybook/images/moon.png'
 import Text from '../Text'
@@ -373,7 +373,7 @@ export function cardAsAButtonWithMiddleAlignment() {
             borderRadius={3}
             maxHeight={100}
             maxWidth={100}
-            src={lunar}
+            src={ucDesignSystem}
           />
         }
         onClick={() => console.log('onClick')}

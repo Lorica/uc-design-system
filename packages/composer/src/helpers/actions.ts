@@ -6,13 +6,19 @@ import { MODE_MESSAGE, MODE_EMAIL, MODE_PRIVATE_NOTE } from '../constants'
 import { ActionConfig, GroupedActions } from '../types'
 
 export function getWritingModeActions(): ActionConfig[] {
-  const groupLabel = T.phrase('lunar.composer.actions.group.new', 'New…')
+  const groupLabel = T.phrase(
+    'uc-design-system.composer.actions.group.new',
+    'New…'
+  )
 
   return [
     {
       condition: ({ mode }) => mode !== MODE_MESSAGE,
       group: groupLabel,
-      label: T.phrase('lunar.composer.actions.label.message', 'Message'),
+      label: T.phrase(
+        'uc-design-system.composer.actions.label.message',
+        'Message'
+      ),
       icon: IconChatGroup,
       onRun: ({ setMode }) => {
         setMode(MODE_MESSAGE)
@@ -21,7 +27,7 @@ export function getWritingModeActions(): ActionConfig[] {
     {
       condition: ({ mode }) => mode !== MODE_EMAIL,
       group: groupLabel,
-      label: T.phrase('lunar.composer.actions.label.email', 'Email'),
+      label: T.phrase('uc-design-system.composer.actions.label.email', 'Email'),
       icon: IconEmail,
       onRun: ({ setMode }) => {
         setMode(MODE_EMAIL)
@@ -31,7 +37,7 @@ export function getWritingModeActions(): ActionConfig[] {
       condition: ({ mode }) => mode !== MODE_PRIVATE_NOTE,
       group: groupLabel,
       label: T.phrase(
-        'lunar.composer.actions.label.privateNote',
+        'uc-design-system.composer.actions.label.privateNote',
         'Private note'
       ),
       icon: IconLock,

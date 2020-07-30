@@ -1,4 +1,4 @@
-# Lunar Icons
+# UCDS Icons
 
 Collection of Material design UI icons.
 

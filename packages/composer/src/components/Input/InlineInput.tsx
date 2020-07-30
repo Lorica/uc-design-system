@@ -30,7 +30,7 @@ export default function InlineInput({ label, name, value }: InlineInputProps) {
     </Text>
   )
   const editLabel = T.phrase(
-    'lunar.composer.labels.editField',
+    'uc-design-system.composer.labels.editField',
     'Edit %{name} field',
     { name }
   )

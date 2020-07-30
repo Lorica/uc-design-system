@@ -204,10 +204,12 @@ export class HierarchyPicker extends React.Component<
             {...passThruProps}
             formatter={this.boundFormatter}
             searchPlaceholder={
-              searchPlaceholder || T.phrase('lunar.common.search', 'Search')
+              searchPlaceholder ||
+              T.phrase('uc-design-system.common.search', 'Search')
             }
             noResultsLabel={
-              noResultsLabel || T.phrase('lunar.picker.noResults', 'No results')
+              noResultsLabel ||
+              T.phrase('uc-design-system.picker.noResults', 'No results')
             }
             onClose={this.handleClose}
           />

@@ -81,7 +81,7 @@ export default function Shortcuts({ shortcuts }: ShortcutsProps) {
         condition={showWhenNoMenuOrValueCondition}
         name="openShortcutMenu"
         label={T.phrase(
-          'lunar.composer.shortcuts.hotkey.toOpen',
+          'uc-design-system.composer.shortcuts.hotkey.toOpen',
           'to shortcuts'
         )}
         onRun={openShortcutsMenu}
@@ -92,7 +92,10 @@ export default function Shortcuts({ shortcuts }: ShortcutsProps) {
         combo="up"
         condition={activeWhenShortcutsMenuOpen}
         name="moveUpShortcutMenu"
-        label={T.phrase('lunar.composer.shortcuts.hotkey.moveUp', 'up')}
+        label={T.phrase(
+          'uc-design-system.composer.shortcuts.hotkey.moveUp',
+          'up'
+        )}
         onRun={moveUp}
       />
 
@@ -101,7 +104,10 @@ export default function Shortcuts({ shortcuts }: ShortcutsProps) {
         combo="down"
         condition={activeWhenShortcutsMenuOpen}
         name="moveDownShortcutMenu"
-        label={T.phrase('lunar.composer.shortcuts.hotkey.moveDown', 'down')}
+        label={T.phrase(
+          'uc-design-system.composer.shortcuts.hotkey.moveDown',
+          'down'
+        )}
         onRun={moveDown}
       />
 
@@ -111,7 +117,7 @@ export default function Shortcuts({ shortcuts }: ShortcutsProps) {
         condition={activeWhenShortcutsMenuOpen}
         name="selectShortcut"
         label={T.phrase(
-          'lunar.composer.shortcuts.hotkey.toSelect',
+          'uc-design-system.composer.shortcuts.hotkey.toSelect',
           'to select'
         )}
         onRun={selectShortcut}
@@ -120,12 +126,14 @@ export default function Shortcuts({ shortcuts }: ShortcutsProps) {
       <Menu
         centerAlign
         name={MENU_SHORTCUTS}
-        title={<T k="lunar.composer.shortcuts.title" phrase="Shortcuts" />}
+        title={
+          <T k="uc-design-system.composer.shortcuts.title" phrase="Shortcuts" />
+        }
       >
         <SelectList
           noResults={
             <T
-              k="lunar.composer.shortcuts.noResults"
+              k="uc-design-system.composer.shortcuts.noResults"
               phrase="No shortcuts found for %{name}."
               name={inputName}
             />

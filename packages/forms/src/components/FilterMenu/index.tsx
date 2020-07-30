@@ -103,16 +103,16 @@ export default function FilterMenu({
   const activeCountLabel =
     activeCount && activeCount > 0 ? (
       <T
-        k="lunar.form.filter.filterCount"
+        k="uc-design-system.form.filter.filterCount"
         phrase="%{smartCount} Filter||||%{smartCount} Filters"
         smartCount={activeCount}
       />
     ) : null
 
   const toggleLabel = opened ? (
-    <T k="lunar.form.filter.close" phrase="Close filters" />
+    <T k="uc-design-system.form.filter.close" phrase="Close filters" />
   ) : (
-    <T k="lunar.form.filter.open" phrase="Open filters" />
+    <T k="uc-design-system.form.filter.open" phrase="Open filters" />
   )
 
   return (
@@ -135,11 +135,11 @@ export default function FilterMenu({
       <Row>
         <section className={cx(styles.controls)}>
           <Link type="submit" onClick={handleApply}>
-            <T k="lunar.common.apply" phrase="Apply" />
+            <T k="uc-design-system.common.apply" phrase="Apply" />
           </Link>
 
           <SecondaryLink type="reset" onClick={handleClear}>
-            <T k="lunar.common.reset" phrase="Reset" />
+            <T k="uc-design-system.common.reset" phrase="Reset" />
           </SecondaryLink>
         </section>
       </Row>

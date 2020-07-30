@@ -158,7 +158,7 @@ export default class FileInput extends React.Component<
           onClick={this.handleClick}
         >
           <T
-            k="lunar.form.chooseFile"
+            k="uc-design-system.form.chooseFile"
             phrase="Choose file||||Choose files"
             smartCount={props.multiple ? 0 : 1}
           />
@@ -193,7 +193,7 @@ export default class FileInput extends React.Component<
                         >
                           <IconClose
                             accessibilityLabel={T.phrase(
-                              'lunar.form.removeFile',
+                              'uc-design-system.form.removeFile',
                               'Remove chosen file'
                             )}
                           />

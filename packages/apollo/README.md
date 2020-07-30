@@ -1,4 +1,4 @@
-## Lunar Apollo
+## UCDS Apollo
 
 Provides out of the box support for GraphQL, powered by [Apollo](https://www.apollographql.com).
 

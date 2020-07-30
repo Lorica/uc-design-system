@@ -70,10 +70,13 @@ export default function Copy({
       inverted={invertTooltip}
       content={
         copied ? (
-          <T k="lunar.copy.copied" phrase="Copied!" />
+          <T k="uc-design-system.copy.copied" phrase="Copied!" />
         ) : (
           prompt || (
-            <T k="lunar.copy.copyToClipboard" phrase="Copy to clipboard" />
+            <T
+              k="uc-design-system.copy.copyToClipboard"
+              phrase="Copy to clipboard"
+            />
           )
         )
       }

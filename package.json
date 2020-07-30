@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "lunar-root",
+  "name": "uc-design-system-root",
   "version": "3.0.0",
   "description": "React toolkit and design language for Airbnb open source and internal projects.",
   "license": "MIT",
@@ -68,7 +68,9 @@
       "url": "https://github.com/alecklandgraf"
     }
   ],
-  "workspaces": ["./packages/*"],
+  "workspaces": [
+    "./packages/*"
+  ],
   "dependencies": {
     "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-actions": "^5.3.18",

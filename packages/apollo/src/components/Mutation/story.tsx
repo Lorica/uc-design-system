@@ -21,7 +21,7 @@ type User = {
   name: string
 }
 
-const variables = { id: 123, name: 'Lunar' }
+const variables = { id: 123, name: 'uc-design-system' }
 
 const mock = {
   request: {
@@ -32,7 +32,7 @@ const mock = {
     data: {
       updateUser: {
         id: 123,
-        name: 'Lunar',
+        name: 'uc-design-system',
         __typename: 'user',
       },
     },
@@ -61,12 +61,12 @@ function UpdateButton({ onUpdate }: { onUpdate: MutationFunction<{}, User> }) {
         onUpdate({
           variables: {
             id: 123,
-            name: 'Lunar',
+            name: 'uc-design-system',
           },
         })
       }}
     >
-      Update name to <b>Lunar</b>
+      Update name to <b>UCDS</b>
     </Button>
   )
 }

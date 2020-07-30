@@ -32,7 +32,7 @@ export default function RotateControls(props: RotateControlsProps) {
       <IconButton onClick={handleRotateLeft}>
         <IconRotateLeft
           accessibilityLabel={T.phrase(
-            'lunar.image.rotateCounterClockwise',
+            'uc-design-system.image.rotateCounterClockwise',
             'Rotate counter clockwise'
           )}
           size={iconSize}
@@ -42,7 +42,7 @@ export default function RotateControls(props: RotateControlsProps) {
       <IconButton onClick={handleRotateRight}>
         <IconRotateRight
           accessibilityLabel={T.phrase(
-            'lunar.image.rotateClockwise',
+            'uc-design-system.image.rotateClockwise',
             'Rotate clockwise'
           )}
           size={iconSize}

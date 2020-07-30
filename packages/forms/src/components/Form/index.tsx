@@ -208,7 +208,7 @@ export default class Form<Data extends object = {}> extends React.Component<
       if (setErrors) {
         setErrors({
           [FORM_ERROR]: T.phrase(
-            'lunar.form.submitFailed',
+            'uc-design-system.form.submitFailed',
             'Failed to submit form. %{error}',
             {
               error: getErrorMessage(error),
@@ -278,7 +278,7 @@ export default class Form<Data extends object = {}> extends React.Component<
 
     if (!passes && errorCount === 0) {
       errors[FORM_ERROR] = T.phrase(
-        'lunar.form.validateFailed',
+        'uc-design-system.form.validateFailed',
         'Failed to validate form. Please try again.'
       )
       errorCount += 1

@@ -2,7 +2,7 @@
   "name": "@lorica/uc-design-system-metrics",
   "version": "3.0.4",
   "release": "1583350587083",
-  "description": "Metrics handling for Lunar.",
+  "description": "Metrics handling for UCDS.",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

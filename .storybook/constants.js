@@ -1,1 +1,2 @@
-export const THEME = localStorage.getItem('lunar.theme') || process.env.THEME || 'light';
+export const THEME =
+  localStorage.getItem('uc-design-system.theme') || process.env.THEME || 'light'

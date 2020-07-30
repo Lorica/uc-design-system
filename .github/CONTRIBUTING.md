@@ -2,7 +2,7 @@
 
 ## 🛠 Developing
 
-Lunar at minimum requires Node v10.10 and Yarn v1.16. To begin, run `yarn install`.
+uc-design-system at minimum requires Node v10.10 and Yarn v1.16. To begin, run `yarn install`.
 
 - Builds can be ran with `yarn run build`.
 - Testing can be ran with `yarn run jest`.
@@ -28,7 +28,7 @@ understandable when groking the changelog.
 
 ### Release Prefixes
 
-Lunar utilizes [lerna](https://lernajs.io/) and
+uc-design-system utilizes [lerna](https://lernajs.io/) and
 [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) for
 automatic releases when a PR is merged to master. For this to work correctly, all PR titles must be
 prefixed with one of the following tags defined in the
@@ -38,7 +38,7 @@ _**Do not**_ label PRs as breaking, as breaking changes follow a defined release
 
 ## 💥 Major Release Cycles
 
-Lunar abides semantic versioning with the exception of major releases, as they are split into
+uc-design-system abides semantic versioning with the exception of major releases, as they are split into
 monthly cycles. If no breaking changes have occurred within the past month, the release will simply
 be skipped.
 
@@ -157,5 +157,8 @@ A few guidelines and patterns when working with TypeScript:
   component's generics callsite.
 
 ```jsx
-class Button extends React.Component<ButtonProps & WithStylesProps, ButtonState> {}
+class Button extends React.Component<
+  ButtonProps & WithStylesProps,
+  ButtonState
+> {}
 ```

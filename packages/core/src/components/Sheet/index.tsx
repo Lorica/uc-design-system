@@ -196,7 +196,7 @@ export class BaseSheet extends React.Component<
       return null
     }
 
-    const closeText = T.phrase('lunar.common.close', 'Close')
+    const closeText = T.phrase('uc-design-system.common.close', 'Close')
     const closeIcon = (
       <IconButton onClick={this.handleClose}>
         <IconClose accessibilityLabel={closeText} size={3 * theme.unit} />

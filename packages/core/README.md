@@ -1,4 +1,4 @@
-# Lunar
+# UCDS
 
 Provides core React building blocks that all other consuming packages are built around. This
 includes components, composers, themes, and more.

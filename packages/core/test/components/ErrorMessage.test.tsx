@@ -1,46 +1,48 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import T from '../../src/components/Translate';
-import Alert from '../../src/components/Alert';
-import ErrorMessage, { getErrorMessage } from '../../src/components/ErrorMessage';
-import StatusText from '../../src/components/StatusText';
-import { ErrorObject } from '../../src/types';
-import Core from '../../src';
+import React from 'react'
+import { shallow } from 'enzyme'
+import T from '../../src/components/Translate'
+import Alert from '../../src/components/Alert'
+import ErrorMessage, {
+  getErrorMessage,
+} from '../../src/components/ErrorMessage'
+import StatusText from '../../src/components/StatusText'
+import { ErrorObject } from '../../src/types'
+import Core from '../../src'
 
 describe('getErrorMessage()', () => {
   beforeAll(() => {
-    Core.settings.errorURL = 'http://error-url-test.com/{{id}}';
-    Core.settings.traceURL = 'http://trace-url-test.com/{{id}}';
-  });
+    Core.settings.errorURL = 'http://error-url-test.com/{{id}}'
+    Core.settings.traceURL = 'http://trace-url-test.com/{{id}}'
+  })
 
   it('returns empty string for no message', () => {
-    expect(getErrorMessage({})).toBe('');
-  });
+    expect(getErrorMessage({})).toBe('')
+  })
 
   it('returns the basic message', () => {
     expect(
       getErrorMessage({
         error_message: 'Danger Will Robinson!',
-      }),
-    ).toBe('Danger Will Robinson!');
-  });
+      })
+    ).toBe('Danger Will Robinson!')
+  })
 
   it('can be overridden with a user message', () => {
     expect(
       getErrorMessage({
         error_message: 'Danger Will Robinson!',
         user_message: 'Systems are offline!',
-      }),
-    ).toBe('Systems are offline!');
-  });
+      })
+    ).toBe('Systems are offline!')
+  })
 
   it('includes the error code', () => {
     expect(
       getErrorMessage({
         error_message: 'Danger Will Robinson!',
         error_code: 404,
-      }),
-    ).toBe('Danger Will Robinson!');
+      })
+    ).toBe('Danger Will Robinson!')
 
     expect(
       getErrorMessage(
@@ -48,10 +50,10 @@ describe('getErrorMessage()', () => {
           error_message: 'Danger Will Robinson!',
           error_code: 404,
         },
-        true,
-      ),
-    ).toBe('404 - Danger Will Robinson!');
-  });
+        true
+      )
+    ).toBe('404 - Danger Will Robinson!')
+  })
 
   it('handles debug code', () => {
     expect(
@@ -62,8 +64,8 @@ describe('getErrorMessage()', () => {
           error_class: 'FooBar',
           error_message: 'Systems are offline!',
         },
-      }),
-    ).toBe('FooBar - Systems are offline!');
+      })
+    ).toBe('FooBar - Systems are offline!')
 
     expect(
       getErrorMessage(
@@ -75,28 +77,30 @@ describe('getErrorMessage()', () => {
             response_message: 'Systems are offline!',
           },
         },
-        true,
-      ),
-    ).toBe('404 - FooBar - Systems are offline!');
-  });
+        true
+      )
+    ).toBe('404 - FooBar - Systems are offline!')
+  })
 
   it('supports Error instances', () => {
-    expect(getErrorMessage(new Error('Danger Will Robinson!'))).toBe('Danger Will Robinson!');
-  });
+    expect(getErrorMessage(new Error('Danger Will Robinson!'))).toBe(
+      'Danger Will Robinson!'
+    )
+  })
 
   it('supports Error instances with additional properties', () => {
-    const error = new Error('Not useful message') as ErrorObject; // Satisfy TS.
-    error.error_message = 'Very useful message';
-    expect(getErrorMessage(error)).toBe('Very useful message');
-  });
-});
+    const error = new Error('Not useful message') as ErrorObject // Satisfy TS.
+    error.error_message = 'Very useful message'
+    expect(getErrorMessage(error)).toBe('Very useful message')
+  })
+})
 
 describe('<ErrorMessage />', () => {
   it('returns null if no error', () => {
-    const wrapper = shallow(<ErrorMessage />);
+    const wrapper = shallow(<ErrorMessage />)
 
-    expect(wrapper.isEmptyRender()).toBe(true);
-  });
+    expect(wrapper.isEmptyRender()).toBe(true)
+  })
 
   it('renders an alert', () => {
     const wrapper = shallow(
@@ -104,16 +108,19 @@ describe('<ErrorMessage />', () => {
         error={{
           error_message: 'Failure',
         }}
-      />,
-    );
-    const alert = wrapper.find(Alert);
+      />
+    )
+    const alert = wrapper.find(Alert)
 
-    expect(alert).toHaveLength(1);
+    expect(alert).toHaveLength(1)
     expect(alert.prop('title')).toEqual(
-      <T k="lunar.error.featureCrashed" phrase="This feature has crashed or failed to load." />,
-    );
-    expect(alert.contains('Failure')).toBe(true);
-  });
+      <T
+        k="uc-design-system.error.featureCrashed"
+        phrase="This feature has crashed or failed to load."
+      />
+    )
+    expect(alert.contains('Failure')).toBe(true)
+  })
 
   it('renders a status text when inline', () => {
     const wrapper = shallow(
@@ -122,11 +129,11 @@ describe('<ErrorMessage />', () => {
         error={{
           error_message: 'Failure',
         }}
-      />,
-    );
+      />
+    )
 
-    expect(wrapper.find(StatusText)).toHaveLength(1);
-  });
+    expect(wrapper.find(StatusText)).toHaveLength(1)
+  })
 
   it('can pass a title and subtitle', () => {
     const wrapper = shallow(
@@ -136,14 +143,14 @@ describe('<ErrorMessage />', () => {
         }}
         title="Title"
         subtitle="Subtitle"
-      />,
-    );
-    const alert = wrapper.find(Alert);
+      />
+    )
+    const alert = wrapper.find(Alert)
 
-    expect(alert).toHaveLength(1);
-    expect(alert.prop('title')).toBe('Title');
-    expect(alert.contains('Subtitle')).toBe(true);
-  });
+    expect(alert).toHaveLength(1)
+    expect(alert.prop('title')).toBe('Title')
+    expect(alert.contains('Subtitle')).toBe(true)
+  })
 
   it('will inherit error code for title', () => {
     const wrapper = shallow(
@@ -152,14 +159,14 @@ describe('<ErrorMessage />', () => {
           error_message: 'Failure',
           error_code: 404,
         }}
-      />,
-    );
-    const alert = wrapper.find(Alert);
+      />
+    )
+    const alert = wrapper.find(Alert)
 
-    expect(alert).toHaveLength(1);
-    expect(alert.prop('title')).toBe(404);
-    expect(alert.contains('Failure')).toBe(true);
-  });
+    expect(alert).toHaveLength(1)
+    expect(alert.prop('title')).toBe(404)
+    expect(alert.contains('Failure')).toBe(true)
+  })
 
   it('renders an error ID if error object passed', () => {
     const wrapper = shallow(
@@ -167,57 +174,59 @@ describe('<ErrorMessage />', () => {
         error={{
           error_message: 'Failure',
         }}
-      />,
-    );
+      />
+    )
 
-    expect(wrapper.find(Alert).find(StatusText)).toHaveLength(0);
+    expect(wrapper.find(Alert).find(StatusText)).toHaveLength(0)
 
     wrapper.setProps({
       error: {
         error_message: 'Failure',
         error_id: 'ABC',
       },
-    });
+    })
 
-    expect(wrapper.find(Alert).find(StatusText).prop('children')).toMatch('ABC');
-  });
+    expect(wrapper.find(Alert).find(StatusText).prop('children')).toMatch('ABC')
+  })
 
   it('renders an error ID if error instance passed', () => {
-    const error = new Error('Whatever') as ErrorObject; // Satisfy TS.
+    const error = new Error('Whatever') as ErrorObject // Satisfy TS.
 
-    const wrapper = shallow(<ErrorMessage error={error} />);
+    const wrapper = shallow(<ErrorMessage error={error} />)
 
-    expect(wrapper.find(Alert).find(StatusText)).toHaveLength(0);
+    expect(wrapper.find(Alert).find(StatusText)).toHaveLength(0)
 
-    error.error_message = 'Failure';
-    error.error_id = 'ABC';
+    error.error_message = 'Failure'
+    error.error_id = 'ABC'
 
     wrapper.setProps({
       error,
-    });
+    })
 
-    expect(wrapper.find(Alert).find(StatusText).prop('children')).toMatch('ABC');
-  });
+    expect(wrapper.find(Alert).find(StatusText).prop('children')).toMatch('ABC')
+  })
 
   it('renders a trace ID if passed', () => {
-    const error = new Error('Whatever') as ErrorObject; // Satisfy TS.
+    const error = new Error('Whatever') as ErrorObject // Satisfy TS.
 
     const wrapper = shallow(
       <ErrorMessage
         error={{
           error_message: 'Failure',
         }}
-      />,
-    );
+      />
+    )
 
-    expect(wrapper.find(Alert).find(StatusText)).toHaveLength(0);
+    expect(wrapper.find(Alert).find(StatusText)).toHaveLength(0)
 
-    error.trace_id = 'tRaCiD1337==';
+    error.trace_id = 'tRaCiD1337=='
 
     wrapper.setProps({
       error,
-    });
+    })
 
-    expect(wrapper.find(Alert).find(StatusText).prop('children')).toMatch('tRaCiD1337==');
-  });
-});
+    expect(wrapper.find(Alert).find(StatusText).prop('children')).toMatch(
+      'tRaCiD1337=='
+    )
+  })
+})

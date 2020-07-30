@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-// This logic is taken from Lunar, but converted into a hook!
+// This logic is taken from UCDS, but converted into a hook!
 // https://github.com/lorica/uc-design-system/blob/master/packages/core/src/components/private/BaseTextArea.tsx
 export default function useAutoResize(
   element: HTMLElement | null,

@@ -58,7 +58,10 @@ export default function Preview({
           !data.value.startsWith('/')
         }
         name="showPreview"
-        label={T.phrase('lunar.composer.hotkey.returnToPreview', 'to preview')}
+        label={T.phrase(
+          'uc-design-system.composer.hotkey.returnToPreview',
+          'to preview'
+        )}
         order={100}
         onRun={(ctx) => onSubmitShowPreview(ctx.data, ctx)}
       />
@@ -66,7 +69,9 @@ export default function Preview({
       <Menu
         centerAlign
         name={MENU_PREVIEW}
-        title={<T k="lunar.composer.preview.title" phrase="Preview" />}
+        title={
+          <T k="uc-design-system.composer.preview.title" phrase="Preview" />
+        }
       >
         {onProofread ? (
           <Proofreader

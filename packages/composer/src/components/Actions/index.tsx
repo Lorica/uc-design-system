@@ -57,7 +57,7 @@ export default function Actions({
       <ItemMenu
         overflow
         accessibilityLabel={T.phrase(
-          'lunar.composer.actions.label',
+          'uc-design-system.composer.actions.label',
           'Actions menu'
         )}
         maxHeight={MAX_MENU_HEIGHT}

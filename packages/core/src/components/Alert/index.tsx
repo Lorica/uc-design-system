@@ -100,7 +100,10 @@ function Alert({
           onClose && (
             <IconButton onClick={onClose}>
               <IconClose
-                accessibilityLabel={T.phrase('lunar.common.close', 'Close')}
+                accessibilityLabel={T.phrase(
+                  'uc-design-system.common.close',
+                  'Close'
+                )}
                 size={unit * 3}
               />
             </IconButton>

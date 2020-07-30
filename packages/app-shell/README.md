@@ -1,4 +1,4 @@
-# Lunar AppShell
+# UCDS AppShell
 
 A root component that should wrap your entire application.
 
@@ -18,7 +18,7 @@ import AppShell from '@lorica/uc-design-system-app-shell'
 import App from '../local/components/App'
 
 ReactDOM.render(
-  <AppShell name="Lunar">
+  <AppShell name="UCDS">
     <App />
   </AppShell>,
   document.getElementById('root')

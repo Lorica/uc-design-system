@@ -13,7 +13,7 @@ describe('<FeedbackForm />', () => {
       chat: 'Chat',
       phone: 'Phone',
     },
-    channel: 'Lunar',
+    channel: 'uc-design-system',
     channelID: 1,
     teamID: 1,
     onSubmit: () => Promise.resolve(),

@@ -1,154 +1,154 @@
-import { TestAdapter } from 'aesthetic/lib/testing';
-import { Settings as LuxonSettings } from 'luxon';
-import Core, { Settings } from '../src';
+import { TestAdapter } from 'aesthetic/lib/testing'
+import { Settings as LuxonSettings } from 'luxon'
+import Core, { Settings } from '../src'
 
 describe('Core', () => {
-  let oldSettings: Required<Settings>;
+  let oldSettings: Required<Settings>
 
   beforeEach(() => {
-    oldSettings = { ...Core.settings };
-  });
+    oldSettings = { ...Core.settings }
+  })
 
   afterEach(() => {
-    Core.settings = oldSettings;
-  });
+    Core.settings = oldSettings
+  })
 
   describe('initialize()', () => {
     it('sets settings', () => {
       Core.initialize({
-        name: 'Lunar',
+        name: 'uc-design-system',
         defaultLocale: 'ja',
-      });
+      })
 
       expect(Core.settings).toEqual(
         expect.objectContaining({
           defaultLocale: 'ja',
-        }),
-      );
-    });
+        })
+      )
+    })
 
     it('calls boostrap functions', () => {
-      const bootAesthetic = jest.spyOn(Core, 'bootstrapAesthetic');
-      const bootLuxon = jest.spyOn(Core, 'bootstrapLuxon');
+      const bootAesthetic = jest.spyOn(Core, 'bootstrapAesthetic')
+      const bootLuxon = jest.spyOn(Core, 'bootstrapLuxon')
 
       Core.initialize({
-        name: 'Lunar',
-      });
+        name: 'uc-design-system',
+      })
 
-      expect(bootAesthetic).toHaveBeenCalled();
-      expect(bootLuxon).toHaveBeenCalled();
+      expect(bootAesthetic).toHaveBeenCalled()
+      expect(bootLuxon).toHaveBeenCalled()
 
-      bootAesthetic.mockRestore();
-      bootLuxon.mockRestore();
-    });
-  });
+      bootAesthetic.mockRestore()
+      bootLuxon.mockRestore()
+    })
+  })
 
   describe('bootstrapAesthetic()', () => {
     it('creates an aesthetic instance', () => {
-      Core.bootstrapAesthetic();
+      Core.bootstrapAesthetic()
 
-      expect(Core.aesthetic.getAdapter()).toBeInstanceOf(TestAdapter);
-    });
-  });
+      expect(Core.aesthetic.getAdapter()).toBeInstanceOf(TestAdapter)
+    })
+  })
 
   describe('bootstrapLuxon()', () => {
     it('calls airbnb Core', () => {
-      Core.settings.defaultLocale = 'de';
-      Core.settings.defaultTimezone = 'America/Los_Angeles';
-      Core.bootstrapLuxon();
+      Core.settings.defaultLocale = 'de'
+      Core.settings.defaultTimezone = 'America/Los_Angeles'
+      Core.bootstrapLuxon()
 
-      expect(LuxonSettings.defaultLocale).toBe('de');
-      expect(LuxonSettings.defaultZoneName).toBe('America/Los_Angeles');
+      expect(LuxonSettings.defaultLocale).toBe('de')
+      expect(LuxonSettings.defaultZoneName).toBe('America/Los_Angeles')
 
-      LuxonSettings.defaultLocale = 'en';
-      LuxonSettings.defaultZoneName = 'UTC';
-    });
-  });
+      LuxonSettings.defaultLocale = 'en'
+      LuxonSettings.defaultZoneName = 'UTC'
+    })
+  })
 
   describe('fontFamily()', () => {
     it('returns Japanese font family', () => {
-      Core.settings.defaultLocale = 'ja';
+      Core.settings.defaultLocale = 'ja'
 
-      expect(Core.fontFamily()).toContain('ヒラギノ角ゴ Pro');
-    });
+      expect(Core.fontFamily()).toContain('ヒラギノ角ゴ Pro')
+    })
 
     it('returns Korean font family', () => {
-      Core.settings.defaultLocale = 'ko';
+      Core.settings.defaultLocale = 'ko'
 
-      expect(Core.fontFamily()).toContain('나눔 고딕');
-    });
+      expect(Core.fontFamily()).toContain('나눔 고딕')
+    })
 
     it('returns Chinese font family', () => {
-      Core.settings.defaultLocale = 'zh';
+      Core.settings.defaultLocale = 'zh'
 
-      expect(Core.fontFamily()).toContain('华文细黑');
-    });
+      expect(Core.fontFamily()).toContain('华文细黑')
+    })
 
     it('returns default font family', () => {
-      Core.settings.defaultLocale = 'en';
+      Core.settings.defaultLocale = 'en'
 
-      expect(Core.fontFamily()).toContain('-apple-system');
-    });
-  });
+      expect(Core.fontFamily()).toContain('-apple-system')
+    })
+  })
 
   describe('locale()', () => {
     it('returns the `defaultLocale` setting', () => {
-      Core.settings.defaultLocale = 'de';
+      Core.settings.defaultLocale = 'de'
 
-      expect(Core.locale()).toBe('de');
-    });
+      expect(Core.locale()).toBe('de')
+    })
 
     it('returns the default locale constant when empty', () => {
       // @ts-ignore Allow empty
-      Core.settings.defaultLocale = '';
+      Core.settings.defaultLocale = ''
 
-      expect(Core.locale()).toBe('en');
-    });
-  });
+      expect(Core.locale()).toBe('en')
+    })
+  })
 
   describe('log()', () => {
     it('doesnt log if no logger', () => {
-      const spy = jest.fn();
+      const spy = jest.fn()
 
-      Core.log(new Error('Ooops'), {});
+      Core.log(new Error('Ooops'), {})
 
-      expect(spy).not.toHaveBeenCalled();
-    });
+      expect(spy).not.toHaveBeenCalled()
+    })
 
     it('logs if logger is defined', () => {
-      const spy = jest.fn();
+      const spy = jest.fn()
 
-      Core.settings.logger = spy;
-      Core.log(new Error('Ooops'), {});
+      Core.settings.logger = spy
+      Core.log(new Error('Ooops'), {})
 
-      expect(spy).toHaveBeenCalledWith(new Error('Ooops'), {});
-    });
-  });
+      expect(spy).toHaveBeenCalledWith(new Error('Ooops'), {})
+    })
+  })
 
   describe('timezone()', () => {
     it('returns the `defaultTimezone` setting', () => {
-      Core.settings.defaultTimezone = 'America/Los_Angeles';
+      Core.settings.defaultTimezone = 'America/Los_Angeles'
 
-      expect(Core.timezone()).toBe('America/Los_Angeles');
-    });
+      expect(Core.timezone()).toBe('America/Los_Angeles')
+    })
 
     it('returns the default timezone constant when empty', () => {
       // @ts-ignore Allow empty
-      Core.settings.defaultTimezone = '';
+      Core.settings.defaultTimezone = ''
 
-      expect(Core.timezone()).toBe('UTC');
-    });
-  });
+      expect(Core.timezone()).toBe('UTC')
+    })
+  })
 
   describe('translate()', () => {
     describe('with no translator', () => {
       beforeEach(() => {
-        Core.settings.translator = null;
-      });
+        Core.settings.translator = null
+      })
 
       it('returns string as is if no tokens', () => {
-        expect(Core.translate('key', 'Hello')).toBe('Hello');
-      });
+        expect(Core.translate('key', 'Hello')).toBe('Hello')
+      })
 
       it('replaces tokens with values', () => {
         expect(
@@ -160,19 +160,25 @@ describe('Core', () => {
               bar_baz: 'abc',
               bazQux: 'ab12',
               qux123: 456.7,
-            },
-          ),
+            }
+          )
         ).toBe(
-          'Normal 123 underscore abc camel case ab12 with numbers 456.7 and undefined undefined',
-        );
-      });
+          'Normal 123 underscore abc camel case ab12 with numbers 456.7 and undefined undefined'
+        )
+      })
 
       it('handles singular and places', () => {
-        expect(Core.translate('key', 'Item||||Items')).toBe('Items');
-        expect(Core.translate('key', 'Item||||Items', { smartCount: 0 })).toBe('Items');
-        expect(Core.translate('key', 'Item||||Items', { smartCount: 1 })).toBe('Item');
-        expect(Core.translate('key', 'Item||||Items', { smartCount: 2 })).toBe('Items');
-      });
-    });
-  });
-});
+        expect(Core.translate('key', 'Item||||Items')).toBe('Items')
+        expect(Core.translate('key', 'Item||||Items', { smartCount: 0 })).toBe(
+          'Items'
+        )
+        expect(Core.translate('key', 'Item||||Items', { smartCount: 1 })).toBe(
+          'Item'
+        )
+        expect(Core.translate('key', 'Item||||Items', { smartCount: 2 })).toBe(
+          'Items'
+        )
+      })
+    })
+  })
+})

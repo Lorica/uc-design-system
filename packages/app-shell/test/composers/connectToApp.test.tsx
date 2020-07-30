@@ -52,7 +52,7 @@ describe('connectToApp()', () => {
 
   beforeEach(() => {
     context = {
-      name: 'Lunar',
+      name: 'uc-design-system',
       breadcrumbs: [],
       data: {},
       toasts: [],
@@ -92,7 +92,7 @@ describe('connectToApp()', () => {
   describe('event data', () => {
     it('sets data on mount', () => {
       expect(context.addPageData).toHaveBeenCalledWith({
-        app_name: 'Lunar',
+        app_name: 'uc-design-system',
         scope: 'HasData',
         foo: 'bar',
       })
@@ -105,7 +105,7 @@ describe('connectToApp()', () => {
       })
 
       expect(context.addPageData).toHaveBeenCalledWith({
-        app_name: 'Lunar',
+        app_name: 'uc-design-system',
         scope: 'NoData',
       })
     })

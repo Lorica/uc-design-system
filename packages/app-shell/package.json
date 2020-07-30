@@ -2,7 +2,7 @@
   "name": "@lorica/uc-design-system-app-shell",
   "version": "3.0.2",
   "release": "1583350587083",
-  "description": "Application shell powered by Lunar.",
+  "description": "Application shell powered by UCDS.",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

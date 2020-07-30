@@ -82,7 +82,10 @@ export default function ZoomControls({
       <ButtonGroup>
         <IconButton disabled={scale === 1} onClick={handleZoomOut}>
           <IconRemove
-            accessibilityLabel={T.phrase('lunar.image.zoomOut', 'Zoom out')}
+            accessibilityLabel={T.phrase(
+              'uc-design-system.image.zoomOut',
+              'Zoom out'
+            )}
             size={iconSize}
           />
         </IconButton>
@@ -93,7 +96,10 @@ export default function ZoomControls({
 
         <IconButton onClick={handleZoomIn}>
           <IconAdd
-            accessibilityLabel={T.phrase('lunar.image.zoomIn', 'Zoom in')}
+            accessibilityLabel={T.phrase(
+              'uc-design-system.image.zoomIn',
+              'Zoom in'
+            )}
             size={iconSize}
           />
         </IconButton>
@@ -108,7 +114,7 @@ export default function ZoomControls({
         >
           <Menu
             accessibilityLabel={T.phrase(
-              'lunar.image.zoomMenu',
+              'uc-design-system.image.zoomMenu',
               'Zoom dropdown menu'
             )}
           >

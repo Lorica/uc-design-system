@@ -8,7 +8,7 @@ export default function ActionButton() {
   return (
     <ToggleButton
       accessibilityLabel={T.phrase(
-        'lunar.composer.labels.openActionsMenu',
+        'uc-design-system.composer.labels.openActionsMenu',
         'Open actions menu'
       )}
       icon={IconAddAlt}

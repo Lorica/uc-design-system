@@ -56,7 +56,7 @@ export default function ModalInnerContent({
   const closeButton = (
     <IconButton onClick={onClose}>
       <IconClose
-        accessibilityLabel={T.phrase('lunar.common.close', 'Close')}
+        accessibilityLabel={T.phrase('uc-design-system.common.close', 'Close')}
         color={theme.color.muted}
         size={theme.unit * 3}
       />

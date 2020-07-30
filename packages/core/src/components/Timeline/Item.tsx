@@ -59,7 +59,7 @@ export default function TimelineItem({
             <Text small muted>
               <T
                 phrase="%{mediumDate} (%{relativeDate})"
-                k="lunar.timeline.date"
+                k="uc-design-system.timeline.date"
                 mediumDate={DateTime.format({ at, medium: true })}
                 relativeDate={DateTime.relative(at!)}
               />

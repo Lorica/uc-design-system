@@ -57,7 +57,10 @@ export default class FeedbackForm extends React.PureComponent<
   validate(value: string) {
     if (!value) {
       throw new Error(
-        T.phrase('lunar.form.fieldRequired', 'This field is required.')
+        T.phrase(
+          'uc-design-system.form.fieldRequired',
+          'This field is required.'
+        )
       )
     }
   }
@@ -93,7 +96,7 @@ export default class FeedbackForm extends React.PureComponent<
             name="type"
             label={
               <T
-                k="lunar.form.feedback.typeMessage"
+                k="uc-design-system.form.feedback.typeMessage"
                 phrase="What kind of feedback are you giving?"
               />
             }
@@ -107,7 +110,7 @@ export default class FeedbackForm extends React.PureComponent<
                   value="bug"
                   label={
                     <T
-                      k="lunar.form.feedback.reportBug"
+                      k="uc-design-system.form.feedback.reportBug"
                       phrase="Report a bug"
                     />
                   }
@@ -118,7 +121,7 @@ export default class FeedbackForm extends React.PureComponent<
                   value="feedback"
                   label={
                     <T
-                      k="lunar.form.feedback.giveFeedback"
+                      k="uc-design-system.form.feedback.giveFeedback"
                       phrase="Give product feedback"
                     />
                   }
@@ -132,12 +135,12 @@ export default class FeedbackForm extends React.PureComponent<
           name="category"
           label={
             <T
-              k="lunar.form.feedback.featureMessage"
+              k="uc-design-system.form.feedback.featureMessage"
               phrase="Which feature is this about?"
             />
           }
           placeholder={T.phrase(
-            'lunar.form.feedback.selectFeature',
+            'uc-design-system.form.feedback.selectFeature',
             'Select a feature'
           )}
           validator={this.validate}
@@ -153,18 +156,18 @@ export default class FeedbackForm extends React.PureComponent<
           name="feedback"
           label={
             <T
-              k="lunar.form.feedback.moreMessage"
+              k="uc-design-system.form.feedback.moreMessage"
               phrase="Tell us a little bit more"
             />
           }
           placeholder={
             data.type === 'bug'
               ? T.phrase(
-                  'lunar.form.feedback.moreBug',
+                  'uc-design-system.form.feedback.moreBug',
                   'What happened? Sharing steps to reproduce the problem you experienced can be helpful.'
                 )
               : T.phrase(
-                  'lunar.form.feedback.moreFeedback',
+                  'uc-design-system.form.feedback.moreFeedback',
                   'Share your experience with us. What went well? What could have gone better?'
                 )
           }
@@ -173,10 +176,10 @@ export default class FeedbackForm extends React.PureComponent<
 
         <FormActions
           continueText={
-            <T k="lunar.form.feedback.send" phrase="Send Feedback" />
+            <T k="uc-design-system.form.feedback.send" phrase="Send Feedback" />
           }
           processingText={
-            <T k="lunar.form.feedback.sending" phrase="Sending…" />
+            <T k="uc-design-system.form.feedback.sending" phrase="Sending…" />
           }
           processing={loading}
           onCancel={onCancel}

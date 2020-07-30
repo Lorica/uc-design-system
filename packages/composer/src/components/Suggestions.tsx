@@ -71,7 +71,10 @@ export default function Suggestions({
       combo="tab"
       condition={activeWhenShadowExists}
       name="tabSelectSuggestion"
-      label={T.phrase('lunar.composer.suggestions.hotkey.select', 'to select')}
+      label={T.phrase(
+        'uc-design-system.composer.suggestions.hotkey.select',
+        'to select'
+      )}
       onRun={selectShadowSuggestion}
     />
   )

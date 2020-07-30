@@ -1,4 +1,4 @@
-# Lunar Metrics
+# UCDS Metrics
 
 Provides integrated [NewRelic](https://newrelic.com/) and [Sentry](https://sentry.io/welcome/)
 insights and metrics logging.

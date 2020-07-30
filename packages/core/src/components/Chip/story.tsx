@@ -3,7 +3,7 @@ import IconCalendar from '@lorica/uc-design-system-icons/lib/general/IconCalenda
 import IconUser from '@lorica/uc-design-system-icons/lib/general/IconUser'
 import IconCloseAlt from '@lorica/uc-design-system-icons/lib/interface/IconCloseAlt'
 import IconSettings from '@lorica/uc-design-system-icons/lib/interface/IconSettings'
-import lunar from ':storybook/images/lunar-logo.png'
+import ucDesignSystem from ':storybook/images/lunar-logo.png'
 import Spacing from '../Spacing'
 import Chip from '.'
 import ButtonGroup from '../ButtonGroup'
@@ -123,7 +123,7 @@ withAnIconButton.story = {
 }
 
 export function withAProfilePhoto() {
-  return <Chip profileImageSrc={lunar}>User</Chip>
+  return <Chip profileImageSrc={ucDesignSystem}>User</Chip>
 }
 
 withAProfilePhoto.story = {
@@ -134,7 +134,7 @@ export function withBothAProfilePhotoAndAnIcon() {
   return (
     <Chip
       afterIcon={<IconSettings decorative size="2em" />}
-      profileImageSrc={lunar}
+      profileImageSrc={ucDesignSystem}
     >
       Settings
     </Chip>
@@ -153,7 +153,7 @@ export function disabledChips() {
       <Chip
         disabled
         afterIcon={<IconSettings decorative size="2em" />}
-        profileImageSrc={lunar}
+        profileImageSrc={ucDesignSystem}
       >
         User
       </Chip>
@@ -176,7 +176,7 @@ export function asButtons() {
 
       <Chip
         afterIcon={<IconSettings decorative size="2em" />}
-        profileImageSrc={lunar}
+        profileImageSrc={ucDesignSystem}
         onClick={() => console.log('onClick')}
       >
         User

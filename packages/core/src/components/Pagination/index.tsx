@@ -55,7 +55,7 @@ function Pagination({
   hasPrev,
   showBookends,
   startAlign,
-  pageLabel = T.phrase('lunar.common.page', 'Page'),
+  pageLabel = T.phrase('uc-design-system.common.page', 'Page'),
   onFirst,
   onLast,
   onNext,
@@ -82,7 +82,7 @@ function Pagination({
         left={IconChevronLeft}
         right={IconChevronRight}
         accessibilityLabel={T.phrase(
-          'lunar.pagination.loadPrevious',
+          'uc-design-system.pagination.loadPrevious',
           'Load previous page'
         )}
         size={4 * theme!.unit}
@@ -101,7 +101,7 @@ function Pagination({
         left={IconChevronLeft}
         right={IconChevronRight}
         accessibilityLabel={T.phrase(
-          'lunar.pagination.loadNext',
+          'uc-design-system.pagination.loadNext',
           'Load next page'
         )}
         size={4 * theme!.unit}
@@ -124,7 +124,7 @@ function Pagination({
           left={IconFirst}
           right={IconLast}
           accessibilityLabel={T.phrase(
-            'lunar.pagination.loadFirst',
+            'uc-design-system.pagination.loadFirst',
             'Load first page'
           )}
           size={4 * theme!.unit}
@@ -143,7 +143,7 @@ function Pagination({
           left={IconFirst}
           right={IconLast}
           accessibilityLabel={T.phrase(
-            'lunar.pagination.loadLast',
+            'uc-design-system.pagination.loadLast',
             'Load last page'
           )}
           size={4 * theme!.unit}
@@ -155,7 +155,7 @@ function Pagination({
   let paginationText =
     showBookends && pageCount ? (
       <T
-        k="lunar.pagination.pageCount"
+        k="uc-design-system.pagination.pageCount"
         phrase="%{pageNumber} of %{pageCount}"
         pageCount={pageCount}
         pageNumber={page}
@@ -168,7 +168,7 @@ function Pagination({
     paginationText =
       showBookends && pageCount ? (
         <T
-          k="lunar.pagination.pageCountLabeled"
+          k="uc-design-system.pagination.pageCountLabeled"
           phrase="%{pageLabel} %{pageNumber} of %{pageCount}"
           pageLabel={pageLabel}
           pageCount={pageCount}
@@ -176,7 +176,7 @@ function Pagination({
         />
       ) : (
         <T
-          k="lunar.pagination.pageNumberLabeled"
+          k="uc-design-system.pagination.pageNumberLabeled"
           phrase="%{pageLabel} %{pageNumber}"
           pageLabel={pageLabel}
           pageNumber={page}

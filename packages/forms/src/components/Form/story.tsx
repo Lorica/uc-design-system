@@ -54,7 +54,7 @@ const items = [
 ]
 
 const values = {
-  text: { base: 'Lunar' },
+  text: { base: 'uc-design-system' },
   multicomplete: ['red', 'green'],
 }
 
@@ -134,7 +134,7 @@ export function withAllFields() {
         unregisterOnUnmount
         label="Text"
         // Set as an initial value
-        // defaultValue="Lunar"
+        // defaultValue="UCDS"
         name="text[base]"
         validator={isRequired}
         onChange={() => console.log('onChange')}
@@ -146,7 +146,7 @@ export function withAllFields() {
         label="Email"
         name="text[email]"
         type="email"
-        defaultValue="lunar@domain.com"
+        defaultValue="uc-design-system@domain.com"
         validator={isEmail}
         onChange={() => console.log('onChange')}
       />

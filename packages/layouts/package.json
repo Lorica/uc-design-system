@@ -2,7 +2,7 @@
   "name": "@lorica/uc-design-system-layouts",
   "version": "3.0.2",
   "release": "1583350587083",
-  "description": "Pre-defined page layouts for Lunar.",
+  "description": "Pre-defined page layouts for UCDS.",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

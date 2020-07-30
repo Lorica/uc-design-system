@@ -58,16 +58,19 @@ export default function Input({
   const blocked = disabled || invalid || context.data.value.trim() === ''
   let placeholder =
     messagePlaceholder ??
-    T.phrase('lunar.composer.labels.sendMessage', 'Send message…')
+    T.phrase('uc-design-system.composer.labels.sendMessage', 'Send message…')
 
   if (context.mode === MODE_EMAIL) {
     placeholder =
       emailPlaceholder ??
-      T.phrase('lunar.composer.labels.sendEmail', 'Send email…')
+      T.phrase('uc-design-system.composer.labels.sendEmail', 'Send email…')
   } else if (context.mode === MODE_PRIVATE_NOTE) {
     placeholder =
       privateNotePlaceholder ??
-      T.phrase('lunar.composer.labels.privateToAirbnb', 'Private to Airbnb')
+      T.phrase(
+        'uc-design-system.composer.labels.privateToAirbnb',
+        'Private to Airbnb'
+      )
   }
 
   // Form handlers
@@ -138,13 +141,16 @@ export default function Input({
       {context.mode === MODE_EMAIL && (
         <>
           <InlineInput
-            label={T.phrase('lunar.composer.email.subjectLine', 'Re:')}
+            label={T.phrase(
+              'uc-design-system.composer.email.subjectLine',
+              'Re:'
+            )}
             name="emailSubject"
             value={context.data.emailSubject}
           />
 
           <InlineInput
-            label={T.phrase('lunar.composer.email.toLine', 'To:')}
+            label={T.phrase('uc-design-system.composer.email.toLine', 'To:')}
             name="emailTo"
             value={context.data.emailTo}
           />
@@ -189,7 +195,7 @@ export default function Input({
         <span className={cx(styles.submitButton)}>
           <IconButton
             accessibilityLabel={T.phrase(
-              'lunar.composer.labels.submitComposer',
+              'uc-design-system.composer.labels.submitComposer',
               'Submit composer'
             )}
             disabled={blocked}
@@ -206,8 +212,14 @@ export default function Input({
           name="submit"
           label={
             context.flags.previewConfirm
-              ? T.phrase('lunar.composer.hotkey.returnToPreview', 'to preview')
-              : T.phrase('lunar.composer.hotkey.returnToSend', 'to send')
+              ? T.phrase(
+                  'uc-design-system.composer.hotkey.returnToPreview',
+                  'to preview'
+                )
+              : T.phrase(
+                  'uc-design-system.composer.hotkey.returnToSend',
+                  'to send'
+                )
           }
           order={100}
           onRun={handleSubmit}
@@ -218,7 +230,10 @@ export default function Input({
           combo="esc"
           condition={activeWhenMenuOpen}
           name="closeMenu"
-          label={T.phrase('lunar.composer.hotkey.toDismiss', 'to dismiss')}
+          label={T.phrase(
+            'uc-design-system.composer.hotkey.toDismiss',
+            'to dismiss'
+          )}
           onRun={closeMenu}
         />
       </div>

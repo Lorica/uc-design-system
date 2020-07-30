@@ -1,4 +1,4 @@
-# Lunar Layouts
+# UCDS Layouts
 
 Provides pre-defined page layouts that support top and side navigation bars.
 
@@ -17,7 +17,6 @@ may then be rendered as children of the shell.
 ```jsx static
 import LayoutShell from '@lorica/uc-design-system-layouts'
 import ThreeColumnLayout from '@lorica/uc-design-system-layouts/lib/components/ThreeColumnLayout'
-
 ;<LayoutShell sideBar={<SideBar />}>
   <ThreeColumnLayout fluid before={<LeftColumn />} after={<RightColumn />}>
     <Content />

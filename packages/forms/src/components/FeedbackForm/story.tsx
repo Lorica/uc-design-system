@@ -1,12 +1,12 @@
-import React from 'react';
-import FeedbackForm from '.';
+import React from 'react'
+import FeedbackForm from '.'
 
 export default {
   title: 'Forms/FeedbackForm',
   parameters: {
     inspectComponents: [FeedbackForm],
   },
-};
+}
 
 export function basicForm() {
   return (
@@ -15,21 +15,21 @@ export function basicForm() {
         chat: 'Chat',
         phone: 'Phone',
       }}
-      channel="Lunar"
+      channel="UCDS"
       channelID={1}
       teamID={2}
       onSubmit={() => {
-        action('onSubmit')();
+        action('onSubmit')()
 
-        return Promise.resolve();
+        return Promise.resolve()
       }}
     />
-  );
+  )
 }
 
 basicForm.story = {
   name: 'Basic form.',
-};
+}
 
 export function withoutBugReporting() {
   return (
@@ -39,18 +39,18 @@ export function withoutBugReporting() {
         chat: 'Chat',
         phone: 'Phone',
       }}
-      channel="Lunar"
+      channel="UCDS"
       channelID={1}
       teamID={2}
       onSubmit={() => {
-        action('onSubmit')();
+        action('onSubmit')()
 
-        return Promise.resolve();
+        return Promise.resolve()
       }}
     />
-  );
+  )
 }
 
 withoutBugReporting.story = {
   name: 'Without bug reporting.',
-};
+}

@@ -83,9 +83,9 @@ export default function Tab({
 }: TabProps) {
   const [styles, cx] = useStyles(styleSheet)
 
-  const labelCollapse = T.phrase('lunar.common.collapse', 'Collapse')
+  const labelCollapse = T.phrase('uc-design-system.common.collapse', 'Collapse')
 
-  const labelExpand = T.phrase('lunar.common.expand', 'Expand')
+  const labelExpand = T.phrase('uc-design-system.common.expand', 'Expand')
 
   let direction: 'left' | 'right' = expanded ? 'left' : 'right'
   if (position === 'before') {

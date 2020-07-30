@@ -52,7 +52,7 @@ export default {
 
 export function supportsToasts() {
   return (
-    <AppShell name="Lunar">
+    <AppShell name="UCDS">
       <AppContext.Consumer>
         {({ addSuccessToast, addFailureToast }: Context) => (
           <div>
@@ -87,7 +87,7 @@ supportsToasts.story = {
 
 export function displaysAToastUsingAComponent() {
   return (
-    <AppShell name="Lunar">
+    <AppShell name="UCDS">
       <PopToast
         message="This message is displayed by rendering a component and not using context!"
         duration={0}
@@ -102,7 +102,7 @@ displaysAToastUsingAComponent.story = {
 
 export function displaysATrailOfBreadcrumbsUsingComponents() {
   return (
-    <AppShell name="Lunar">
+    <AppShell name="UCDS">
       <TrackBreadcrumb label="Countries" href="/countries" />
       <TrackBreadcrumb label="America" href="/countries/usa" />
       <TrackBreadcrumb label="California" href="/countries/usa/ca" />
@@ -117,7 +117,7 @@ displaysATrailOfBreadcrumbsUsingComponents.story = {
 
 export function supportsPageData() {
   return (
-    <AppShell name="Lunar">
+    <AppShell name="UCDS">
       <AppContext.Consumer>
         {({ addPageData, data }: Context) => (
           <div>

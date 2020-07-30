@@ -1,4 +1,4 @@
-# Lunar Composer
+# UCDS Composer
 
 A unified and featureful input field for composing messages.
 
@@ -41,7 +41,6 @@ import Composer, {
   Actions,
   ActionButton,
 } from '@lorica/uc-design-system-composer'
-
 ;<Composer
   afterButton={<ActionButton />}
   onChange={onChange}
@@ -75,7 +74,6 @@ import Composer, {
   Emojis,
   EmojiButton,
 } from '@lorica/uc-design-system-composer'
-
 ;<Composer
   afterButton={<EmojiButton />}
   onChange={onChange}
@@ -104,7 +102,6 @@ current document.
 
 ```tsx
 import Composer, { Hotkey } from '@lorica/uc-design-system-composer'
-
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Hotkey
     name="print"
@@ -142,7 +139,6 @@ submission. Perfect for double checking the message before submitting. To enable
 
 ```tsx
 import Composer, { Preview } from '@lorica/uc-design-system-composer'
-
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Preview />
 </Composer>
@@ -194,7 +190,6 @@ the composer, with an array of `shortcuts`.
 
 ```tsx
 import Composer, { Shortcuts } from '@lorica/uc-design-system-composer'
-
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Shortcuts
     shortcuts={[
@@ -237,7 +232,6 @@ To enable suggestions, render the `Suggestions` component within the composer, a
 
 ```tsx
 import Composer, { Suggestions } from '@lorica/uc-design-system-composer'
-
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Suggestions onLoad={loadSuggestionsFromEndpoint} />
 </Composer>

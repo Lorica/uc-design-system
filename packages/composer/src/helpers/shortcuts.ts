@@ -37,7 +37,7 @@ export function filterAndSortShortcuts(
       if (usedNames.has(config.name)) {
         throw new Error(
           T.phrase(
-            'lunar.composer.shortcuts.nameExists',
+            'uc-design-system.composer.shortcuts.nameExists',
             'Shortcut with name "%{name}" already exists.',
             { name: config.name }
           )
@@ -118,7 +118,7 @@ export function onSubmitExecuteShortcut(
   if (!shortcut) {
     throw new Error(
       T.phrase(
-        'lunar.composer.shortcuts.invalidName',
+        'uc-design-system.composer.shortcuts.invalidName',
         'Invalid shortcut "%{name}".',
         { name }
       )
@@ -130,7 +130,7 @@ export function onSubmitExecuteShortcut(
   if (params.length > args.length) {
     throw new Error(
       T.phrase(
-        'lunar.composer.shortcuts.tooManyArgs',
+        'uc-design-system.composer.shortcuts.tooManyArgs',
         'Too many shortcut arguments provided.'
       )
     )
@@ -147,7 +147,7 @@ export function onSubmitExecuteShortcut(
     ) {
       throw new Error(
         T.phrase(
-          'lunar.composer.shortcuts.argRequired',
+          'uc-design-system.composer.shortcuts.argRequired',
           'Shortcut argument "%{name}" is required.',
           { name: arg.name }
         )

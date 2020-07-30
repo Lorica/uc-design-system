@@ -1,4 +1,4 @@
-# Lunar Forms
+# UCDS Forms
 
 Provides a robust form management layer powered by
 [final-form](https://github.com/final-form/final-form).
@@ -17,7 +17,6 @@ instance, they are: `Autocomplete`, `CheckBox`, `CheckBoxController`, `DatePicke
 
 ```jsx static
 import Form, { Input, Select } from '@lorica/uc-design-system-forms'
-
 ;<Form onSubmit={this.handleSubmit}>
   <Input name="name" label="Name" />
 

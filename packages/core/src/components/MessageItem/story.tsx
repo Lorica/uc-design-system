@@ -1,7 +1,7 @@
 import React from 'react'
 import IconBolt from '@lorica/uc-design-system-icons/lib/general/IconBolt'
 import LoremIpsum from ':storybook/components/LoremIpsum'
-import lunar from ':storybook/images/lunar-logo.png'
+import ucDesignSystem from ':storybook/images/lunar-logo.png'
 import Text from '../Text'
 import Interweave from '../Interweave'
 import MessageItem from '.'
@@ -18,7 +18,7 @@ export function messageItem() {
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
@@ -38,7 +38,7 @@ export function withLoadingAuthor() {
       loadingAuthor
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
@@ -58,7 +58,7 @@ export function withSendingState() {
       sending
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
@@ -77,8 +77,8 @@ export function withABadge() {
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageBadgeSrc={lunar}
-      imageSrc={lunar}
+      imageBadgeSrc={ucDesignSystem}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
@@ -117,7 +117,7 @@ export function withProfilePhotoClick() {
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link - Click to open Nova profile"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       onClickImage={() => console.log('onClickImage')}
     >
@@ -137,7 +137,7 @@ export function withAClickableTitle() {
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleClickDescription="Real name: Link - Click to chat"
       onClickTitle={() => console.log('onClickTitle')}
@@ -159,7 +159,7 @@ export function withAnEmail() {
       email="noreply@airbnb.com"
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
@@ -178,7 +178,7 @@ export function withASource() {
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       source="web"
       title="Some custom title"
     >
@@ -198,7 +198,7 @@ export function withATitleTag() {
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -218,7 +218,7 @@ export function withInterweave() {
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -239,7 +239,7 @@ export function withVerticalSpacing() {
       verticalSpacing
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -260,7 +260,7 @@ export function withHorizontalSpacing() {
       horizontalSpacing
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -281,7 +281,7 @@ export function withImportant() {
       important
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -302,7 +302,7 @@ export function withWarning() {
       warning
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -324,7 +324,7 @@ export function withInfo() {
       email="noreply@airbnb.com"
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
@@ -344,7 +344,7 @@ export function withDisableTitleTranslation() {
       disableTitleTranslation
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
@@ -370,7 +370,7 @@ export function withAllOfTheThings() {
         email="noreply@airbnb.com"
         formattedTimestamp="Sep 20 10:23AM"
         imageDescription="Link"
-        imageSrc={lunar}
+        imageSrc={ucDesignSystem}
         source="email"
         titleTag="Specialist"
         title="Long title lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -388,7 +388,7 @@ export function withAllOfTheThings() {
         email="noreply@airbnb.com"
         formattedTimestamp="Sep 20 10:23AM"
         imageDescription="Link"
-        imageSrc={lunar}
+        imageSrc={ucDesignSystem}
         source="email"
         titleTag="Specialist"
         title="Long title lorem ipsum dolor sit amet, consectetur adipiscing elit"
