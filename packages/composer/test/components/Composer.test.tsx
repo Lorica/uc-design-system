@@ -2,15 +2,20 @@
 
 import React from 'react';
 import { render, renderAndWait, DomElement, mockFetch } from 'rut-dom';
-import Interweave from '@airbnb/lunar/lib/components/Interweave';
-import ErrorMenu from '@airbnb/lunar/lib/components/Proofreader/ErrorMenu';
-import Mark from '@airbnb/lunar/lib/components/Proofreader/Mark';
+import Interweave from '@lorica/uc-design-system/lib/components/Interweave';
+import ErrorMenu from '@lorica/uc-design-system/lib/components/Proofreader/ErrorMenu';
+import Mark from '@lorica/uc-design-system/lib/components/Proofreader/Mark';
 import Composer, { ComposerProps } from '../../src/components/Composer';
 import Hotkey from '../../src/components/Hotkey';
 import Shortcuts from '../../src/components/Shortcuts';
 import { Selection } from '../../src/components/SelectList';
-// @ts-ignore Our build deletes story.d.ts files
-import { actions, shortcuts, loadSuggestions, checkText } from '../../src/Composer.story';
+import {
+  actions,
+  shortcuts,
+  loadSuggestions,
+  checkText,
+  // @ts-ignore Our build deletes story.d.ts files
+} from '../../src/Composer.story';
 import Menu from '../../src/components/Menu';
 import Actions, { ActionButton } from '../../src/components/Actions';
 import Emojis, { EmojiButton } from '../../src/components/Emojis';
@@ -212,7 +217,12 @@ describe('<Composer />', () => {
 
     function mockRef(element: React.ReactElement) {
       if (element.type === 'mark') {
-        return { offsetTop: 5, offsetRight: 10, offsetLeft: 15, offsetHeight: 100 };
+        return {
+          offsetTop: 5,
+          offsetRight: 10,
+          offsetLeft: 15,
+          offsetHeight: 100,
+        };
       }
 
       return undefined;
@@ -410,7 +420,10 @@ describe('<Composer />', () => {
       }
 
       it('executes shortcut when input is submitted', () => {
-        const cuts = (shortcuts as ShortcutConfig[]).map((cut) => ({ ...cut, onRun: jest.fn() }));
+        const cuts = (shortcuts as ShortcutConfig[]).map((cut) => ({
+          ...cut,
+          onRun: jest.fn(),
+        }));
         const { root } = render<ComposerProps>(
           <Composer {...props}>
             <Shortcuts shortcuts={cuts} />
@@ -501,7 +514,9 @@ describe('<Composer />', () => {
       await textarea.dispatchAndWait('onChange', { target: { value } });
 
       // Change value again to trigger the shadow
-      await textarea.dispatchAndWait('onChange', { target: { value: `${value} ` } });
+      await textarea.dispatchAndWait('onChange', {
+        target: { value: `${value} ` },
+      });
 
       expect(root.findOne(Interweave)).toHaveProp('content', match);
       expect(textarea).toHaveValue(`${value} `);

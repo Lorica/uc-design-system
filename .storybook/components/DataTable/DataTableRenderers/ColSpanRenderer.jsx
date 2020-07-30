@@ -1,12 +1,12 @@
-import React from 'react';
-import Text from '@airbnb/lunar/src/components/Text';
-import Spacing from '@airbnb/lunar/src/components/Spacing';
-import { getRowColor } from '@airbnb/lunar/src/components/DataTable/helpers';
+import React from 'react'
+import Text from '@lorica/uc-design-system/src/components/Text'
+import Spacing from '@lorica/uc-design-system/src/components/Spacing'
+import { getRowColor } from '@lorica/uc-design-system/src/components/DataTable/helpers'
 
 export default function ColspanRenderer({ row, zebra, theme }) {
-  const { rowData, rowIndex } = row;
-  const { data, metadata } = rowData;
-  const color = getRowColor(rowData, rowIndex, zebra, theme);
+  const { rowData, rowIndex } = row
+  const { data, metadata } = rowData
+  const color = getRowColor(rowData, rowIndex, zebra, theme)
   const colSpanStyle = {
     width: '100%',
     background: color,
@@ -17,7 +17,7 @@ export default function ColspanRenderer({ row, zebra, theme }) {
     top: 0,
     alignItems: 'center',
     display: 'flex',
-  };
+  }
 
   return (
     metadata.colSpanKey && (
@@ -27,5 +27,5 @@ export default function ColspanRenderer({ row, zebra, theme }) {
         </Spacing>
       </div>
     )
-  );
+  )
 }

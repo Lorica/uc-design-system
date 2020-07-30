@@ -1,5 +1,5 @@
 {
-  "name": "@airbnb/lunar-composer",
+  "name": "@lorica/uc-design-system-composer",
   "version": "2.1.1",
   "release": "1583350587083",
   "description": "Unified composer for doing all the things.",
@@ -8,7 +8,7 @@
   "types": "./lib/index.d.ts",
   "module": "./esm/index.js",
   "sideEffects": false,
-  "repository": "https://github.com/airbnb/lunar/tree/master/packages/composer",
+  "repository": "https://github.com/lorica/uc-design-system/tree/master/packages/composer",
   "publishConfig": {
     "access": "public"
   },
@@ -18,14 +18,14 @@
     "build:esm": "BUILD=esm babel --root-mode upward --extensions .ts,.tsx ./src --out-dir ./esm"
   },
   "peerDependencies": {
-    "@airbnb/lunar": "^3.0.0",
+    "@lorica/uc-design-system": "^3.0.0",
     "react": "^16.9.0"
   },
   "devDependencies": {
     "react": "^16.13.0"
   },
   "dependencies": {
-    "@airbnb/lunar-icons": "^3.1.1",
+    "@lorica/uc-design-system-icons": "^3.1.1",
     "lodash": "^4.17.15",
     "uuid": "^7.0.3"
   }

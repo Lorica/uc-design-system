@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import copy from 'copy-to-clipboard';
-import IconCopy from '@airbnb/lunar-icons/lib/interface/IconCopy';
-import T from '../Translate';
-import Tooltip from '../Tooltip';
-import IconButton from '../IconButton';
+import React, { useState } from 'react'
+import copy from 'copy-to-clipboard'
+import IconCopy from '@lorica/uc-design-system-icons/lib/interface/IconCopy'
+import T from '../Translate'
+import Tooltip from '../Tooltip'
+import IconButton from '../IconButton'
 
 export type CopyProps = {
   /** Custom element to trigger the click. */
-  children?: React.ReactElement;
+  children?: React.ReactElement
   /** Pass an HTML element attribute id to the Link. */
-  id?: string;
+  id?: string
   /** Invert the colors of the tooltip. */
-  invertTooltip?: boolean;
+  invertTooltip?: boolean
   /** String of text to be copied to the clipboard. */
-  text: string;
+  text: string
   /** Callback fired when text is copied. */
-  onCopy?: (text: string, copied: boolean) => void;
+  onCopy?: (text: string, copied: boolean) => void
   /** Custom prompt message to display in the tooltip. */
-  prompt?: React.ReactNode;
+  prompt?: React.ReactNode
   /** A tracking name to identify this component. */
-  trackingName?: string;
+  trackingName?: string
   /** Add an underline to the element. */
-  underlined?: boolean;
-};
+  underlined?: boolean
+}
 
 export type CopyState = {
-  copied: boolean;
-};
+  copied: boolean
+}
 
 /** A component for easily copying a string of text to the clipboard. */
 export default function Copy({
@@ -39,30 +39,30 @@ export default function Copy({
   prompt,
   onCopy,
 }: CopyProps) {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false)
 
   const handleClick = (event: React.MouseEvent) => {
-    const result = copy(text);
+    const result = copy(text)
 
-    event.preventDefault();
-    setCopied(true);
+    event.preventDefault()
+    setCopied(true)
 
     if (onCopy) {
-      onCopy(text, result);
+      onCopy(text, result)
     }
-  };
+  }
 
   const handleMouseLeave = () => {
     window.setTimeout(() => {
-      setCopied(false);
-    }, 500);
-  };
+      setCopied(false)
+    }, 500)
+  }
 
   const element = children || (
     <IconButton active trackingName={trackingName} id={id}>
       <IconCopy decorative />
     </IconButton>
-  );
+  )
 
   return (
     <Tooltip
@@ -70,9 +70,14 @@ export default function Copy({
       inverted={invertTooltip}
       content={
         copied ? (
-          <T k="lunar.copy.copied" phrase="Copied!" />
+          <T k="uc-design-system.copy.copied" phrase="Copied!" />
         ) : (
-          prompt || <T k="lunar.copy.copyToClipboard" phrase="Copy to clipboard" />
+          prompt || (
+            <T
+              k="uc-design-system.copy.copyToClipboard"
+              phrase="Copy to clipboard"
+            />
+          )
         )
       }
       underlined={underlined}
@@ -82,5 +87,5 @@ export default function Copy({
         onMouseLeave: handleMouseLeave,
       })}
     </Tooltip>
-  );
+  )
 }

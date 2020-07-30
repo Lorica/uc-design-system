@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import useStyles, { StyleSheet } from '@airbnb/lunar/lib/hooks/useStyles';
-import Tab from './private/Tab';
+import React, { useState, useEffect } from 'react'
+import useStyles, {
+  StyleSheet,
+} from '@lorica/uc-design-system/lib/hooks/useStyles'
+import Tab from './private/Tab'
 
 export const styleSheetAside: StyleSheet = ({ ui, unit }) => ({
   aside: {
@@ -42,30 +44,30 @@ export const styleSheetAside: StyleSheet = ({ ui, unit }) => ({
     maxHeight: '100%',
     overflowY: 'auto',
   },
-});
+})
 
 export type AsideProps = {
   /** Column is rendered after content. Applies a left border. */
-  after?: boolean;
+  after?: boolean
   /** Column is rendered before content. Applies a right border. */
-  before?: boolean;
+  before?: boolean
   /** Whether the column is collapsible. Open by default, on the right. */
-  collapsible?: boolean;
+  collapsible?: boolean
   /** Content within the column. */
-  children: NonNullable<React.ReactNode>;
+  children: NonNullable<React.ReactNode>
   /** Externally control the expanded state. Typically not required. */
-  expanded?: boolean;
+  expanded?: boolean
   /** Remove padding from column. */
-  noPadding?: boolean;
+  noPadding?: boolean
   /** Convert column to a scrollable container. */
-  scrollable?: boolean;
+  scrollable?: boolean
   /** Width of the aside column. */
-  width?: number | string;
+  width?: number | string
   /** Callback when column is toggled. */
-  onCollapseToggle?: (expanded: boolean) => void;
+  onCollapseToggle?: (expanded: boolean) => void
   /** Custom style sheet. */
-  styleSheet?: StyleSheet;
-};
+  styleSheet?: StyleSheet
+}
 
 /** An aside column within a layout. */
 export default function Aside({
@@ -80,28 +82,30 @@ export default function Aside({
   onCollapseToggle,
   styleSheet,
 }: AsideProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetAside);
-  const [isExpanded, setExpanded] = useState(true);
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetAside)
+  const [isExpanded, setExpanded] = useState(true)
 
-  const handleCollapseToggle: React.DOMAttributes<HTMLButtonElement>['onClick'] = collapsible
+  const handleCollapseToggle: React.DOMAttributes<
+    HTMLButtonElement
+  >['onClick'] = collapsible
     ? () => {
-        setExpanded((prev) => !prev);
+        setExpanded((prev) => !prev)
 
         if (onCollapseToggle) {
-          onCollapseToggle(!isExpanded);
+          onCollapseToggle(!isExpanded)
         }
       }
-    : undefined;
+    : undefined
 
   useEffect(() => {
     if (expanded !== undefined) {
-      setExpanded(expanded);
+      setExpanded(expanded)
 
       if (onCollapseToggle) {
-        onCollapseToggle(expanded);
+        onCollapseToggle(expanded)
       }
     }
-  }, [expanded, onCollapseToggle]);
+  }, [expanded, onCollapseToggle])
 
   return (
     <aside
@@ -113,7 +117,7 @@ export default function Aside({
         scrollable && styles.aside_scrollable,
         {
           width: collapsible && !isExpanded ? 0 : width,
-        },
+        }
       )}
     >
       {collapsible && (
@@ -130,11 +134,11 @@ export default function Aside({
           styles.wrapper,
           noPadding && styles.wrapper_noPadding,
           collapsible && !isExpanded && styles.wrapper_collapsed,
-          scrollable && styles.wrapper_scrollable,
+          scrollable && styles.wrapper_scrollable
         )}
       >
         {children}
       </div>
     </aside>
-  );
+  )
 }

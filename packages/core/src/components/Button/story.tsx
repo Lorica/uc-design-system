@@ -1,14 +1,14 @@
-import React from 'react';
-import IconAddAlt from '@airbnb/lunar-icons/lib/interface/IconAddAlt';
-import Button from '.';
-import ButtonGroup from '../ButtonGroup';
+import React from 'react'
+import IconAddAlt from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt'
+import Button from '.'
+import ButtonGroup from '../ButtonGroup'
 
 export default {
   title: 'Core/Button',
   parameters: {
     inspectComponents: [Button],
   },
-};
+}
 
 export function standardButtonWithAnInvertedVariant() {
   return (
@@ -16,29 +16,33 @@ export function standardButtonWithAnInvertedVariant() {
       <Button>Button</Button>
       <Button inverted>Button</Button>
     </ButtonGroup>
-  );
+  )
 }
 
 standardButtonWithAnInvertedVariant.story = {
   name: 'Standard button with an inverted variant.',
-};
+}
 
 export function renderAnAnchorLinkWhenPassingHref() {
   return (
     <ButtonGroup>
-      <Button openInNewWindow href="https://github.com/airbnb/lunar">
+      <Button openInNewWindow href="https://github.com/lorica/uc-design-system">
         Link
       </Button>
-      <Button openInNewWindow inverted href="https://github.com/airbnb/lunar">
+      <Button
+        openInNewWindow
+        inverted
+        href="https://github.com/lorica/uc-design-system"
+      >
         Link
       </Button>
     </ButtonGroup>
-  );
+  )
 }
 
 renderAnAnchorLinkWhenPassingHref.story = {
   name: 'Render an anchor link when passing `href`.',
-};
+}
 
 export function withEventHandlers() {
   return (
@@ -49,12 +53,12 @@ export function withEventHandlers() {
     >
       Button
     </Button>
-  );
+  )
 }
 
 withEventHandlers.story = {
   name: 'With event handlers.',
-};
+}
 
 export function withDifferentSizingSmallRegularDefaultAndLarge() {
   return (
@@ -77,12 +81,12 @@ export function withDifferentSizingSmallRegularDefaultAndLarge() {
         </Button>
       </ButtonGroup>
     </>
-  );
+  )
 }
 
 withDifferentSizingSmallRegularDefaultAndLarge.story = {
   name: 'With different sizing: small, regular (default), and large.',
-};
+}
 
 export function withDifferentStatesDisabledAndLoading() {
   return (
@@ -103,12 +107,12 @@ export function withDifferentStatesDisabledAndLoading() {
         </Button>
       </ButtonGroup>
     </>
-  );
+  )
 }
 
 withDifferentStatesDisabledAndLoading.story = {
   name: 'With different states: disabled and loading.',
-};
+}
 
 export function withBeforeAndOrAfterIcons() {
   return (
@@ -116,12 +120,12 @@ export function withBeforeAndOrAfterIcons() {
       <Button beforeIcon={<IconAddAlt decorative />}>Before icon</Button>
       <Button afterIcon={<IconAddAlt decorative />}>After icon</Button>
     </ButtonGroup>
-  );
+  )
 }
 
 withBeforeAndOrAfterIcons.story = {
   name: 'With before and or after icons.',
-};
+}
 
 export function withBorderless() {
   return (
@@ -134,9 +138,9 @@ export function withBorderless() {
         Button
       </Button>
     </ButtonGroup>
-  );
+  )
 }
 
 withBorderless.story = {
   name: 'With borderless.',
-};
+}

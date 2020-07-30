@@ -1,13 +1,13 @@
 export default function getSourcePath(filePath) {
-  const basePath = `https://github.com/airbnb/lunar/blob/master/`;
+  const basePath = `https://github.com/lorica/uc-design-system/blob/master/`
 
   if (filePath.startsWith('./')) {
-    filePath = filePath.slice(2);
+    filePath = filePath.slice(2)
   }
 
   if (filePath.includes('#')) {
-    filePath = filePath.split('#')[0];
+    filePath = filePath.split('#')[0]
   }
 
-  return basePath + filePath + '#L1';
+  return basePath + filePath + '#L1'
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@airbnb/lunar-test-utils",
+  "name": "@lorica/uc-design-system-test-utils",
   "version": "3.0.2",
   "release": "1583350587083",
   "description": "Utilities for local testing.",
@@ -8,7 +8,7 @@
   "types": "./lib/index.d.ts",
   "module": "./esm/index.js",
   "sideEffects": false,
-  "repository": "https://github.com/airbnb/lunar/tree/master/packages/test-utils",
+  "repository": "https://github.com/lorica/uc-design-system/tree/master/packages/test-utils",
   "publishConfig": {
     "access": "public"
   },

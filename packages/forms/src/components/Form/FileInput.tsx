@@ -1,13 +1,17 @@
-import React from 'react';
-import FileInput, { FileInputProps } from '@airbnb/lunar/lib/components/FileInput';
-import useFormField, { FieldProps } from '../../hooks/useFormField';
+import React from 'react'
+import FileInput, {
+  FileInputProps,
+} from '@lorica/uc-design-system/lib/components/FileInput'
+import useFormField, { FieldProps } from '../../hooks/useFormField'
 
 /** `FileInput` automatically connected to the parent `Form`.  */
-export default function FormFileInput(props: FieldProps<File[], FileInputProps>) {
+export default function FormFileInput(
+  props: FieldProps<File[], FileInputProps>
+) {
   const fieldProps = useFormField(props, {
     initialValue: [],
     ignoreValue: true,
-  });
+  })
 
-  return <FileInput {...fieldProps} />;
+  return <FileInput {...fieldProps} />
 }

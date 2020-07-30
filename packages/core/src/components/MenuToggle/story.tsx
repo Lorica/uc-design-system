@@ -1,5 +1,5 @@
 import React from 'react';
-import IconMenuDots from '@airbnb/lunar-icons/lib/interface/IconMenuDots';
+import IconMenuDots from '@lorica/uc-design-system-icons/lib/interface/IconMenuDots';
 import MenuToggle, { Item } from '.';
 import Emoji from '../Emoji';
 

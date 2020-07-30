@@ -1,7 +1,7 @@
 import React from 'react';
-import IconChevronLeft from '@airbnb/lunar-icons/lib/interface/IconChevronLeft';
-import IconChevronRight from '@airbnb/lunar-icons/lib/interface/IconChevronRight';
-import IconCheckmark from '@airbnb/lunar-icons/lib/interface/IconCheck';
+import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft';
+import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight';
+import IconCheckmark from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
 import useStyles from '../../../hooks/useStyles';
 import useTheme from '../../../hooks/useTheme';
 import { ENTER, SPACE, ARROW_RIGHT, ARROW_LEFT } from '../../../keys';

@@ -1,123 +1,131 @@
-import React from 'react';
-import { shallowWithStyles } from '@airbnb/lunar-test-utils';
-import Toast, { Toast as BaseToast } from '../../src/components/Toast';
-import IconButton from '../../src/components/IconButton';
-import Button from '../../src/components/Button';
-import Text from '../../src/components/Text';
-import crosstab from '../../src/crosstab';
+import React from 'react'
+import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import Toast, { Toast as BaseToast } from '../../src/components/Toast'
+import IconButton from '../../src/components/IconButton'
+import Button from '../../src/components/Button'
+import Text from '../../src/components/Text'
+import crosstab from '../../src/crosstab'
 
 describe('<Toast />', () => {
   it('sets failed class', () => {
-    const wrapper = shallowWithStyles(<Toast danger id="1" message="Hi" />);
+    const wrapper = shallowWithStyles(<Toast danger id="1" message="Hi" />)
 
-    expect(wrapper.prop('className')).toMatch('container_danger');
-  });
+    expect(wrapper.prop('className')).toMatch('container_danger')
+  })
 
   it('sets failed class if an `Error`', () => {
-    const wrapper = shallowWithStyles(<Toast id="1" message={new Error('Hi')} />);
+    const wrapper = shallowWithStyles(
+      <Toast id="1" message={new Error('Hi')} />
+    )
 
-    expect(wrapper.prop('className')).toMatch('container_danger');
-  });
+    expect(wrapper.prop('className')).toMatch('container_danger')
+  })
 
   it('sets success class', () => {
-    const wrapper = shallowWithStyles(<Toast success id="1" message="Hi" />);
+    const wrapper = shallowWithStyles(<Toast success id="1" message="Hi" />)
 
-    expect(wrapper.prop('className')).toMatch('container_success');
-  });
+    expect(wrapper.prop('className')).toMatch('container_success')
+  })
 
   it('renders message', () => {
-    const wrapper = shallowWithStyles(<Toast id="1" message="Hi" />);
+    const wrapper = shallowWithStyles(<Toast id="1" message="Hi" />)
 
-    expect(wrapper.find(Text).prop('children')).toBe('Hi');
-  });
+    expect(wrapper.find(Text).prop('children')).toBe('Hi')
+  })
 
   it('renders error', () => {
-    const wrapper = shallowWithStyles(<Toast id="1" message={new Error('Error')} />);
+    const wrapper = shallowWithStyles(
+      <Toast id="1" message={new Error('Error')} />
+    )
 
-    expect(wrapper.prop('className')).toMatch('container_danger');
-  });
+    expect(wrapper.prop('className')).toMatch('container_danger')
+  })
 
   it('renders refresh', () => {
     const wrapper = shallowWithStyles(
-      <Toast refresh id="1" message="A new version is available" />,
-    );
+      <Toast refresh id="1" message="A new version is available" />
+    )
 
-    expect(wrapper.find(Button)).toHaveLength(1);
-  });
+    expect(wrapper.find(Button)).toHaveLength(1)
+  })
 
   it('shows the toast', () => {
-    const spy = jest.fn();
-    const wrapper = shallowWithStyles(<Toast id="1" message="Hi" onOpen={spy} />);
+    const spy = jest.fn()
+    const wrapper = shallowWithStyles(
+      <Toast id="1" message="Hi" onOpen={spy} />
+    )
 
-    expect(wrapper.state('visible')).toBe(false);
+    expect(wrapper.state('visible')).toBe(false)
 
-    (wrapper.instance() as BaseToast).showToast();
+    ;(wrapper.instance() as BaseToast).showToast()
 
-    expect(wrapper.state('visible')).toBe(true);
-    expect(spy).toHaveBeenCalled();
-  });
+    expect(wrapper.state('visible')).toBe(true)
+    expect(spy).toHaveBeenCalled()
+  })
 
   it('emits crosstab events when crostTabClose is set to true', () => {
     const wrapper = shallowWithStyles(
-      <Toast crosstabClose id="1" message="Hi" delay={25} duration={50} />,
-    );
-    const crosstabHandler = jest.fn();
+      <Toast crosstabClose id="1" message="Hi" delay={25} duration={50} />
+    )
+    const crosstabHandler = jest.fn()
 
-    wrapper.instance().componentDidMount!();
+    wrapper.instance().componentDidMount!()
 
-    crosstab.on('toast:crosstabClose:1', crosstabHandler);
+    crosstab.on('toast:crosstabClose:1', crosstabHandler)
 
-    wrapper.find(IconButton).simulate('click');
+    wrapper.find(IconButton).simulate('click')
 
-    expect(crosstabHandler).toHaveBeenCalledTimes(1);
-  });
+    expect(crosstabHandler).toHaveBeenCalledTimes(1)
+  })
 
   it('does not emit crosstab events when crostTabClose is set to false', () => {
-    const wrapper = shallowWithStyles(<Toast id="1" message="Hi" delay={25} duration={50} />);
-    const crosstabHandler = jest.fn();
+    const wrapper = shallowWithStyles(
+      <Toast id="1" message="Hi" delay={25} duration={50} />
+    )
+    const crosstabHandler = jest.fn()
 
-    wrapper.instance().componentDidMount!();
+    wrapper.instance().componentDidMount!()
 
-    crosstab.on('toast:crosstabClose:1', crosstabHandler);
+    crosstab.on('toast:crosstabClose:1', crosstabHandler)
 
-    wrapper.find(IconButton).simulate('click');
+    wrapper.find(IconButton).simulate('click')
 
-    expect(crosstabHandler).not.toHaveBeenCalled();
-  });
+    expect(crosstabHandler).not.toHaveBeenCalled()
+  })
 
   describe('timers', () => {
     beforeEach(() => {
-      jest.useFakeTimers();
-    });
+      jest.useFakeTimers()
+    })
 
     afterEach(() => {
-      jest.useRealTimers();
-    });
+      jest.useRealTimers()
+    })
 
     it('closes the toast', () => {
-      const spyClose = jest.fn();
-      const spyRemove = jest.fn();
+      const spyClose = jest.fn()
+      const spyRemove = jest.fn()
       const wrapper = shallowWithStyles(
-        <Toast id="123" message="Hi" onClose={spyClose} onRemove={spyRemove} />,
-      );
+        <Toast id="123" message="Hi" onClose={spyClose} onRemove={spyRemove} />
+      )
 
       wrapper.setState({
         visible: true,
-      });
+      })
 
-      wrapper.find(IconButton).simulate('click');
+      wrapper.find(IconButton).simulate('click')
 
-      jest.advanceTimersByTime(150);
+      jest.advanceTimersByTime(150)
 
-      expect(wrapper.state('visible')).toBe(false);
-      expect(spyClose).toHaveBeenCalled();
-      expect(spyRemove).toHaveBeenCalledWith('123');
-    });
+      expect(wrapper.state('visible')).toBe(false)
+      expect(spyClose).toHaveBeenCalled()
+      expect(spyRemove).toHaveBeenCalledWith('123')
+    })
 
     it('triggers `onOpen`, `onClose`, `onRemove` through the timer cycle', () => {
-      const open = jest.fn();
-      const close = jest.fn();
-      const remove = jest.fn();
+      const open = jest.fn()
+      const close = jest.fn()
+      const remove = jest.fn()
       const wrapper = shallowWithStyles(
         <Toast
           id="1"
@@ -127,50 +135,54 @@ describe('<Toast />', () => {
           onOpen={open}
           onClose={close}
           onRemove={remove}
-        />,
-      );
+        />
+      )
 
-      wrapper.instance().componentDidMount!();
+      wrapper.instance().componentDidMount!()
 
-      jest.advanceTimersByTime(25);
-      expect(open).toHaveBeenCalled();
+      jest.advanceTimersByTime(25)
+      expect(open).toHaveBeenCalled()
 
       // There's 150ms in the transition
-      jest.advanceTimersByTime(50 + 150);
-      expect(close).toHaveBeenCalled();
-      expect(remove).toHaveBeenCalled();
-    });
+      jest.advanceTimersByTime(50 + 150)
+      expect(close).toHaveBeenCalled()
+      expect(remove).toHaveBeenCalled()
+    })
 
     it('shows toast after delay', () => {
-      const wrapper = shallowWithStyles(<Toast id="1" message="Hi" delay={25} duration={0} />);
+      const wrapper = shallowWithStyles(
+        <Toast id="1" message="Hi" delay={25} duration={0} />
+      )
 
-      wrapper.instance().componentDidMount!();
+      wrapper.instance().componentDidMount!()
 
-      expect(wrapper.state('visible')).toBe(false);
+      expect(wrapper.state('visible')).toBe(false)
 
-      jest.advanceTimersByTime(30);
+      jest.advanceTimersByTime(30)
 
-      expect(wrapper.state('visible')).toBe(true);
-    });
+      expect(wrapper.state('visible')).toBe(true)
+    })
 
     it('hides toast after delay + duration', () => {
-      const wrapper = shallowWithStyles(<Toast id="1" message="Hi" delay={25} duration={50} />);
+      const wrapper = shallowWithStyles(
+        <Toast id="1" message="Hi" delay={25} duration={50} />
+      )
 
-      wrapper.instance().componentDidMount!();
+      wrapper.instance().componentDidMount!()
 
-      expect(wrapper.state('visible')).toBe(false);
+      expect(wrapper.state('visible')).toBe(false)
 
-      jest.advanceTimersByTime(25);
-      expect(wrapper.state('visible')).toBe(true);
+      jest.advanceTimersByTime(25)
+      expect(wrapper.state('visible')).toBe(true)
 
-      jest.advanceTimersByTime(150);
+      jest.advanceTimersByTime(150)
 
-      expect(wrapper.state('visible')).toBe(false);
-    });
+      expect(wrapper.state('visible')).toBe(false)
+    })
 
     it('closes toast when crosstab event is emitted', () => {
-      const onRemove = jest.fn();
-      const onClose = jest.fn();
+      const onRemove = jest.fn()
+      const onClose = jest.fn()
       const wrapper = shallowWithStyles(
         <Toast
           crosstabClose
@@ -179,35 +191,41 @@ describe('<Toast />', () => {
           delay={25}
           onClose={onClose}
           onRemove={onRemove}
-        />,
-      );
+        />
+      )
 
-      wrapper.instance().componentDidMount!();
-      jest.advanceTimersByTime(25);
+      wrapper.instance().componentDidMount!()
+      jest.advanceTimersByTime(25)
 
-      crosstab.emit('toast:crosstabClose:1');
-      jest.advanceTimersByTime(150);
+      crosstab.emit('toast:crosstabClose:1')
+      jest.advanceTimersByTime(150)
 
-      expect(wrapper.state('visible')).toBe(false);
-      expect(onClose).toHaveBeenCalled();
-      expect(onRemove).toHaveBeenCalled();
-    });
+      expect(wrapper.state('visible')).toBe(false)
+      expect(onClose).toHaveBeenCalled()
+      expect(onRemove).toHaveBeenCalled()
+    })
 
     it('does not close toast when crosstab event is emitted and crosstabClose is false', () => {
-      const onRemove = jest.fn();
-      const onClose = jest.fn();
+      const onRemove = jest.fn()
+      const onClose = jest.fn()
       const wrapper = shallowWithStyles(
-        <Toast id="1" message="Hi" delay={25} onClose={onClose} onRemove={onRemove} />,
-      );
+        <Toast
+          id="1"
+          message="Hi"
+          delay={25}
+          onClose={onClose}
+          onRemove={onRemove}
+        />
+      )
 
-      wrapper.instance().componentDidMount!();
+      wrapper.instance().componentDidMount!()
 
-      crosstab.emit('toast:crosstabClose:1');
-      jest.advanceTimersByTime(150);
+      crosstab.emit('toast:crosstabClose:1')
+      jest.advanceTimersByTime(150)
 
-      expect(wrapper.state('visible')).toBe(true);
-      expect(onClose).not.toHaveBeenCalled();
-      expect(onRemove).not.toHaveBeenCalled();
-    });
-  });
-});
+      expect(wrapper.state('visible')).toBe(true)
+      expect(onClose).not.toHaveBeenCalled()
+      expect(onRemove).not.toHaveBeenCalled()
+    })
+  })
+})

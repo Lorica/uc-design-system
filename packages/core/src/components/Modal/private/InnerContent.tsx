@@ -1,5 +1,5 @@
 import React from 'react';
-import IconClose from '@airbnb/lunar-icons/lib/interface/IconClose';
+import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose';
 import Row from '../../Row';
 import Text from '../../Text';
 import Title from '../../Title';
@@ -56,7 +56,7 @@ export default function ModalInnerContent({
   const closeButton = (
     <IconButton onClick={onClose}>
       <IconClose
-        accessibilityLabel={T.phrase('lunar.common.close', 'Close')}
+        accessibilityLabel={T.phrase('uc-design-system.common.close', 'Close')}
         color={theme.color.muted}
         size={theme.unit * 3}
       />

@@ -1,5 +1,5 @@
 import React from 'react';
-import IconAddAlt from '@airbnb/lunar-icons/lib/interface/IconAddAlt';
+import IconAddAlt from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt';
 import SecondaryLink from '.';
 
 export default {
@@ -10,7 +10,7 @@ export default {
 };
 
 export function aSecondaryLink() {
-  return <SecondaryLink href="https://github.com/airbnb/lunar">Link</SecondaryLink>;
+  return <SecondaryLink href="https://github.com/lorica/uc-design-system">Link</SecondaryLink>;
 }
 
 aSecondaryLink.story = {
@@ -28,11 +28,11 @@ aButtonLink.story = {
 export function withDifferentSizingSmallRegularDefaultAndLarge() {
   return (
     <>
-      <SecondaryLink small href="https://github.com/airbnb/lunar">
+      <SecondaryLink small href="https://github.com/lorica/uc-design-system">
         Link
       </SecondaryLink>{' '}
-      <SecondaryLink href="https://github.com/airbnb/lunar">Link</SecondaryLink>{' '}
-      <SecondaryLink large href="https://github.com/airbnb/lunar">
+      <SecondaryLink href="https://github.com/lorica/uc-design-system">Link</SecondaryLink>{' '}
+      <SecondaryLink large href="https://github.com/lorica/uc-design-system">
         Link
       </SecondaryLink>
     </>
@@ -46,13 +46,13 @@ withDifferentSizingSmallRegularDefaultAndLarge.story = {
 export function withDifferentStatesMutedDisabledAndInverted() {
   return (
     <>
-      <SecondaryLink muted href="https://github.com/airbnb/lunar">
+      <SecondaryLink muted href="https://github.com/lorica/uc-design-system">
         Link
       </SecondaryLink>{' '}
-      <SecondaryLink disabled href="https://github.com/airbnb/lunar">
+      <SecondaryLink disabled href="https://github.com/lorica/uc-design-system">
         Link
       </SecondaryLink>{' '}
-      <SecondaryLink inverted href="https://github.com/airbnb/lunar">
+      <SecondaryLink inverted href="https://github.com/lorica/uc-design-system">
         Link
       </SecondaryLink>
     </>
@@ -66,11 +66,17 @@ withDifferentStatesMutedDisabledAndInverted.story = {
 export function withBeforeAndOrAfterIcons() {
   return (
     <>
-      <SecondaryLink href="https://github.com/airbnb/lunar" beforeIcon={<IconAddAlt decorative />}>
+      <SecondaryLink
+        href="https://github.com/lorica/uc-design-system"
+        beforeIcon={<IconAddAlt decorative />}
+      >
         Link
       </SecondaryLink>
       <br />
-      <SecondaryLink href="https://github.com/airbnb/lunar" afterIcon={<IconAddAlt decorative />}>
+      <SecondaryLink
+        href="https://github.com/lorica/uc-design-system"
+        afterIcon={<IconAddAlt decorative />}
+      >
         Link
       </SecondaryLink>
     </>
@@ -85,7 +91,7 @@ export function stopClickAndDefaultEventsWhenDisabled() {
   return (
     <SecondaryLink
       disabled
-      href="https://github.com/airbnb/lunar"
+      href="https://github.com/lorica/uc-design-system"
       onClick={() => console.log('onClick')}
     >
       Link
@@ -99,7 +105,7 @@ stopClickAndDefaultEventsWhenDisabled.story = {
 
 export function boldText() {
   return (
-    <SecondaryLink bold href="https://github.com/airbnb/lunar">
+    <SecondaryLink bold href="https://github.com/lorica/uc-design-system">
       Link
     </SecondaryLink>
   );

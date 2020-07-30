@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import useStyles from '../../hooks/useStyles';
-import useTheme from '../../hooks/useTheme';
-import Text from '../Text';
-import Link from '../Link';
-import Loader from '../Loader';
-import T from '../Translate';
-import Dropdown from '../Dropdown';
-import LocaleMenu from './LocaleMenu';
-import { AUTO_DETECT_LOCALE, NO_LOCALE } from './constants';
-import { getLocaleDefinition, selectAppropriateLocale } from './helpers';
-import { ProofreadRuleMatch } from './types';
-import { controlBarStyleSheet } from './styles';
+import React, { useState } from 'react'
+import useStyles from '../../hooks/useStyles'
+import useTheme from '../../hooks/useTheme'
+import Text from '../Text'
+import Link from '../Link'
+import Loader from '../Loader'
+import T from '../Translate'
+import Dropdown from '../Dropdown'
+import LocaleMenu from './LocaleMenu'
+import { AUTO_DETECT_LOCALE, NO_LOCALE } from './constants'
+import { getLocaleDefinition, selectAppropriateLocale } from './helpers'
+import { ProofreadRuleMatch } from './types'
+import { controlBarStyleSheet } from './styles'
 
 export type ControlBarProps = {
-  autoDetect?: boolean;
-  errors: ProofreadRuleMatch[];
-  loading?: boolean;
-  locale?: string;
-  localeMenuMaxHeight?: number;
-  top?: string;
-  onSelectLocale: (locale: string) => void;
-};
+  autoDetect?: boolean
+  errors: ProofreadRuleMatch[]
+  loading?: boolean
+  locale?: string
+  localeMenuMaxHeight?: number
+  top?: string
+  onSelectLocale: (locale: string) => void
+}
 
 export default function ControlBar({
   autoDetect,
@@ -31,10 +31,10 @@ export default function ControlBar({
   top = '80%',
   onSelectLocale,
 }: ControlBarProps) {
-  const theme = useTheme();
-  const [styles, cx] = useStyles(controlBarStyleSheet);
-  const [showLocaleMenu, setLocaleMenu] = useState(false);
-  const { selectedLocale, unsupportedLocale } = selectAppropriateLocale(locale);
+  const theme = useTheme()
+  const [styles, cx] = useStyles(controlBarStyleSheet)
+  const [showLocaleMenu, setLocaleMenu] = useState(false)
+  const { selectedLocale, unsupportedLocale } = selectAppropriateLocale(locale)
 
   return (
     <div>
@@ -45,7 +45,7 @@ export default function ControlBar({
             getLocaleDefinition(selectedLocale).label
           ) : (
             <T
-              k="lunar.proofreader.unsupportedLanguage"
+              k="uc-design-system.proofreader.unsupportedLanguage"
               phrase="Unsupported language %{locale}"
               locale={unsupportedLocale ?? 'unknown'}
             />
@@ -58,16 +58,20 @@ export default function ControlBar({
             top={top}
             left={theme.unit * 2}
             zIndex={5}
-            onClickOutside={/* istanbul ignore next */ () => setLocaleMenu(false)}
+            onClickOutside={
+              /* istanbul ignore next */ () => setLocaleMenu(false)
+            }
           >
             <LocaleMenu
-              autoDefinition={autoDetect ? getLocaleDefinition(AUTO_DETECT_LOCALE) : undefined}
+              autoDefinition={
+                autoDetect ? getLocaleDefinition(AUTO_DETECT_LOCALE) : undefined
+              }
               maxHeight={localeMenuMaxHeight}
               noneDefinition={getLocaleDefinition(NO_LOCALE)}
               selectedLocale={selectedLocale}
               onSelectLocale={(nextLocale) => {
-                onSelectLocale(nextLocale);
-                setLocaleMenu(false);
+                onSelectLocale(nextLocale)
+                setLocaleMenu(false)
               }}
             />
           </Dropdown>
@@ -78,7 +82,7 @@ export default function ControlBar({
         <span className={cx(styles.cell)}>
           <Text small muted>
             <T
-              k="lunar.proofreader.totalIssues"
+              k="uc-design-system.proofreader.totalIssues"
               phrase="%{smartCount} issue||||%{smartCount} issues"
               smartCount={errors.length}
             />
@@ -92,5 +96,5 @@ export default function ControlBar({
         </span>
       )}
     </div>
-  );
+  )
 }

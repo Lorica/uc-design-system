@@ -1,48 +1,48 @@
 /* eslint-disable prefer-destructuring */
-import React from 'react';
-import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types';
-import IconFlag from '@airbnb/lunar-icons/lib/interface/IconFlag';
-import IconCheckAlt from '@airbnb/lunar-icons/lib/interface/IconCheckAlt';
-import IconClose from '@airbnb/lunar-icons/lib/interface/IconClose';
-import IconError from '@airbnb/lunar-icons/lib/interface/IconError';
-import IconInfo from '@airbnb/lunar-icons/lib/interface/IconInfo';
-import IconWarning from '@airbnb/lunar-icons/lib/interface/IconWarning';
-import useStyles, { StyleSheet } from '../../hooks/useStyles';
-import useTheme from '../../hooks/useTheme';
-import Row from '../Row';
-import Spacing from '../Spacing';
-import Text from '../Text';
-import T from '../Translate';
-import IconButton from '../IconButton';
-import { STATUSES } from '../../constants';
-import { styleSheetAlert } from './styles';
+import React from 'react'
+import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types'
+import IconFlag from '@lorica/uc-design-system-icons/lib/interface/IconFlag'
+import IconCheckAlt from '@lorica/uc-design-system-icons/lib/interface/IconCheckAlt'
+import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose'
+import IconError from '@lorica/uc-design-system-icons/lib/interface/IconError'
+import IconInfo from '@lorica/uc-design-system-icons/lib/interface/IconInfo'
+import IconWarning from '@lorica/uc-design-system-icons/lib/interface/IconWarning'
+import useStyles, { StyleSheet } from '../../hooks/useStyles'
+import useTheme from '../../hooks/useTheme'
+import Row from '../Row'
+import Spacing from '../Spacing'
+import Text from '../Text'
+import T from '../Translate'
+import IconButton from '../IconButton'
+import { STATUSES } from '../../constants'
+import { styleSheetAlert } from './styles'
 
-const alertColorTypePropType = mutuallyExclusiveTrueProps(...STATUSES);
+const alertColorTypePropType = mutuallyExclusiveTrueProps(...STATUSES)
 
 export type AlertProps = {
   /** Content within the label. */
-  children?: React.ReactNode;
+  children?: React.ReactNode
   /** Dangerous/failure status (red). */
-  danger?: boolean;
+  danger?: boolean
   /** Whether to hide the corresponding status icon. */
-  hideStatusIcon?: boolean;
+  hideStatusIcon?: boolean
   /** Informational status (blue). */
-  info?: boolean;
+  info?: boolean
   /** Display the alert as inline. */
-  inline?: boolean;
+  inline?: boolean
   /** Notice status. */
-  notice?: boolean;
+  notice?: boolean
   /** Successful status (green). */
-  success?: boolean;
+  success?: boolean
   /** The title of the alert, bold text at the top of the box. */
-  title: NonNullable<React.ReactNode>;
+  title: NonNullable<React.ReactNode>
   /** Warning status (yellow). */
-  warning?: boolean;
+  warning?: boolean
   /** Callback fired when the alert is closed. */
-  onClose?: () => void;
+  onClose?: () => void
   /** Custom style sheet. */
-  styleSheet?: StyleSheet;
-};
+  styleSheet?: StyleSheet
+}
 
 /** Classify content through the use of colorful alerts. */
 function Alert({
@@ -58,27 +58,27 @@ function Alert({
   onClose,
   styleSheet,
 }: AlertProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetAlert);
-  const { color, unit } = useTheme();
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetAlert)
+  const { color, unit } = useTheme()
 
-  let StatusIcon = null;
-  let iconColor = color.accent.text;
+  let StatusIcon = null
+  let iconColor = color.accent.text
 
   if (danger) {
-    StatusIcon = IconError;
-    iconColor = color.core.danger[3];
+    StatusIcon = IconError
+    iconColor = color.core.danger[3]
   } else if (info) {
-    StatusIcon = IconInfo;
-    iconColor = color.core.primary[3];
+    StatusIcon = IconInfo
+    iconColor = color.core.primary[3]
   } else if (notice) {
-    StatusIcon = IconFlag;
-    iconColor = color.core.secondary[3];
+    StatusIcon = IconFlag
+    iconColor = color.core.secondary[3]
   } else if (success) {
-    StatusIcon = IconCheckAlt;
-    iconColor = color.core.success[3];
+    StatusIcon = IconCheckAlt
+    iconColor = color.core.success[3]
   } else if (warning) {
-    StatusIcon = IconWarning;
-    iconColor = color.core.warning[3];
+    StatusIcon = IconWarning
+    iconColor = color.core.warning[3]
   }
 
   return (
@@ -91,7 +91,7 @@ function Alert({
         info && styles.alert_info,
         notice && styles.alert_notice,
         success && styles.alert_success,
-        warning && styles.alert_warning,
+        warning && styles.alert_warning
       )}
     >
       <Row
@@ -100,7 +100,10 @@ function Alert({
           onClose && (
             <IconButton onClick={onClose}>
               <IconClose
-                accessibilityLabel={T.phrase('lunar.common.close', 'Close')}
+                accessibilityLabel={T.phrase(
+                  'uc-design-system.common.close',
+                  'Close'
+                )}
                 size={unit * 3}
               />
             </IconButton>
@@ -108,7 +111,9 @@ function Alert({
         }
         before={
           !hideStatusIcon &&
-          StatusIcon && <StatusIcon decorative color={iconColor} size={unit * 3} />
+          StatusIcon && (
+            <StatusIcon decorative color={iconColor} size={unit * 3} />
+          )
         }
       >
         <Text bold>{title}</Text>
@@ -120,7 +125,7 @@ function Alert({
         )}
       </Row>
     </div>
-  );
+  )
 }
 
 Alert.propTypes = {
@@ -129,6 +134,6 @@ Alert.propTypes = {
   notice: alertColorTypePropType,
   success: alertColorTypePropType,
   warning: alertColorTypePropType,
-};
+}
 
-export default Alert;
+export default Alert

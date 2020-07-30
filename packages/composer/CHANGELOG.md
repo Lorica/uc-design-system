@@ -7,13 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 #### 📦 Dependencies
 
-- **[aesthetic]** Update to latest (for performance gains). ([b3a42d0](https://github.com/airbnb/lunar/commit/b3a42d0))
+- **[aesthetic]** Update to latest (for performance gains). ([b3a42d0](https://github.com/lorica/uc-design-system/commit/b3a42d0))
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ## 2.1.0 - 2020-03-30
 
@@ -23,25 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 2.0.4 - 2020-03-27
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 2.0.3 - 2020-03-27
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 2.0.2 - 2020-03-25
 
@@ -51,10 +35,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 2.0.1 - 2020-03-19
 
 #### 🐞 Fixes
@@ -62,10 +42,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Minor changes to support SSR. (#341) ([7810102](https://github.com/airbnb/lunar/commit/7810102)), closes [#341](https://github.com/airbnb/lunar/issues/341)
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 # 2.0.0 - 2020-03-04
 
@@ -94,49 +70,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.3.6 - 2020-03-03
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.3.5 - 2020-02-27
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.3.4 - 2020-02-21
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.3.3 - 2020-02-14
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.3.2 - 2020-02-14
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.3.1 - 2020-02-13
 
@@ -146,10 +98,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ## 1.3.0 - 2020-02-12
 
 #### 🚀 Updates
@@ -158,17 +106,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.2.7 - 2020-02-07
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.2.6 - 2020-02-06
 
@@ -178,25 +118,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.2.5 - 2020-02-06
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.2.4 - 2020-02-04
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.2.3 - 2020-02-03
 
@@ -206,17 +134,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.2.2 - 2020-01-31
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.2.1 - 2020-01-30
 
@@ -226,10 +146,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ## 1.2.0 - 2020-01-29
 
 #### 🚀 Updates
@@ -237,10 +153,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[Proofreader]** Standardize code between packages. (#286) ([4c99bb0](https://github.com/airbnb/lunar/commit/4c99bb0)), closes [#286](https://github.com/airbnb/lunar/issues/286)
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ## 1.1.0 - 2020-01-29
 
@@ -250,10 +162,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.0.6 - 2020-01-28
 
 #### 📦 Dependencies
@@ -262,41 +170,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.0.5 - 2020-01-27
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.0.4 - 2020-01-23
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.0.3 - 2020-01-22
 
 **Note:** Version bump only for package @airbnb/lunar-composer
 
-
-
-
-
 ### 1.0.2 - 2020-01-21
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 ### 1.0.1 - 2020-01-21
 
@@ -305,10 +193,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Bold, bold, bolder! (#283) ([13f0ecd](https://github.com/airbnb/lunar/commit/13f0ecd)), closes [#283](https://github.com/airbnb/lunar/issues/283)
 
 **Note:** Version bump only for package @airbnb/lunar-composer
-
-
-
-
 
 # 1.0.0 - 2020-01-15
 

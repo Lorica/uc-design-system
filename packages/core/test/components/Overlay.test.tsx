@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme from 'enzyme';
-import { mountWithStyles, shallowWithStyles } from '@airbnb/lunar-test-utils';
+import { mountWithStyles, shallowWithStyles } from '@lorica/uc-design-system-test-utils';
 import Overlay, { OverlayProps, OverlayState } from '../../src/components/Overlay';
 import Portal, {
   Portal as BasePortal,

@@ -1,12 +1,12 @@
-import React from 'react';
-import { mountUseStyles } from '@airbnb/lunar-test-utils';
-import MutedButton from '../../src/components/MutedButton';
-import ButtonOrLink from '../../src/components/private/ButtonOrLink';
+import React from 'react'
+import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import MutedButton from '../../src/components/MutedButton'
+import ButtonOrLink from '../../src/components/private/ButtonOrLink'
 
 describe('<MutedButton />', () => {
   it('renders a secondary button', () => {
-    const wrapper = mountUseStyles(<MutedButton>Button</MutedButton>);
+    const wrapper = mountUseStyles(<MutedButton>Button</MutedButton>)
 
-    expect(wrapper.find(ButtonOrLink)).toHaveLength(1);
-  });
-});
+    expect(wrapper.find(ButtonOrLink)).toHaveLength(1)
+  })
+})

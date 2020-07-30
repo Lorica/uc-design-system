@@ -1,14 +1,14 @@
-import React from 'react';
-import { mountUseStyles } from '@airbnb/lunar-test-utils';
-import ImageViewer from '../../../src/components/ImageViewer';
-import ResponsiveImage from '../../../src/components/ResponsiveImage';
+import React from 'react'
+import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import ImageViewer from '../../../src/components/ImageViewer'
+import ResponsiveImage from '../../../src/components/ResponsiveImage'
 
 describe('<ImageViewer />', () => {
   // const spy = jest.fn();
   const props = {
     alt: 'alt',
     src: 'img.jpg',
-  };
+  }
   // const mouseEvent = {
   //   pageX: 10,
   //   pageY: 10,
@@ -16,27 +16,29 @@ describe('<ImageViewer />', () => {
   // };
 
   it('renders an img', () => {
-    const wrapper = mountUseStyles(<ImageViewer {...props} />);
+    const wrapper = mountUseStyles(<ImageViewer {...props} />)
 
-    expect(wrapper.find(ResponsiveImage)).toHaveLength(1);
-  });
+    expect(wrapper.find(ResponsiveImage)).toHaveLength(1)
+  })
 
   it('renders borderless', () => {
-    const wrapper = mountUseStyles(<ImageViewer borderless {...props} />);
+    const wrapper = mountUseStyles(<ImageViewer borderless {...props} />)
 
-    expect(wrapper.find('div').at(0).prop('className')).toMatch('container_borderless');
-  });
+    expect(wrapper.find('div').at(0).prop('className')).toMatch(
+      'container_borderless'
+    )
+  })
 
   describe('componentWillUnmount()', () => {
     it('removes event listener for mousemove on umount', () => {
-      const eventSpy = jest.spyOn(document, 'removeEventListener');
-      const wrapper = mountUseStyles(<ImageViewer {...props} />);
+      const eventSpy = jest.spyOn(document, 'removeEventListener')
+      const wrapper = mountUseStyles(<ImageViewer {...props} />)
 
-      wrapper.unmount();
+      wrapper.unmount()
 
-      expect(eventSpy).toHaveBeenCalled();
-    });
-  });
+      expect(eventSpy).toHaveBeenCalled()
+    })
+  })
 
   // describe('handleMouseDown()', () => {
   //   it('sets the dragging and lastMouseLocation state', () => {
@@ -91,4 +93,4 @@ describe('<ImageViewer />', () => {
   //     expect(wrapper.state('imageLocation')).toMatchObject({ x: 10, y: 10 });
   //   });
   // });
-});
+})

@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/airbnb/lunar/master/.storybook/images/lunar-logo-small.png" />
+<img src="https://raw.githubusercontent.com/lorica/uc-design-system/master/.storybook/images/lunar-logo-small.png" />
 
 # UserCentric Design System
 

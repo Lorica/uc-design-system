@@ -1,5 +1,5 @@
 import React from 'react';
-import IconCaretDown from '@airbnb/lunar-icons/lib/interface/IconCaretDown';
+import IconCaretDown from '@lorica/uc-design-system-icons/lib/interface/IconCaretDown';
 import useStyles, { StyleSheet } from '../../hooks/useStyles';
 import FormInput, { SelectProps } from './FormInput';
 

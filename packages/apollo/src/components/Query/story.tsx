@@ -1,9 +1,9 @@
-import React from 'react';
-import Shimmer from '@airbnb/lunar/lib/components/Shimmer';
-import ErrorMessage from '@airbnb/lunar/lib/components/ErrorMessage';
-import { MockedProvider } from '@apollo/react-testing';
-import gql from 'graphql-tag';
-import Query from '.';
+import React from 'react'
+import Shimmer from '@lorica/uc-design-system/lib/components/Shimmer'
+import ErrorMessage from '@lorica/uc-design-system/lib/components/ErrorMessage'
+import { MockedProvider } from '@apollo/react-testing'
+import gql from 'graphql-tag'
+import Query from '.'
 
 const QUERY = gql`
   query getUserByID($id: ID!) {
@@ -12,12 +12,12 @@ const QUERY = gql`
       name
     }
   }
-`;
+`
 
 type User = {
-  id: number;
-  name: string;
-};
+  id: number
+  name: string
+}
 
 const mock = {
   request: {
@@ -34,12 +34,12 @@ const mock = {
       },
     },
   },
-};
+}
 
 const loadingMock = {
   ...mock,
   delay: 100000,
-};
+}
 
 const errorMock = {
   request: {
@@ -47,14 +47,14 @@ const errorMock = {
     variables: {},
   },
   error: new Error('404: GraphQL request has failed!'),
-};
+}
 
 export default {
   title: 'Apollo/Query',
   parameters: {
     inspectComponents: [Query],
   },
-};
+}
 
 export function executeAGraphQlQueryAndRenderTheResponseWhenReceived() {
   return (
@@ -63,12 +63,12 @@ export function executeAGraphQlQueryAndRenderTheResponseWhenReceived() {
         {(data) => data && <div>Loaded user: {data.user.name}</div>}
       </Query>
     </MockedProvider>
-  );
+  )
 }
 
 executeAGraphQlQueryAndRenderTheResponseWhenReceived.story = {
   name: 'Execute a GraphQL query and render the response when received.',
-};
+}
 
 export function customLoadingComponent() {
   return (
@@ -77,12 +77,12 @@ export function customLoadingComponent() {
         {() => null}
       </Query>
     </MockedProvider>
-  );
+  )
 }
 
 customLoadingComponent.story = {
   name: 'Custom loading component.',
-};
+}
 
 export function customErrorComponent() {
   return (
@@ -91,9 +91,9 @@ export function customErrorComponent() {
         {() => null}
       </Query>
     </MockedProvider>
-  );
+  )
 }
 
 customErrorComponent.story = {
   name: 'Custom error component.',
-};
+}

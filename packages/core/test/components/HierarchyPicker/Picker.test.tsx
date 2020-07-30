@@ -1,15 +1,18 @@
-import React from 'react';
-import Enzyme from 'enzyme';
-import { mountWithStyles, shallowWithStyles } from '@airbnb/lunar-test-utils';
+import React from 'react'
+import Enzyme from 'enzyme'
+import {
+  mountWithStyles,
+  shallowWithStyles,
+} from '@lorica/uc-design-system-test-utils'
 import Picker, {
   Picker as BasePicker,
   PickerProps,
   PickerState,
-} from '../../../src/components/HierarchyPicker/Picker';
-import Search from '../../../src/components/HierarchyPicker/Search';
-import Hierarchy from '../../../src/components/HierarchyPicker/Hierarchy';
-import { ARROW_DOWN, ARROW_UP } from '../../../src/keys';
-import testItems from './mockItems';
+} from '../../../src/components/HierarchyPicker/Picker'
+import Search from '../../../src/components/HierarchyPicker/Search'
+import Hierarchy from '../../../src/components/HierarchyPicker/Hierarchy'
+import { ARROW_DOWN, ARROW_UP } from '../../../src/keys'
+import testItems from './mockItems'
 
 const props = {
   onClose: jest.fn(),
@@ -21,139 +24,147 @@ const props = {
   noResultsLabel: 'nope',
   items: testItems,
   formatter: (chosen: string[]) => chosen.join(' > '),
-};
+}
 
 describe('<Picker />', () => {
   it('renders a Search', () => {
-    const wrapper = shallowWithStyles(<Picker {...props} />);
-    expect(wrapper.find(Search)).toHaveLength(1);
-  });
+    const wrapper = shallowWithStyles(<Picker {...props} />)
+    expect(wrapper.find(Search)).toHaveLength(1)
+  })
 
   it('renders a Hierarchy when Search is empty', () => {
-    const wrapper = shallowWithStyles(<Picker {...props} />);
-    expect(wrapper.find(Hierarchy)).toHaveLength(1);
-    wrapper.setState({ searchQuery: 'search ' });
-    expect(wrapper.find(Hierarchy)).toHaveLength(0);
-  });
+    const wrapper = shallowWithStyles(<Picker {...props} />)
+    expect(wrapper.find(Hierarchy)).toHaveLength(1)
+    wrapper.setState({ searchQuery: 'search ' })
+    expect(wrapper.find(Hierarchy)).toHaveLength(0)
+  })
 
   describe('handles scroll and focus', () => {
-    const oldScrollTo = window.scrollTo;
-    const oldFocus = HTMLDivElement.prototype.focus;
-    const oldGetFocusables = BasePicker.prototype.getFocusables;
+    const oldScrollTo = window.scrollTo
+    const oldFocus = HTMLDivElement.prototype.focus
+    const oldGetFocusables = BasePicker.prototype.getFocusables
 
     beforeEach(() => {
-      jest.spyOn(window, 'scrollTo').mockImplementation();
-    });
+      jest.spyOn(window, 'scrollTo').mockImplementation()
+    })
 
     afterEach(() => {
-      window.scrollTo = oldScrollTo;
-      HTMLDivElement.prototype.focus = oldFocus;
-      BasePicker.prototype.getFocusables = oldGetFocusables;
-    });
+      window.scrollTo = oldScrollTo
+      HTMLDivElement.prototype.focus = oldFocus
+      BasePicker.prototype.getFocusables = oldGetFocusables
+    })
 
     it('calls scrollTo on mount', () => {
-      mountWithStyles(<Picker {...props} />);
-      expect(window.scrollTo).toHaveBeenCalled();
-    });
+      mountWithStyles(<Picker {...props} />)
+      expect(window.scrollTo).toHaveBeenCalled()
+    })
 
     describe('focusables', () => {
       it('has getFocusables() fn', () => {
-        const instance = shallowWithStyles(<Picker {...props} />).instance();
-        expect(() => (instance as BasePicker).getFocusables()).not.toThrow();
-      });
+        const instance = shallowWithStyles(<Picker {...props} />).instance()
+        expect(() => (instance as BasePicker).getFocusables()).not.toThrow()
+      })
 
       it('focusNext() invokes .focus() on focusables', () => {
-        jest.spyOn(HTMLDivElement.prototype, 'focus').mockImplementation();
-        const mockElement = document.createElement('div');
-        const mockFocusables = [mockElement];
+        jest.spyOn(HTMLDivElement.prototype, 'focus').mockImplementation()
+        const mockElement = document.createElement('div')
+        const mockFocusables = [mockElement]
 
-        mockFocusables.findIndex = () => 0;
-        const mockGetFocusables = jest.fn(() => mockFocusables);
-        BasePicker.prototype.getFocusables = mockGetFocusables;
+        mockFocusables.findIndex = () => 0
+        const mockGetFocusables = jest.fn(() => mockFocusables)
+        BasePicker.prototype.getFocusables = mockGetFocusables
 
-        const instance = shallowWithStyles(<Picker {...props} />).instance();
+        const instance = shallowWithStyles(<Picker {...props} />).instance()
 
         // @ts-ignore private invocation
-        instance.focusNext();
+        instance.focusNext()
         // @ts-ignore private invocation
-        instance.focusNext(true);
+        instance.focusNext(true)
 
         // these are also called at mount
-        expect(mockGetFocusables).toHaveBeenCalledTimes(3);
-        expect(HTMLDivElement.prototype.focus).toHaveBeenCalledTimes(3);
-      });
-    });
-  });
+        expect(mockGetFocusables).toHaveBeenCalledTimes(3)
+        expect(HTMLDivElement.prototype.focus).toHaveBeenCalledTimes(3)
+      })
+    })
+  })
 
   describe('has a focusNext function', () => {
-    let wrapper: Enzyme.ShallowWrapper<PickerProps, PickerState>;
-    let instance: BasePicker;
+    let wrapper: Enzyme.ShallowWrapper<PickerProps, PickerState>
+    let instance: BasePicker
 
     beforeEach(() => {
-      wrapper = shallowWithStyles(<Picker {...props} />);
-      instance = wrapper.instance() as BasePicker;
-    });
+      wrapper = shallowWithStyles(<Picker {...props} />)
+      instance = wrapper.instance() as BasePicker
+    })
 
     it('will focus forward', () => {
-      expect(() => instance.focusNext()).not.toThrow();
-    });
+      expect(() => instance.focusNext()).not.toThrow()
+    })
 
     it('will focus backwards', () => {
-      expect(() => instance.focusNext(false)).not.toThrow();
-    });
-  });
+      expect(() => instance.focusNext(false)).not.toThrow()
+    })
+  })
 
   describe('handler functions', () => {
-    let myProps: PickerProps;
-    let wrapper: Enzyme.ShallowWrapper<PickerProps, PickerState>;
+    let myProps: PickerProps
+    let wrapper: Enzyme.ShallowWrapper<PickerProps, PickerState>
 
     beforeEach(() => {
-      myProps = { ...props, onItemPicked: jest.fn(), onClose: jest.fn() };
-      wrapper = shallowWithStyles(<Picker {...myProps} />);
-    });
+      myProps = { ...props, onItemPicked: jest.fn(), onClose: jest.fn() }
+      wrapper = shallowWithStyles(<Picker {...myProps} />)
+    })
 
     describe('handleItemPicked', () => {
       it('calls close if passed something', () => {
-        const details = { origin: 'Search' };
-        wrapper.find(Search).simulate('itemPicked', ['foo'], testItems[0], details);
+        const details = { origin: 'Search' }
+        wrapper
+          .find(Search)
+          .simulate('itemPicked', ['foo'], testItems[0], details)
 
-        expect(myProps.onClose).toHaveBeenCalled();
-        expect(myProps.onItemPicked).toHaveBeenCalledWith(['foo'], testItems[0], details);
-      });
+        expect(myProps.onClose).toHaveBeenCalled()
+        expect(myProps.onItemPicked).toHaveBeenCalledWith(
+          ['foo'],
+          testItems[0],
+          details
+        )
+      })
 
       it('does not call close if passed falsy', () => {
-        wrapper.find(Search).simulate('itemPicked', null);
+        wrapper.find(Search).simulate('itemPicked', null)
 
-        expect(myProps.onClose).not.toHaveBeenCalled();
-        expect(myProps.onItemPicked).not.toHaveBeenCalled();
-      });
-    });
+        expect(myProps.onClose).not.toHaveBeenCalled()
+        expect(myProps.onItemPicked).not.toHaveBeenCalled()
+      })
+    })
 
     it('updates searchQuery state upon searching', () => {
-      const onSearch = wrapper.find(Search).prop('onSearch') as (q: string) => void;
-      onSearch('hello');
-      expect(wrapper.state('searchQuery')).toBe('hello');
-    });
+      const onSearch = wrapper.find(Search).prop('onSearch') as (
+        q: string
+      ) => void
+      onSearch('hello')
+      expect(wrapper.state('searchQuery')).toBe('hello')
+    })
 
     describe('handleKeyDown', () => {
       it('default', () => {
-        wrapper.simulate('keydown', {});
-        expect(myProps.onClose).not.toHaveBeenCalled();
-      });
+        wrapper.simulate('keydown', {})
+        expect(myProps.onClose).not.toHaveBeenCalled()
+      })
 
       describe('ARROWs', () => {
         it('ARROW_UP', () => {
-          const spy = jest.fn();
-          wrapper.simulate('keydown', { key: ARROW_UP, preventDefault: spy });
-          expect(spy).toHaveBeenCalled();
-        });
+          const spy = jest.fn()
+          wrapper.simulate('keydown', { key: ARROW_UP, preventDefault: spy })
+          expect(spy).toHaveBeenCalled()
+        })
 
         it('ARROW_DOWN', () => {
-          const spy = jest.fn();
-          wrapper.simulate('keydown', { key: ARROW_DOWN, preventDefault: spy });
-          expect(spy).toHaveBeenCalled();
-        });
-      });
-    });
-  });
-});
+          const spy = jest.fn()
+          wrapper.simulate('keydown', { key: ARROW_DOWN, preventDefault: spy })
+          expect(spy).toHaveBeenCalled()
+        })
+      })
+    })
+  })
+})

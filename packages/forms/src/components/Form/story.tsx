@@ -1,48 +1,48 @@
-import React from 'react';
-import Button from '@airbnb/lunar/lib/components/Button';
-import ButtonGroup from '@airbnb/lunar/lib/components/ButtonGroup';
-import Text from '@airbnb/lunar/lib/components/Text';
-import LoremIpsum from ':storybook/components/LoremIpsum';
-import Input from './Input';
-import TextArea from './TextArea';
-import Select from './Select';
-import Autocomplete from './Autocomplete';
-import Switch from './Switch';
-import CheckBox from './CheckBox';
-import CheckBoxController from './CheckBoxController';
-import RadioButtonController from './RadioButtonController';
-import ToggleButtonController from './ToggleButtonController';
-import DatePickerInput from './DatePickerInput';
-import DateTimeSelect from './DateTimeSelect';
-import Multicomplete from './Multicomplete';
-import Range from './Range';
-import FormActions from '../FormActions';
-import Form from '.';
+import React from 'react'
+import Button from '@lorica/uc-design-system/lib/components/Button'
+import ButtonGroup from '@lorica/uc-design-system/lib/components/ButtonGroup'
+import Text from '@lorica/uc-design-system/lib/components/Text'
+import LoremIpsum from ':storybook/components/LoremIpsum'
+import Input from './Input'
+import TextArea from './TextArea'
+import Select from './Select'
+import Autocomplete from './Autocomplete'
+import Switch from './Switch'
+import CheckBox from './CheckBox'
+import CheckBoxController from './CheckBoxController'
+import RadioButtonController from './RadioButtonController'
+import ToggleButtonController from './ToggleButtonController'
+import DatePickerInput from './DatePickerInput'
+import DateTimeSelect from './DateTimeSelect'
+import Multicomplete from './Multicomplete'
+import Range from './Range'
+import FormActions from '../FormActions'
+import Form from '.'
 
-const fixedDate = new Date(2019, 1, 1, 10, 10, 10);
+const fixedDate = new Date(2019, 1, 1, 10, 10, 10)
 
 function isRequired(value: unknown) {
-  const pass = Array.isArray(value) ? value.length : value;
+  const pass = Array.isArray(value) ? value.length : value
 
   if (!pass) {
-    throw new Error('Field is required.');
+    throw new Error('Field is required.')
   }
 }
 
 function isEmail(value: string) {
-  isRequired(value);
+  isRequired(value)
 
   if (!value.includes('@')) {
-    throw new Error('Invalid email address.');
+    throw new Error('Invalid email address.')
   }
 }
 
 function isDate(value: string | Date) {
-  isRequired(value);
+  isRequired(value)
 
   // eslint-disable-next-line unicorn/better-regex
   if (typeof value === 'string' && !value.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
-    throw new Error('Invalid date.');
+    throw new Error('Invalid date.')
   }
 }
 
@@ -51,34 +51,34 @@ const items = [
   { value: 'black', name: 'Black' },
   { value: 'blue', name: 'Blue' },
   { value: 'green', name: 'Green' },
-];
+]
 
 const values = {
-  text: { base: 'Lunar' },
+  text: { base: 'uc-design-system' },
   multicomplete: ['red', 'green'],
-};
+}
 
 class UnmountExample extends React.Component<{}, { mounted: boolean }> {
   state = {
     mounted: true,
-  };
+  }
 
   handleToggleMount = () => {
     this.setState((prevState) => ({
       mounted: !prevState.mounted,
-    }));
-  };
+    }))
+  }
 
   render() {
-    const { mounted } = this.state;
+    const { mounted } = this.state
 
     return (
       <Form
         onFailedSubmit={() => console.log('onFailedSubmit')}
         onSubmit={(data) => {
-          action('onSubmit')(data);
+          action('onSubmit')(data)
 
-          return Promise.resolve();
+          return Promise.resolve()
         }}
         onStateUpdate={() => console.log('onStateUpdate')}
       >
@@ -107,7 +107,7 @@ class UnmountExample extends React.Component<{}, { mounted: boolean }> {
           {mounted ? 'Unmount Input' : 'Mount Input'}
         </Button>
       </Form>
-    );
+    )
   }
 }
 
@@ -116,7 +116,7 @@ export default {
   parameters: {
     inspectComponents: [Form],
   },
-};
+}
 
 export function withAllFields() {
   return (
@@ -124,9 +124,9 @@ export function withAllFields() {
       initialValues={values}
       onFailedSubmit={() => console.log('onFailedSubmit')}
       onSubmit={(data) => {
-        action('onSubmit')(data);
+        action('onSubmit')(data)
 
-        return Promise.resolve();
+        return Promise.resolve()
       }}
       onStateUpdate={() => console.log('onStateUpdate')}
     >
@@ -134,7 +134,7 @@ export function withAllFields() {
         unregisterOnUnmount
         label="Text"
         // Set as an initial value
-        // defaultValue="Lunar"
+        // defaultValue="UCDS"
         name="text[base]"
         validator={isRequired}
         onChange={() => console.log('onChange')}
@@ -146,7 +146,7 @@ export function withAllFields() {
         label="Email"
         name="text[email]"
         type="email"
-        defaultValue="lunar@domain.com"
+        defaultValue="uc-design-system@domain.com"
         validator={isEmail}
         onChange={() => console.log('onChange')}
       />
@@ -203,7 +203,9 @@ export function withAllFields() {
         validator={isRequired}
         onChange={() => console.log('onChange')}
         onLoadItems={(value) =>
-          Promise.resolve(items.filter((item) => item.name.toLowerCase().match(value)))
+          Promise.resolve(
+            items.filter((item) => item.name.toLowerCase().match(value))
+          )
         }
       />
 
@@ -214,11 +216,15 @@ export function withAllFields() {
         label="Multicomplete"
         // defaultValue={['blue', 'red']}
         name="multicomplete"
-        renderItem={(item, highlighted, selected) => <Text bold={selected}>{item.name}</Text>}
+        renderItem={(item, highlighted, selected) => (
+          <Text bold={selected}>{item.name}</Text>
+        )}
         validator={isRequired}
         onChange={() => console.log('onChange')}
         onLoadItems={(value) =>
-          Promise.resolve(items.filter((item) => item.name.toLowerCase().match(value)))
+          Promise.resolve(
+            items.filter((item) => item.name.toLowerCase().match(value))
+          )
         }
       />
 
@@ -332,17 +338,17 @@ export function withAllFields() {
 
       <FormActions showReset />
     </Form>
-  );
+  )
 }
 
 withAllFields.story = {
   name: 'With all fields.',
-};
+}
 
 export function testingSideEffects() {
-  return <UnmountExample />;
+  return <UnmountExample />
 }
 
 testingSideEffects.story = {
   name: 'Testing side-effects.',
-};
+}

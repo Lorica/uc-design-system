@@ -1,6 +1,6 @@
 import React from 'react';
 import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types';
-import IconClose from '@airbnb/lunar-icons/lib/interface/IconClose';
+import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose';
 import withStyles, { WithStylesProps } from '../../composers/withStyles';
 import { getErrorMessage } from '../ErrorMessage';
 import IconButton from '../IconButton';
@@ -146,7 +146,7 @@ export class Toast extends React.Component<ToastProps & WithStylesProps> {
 
             <Spacing top={0.5}>
               <Button small onClick={this.handleRefreshPress}>
-                <T k="lunar.common.refresh" phrase="Refresh" />
+                <T k="uc-design-system.common.refresh" phrase="Refresh" />
               </Button>
             </Spacing>
           </div>
@@ -164,7 +164,10 @@ export class Toast extends React.Component<ToastProps & WithStylesProps> {
 
         <div className={cx(styles.right)}>
           <IconButton inverted onClick={this.handleClosePress}>
-            <IconClose size="1.5em" accessibilityLabel={T.phrase('lunar.common.close', 'Close')} />
+            <IconClose
+              size="1.5em"
+              accessibilityLabel={T.phrase('uc-design-system.common.close', 'Close')}
+            />
           </IconButton>
         </div>
       </div>

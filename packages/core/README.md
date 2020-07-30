@@ -1,10 +1,10 @@
-# Lunar
+# UCDS
 
 Provides core React building blocks that all other consuming packages are built around. This
 includes components, composers, themes, and more.
 
 ```bash static
-yarn add @airbnb/lunar
+yarn add @lorica/uc-design-system
 ```
 
 ## Setup
@@ -12,14 +12,14 @@ yarn add @airbnb/lunar
 Initialize the core package to apply globalization and theme-related settings.
 
 ```js static
-import Core from '@airbnb/lunar';
+import Core from '@lorica/uc-design-system'
 
 Core.initialize({
   defaultLocale: 'en',
   defaultTimezone: 'UTC',
   logger: logToSentry,
   name: 'AppName',
-});
+})
 ```
 
 > If `defaultLocale` and `defaultTimezone` are omitted, their values will be automatically detected

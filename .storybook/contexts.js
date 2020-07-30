@@ -1,6 +1,6 @@
-import ThemeProvider from '@airbnb/lunar/lib/providers/ThemeProvider';
-import DirectionProvider from '@airbnb/lunar/lib/providers/DirectionProvider';
-import { THEME } from './constants';
+import ThemeProvider from '@lorica/uc-design-system/lib/providers/ThemeProvider'
+import DirectionProvider from '@lorica/uc-design-system/lib/providers/DirectionProvider'
+import { THEME } from './constants'
 
 export default [
   {
@@ -29,4 +29,4 @@ export default [
       { name: 'Right-to-Left', props: { dir: 'rtl' } },
     ],
   },
-];
+]

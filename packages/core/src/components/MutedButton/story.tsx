@@ -25,11 +25,11 @@ aMutedButtonWithAnInvertedVariant.story = {
 export function anAnchorLinkWhenPassingHref() {
   return (
     <ButtonGroup>
-      <MutedButton openInNewWindow href="https://github.com/airbnb/lunar">
+      <MutedButton openInNewWindow href="https://github.com/lorica/uc-design-system">
         Link
       </MutedButton>
 
-      <MutedButton openInNewWindow inverted href="https://github.com/airbnb/lunar">
+      <MutedButton openInNewWindow inverted href="https://github.com/lorica/uc-design-system">
         Link
       </MutedButton>
     </ButtonGroup>

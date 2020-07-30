@@ -1,6 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mountUseStyles, mockResizeObserver } from '@airbnb/lunar-test-utils';
+import { mountUseStyles, mockResizeObserver } from '@lorica/uc-design-system-test-utils';
 import Tabs from '../../src/components/Tabs';
 import Tab from '../../src/components/Tabs/Tab';
 import GradientScroller from '../../src/components/GradientScroller';

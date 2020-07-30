@@ -1,5 +1,5 @@
 import React from 'react';
-import IconRecord from '@airbnb/lunar-icons/lib/interface/IconRecord';
+import IconRecord from '@lorica/uc-design-system-icons/lib/interface/IconRecord';
 import useStyles, { StyleSheet } from '../../hooks/useStyles';
 import { styleSheetItem } from './styles';
 import Text from '../Text';
@@ -59,7 +59,7 @@ export default function TimelineItem({
             <Text small muted>
               <T
                 phrase="%{mediumDate} (%{relativeDate})"
-                k="lunar.timeline.date"
+                k="uc-design-system.timeline.date"
                 mediumDate={DateTime.format({ at, medium: true })}
                 relativeDate={DateTime.relative(at!)}
               />

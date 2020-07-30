@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import copy from 'copy-to-clipboard';
-import IconCopy from '@airbnb/lunar-icons/lib/interface/IconCopy';
+import IconCopy from '@lorica/uc-design-system-icons/lib/interface/IconCopy';
 import Copy from '../../src/components/Copy';
 import IconButton from '../../src/components/IconButton';
 import { Tooltip } from '../../src/components/Tooltip';

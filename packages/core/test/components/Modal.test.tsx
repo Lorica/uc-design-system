@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { mountWithStyles, shallowWithStyles } from '@airbnb/lunar-test-utils';
+import { mountWithStyles, shallowWithStyles } from '@lorica/uc-design-system-test-utils';
 import Modal, { ModalProps } from '../../src/components/Modal';
 import ModalImageLayout from '../../src/components/Modal/private/ImageLayout';
 import ModalInner from '../../src/components/Modal/private/Inner';

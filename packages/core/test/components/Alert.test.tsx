@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import IconClose from '@airbnb/lunar-icons/lib/interface/IconClose';
+import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose';
 import Alert from '../../src/components/Alert';
 import Spacing from '../../src/components/Spacing';
 import { STATUSES as BASE_STATUSES } from '../../src/constants';
@@ -19,8 +19,10 @@ describe('<Alert />', () => {
   it('renders close button', () => {
     const wrapper = shallow(<Alert title="Title" onClose={() => {}} />);
 
-    // @ts-ignore
-    expect(shallow(wrapper.find(Row).prop('after')).find(IconClose)).toHaveLength(1);
+    expect(
+      // @ts-ignore
+      shallow(wrapper.find(Row).prop('after')).find(IconClose),
+    ).toHaveLength(1);
   });
 
   it('renders inline', () => {

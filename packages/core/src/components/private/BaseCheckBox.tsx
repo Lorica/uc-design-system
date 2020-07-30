@@ -1,6 +1,6 @@
 import React from 'react';
-import IconCheck from '@airbnb/lunar-icons/lib/interface/IconCheck';
-import IconRemove from '@airbnb/lunar-icons/lib/interface/IconRemove';
+import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
+import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemove';
 import useStyles, { StyleSheet } from '../../hooks/useStyles';
 import FormInput, { InputProps } from './FormInput';
 import inputStyleSheet from '../../themes/inputStyleSheet';

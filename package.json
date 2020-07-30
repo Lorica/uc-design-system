@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "lunar-root",
+  "name": "uc-design-system-root",
   "version": "3.0.0",
   "description": "React toolkit and design language for Airbnb open source and internal projects.",
   "license": "MIT",
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airbnb/lunar.git"
+    "url": "git+https://github.com/lorica/uc-design-system.git"
   },
   "engines": {
     "node": ">=10.10.0",

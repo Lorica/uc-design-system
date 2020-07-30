@@ -7,11 +7,11 @@ import {
   OperationVariables,
 } from 'react-apollo';
 import { ApolloError } from 'apollo-client';
-import ErrorMessage from '@airbnb/lunar/lib/components/ErrorMessage';
-import Loader from '@airbnb/lunar/lib/components/Loader';
+import ErrorMessage from '@lorica/uc-design-system/lib/components/ErrorMessage';
+import Loader from '@lorica/uc-design-system/lib/components/Loader';
 import renderElementOrFunction, {
   RenderableProp,
-} from '@airbnb/lunar/lib/utils/renderElementOrFunction';
+} from '@lorica/uc-design-system/lib/utils/renderElementOrFunction';
 
 export type MutationProps<Data, Vars> = Omit<MutationComponentOptions<Data, Vars>, 'client'> & {
   /**
@@ -66,7 +66,9 @@ export default class Mutation<Data = {}, Vars = OperationVariables> extends Reac
   render() {
     const { children, loading, error, ...props } = this.props;
 
-    // @ts-ignore Prop spreading
-    return <BaseMutation<Data, Vars> {...props}>{this.handleRender}</BaseMutation>;
+    return (
+      // @ts-ignore Prop spreading
+      <BaseMutation<Data, Vars> {...props}>{this.handleRender}</BaseMutation>
+    );
   }
 }

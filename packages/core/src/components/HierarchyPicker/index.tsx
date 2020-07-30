@@ -1,13 +1,13 @@
-import React from 'react';
-import { FuseOptions } from 'fuse.js';
-import IconCaretDown from '@airbnb/lunar-icons/lib/interface/IconCaretDown';
-import Overlay from '../Overlay';
-import { SPACE, ENTER } from '../../keys';
-import T from '../Translate';
-import Text from '../Text';
-import Picker from './Picker';
-import withStyles, { WithStylesProps } from '../../composers/withStyles';
-import { styleSheetPicker } from './styles';
+import React from 'react'
+import { FuseOptions } from 'fuse.js'
+import IconCaretDown from '@lorica/uc-design-system-icons/lib/interface/IconCaretDown'
+import Overlay from '../Overlay'
+import { SPACE, ENTER } from '../../keys'
+import T from '../Translate'
+import Text from '../Text'
+import Picker from './Picker'
+import withStyles, { WithStylesProps } from '../../composers/withStyles'
+import { styleSheetPicker } from './styles'
 
 import {
   ItemPickedHandler,
@@ -16,52 +16,52 @@ import {
   Labeler,
   ToggleHandler,
   TreePath,
-} from './types';
+} from './types'
 
-import defaultFormatter from './defaultFormatter';
+import defaultFormatter from './defaultFormatter'
 
 export type HierarchyPickerProps = {
   /** Content to display in the select button. */
-  children?: React.ReactNode;
+  children?: React.ReactNode
   /** An array of names define the path to the currently selected item. */
-  chosen?: TreePath;
+  chosen?: TreePath
   /** Disables the picker. */
-  disabled?: boolean;
+  disabled?: boolean
   /** A function to format the display of choice. */
-  formatter?: (chosen: TreePath, labeler: Labeler) => string;
+  formatter?: (chosen: TreePath, labeler: Labeler) => string
   /** Fuse.js search options to override. */
-  fuseOptions?: FuseOptions<{}>;
+  fuseOptions?: FuseOptions<{}>
   /** Maximum height of a (vertically aligned) hierarchy menu. */
-  hierarchyMaxHeight?: number;
+  hierarchyMaxHeight?: number
   /** Width of a single level of the hierarchy menu. */
-  hierarchyWidth?: number;
+  hierarchyWidth?: number
   /** Include path of parent nodes in search index. */
-  indexParentPath?: boolean;
+  indexParentPath?: boolean
   /** Styles the picker as containing an invalid value. */
-  invalid?: boolean;
+  invalid?: boolean
   /** The hierarchy of things to choose from. */
-  items: ItemShape[];
+  items: ItemShape[]
   /** Text to show when there are no search results. */
-  noResultsLabel?: string;
+  noResultsLabel?: string
   /** Callback for when user selects an item. */
-  onItemPicked: ItemPickedHandler;
+  onItemPicked: ItemPickedHandler
   /** Callback for when user opens/closes the dropdown. */
-  onPickerToggle?: ToggleHandler;
+  onPickerToggle?: ToggleHandler
   /** Override rendering of a hierarchy list item. */
-  renderItem?: ItemRenderer;
+  renderItem?: ItemRenderer
   /** Maximum height of Hierarchy Search result list. */
-  searchMaxHeight?: number;
+  searchMaxHeight?: number
   /** Placeholder label for the search input. */
-  searchPlaceholder?: string;
+  searchPlaceholder?: string
   /** Width of the Hierarchy Search result list. */
-  searchWidth?: number;
+  searchWidth?: number
   /** Vertically align nested hierarchy levels. */
-  verticallyAlign?: boolean;
-};
+  verticallyAlign?: boolean
+}
 
 export type HierarchyPickerState = {
-  open: boolean;
-};
+  open: boolean
+}
 
 export class HierarchyPicker extends React.Component<
   HierarchyPickerProps & WithStylesProps,
@@ -78,13 +78,13 @@ export class HierarchyPicker extends React.Component<
     searchMaxHeight: 400,
     searchWidth: 300,
     verticallyAlign: false,
-  };
+  }
 
   state = {
     open: false,
-  };
+  }
 
-  ref = React.createRef<HTMLDivElement>();
+  ref = React.createRef<HTMLDivElement>()
 
   /**
    * Given a "chosen" array, what's the best label for the item?
@@ -92,71 +92,74 @@ export class HierarchyPicker extends React.Component<
   getLabel = (chosen: TreePath) => {
     const label = chosen.reduce((items: string | ItemShape[], path, i) => {
       if (Array.isArray(items) && items.length > 0) {
-        const item = items.find(({ name }) => path === name);
+        const item = items.find(({ name }) => path === name)
 
         if (!item) {
-          return '';
+          return ''
         }
 
-        return i < chosen.length - 1 ? item.items || [] : item.label || item.name;
+        return i < chosen.length - 1
+          ? item.items || []
+          : item.label || item.name
       }
 
-      return '';
-    }, this.props.items);
+      return ''
+    }, this.props.items)
 
-    return typeof label === 'string' ? label : '';
-  };
+    return typeof label === 'string' ? label : ''
+  }
 
-  boundFormatter = (chosen: TreePath) => this.props.formatter!(chosen, this.getLabel);
+  boundFormatter = (chosen: TreePath) =>
+    this.props.formatter!(chosen, this.getLabel)
 
   toggle = () => {
     if (this.props.disabled) {
-      return;
+      return
     }
 
     this.setState(
       (state) => ({ open: !state.open }),
       () => {
-        const { open } = this.state;
+        const { open } = this.state
         if (open) {
-          this.props.onPickerToggle!(true);
+          this.props.onPickerToggle!(true)
         } else {
-          this.handleClose();
+          this.handleClose()
         }
-      },
-    );
-  };
+      }
+    )
+  }
 
   private handleClose = () => {
-    this.props.onPickerToggle!(false);
-    this.setState({ open: false });
+    this.props.onPickerToggle!(false)
+    this.setState({ open: false })
 
-    const el = this.ref.current;
+    const el = this.ref.current
 
     if (el) {
-      el.focus();
+      el.focus()
     }
-  };
+  }
 
   private handleClick = () => {
-    this.toggle();
-  };
+    this.toggle()
+  }
 
   private handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.target !== this.ref.current) {
-      return;
+      return
     }
 
     switch (event.key) {
       case ENTER:
       case SPACE:
-        event.preventDefault();
-        this.toggle();
-        break;
+        event.preventDefault()
+        this.toggle()
+        break
       default:
-        break;
+        break
     }
-  };
+  }
 
   render() {
     const {
@@ -168,9 +171,9 @@ export class HierarchyPicker extends React.Component<
       searchPlaceholder,
       styles,
       ...passThruProps
-    } = this.props;
-    const { chosen } = passThruProps;
-    const { open } = this.state;
+    } = this.props
+    const { chosen } = passThruProps
+    const { open } = this.state
 
     return (
       <div>
@@ -182,7 +185,7 @@ export class HierarchyPicker extends React.Component<
             styles.input,
             styles.select,
             invalid && styles.input_invalid,
-            disabled && styles.input_disabled,
+            disabled && styles.input_disabled
           )}
           tabIndex={disabled ? -1 : 0}
           role="button"
@@ -200,14 +203,20 @@ export class HierarchyPicker extends React.Component<
           <Picker
             {...passThruProps}
             formatter={this.boundFormatter}
-            searchPlaceholder={searchPlaceholder || T.phrase('lunar.common.search', 'Search')}
-            noResultsLabel={noResultsLabel || T.phrase('lunar.picker.noResults', 'No results')}
+            searchPlaceholder={
+              searchPlaceholder ||
+              T.phrase('uc-design-system.common.search', 'Search')
+            }
+            noResultsLabel={
+              noResultsLabel ||
+              T.phrase('uc-design-system.picker.noResults', 'No results')
+            }
             onClose={this.handleClose}
           />
         </Overlay>
       </div>
-    );
+    )
   }
 }
 
-export default withStyles(styleSheetPicker)(HierarchyPicker);
+export default withStyles(styleSheetPicker)(HierarchyPicker)

@@ -1,26 +1,26 @@
-import Core from '@airbnb/lunar';
-import { ApolloClient, ApolloClientOptions } from 'apollo-client';
-import { InMemoryCache, InMemoryCacheConfig } from 'apollo-cache-inmemory';
-import { ApolloLink } from 'apollo-link';
-import { onError } from 'apollo-link-error';
-import { HttpLink } from 'apollo-link-http';
-import Mutation from './components/Mutation';
-import Query from './components/Query';
-import Provider from './components/Provider';
+import Core from '@lorica/uc-design-system'
+import { ApolloClient, ApolloClientOptions } from 'apollo-client'
+import { InMemoryCache, InMemoryCacheConfig } from 'apollo-cache-inmemory'
+import { ApolloLink } from 'apollo-link'
+import { onError } from 'apollo-link-error'
+import { HttpLink } from 'apollo-link-http'
+import Mutation from './components/Mutation'
+import Query from './components/Query'
+import Provider from './components/Provider'
 // @ts-ignore
-import pkg from '../package.json';
+import pkg from '../package.json'
 
-export * from 'apollo-client';
-export * from 'apollo-cache-inmemory';
+export * from 'apollo-client'
+export * from 'apollo-cache-inmemory'
 
-export { onError, HttpLink, Mutation, Query, Provider };
+export { onError, HttpLink, Mutation, Query, Provider }
 
 export type Settings = {
-  links?: ApolloLink[];
-  resolvers?: ApolloClientOptions<null>['resolvers'];
-  typeDefs?: ApolloClientOptions<null>['typeDefs'];
-  cacheConfig?: InMemoryCacheConfig;
-};
+  links?: ApolloLink[]
+  resolvers?: ApolloClientOptions<null>['resolvers']
+  typeDefs?: ApolloClientOptions<null>['typeDefs']
+  cacheConfig?: InMemoryCacheConfig
+}
 
 class Apollo {
   settings: Required<Settings> = {
@@ -28,25 +28,25 @@ class Apollo {
     resolvers: {},
     typeDefs: '',
     cacheConfig: {},
-  };
+  }
 
-  protected client?: ApolloClient<{}>;
+  protected client?: ApolloClient<{}>
 
   initialize(settings?: Settings) {
     this.settings = {
       ...this.settings,
       ...settings,
-    };
+    }
 
-    this.bootstrapClient();
+    this.bootstrapClient()
   }
 
   bootstrapClient() {
     if (this.client) {
-      return;
+      return
     }
 
-    const { links, resolvers, typeDefs, cacheConfig } = this.settings;
+    const { links, resolvers, typeDefs, cacheConfig } = this.settings
 
     this.client = new ApolloClient({
       cache: new InMemoryCache(cacheConfig),
@@ -56,11 +56,11 @@ class Apollo {
       resolvers,
       typeDefs,
       version: (pkg as { version: string }).version,
-    });
+    })
 
     if (__DEV__) {
       // eslint-disable-next-line no-underscore-dangle
-      window.__APOLLO_CLIENT__ = this.client;
+      window.__APOLLO_CLIENT__ = this.client
     }
   }
 
@@ -68,13 +68,13 @@ class Apollo {
     if (__DEV__) {
       if (!this.client) {
         throw new Error(
-          'Apollo has not been initialized. Please call `Apollo.initialize()` from `@airbnb/lunar-apollo`.',
-        );
+          'Apollo has not been initialized. Please call `Apollo.initialize()` from `@lorica/uc-design-system-apollo`.'
+        )
       }
     }
 
-    return this.client!;
+    return this.client!
   }
 }
 
-export default new Apollo();
+export default new Apollo()

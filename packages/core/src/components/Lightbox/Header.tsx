@@ -1,41 +1,41 @@
-import React, { useEffect } from 'react';
-import Button from '../Button';
-import Pagination from '../Pagination';
-import T from '../Translate';
-import { ARROW_RIGHT, ARROW_LEFT } from '../../keys';
-import { ZoomControls, RotateControls } from '../ImageViewer';
-import Spacing from '../Spacing';
-import { styleSheetHeader } from './styles';
-import useStyles, { StyleSheet } from '../../hooks/useStyles';
+import React, { useEffect } from 'react'
+import Button from '../Button'
+import Pagination from '../Pagination'
+import T from '../Translate'
+import { ARROW_RIGHT, ARROW_LEFT } from '../../keys'
+import { ZoomControls, RotateControls } from '../ImageViewer'
+import Spacing from '../Spacing'
+import { styleSheetHeader } from './styles'
+import useStyles, { StyleSheet } from '../../hooks/useStyles'
 
 export type LightboxHeaderProps = {
   /** Currently active image index. */
-  activeIndex: number;
+  activeIndex: number
   /** Number of images. */
-  imageCount: number;
+  imageCount: number
   /** Has sidebar. */
-  hasAside?: boolean;
+  hasAside?: boolean
   /** Hide sidebar. */
-  hideAside?: boolean;
+  hideAside?: boolean
   /** Image rotation value. */
-  rotation?: number;
+  rotation?: number
   /** Image scale value. */
-  scale?: number;
+  scale?: number
   /** Show rotate controls. */
-  showRotateControls?: boolean;
+  showRotateControls?: boolean
   /** Show zoom controls. */
-  showZoomControls?: boolean;
+  showZoomControls?: boolean
   /** Callback fired when the slide changes. */
-  onChangeSlide: (index: number) => void;
+  onChangeSlide: (index: number) => void
   /** Callback fired when the rotation changes. */
-  onRotateImage?: (rotation: number) => void;
+  onRotateImage?: (rotation: number) => void
   /** Callback fired when the sidebar is toggled. */
-  onToggleAside: () => void;
+  onToggleAside: () => void
   /** Callback fired when the zoom changes. */
-  onZoomImage?: (scale: number) => void;
+  onZoomImage?: (scale: number) => void
   /** Custom style sheet. */
-  styleSheet?: StyleSheet;
-};
+  styleSheet?: StyleSheet
+}
 
 export default function LightboxHeader({
   activeIndex,
@@ -52,61 +52,61 @@ export default function LightboxHeader({
   onZoomImage,
   styleSheet,
 }: LightboxHeaderProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetHeader);
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetHeader)
 
   const handleNext = () => {
-    onChangeSlide(activeIndex + 1);
-  };
+    onChangeSlide(activeIndex + 1)
+  }
 
   const handlePrev = () => {
-    onChangeSlide(activeIndex - 1);
-  };
+    onChangeSlide(activeIndex - 1)
+  }
 
   const handleFirst = () => {
-    onChangeSlide(0);
-  };
+    onChangeSlide(0)
+  }
 
   const handleLast = () => {
-    onChangeSlide(imageCount - 1);
-  };
+    onChangeSlide(imageCount - 1)
+  }
 
   const handleZoom = (s: number) => {
     if (onZoomImage) {
-      onZoomImage(s);
+      onZoomImage(s)
     }
-  };
+  }
 
   const handleRotate = (r: number) => {
     if (onRotateImage) {
-      onRotateImage(r);
+      onRotateImage(r)
     }
-  };
+  }
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === ARROW_LEFT && activeIndex > 0) {
       if (event.shiftKey) {
-        handleFirst();
+        handleFirst()
       } else {
-        handlePrev();
+        handlePrev()
       }
     }
 
     if (event.key === ARROW_RIGHT && activeIndex < imageCount - 1) {
       if (event.shiftKey) {
-        handleLast();
+        handleLast()
       } else {
-        handleNext();
+        handleNext()
       }
     }
-  };
+  }
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  });
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  })
 
   return (
     <div className={cx(styles.header)}>
@@ -117,7 +117,7 @@ export default function LightboxHeader({
           hasPrev={activeIndex > 0}
           hasNext={activeIndex < imageCount - 1}
           page={activeIndex + 1}
-          pageLabel={T.phrase('lunar.image.photoLabel', 'Photo')}
+          pageLabel={T.phrase('uc-design-system.image.photoLabel', 'Photo')}
           pageCount={imageCount}
           onNext={handleNext}
           onPrevious={handlePrev}
@@ -142,11 +142,11 @@ export default function LightboxHeader({
         <div className={cx(styles.infoButton)}>
           <Button small onClick={onToggleAside}>
             {hideAside
-              ? T.phrase('lunar.image.showInfo', 'Show info')
-              : T.phrase('lunar.image.hideInfo', 'Hide info')}
+              ? T.phrase('uc-design-system.image.showInfo', 'Show info')
+              : T.phrase('uc-design-system.image.hideInfo', 'Hide info')}
           </Button>
         </div>
       )}
     </div>
-  );
+  )
 }

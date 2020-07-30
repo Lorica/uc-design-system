@@ -1,9 +1,11 @@
-import React from 'react';
-import { shallowWithStyles } from '@airbnb/lunar-test-utils';
+import React from 'react'
+import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
 // @ts-ignore
-import { LocaleUtils } from 'react-day-picker/lib/src/LocaleUtils';
-import DirectionalIcon from '../../../../src/components/DirectionalIcon';
-import NavBar, { NavBarProps } from '../../../../src/components/DatePicker/Picker/NavBar';
+import { LocaleUtils } from 'react-day-picker/lib/src/LocaleUtils'
+import DirectionalIcon from '../../../../src/components/DirectionalIcon'
+import NavBar, {
+  NavBarProps,
+} from '../../../../src/components/DatePicker/Picker/NavBar'
 
 describe('<DatePicker />', () => {
   const props: NavBarProps = {
@@ -49,40 +51,49 @@ describe('<DatePicker />', () => {
     onNextClick: () => {},
     onPreviousClick: () => {},
     onResetClick: () => {},
-  };
+  }
 
   it('renders next & previous icons', () => {
-    const wrapper = shallowWithStyles(<NavBar {...props} />, true);
+    const wrapper = shallowWithStyles(<NavBar {...props} />, true)
 
-    expect(wrapper.find(DirectionalIcon)).toHaveLength(2);
-  });
+    expect(wrapper.find(DirectionalIcon)).toHaveLength(2)
+  })
 
   it('renders a reset button', () => {
-    const wrapper = shallowWithStyles(<NavBar {...props} showResetButton />, true);
+    const wrapper = shallowWithStyles(
+      <NavBar {...props} showResetButton />,
+      true
+    )
 
-    expect(wrapper.find('button')).toHaveLength(1);
-  });
+    expect(wrapper.find('button')).toHaveLength(1)
+  })
 
   it('call `onPreviousClick` when next button is clicked', () => {
-    const spy = jest.fn();
-    const wrapper = shallowWithStyles(<NavBar {...props} onPreviousClick={spy} />, true);
+    const spy = jest.fn()
+    const wrapper = shallowWithStyles(
+      <NavBar {...props} onPreviousClick={spy} />,
+      true
+    )
 
-    wrapper.find(DirectionalIcon).at(0).parent().simulate('click');
+    wrapper.find(DirectionalIcon).at(0).parent().simulate('click')
 
-    expect(spy).toHaveBeenCalled();
-  });
+    expect(spy).toHaveBeenCalled()
+  })
 
   it('call `onNextClick` when next button is clicked', () => {
-    const spy = jest.fn();
-    const wrapper = shallowWithStyles(<NavBar {...props} onNextClick={spy} />, true);
+    const spy = jest.fn()
+    const wrapper = shallowWithStyles(
+      <NavBar {...props} onNextClick={spy} />,
+      true
+    )
 
-    wrapper.find(DirectionalIcon).at(1).parent().simulate('click');
+    wrapper.find(DirectionalIcon).at(1).parent().simulate('click')
 
-    expect(spy).toHaveBeenCalled();
-  });
+    expect(spy).toHaveBeenCalled()
+  })
 
   it('call `onResetClick` when next button is clicked', () => {
-    const spy = jest.fn();
+    const spy = jest.fn()
     const wrapper = shallowWithStyles(
       <NavBar
         {...props}
@@ -91,11 +102,11 @@ describe('<DatePicker />', () => {
         showNextButton={false}
         onResetClick={spy}
       />,
-      true,
-    );
+      true
+    )
 
-    wrapper.find('button').simulate('click');
+    wrapper.find('button').simulate('click')
 
-    expect(spy).toHaveBeenCalled();
-  });
-});
+    expect(spy).toHaveBeenCalled()
+  })
+})

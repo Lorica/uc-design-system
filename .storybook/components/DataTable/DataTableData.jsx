@@ -1,4 +1,4 @@
-import { STATUS_OPTIONS } from '@airbnb/lunar/src/components/DataTable/constants';
+import { STATUS_OPTIONS } from '@lorica/uc-design-system/src/components/DataTable/constants'
 
 export function generateRandomData() {
   return new Array(50).fill(0).map((x, i) => ({
@@ -14,7 +14,7 @@ export function generateRandomData() {
         },
       })),
     },
-  }));
+  }))
 }
 
 export default function getData() {
@@ -35,7 +35,8 @@ export default function getData() {
         tenureDays: 407,
         menu: '',
         cats: 1,
-        colSpan: 'This person is hidden because you have insufficient permissions.',
+        colSpan:
+          'This person is hidden because you have insufficient permissions.',
       },
       metadata: {
         colSpanKey: 'colSpan',
@@ -105,5 +106,5 @@ export default function getData() {
         status: STATUS_OPTIONS.ALERT,
       },
     },
-  ];
+  ]
 }

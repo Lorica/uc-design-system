@@ -1,11 +1,11 @@
-import React from 'react';
-import gql from 'graphql-tag';
-import Button from '@airbnb/lunar/lib/components/Button';
-import Shimmer from '@airbnb/lunar/lib/components/Shimmer';
-import ErrorMessage from '@airbnb/lunar/lib/components/ErrorMessage';
-import { MutationFunction } from 'react-apollo';
-import { MockedProvider } from '@apollo/react-testing';
-import Mutation from '.';
+import React from 'react'
+import gql from 'graphql-tag'
+import Button from '@lorica/uc-design-system/lib/components/Button'
+import Shimmer from '@lorica/uc-design-system/lib/components/Shimmer'
+import ErrorMessage from '@lorica/uc-design-system/lib/components/ErrorMessage'
+import { MutationFunction } from 'react-apollo'
+import { MockedProvider } from '@apollo/react-testing'
+import Mutation from '.'
 
 const MUTATION = gql`
   mutation updateUserName($id: ID!, $name: String!) {
@@ -14,14 +14,14 @@ const MUTATION = gql`
       name
     }
   }
-`;
+`
 
 type User = {
-  id: number;
-  name: string;
-};
+  id: number
+  name: string
+}
 
-const variables = { id: 123, name: 'Lunar' };
+const variables = { id: 123, name: 'uc-design-system' }
 
 const mock = {
   request: {
@@ -32,18 +32,18 @@ const mock = {
     data: {
       updateUser: {
         id: 123,
-        name: 'Lunar',
+        name: 'uc-design-system',
         __typename: 'user',
       },
     },
   },
   delay: 2000,
-};
+}
 
 const loadingMock = {
   ...mock,
   delay: 100000,
-};
+}
 
 const errorMock = {
   request: {
@@ -51,7 +51,7 @@ const errorMock = {
     variables,
   },
   error: new Error('404: GraphQL mutation failed!'),
-};
+}
 
 function UpdateButton({ onUpdate }: { onUpdate: MutationFunction<{}, User> }) {
   return (
@@ -61,14 +61,14 @@ function UpdateButton({ onUpdate }: { onUpdate: MutationFunction<{}, User> }) {
         onUpdate({
           variables: {
             id: 123,
-            name: 'Lunar',
+            name: 'uc-design-system',
           },
-        });
+        })
       }}
     >
-      Update name to <b>Lunar</b>
+      Update name to <b>UCDS</b>
     </Button>
-  );
+  )
 }
 
 export default {
@@ -76,7 +76,7 @@ export default {
   parameters: {
     inspectComponents: [Mutation],
   },
-};
+}
 
 export function executeAGraphQlMutationAndHandleTheResponseWhenReceived() {
   return (
@@ -85,12 +85,12 @@ export function executeAGraphQlMutationAndHandleTheResponseWhenReceived() {
         {(updateUser) => <UpdateButton onUpdate={updateUser} />}
       </Mutation>
     </MockedProvider>
-  );
+  )
 }
 
 executeAGraphQlMutationAndHandleTheResponseWhenReceived.story = {
   name: 'Execute a GraphQL mutation and handle the response when received.',
-};
+}
 
 export function customLoadingComponent() {
   return (
@@ -99,23 +99,26 @@ export function customLoadingComponent() {
         {(updateUser) => <UpdateButton onUpdate={updateUser} />}
       </Mutation>
     </MockedProvider>
-  );
+  )
 }
 
 customLoadingComponent.story = {
   name: 'Custom loading component.',
-};
+}
 
 export function customErrorComponent() {
   return (
     <MockedProvider mocks={[errorMock]} addTypename={false}>
-      <Mutation mutation={MUTATION} error={(error) => <ErrorMessage error={error} />}>
+      <Mutation
+        mutation={MUTATION}
+        error={(error) => <ErrorMessage error={error} />}
+      >
         {(updateUser) => <UpdateButton onUpdate={updateUser} />}
       </Mutation>
     </MockedProvider>
-  );
+  )
 }
 
 customErrorComponent.story = {
   name: 'Custom error component.',
-};
+}

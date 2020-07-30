@@ -1,39 +1,50 @@
-import React from 'react';
-import T from '../Translate';
-import Menu, { Row, Item, Separator } from '../Menu';
-import Text from '../Text';
-import TrackingBoundary from '../TrackingBoundary';
-import { LT_LOCALES } from '../../constants';
-import { DefinitionShape } from './types';
+import React from 'react'
+import T from '../Translate'
+import Menu, { Row, Item, Separator } from '../Menu'
+import Text from '../Text'
+import TrackingBoundary from '../TrackingBoundary'
+import { LT_LOCALES } from '../../constants'
+import { DefinitionShape } from './types'
 
 export type LocaleMenuProps = {
-  autoDefinition?: DefinitionShape;
-  maxHeight?: number;
-  noneDefinition?: DefinitionShape;
-  selectedLocale: string | null;
-  onSelectLocale: (locale: string) => void;
-};
+  autoDefinition?: DefinitionShape
+  maxHeight?: number
+  noneDefinition?: DefinitionShape
+  selectedLocale: string | null
+  onSelectLocale: (locale: string) => void
+}
 
 export default class LocaleMenu extends React.Component<LocaleMenuProps> {
   private handleClick = (locale: string) => {
-    this.props.onSelectLocale(locale);
-  };
+    this.props.onSelectLocale(locale)
+  }
 
   render() {
-    const { autoDefinition, maxHeight, noneDefinition, selectedLocale } = this.props;
-    const locales = [...LT_LOCALES];
+    const {
+      autoDefinition,
+      maxHeight,
+      noneDefinition,
+      selectedLocale,
+    } = this.props
+    const locales = [...LT_LOCALES]
 
-    locales.sort((a, b) => a.label.localeCompare(b.label));
+    locales.sort((a, b) => a.label.localeCompare(b.label))
 
     return (
       <TrackingBoundary name="Proofreader/LocaleMenu">
         <Menu
-          accessibilityLabel={T.phrase('lunar.proofreader.languageSelector', 'Language selector')}
+          accessibilityLabel={T.phrase(
+            'uc-design-system.proofreader.languageSelector',
+            'Language selector'
+          )}
           maxHeight={maxHeight}
         >
           <Row>
             <Text small muted bold>
-              <T k="lunar.proofreader.selectLanguage" phrase="Select a language" />
+              <T
+                k="uc-design-system.proofreader.selectLanguage"
+                phrase="Select a language"
+              />
             </Text>
           </Row>
 
@@ -70,6 +81,6 @@ export default class LocaleMenu extends React.Component<LocaleMenuProps> {
           ))}
         </Menu>
       </TrackingBoundary>
-    );
+    )
   }
 }

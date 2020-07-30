@@ -17,9 +17,9 @@ import {
   MutableState,
 } from 'final-form';
 import arrayMutators, { Mutators as ArrayMutators } from 'final-form-arrays';
-import T from '@airbnb/lunar/lib/components/Translate';
-import { getErrorMessage } from '@airbnb/lunar/lib/components/ErrorMessage';
-import FormErrorMessage from '@airbnb/lunar/lib/components/FormErrorMessage';
+import T from '@lorica/uc-design-system/lib/components/Translate';
+import { getErrorMessage } from '@lorica/uc-design-system/lib/components/ErrorMessage';
+import FormErrorMessage from '@lorica/uc-design-system/lib/components/FormErrorMessage';
 import FormContext from '../FormContext';
 import { Errors, Parse, Field, FieldData } from '../../types';
 import { throttleToSinglePromise } from '../../helpers';
@@ -200,9 +200,13 @@ export default class Form<Data extends object = {}> extends React.Component<
     return promise.catch((error) => {
       if (setErrors) {
         setErrors({
-          [FORM_ERROR]: T.phrase('lunar.form.submitFailed', 'Failed to submit form. %{error}', {
-            error: getErrorMessage(error),
-          }),
+          [FORM_ERROR]: T.phrase(
+            'uc-design-system.form.submitFailed',
+            'Failed to submit form. %{error}',
+            {
+              error: getErrorMessage(error),
+            },
+          ),
         });
       }
 
@@ -267,7 +271,7 @@ export default class Form<Data extends object = {}> extends React.Component<
 
     if (!passes && errorCount === 0) {
       errors[FORM_ERROR] = T.phrase(
-        'lunar.form.validateFailed',
+        'uc-design-system.form.validateFailed',
         'Failed to validate form. Please try again.',
       );
       errorCount += 1;
@@ -420,8 +424,9 @@ export default class Form<Data extends object = {}> extends React.Component<
   render() {
     const { children, method } = this.props;
     const { id, submitError } = this.state!;
-    // @ts-ignore Bug: https://github.com/Microsoft/TypeScript/issues/26970
-    const content = typeof children === 'function' ? children(this.state!) : children;
+    const content =
+      // @ts-ignore Bug: https://github.com/Microsoft/TypeScript/issues/26970
+      typeof children === 'function' ? children(this.state!) : children;
 
     return (
       <FormContext.Provider

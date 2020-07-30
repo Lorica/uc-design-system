@@ -1,7 +1,7 @@
 import React from 'react';
-import IconUser from '@airbnb/lunar-icons/lib/general/IconUser';
-import IconSettings from '@airbnb/lunar-icons/lib/interface/IconSettings';
-import IconKey from '@airbnb/lunar-icons/lib/interface/IconKey';
+import IconUser from '@lorica/uc-design-system-icons/lib/general/IconUser';
+import IconSettings from '@lorica/uc-design-system-icons/lib/interface/IconSettings';
+import IconKey from '@lorica/uc-design-system-icons/lib/interface/IconKey';
 import Text from '../Text';
 import Menu, { Item, Separator, Row } from '.';
 
@@ -60,20 +60,24 @@ withSpaciousPaddingAndCustomRows.story = {
 export function withLinksIcons1EmAndTips() {
   return (
     <Menu accessibilityLabel="User menu">
-      <Item openInNewWindow icon={<IconUser decorative />} href="https://github.com/airbnb/lunar">
+      <Item
+        openInNewWindow
+        icon={<IconUser decorative />}
+        href="https://github.com/lorica/uc-design-system"
+      >
         Profile
       </Item>
       <Item
         openInNewWindow
         icon={<IconSettings decorative />}
-        href="https://github.com/airbnb/lunar"
+        href="https://github.com/lorica/uc-design-system"
       >
         Settings
       </Item>
       <Item
         openInNewWindow
         icon={<IconKey decorative />}
-        href="https://github.com/airbnb/lunar"
+        href="https://github.com/lorica/uc-design-system"
         tip="Cmd + L"
       >
         Log Out

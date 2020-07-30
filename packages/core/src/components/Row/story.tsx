@@ -1,5 +1,5 @@
 import React from 'react';
-import IconAddAlt from '@airbnb/lunar-icons/lib/interface/IconAddAlt';
+import IconAddAlt from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt';
 import LoremIpsum from ':storybook/components/LoremIpsum';
 import Text from '../Text';
 import Button from '../Button';

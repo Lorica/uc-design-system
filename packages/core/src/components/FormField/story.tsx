@@ -1,17 +1,17 @@
-import React from 'react';
-import IconTranslate from '@airbnb/lunar-icons/lib/interface/IconTranslate';
-import IconCurrency from '@airbnb/lunar-icons/lib/general/IconCurrency';
-import Input from '../Input';
-import Select from '../Select';
-import TextArea from '../TextArea';
-import FormField, { Prefix, Suffix } from '.';
+import React from 'react'
+import IconTranslate from '@lorica/uc-design-system-icons/lib/interface/IconTranslate'
+import IconCurrency from '@lorica/uc-design-system-icons/lib/general/IconCurrency'
+import Input from '../Input'
+import Select from '../Select'
+import TextArea from '../TextArea'
+import FormField, { Prefix, Suffix } from '.'
 
 export default {
   title: 'Core/FormField',
   parameters: {
     inspectComponents: [FormField, Prefix, Suffix],
   },
-};
+}
 
 export function supportsADisabledState() {
   return (
@@ -39,19 +39,29 @@ export function supportsADisabledState() {
         onChange={() => console.log('onChange')}
       />
     </>
-  );
+  )
 }
 
 supportsADisabledState.story = {
   name: 'Supports a disabled state.',
-};
+}
 
 export function supportsAnInvalidErrorState() {
   return (
     <>
-      <Input invalid name="invalid-input" label="Input" onChange={() => console.log('onChange')} />
+      <Input
+        invalid
+        name="invalid-input"
+        label="Input"
+        onChange={() => console.log('onChange')}
+      />
 
-      <Select invalid name="invalid-select" label="Select" onChange={() => console.log('onChange')}>
+      <Select
+        invalid
+        name="invalid-select"
+        label="Select"
+        onChange={() => console.log('onChange')}
+      >
         <option value="">Option</option>
       </Select>
 
@@ -63,12 +73,12 @@ export function supportsAnInvalidErrorState() {
         onChange={() => console.log('onChange')}
       />
     </>
-  );
+  )
 }
 
 supportsAnInvalidErrorState.story = {
   name: 'Supports an invalid error state.',
-};
+}
 
 export function supportsAPrefx() {
   return (
@@ -93,12 +103,12 @@ export function supportsAPrefx() {
         <option value="">USD</option>
       </Select>
     </>
-  );
+  )
 }
 
 supportsAPrefx.story = {
   name: 'Supports a prefx.',
-};
+}
 
 export function supportsASuffix() {
   return (
@@ -123,12 +133,12 @@ export function supportsASuffix() {
         <option value="">English</option>
       </Select>
     </>
-  );
+  )
 }
 
 supportsASuffix.story = {
   name: 'Supports a suffix.',
-};
+}
 
 export function supportsBothAPrefixAndSuffixAndASmallState() {
   return (
@@ -160,12 +170,12 @@ export function supportsBothAPrefixAndSuffixAndASmallState() {
         onChange={() => console.log('onChange')}
       />
     </>
-  );
+  )
 }
 
 supportsBothAPrefixAndSuffixAndASmallState.story = {
   name: 'Supports both a prefix and suffix in a small state.',
-};
+}
 
 export function supportsBothAPrefixAndSuffixAndALargeState() {
   return (
@@ -197,19 +207,29 @@ export function supportsBothAPrefixAndSuffixAndALargeState() {
         onChange={() => console.log('onChange')}
       />
     </>
-  );
+  )
 }
 
 supportsBothAPrefixAndSuffixAndALargeState.story = {
   name: 'Supports both a prefix and suffix in a large state.',
-};
+}
 
 export function supportsInline() {
   return (
     <>
-      <Input inline name="disabled-input" label="Input" onChange={() => console.log('onChange')} />
+      <Input
+        inline
+        name="disabled-input"
+        label="Input"
+        onChange={() => console.log('onChange')}
+      />
 
-      <Select inline name="disabled-select" label="Select" onChange={() => console.log('onChange')}>
+      <Select
+        inline
+        name="disabled-select"
+        label="Select"
+        onChange={() => console.log('onChange')}
+      >
         <option value="">Option</option>
       </Select>
 
@@ -220,27 +240,41 @@ export function supportsInline() {
         onChange={() => console.log('onChange')}
       />
     </>
-  );
+  )
 }
 
 supportsInline.story = {
   name: 'Supports inline.',
-};
+}
 
 export function smallAndLargeSizes() {
   return (
     <>
-      <Input small name="size-small" label="Small" onChange={() => console.log('onChange')} />
+      <Input
+        small
+        name="size-small"
+        label="Small"
+        onChange={() => console.log('onChange')}
+      />
 
-      <Select name="size-normal" label="Medium (normal)" onChange={() => console.log('onChange')}>
+      <Select
+        name="size-normal"
+        label="Medium (normal)"
+        onChange={() => console.log('onChange')}
+      >
         <option value="">Option</option>
       </Select>
 
-      <TextArea large name="size-large" label="Large" onChange={() => console.log('onChange')} />
+      <TextArea
+        large
+        name="size-large"
+        label="Large"
+        onChange={() => console.log('onChange')}
+      />
     </>
-  );
+  )
 }
 
 smallAndLargeSizes.story = {
   name: 'Small and large sizes.',
-};
+}

@@ -1,27 +1,27 @@
-import React from 'react';
-import { shallowWithStyles } from '@airbnb/lunar-test-utils';
-import IconAffix from '../../../src/components/private/IconAffix';
+import React from 'react'
+import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import IconAffix from '../../../src/components/private/IconAffix'
 
 describe('<IconAffix />', () => {
   it('renders before', () => {
-    const wrapper = shallowWithStyles(<IconAffix before>Child</IconAffix>);
+    const wrapper = shallowWithStyles(<IconAffix before>Child</IconAffix>)
 
-    expect(wrapper.prop('className')).toMatch('affix_before');
-  });
+    expect(wrapper.prop('className')).toMatch('affix_before')
+  })
 
   it('renders after', () => {
-    const wrapper = shallowWithStyles(<IconAffix after>Child</IconAffix>);
+    const wrapper = shallowWithStyles(<IconAffix after>Child</IconAffix>)
 
-    expect(wrapper.prop('className')).toMatch('affix_after');
-  });
+    expect(wrapper.prop('className')).toMatch('affix_after')
+  })
 
   it('errors if both props used', () => {
     expect(() => {
       shallowWithStyles(
         <IconAffix before after>
           Child
-        </IconAffix>,
-      );
-    }).toThrow();
-  });
-});
+        </IconAffix>
+      )
+    }).toThrow()
+  })
+})

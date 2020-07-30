@@ -1,20 +1,23 @@
-import React, { useContext } from 'react';
-import { DirectionContext } from 'aesthetic-react';
-import IconChevronLeft from '@airbnb/lunar-icons/lib/interface/IconChevronLeft';
-import IconChevronRight from '@airbnb/lunar-icons/lib/interface/IconChevronRight';
-import IconChevronDown from '@airbnb/lunar-icons/lib/interface/IconChevronDown';
-import DirectionalIcon from '../DirectionalIcon';
-import Core from '../..';
+import React, { useContext } from 'react'
+import { DirectionContext } from 'aesthetic-react'
+import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+import IconChevronDown from '@lorica/uc-design-system-icons/lib/interface/IconChevronDown'
+import DirectionalIcon from '../DirectionalIcon'
+import Core from '../..'
 
 export type ExpandableIconProps = {
   /** Whether the content has been expanded or not. */
-  expanded: boolean;
+  expanded: boolean
   /** Custom size for the icons. */
-  size?: string | number;
-};
+  size?: string | number
+}
 
-export default function ExpandableIcon({ expanded, size }: ExpandableIconProps) {
-  const context = useContext(DirectionContext);
+export default function ExpandableIcon({
+  expanded,
+  size,
+}: ExpandableIconProps) {
+  const context = useContext(DirectionContext)
 
   return expanded ? (
     <IconChevronDown decorative size={size} />
@@ -26,5 +29,5 @@ export default function ExpandableIcon({ expanded, size }: ExpandableIconProps) 
       right={IconChevronRight}
       size={size}
     />
-  );
+  )
 }

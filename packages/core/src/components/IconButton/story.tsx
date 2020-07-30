@@ -1,5 +1,5 @@
 import React from 'react';
-import IconCheck from '@airbnb/lunar-icons/lib/interface/IconCheck';
+import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
 import IconButton from '.';
 
 export default {
@@ -32,7 +32,7 @@ export function anAnchorLinkWhenPassingHref() {
   return (
     <IconButton
       openInNewWindow
-      href="https://github.com/airbnb/lunar"
+      href="https://github.com/lorica/uc-design-system"
       onClick={() => console.log('onClick')}
     >
       <IconCheck decorative />

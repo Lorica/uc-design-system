@@ -1,36 +1,36 @@
-import React from 'react';
-import IconBolt from '@airbnb/lunar-icons/lib/general/IconBolt';
-import LoremIpsum from ':storybook/components/LoremIpsum';
-import lunar from ':storybook/images/lunar-logo.png';
-import Text from '../Text';
-import Interweave from '../Interweave';
-import MessageItem from '.';
+import React from 'react'
+import IconBolt from '@lorica/uc-design-system-icons/lib/general/IconBolt'
+import LoremIpsum from ':storybook/components/LoremIpsum'
+import ucDesignSystem from ':storybook/images/lunar-logo.png'
+import Text from '../Text'
+import Interweave from '../Interweave'
+import MessageItem from '.'
 
 export default {
   title: 'Core/MessageItem',
   parameters: {
     inspectComponents: [MessageItem],
   },
-};
+}
 
 export function messageItem() {
   return (
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 messageItem.story = {
   name: 'Message item.',
-};
+}
 
 export function withLoadingAuthor() {
   return (
@@ -38,19 +38,19 @@ export function withLoadingAuthor() {
       loadingAuthor
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withLoadingAuthor.story = {
   name: 'With loading author.',
-};
+}
 
 export function withSendingState() {
   return (
@@ -58,39 +58,39 @@ export function withSendingState() {
       sending
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withSendingState.story = {
   name: 'With sending state.',
-};
+}
 
 export function withABadge() {
   return (
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageBadgeSrc={lunar}
-      imageSrc={lunar}
+      imageBadgeSrc={ucDesignSystem}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withABadge.story = {
   name: 'With a badge.',
-};
+}
 
 export function withAnIconAvatar() {
   return (
@@ -105,19 +105,19 @@ export function withAnIconAvatar() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withAnIconAvatar.story = {
   name: 'With an icon avatar.',
-};
+}
 
 export function withProfilePhotoClick() {
   return (
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link - Click to open Nova profile"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       onClickImage={() => console.log('onClickImage')}
     >
@@ -125,19 +125,19 @@ export function withProfilePhotoClick() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withProfilePhotoClick.story = {
   name: 'With profile photo click.',
-};
+}
 
 export function withAClickableTitle() {
   return (
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleClickDescription="Real name: Link - Click to chat"
       onClickTitle={() => console.log('onClickTitle')}
@@ -146,12 +146,12 @@ export function withAClickableTitle() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withAClickableTitle.story = {
   name: 'With a clickable title.',
-};
+}
 
 export function withAnEmail() {
   return (
@@ -159,26 +159,26 @@ export function withAnEmail() {
       email="noreply@airbnb.com"
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withAnEmail.story = {
   name: 'With an email.',
-};
+}
 
 export function withASource() {
   return (
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       source="web"
       title="Some custom title"
     >
@@ -186,19 +186,19 @@ export function withASource() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withASource.story = {
   name: 'With a source.',
-};
+}
 
 export function withATitleTag() {
   return (
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -206,19 +206,19 @@ export function withATitleTag() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withATitleTag.story = {
   name: 'With a title tag.',
-};
+}
 
 export function withInterweave() {
   return (
     <MessageItem
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -226,12 +226,12 @@ export function withInterweave() {
         <Interweave content="This text <b>will be bold</b>. And this <a href='https://www.google.com/search?q=google+image+cats&tbm=isch&tbo=u&source=univ&sa=X&ved=2ahUKEwjDqIymvr3cAhWJllQKHV6iCZgQsAR6BAgAEAE&biw=1280&bih=1343'>https://www.google.com/search?q=google+image+cats&tbm=isch&tbo=u&source=univ&sa=X&ved=2ahUKEwjDqIymvr3cAhWJllQKHV6iCZgQsAR6BAgAEAE&biw=1280&bih=1343</a> will wrap." />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withInterweave.story = {
   name: 'With `Interweave`.',
-};
+}
 
 export function withVerticalSpacing() {
   return (
@@ -239,7 +239,7 @@ export function withVerticalSpacing() {
       verticalSpacing
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -247,12 +247,12 @@ export function withVerticalSpacing() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withVerticalSpacing.story = {
   name: 'With vertical spacing.',
-};
+}
 
 export function withHorizontalSpacing() {
   return (
@@ -260,7 +260,7 @@ export function withHorizontalSpacing() {
       horizontalSpacing
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -268,12 +268,12 @@ export function withHorizontalSpacing() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withHorizontalSpacing.story = {
   name: 'With horizontal spacing.',
-};
+}
 
 export function withImportant() {
   return (
@@ -281,7 +281,7 @@ export function withImportant() {
       important
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -289,12 +289,12 @@ export function withImportant() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withImportant.story = {
   name: 'With important.',
-};
+}
 
 export function withWarning() {
   return (
@@ -302,7 +302,7 @@ export function withWarning() {
       warning
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
       titleTag="CS"
     >
@@ -310,12 +310,12 @@ export function withWarning() {
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withWarning.story = {
   name: 'With warning.',
-};
+}
 
 export function withInfo() {
   return (
@@ -324,19 +324,19 @@ export function withInfo() {
       email="noreply@airbnb.com"
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withInfo.story = {
   name: 'With info.',
-};
+}
 
 export function withDisableTitleTranslation() {
   return (
@@ -344,23 +344,25 @@ export function withDisableTitleTranslation() {
       disableTitleTranslation
       formattedTimestamp="2:45 AM"
       imageDescription="Link"
-      imageSrc={lunar}
+      imageSrc={ucDesignSystem}
       title="Some custom title"
     >
       <Text>
         <LoremIpsum />
       </Text>
     </MessageItem>
-  );
+  )
 }
 
 withDisableTitleTranslation.story = {
   name: 'With disable title translation.',
-};
+}
 
 export function withAllOfTheThings() {
   return (
-    <div style={{ display: 'grid', gridGap: 48, gridTemplateColumns: '1fr 1fr' }}>
+    <div
+      style={{ display: 'grid', gridGap: 48, gridTemplateColumns: '1fr 1fr' }}
+    >
       <MessageItem
         horizontalSpacing
         info
@@ -368,7 +370,7 @@ export function withAllOfTheThings() {
         email="noreply@airbnb.com"
         formattedTimestamp="Sep 20 10:23AM"
         imageDescription="Link"
-        imageSrc={lunar}
+        imageSrc={ucDesignSystem}
         source="email"
         titleTag="Specialist"
         title="Long title lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -386,7 +388,7 @@ export function withAllOfTheThings() {
         email="noreply@airbnb.com"
         formattedTimestamp="Sep 20 10:23AM"
         imageDescription="Link"
-        imageSrc={lunar}
+        imageSrc={ucDesignSystem}
         source="email"
         titleTag="Specialist"
         title="Long title lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -398,9 +400,9 @@ export function withAllOfTheThings() {
         </Text>
       </MessageItem>
     </div>
-  );
+  )
 }
 
 withAllOfTheThings.story = {
   name: 'With all of the things.',
-};
+}

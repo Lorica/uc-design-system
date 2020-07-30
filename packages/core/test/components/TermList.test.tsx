@@ -1,5 +1,5 @@
 import React from 'react';
-import { mountUseStyles } from '@airbnb/lunar-test-utils';
+import { mountUseStyles } from '@lorica/uc-design-system-test-utils';
 import TermList, { Term } from '../../src/components/TermList';
 import Link from '../../src/components/Link';
 

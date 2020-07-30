@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import IconAdd from '@airbnb/lunar-icons/lib/interface/IconAdd';
-import IconRemove from '@airbnb/lunar-icons/lib/interface/IconRemove';
+import IconAdd from '@lorica/uc-design-system-icons/lib/interface/IconAdd';
+import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemove';
 import Button from '../Button';
 import IconButton from '../IconButton';
 import ButtonGroup from '../ButtonGroup';
@@ -74,7 +74,7 @@ export default function ZoomControls({ styleSheet, ...props }: ZoomControlsProps
       <ButtonGroup>
         <IconButton disabled={scale === 1} onClick={handleZoomOut}>
           <IconRemove
-            accessibilityLabel={T.phrase('lunar.image.zoomOut', 'Zoom out')}
+            accessibilityLabel={T.phrase('uc-design-system.image.zoomOut', 'Zoom out')}
             size={iconSize}
           />
         </IconButton>
@@ -84,13 +84,18 @@ export default function ZoomControls({ styleSheet, ...props }: ZoomControlsProps
         </Button>
 
         <IconButton onClick={handleZoomIn}>
-          <IconAdd accessibilityLabel={T.phrase('lunar.image.zoomIn', 'Zoom in')} size={iconSize} />
+          <IconAdd
+            accessibilityLabel={T.phrase('uc-design-system.image.zoomIn', 'Zoom in')}
+            size={iconSize}
+          />
         </IconButton>
       </ButtonGroup>
 
       {visible && (
         <Dropdown visible={visible} left="0" zIndex={5} onClickOutside={toggleZoomMenu}>
-          <Menu accessibilityLabel={T.phrase('lunar.image.zoomMenu', 'Zoom dropdown menu')}>
+          <Menu
+            accessibilityLabel={T.phrase('uc-design-system.image.zoomMenu', 'Zoom dropdown menu')}
+          >
             {zoomOptions.map((zoom) => (
               <Item key={zoom.scale} onClick={zoom.handleOnClick}>
                 {zoom.label}

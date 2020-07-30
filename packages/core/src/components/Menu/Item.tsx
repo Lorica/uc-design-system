@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import IconCaretLeft from '@airbnb/lunar-icons/lib/interface/IconCaretLeft';
-import IconCaretRight from '@airbnb/lunar-icons/lib/interface/IconCaretRight';
+import IconCaretLeft from '@lorica/uc-design-system-icons/lib/interface/IconCaretLeft';
+import IconCaretRight from '@lorica/uc-design-system-icons/lib/interface/IconCaretRight';
 import iconComponent from '../../prop-types/iconComponent';
 import useStyles, { StyleSheet } from '../../hooks/useStyles';
 import ButtonOrLink from '../private/ButtonOrLink';

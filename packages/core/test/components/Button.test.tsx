@@ -1,6 +1,6 @@
 import React from 'react';
-import { mountUseStyles } from '@airbnb/lunar-test-utils';
-import IconCheck from '@airbnb/lunar-icons/lib/interface/IconCheck';
+import { mountUseStyles } from '@lorica/uc-design-system-test-utils';
+import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
 import ButtonOrLink from '../../src/components/private/ButtonOrLink';
 import Button from '../../src/components/Button';
 import Loader from '../../src/components/Loader';

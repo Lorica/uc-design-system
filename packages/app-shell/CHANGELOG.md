@@ -7,13 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 #### 📦 Dependencies
 
-- **[aesthetic]** Update to latest (for performance gains). ([b3a42d0](https://github.com/airbnb/lunar/commit/b3a42d0))
+- **[aesthetic]** Update to latest (for performance gains). ([b3a42d0](https://github.com/lorica/uc-design-system/commit/b3a42d0))
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ### 3.0.1 - 2020-03-25
 
@@ -22,10 +18,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Audit 2020-03-24 (#344) ([1db54a9](https://github.com/airbnb/lunar/commit/1db54a9)), closes [#344](https://github.com/airbnb/lunar/issues/344)
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 # 3.0.0 - 2020-03-04
 
@@ -45,17 +37,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 2.3.2 - 2020-02-07
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ### 2.3.1 - 2020-01-28
 
@@ -65,10 +49,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ## 2.3.0 - 2019-12-19
 
 #### 🚀 Updates
@@ -76,10 +56,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[List]** Add `middleAlign` support for `horizontal`. (#244) ([1b58963](https://github.com/airbnb/lunar/commit/1b58963)), closes [#244](https://github.com/airbnb/lunar/issues/244)
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ### 2.2.2 - 2019-10-31
 
@@ -93,10 +69,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Integrate rut. ([1ca54a6](https://github.com/airbnb/lunar/tree/master/packages/app-shell/commit/1ca54a6))
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ### 2.2.1 - 2019-10-10
 
@@ -112,17 +84,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 2.2.0 - 2019-09-26
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ## 2.2.0-alpha.1 - 2019-09-26
 
@@ -131,10 +95,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Migrate to Nimbus. Update to latest TypeScript, Babel, ESLint, and more. (#196) ([fe0962b](https://github.com/airbnb/lunar/tree/master/packages/app-shell/commit/fe0962b)), closes [#196](https://github.com/airbnb/lunar/tree/master/packages/app-shell/issues/196)
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ### 2.1.6 - 2019-09-24
 
@@ -146,10 +106,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 2.1.5 - 2019-08-07
 
 #### 📦 Dependencies
@@ -158,17 +114,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 2.1.4 - 2019-07-24
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ### 2.1.3 - 2019-07-16
 
@@ -178,10 +126,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 2.1.2 - 2019-07-16
 
 #### 🛠 Internals
@@ -190,17 +134,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 2.1.1 - 2019-07-12
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ## 2.1.0 - 2019-07-11
 
@@ -210,17 +146,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 2.0.1 - 2019-07-08
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 # 2.0.0 - 2019-06-26
 
@@ -236,10 +164,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 1.0.6 - 2019-05-21
 
 #### 🐞 Fixes
@@ -247,10 +171,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Remove Babel runtime setup (#65) ([a58ade2](https://github.com/airbnb/lunar/commit/a58ade2)), closes [#65](https://github.com/airbnb/lunar/issues/65)
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ### 1.0.5 - 2019-04-24
 
@@ -260,25 +180,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 1.0.4 - 2019-04-24
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
 
-
-
-
-
 ### 1.0.3 - 2019-04-24
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 ## 1.0.2 - 2019-04-23
 
@@ -291,10 +199,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Switch to Storybook from Styleguidist (#19) ([129e5c7](https://github.com/airbnb/lunar/commit/129e5c7)), closes [#19](https://github.com/airbnb/lunar/issues/19)
 
 **Note:** Version bump only for package @airbnb/lunar-app-shell
-
-
-
-
 
 # 1.0.0 - 2019-04-04
 

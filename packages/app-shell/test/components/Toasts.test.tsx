@@ -1,8 +1,8 @@
-import React from 'react';
-import { render } from 'rut-dom';
-import { Toast } from '@airbnb/lunar/lib/components/Toast';
-import Toasts from '../../src/components/Toasts';
-import AppContext, { defaultContext } from '../../src/components/AppContext';
+import React from 'react'
+import { render } from 'rut-dom'
+import { Toast } from '@lorica/uc-design-system/lib/components/Toast'
+import Toasts from '../../src/components/Toasts'
+import AppContext, { defaultContext } from '../../src/components/AppContext'
 
 describe('Toasts', () => {
   const toasts = [
@@ -30,19 +30,21 @@ describe('Toasts', () => {
         refresh: true,
       },
     },
-  ];
+  ]
 
   function WrappingComponent({ children }: { children?: React.ReactNode }) {
     return (
-      <AppContext.Provider value={{ ...defaultContext, toasts }}>{children}</AppContext.Provider>
-    );
+      <AppContext.Provider value={{ ...defaultContext, toasts }}>
+        {children}
+      </AppContext.Provider>
+    )
   }
 
   it('renders all toasts', () => {
-    const { root } = render<{}>(<Toasts />, { wrapper: <WrappingComponent /> });
+    const { root } = render<{}>(<Toasts />, { wrapper: <WrappingComponent /> })
 
-    expect(root.find(Toast)).toHaveLength(3);
-  });
+    expect(root.find(Toast)).toHaveLength(3)
+  })
 
   // it.skip('renders toasts in reverse', () => {
   //   const { getAllByRole } = render(<Toasts />, { wrapper: WrappingComponent });
@@ -52,4 +54,4 @@ describe('Toasts', () => {
   //   expect(queryByText(rows[1], 'Bar')).not.toBeNull();
   //   expect(queryByText(rows[2], 'Foo')).not.toBeNull();
   // });
-});
+})
