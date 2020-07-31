@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.0 - 2020-07-31
+
+#### 🚀 Updates
+
+- **[Forms]** Add support for arrays of fields. (#371) ([a4ce4b0](https://github.com/lorica/uc-design-system/commit/a4ce4b0)), closes [#371](https://github.com/lorica/uc-design-system/issues/371)
+- **[Range]** Add input range component (#362) ([3996ebf](https://github.com/lorica/uc-design-system/commit/3996ebf)), closes [#362](https://github.com/lorica/uc-design-system/issues/362)
+
+**Note:** Version bump only for package @usercentric/uc-design-system-forms
+
+
+
+
+
 # 4.0.0 - 2020-07-31
 
 #### 🎉 Release

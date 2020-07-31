@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.0 - 2020-07-31
+
+#### 🚀 Updates
+
+- **[Copy]** Add invertTooltip prop (#380) ([d2ea8da](https://github.com/lorica/uc-design-system/commit/d2ea8da)), closes [#380](https://github.com/lorica/uc-design-system/issues/380)
+- **[DataTable]** Add xLarge row size. Fix forceUpdate logic (#367) ([ebab32b](https://github.com/lorica/uc-design-system/commit/ebab32b)), closes [#367](https://github.com/lorica/uc-design-system/issues/367)
+- **[DateTime, DateTimeRange, DateTimeSelect, Price, PriceComparison, PriceGroup]** Add empty fallback if an invalid value is provided. (#366) ([a37c2cc](https://github.com/lorica/uc-design-system/commit/a37c2cc)), closes [#366](https://github.com/lorica/uc-design-system/issues/366)
+- **[ErrorMessage]** Add trace ID link (#361) ([29e6fad](https://github.com/lorica/uc-design-system/commit/29e6fad)), closes [#361](https://github.com/lorica/uc-design-system/issues/361)
+- **[ErrorMessage,ErrorBoundary]** Show error info and error/trace IDs (#363) ([bf0965a](https://github.com/lorica/uc-design-system/commit/bf0965a)), closes [#363](https://github.com/lorica/uc-design-system/issues/363)
+- **[List]** Add reversed prop to visually reverse the list items. (#374) ([4c2a87e](https://github.com/lorica/uc-design-system/commit/4c2a87e)), closes [#374](https://github.com/lorica/uc-design-system/issues/374)
+- **[Overlay]** Add `enableMouseInteraction` prop (#391) ([26e905d](https://github.com/lorica/uc-design-system/commit/26e905d)), closes [#391](https://github.com/lorica/uc-design-system/issues/391)
+- **[Price, PriceComparison, PriceGroup]** Handle invalid currency values. (#369) ([161cf92](https://github.com/lorica/uc-design-system/commit/161cf92)), closes [#369](https://github.com/lorica/uc-design-system/issues/369)
+- **[Range]** Add input range component (#362) ([3996ebf](https://github.com/lorica/uc-design-system/commit/3996ebf)), closes [#362](https://github.com/lorica/uc-design-system/issues/362)
+- **[RotateControls, ZoomControls]** Add icon size prop (#381) ([79d0866](https://github.com/lorica/uc-design-system/commit/79d0866)), closes [#381](https://github.com/lorica/uc-design-system/issues/381)
+- **[tooltip]** Make inverted text readable in dark mode (#386) ([c218858](https://github.com/lorica/uc-design-system/commit/c218858)), closes [#386](https://github.com/lorica/uc-design-system/issues/386)
+- **[tooltip]** Set font color for inverted tooltip (#388) ([0c57553](https://github.com/lorica/uc-design-system/commit/0c57553)), closes [#388](https://github.com/lorica/uc-design-system/issues/388)
+- **[Tooltip]** Add `popover` prop (#382) ([19f4364](https://github.com/lorica/uc-design-system/commit/19f4364)), closes [#382](https://github.com/lorica/uc-design-system/issues/382)
+- **[Tooltip]** Render Popover's popup in Overlay component (#392) ([e7812ce](https://github.com/lorica/uc-design-system/commit/e7812ce)), closes [#392](https://github.com/lorica/uc-design-system/issues/392)
+
+#### 🐞 Fixes
+
+- **[Autocomplete]** prefix and suffix style (#390) ([51af827](https://github.com/lorica/uc-design-system/commit/51af827)), closes [#390](https://github.com/lorica/uc-design-system/issues/390)
+- **[DataTable]** Don't cast undefined to a string (#365) ([e09dac8](https://github.com/lorica/uc-design-system/commit/e09dac8)), closes [#365](https://github.com/lorica/uc-design-system/issues/365)
+- **[DataTable]** rowHeight xLarge => xlarge (#368) ([078a64a](https://github.com/lorica/uc-design-system/commit/078a64a)), closes [#368](https://github.com/lorica/uc-design-system/issues/368)
+- **[Loader]** remove redundant spacing (#370) ([700b338](https://github.com/lorica/uc-design-system/commit/700b338)), closes [#370](https://github.com/lorica/uc-design-system/issues/370)
+
+#### 📘 Docs
+
+- **[DateTimeSelect]** Disable happo for non-deterministic story (#393) ([90080f3](https://github.com/lorica/uc-design-system/commit/90080f3)), closes [#393](https://github.com/lorica/uc-design-system/issues/393)
+
+**Note:** Version bump only for package @usercentric/uc-design-system
+
+
+
+
+
 # 4.0.0 - 2020-07-31
 
 #### 🎉 Release

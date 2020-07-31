@@ -1,6 +1,6 @@
 {
   "name": "@usercentric/uc-design-system-apollo",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "release": "1583350587083",
   "description": "Apollo and GraphQL utilities.",
   "license": "MIT",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",
-    "@usercentric/uc-design-system-test-utils": "^4.0.0",
+    "@usercentric/uc-design-system-test-utils": "^4.0.1",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "react": "^16.13.0",

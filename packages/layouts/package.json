@@ -1,6 +1,6 @@
 {
   "name": "@usercentric/uc-design-system-layouts",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "release": "1583350587083",
   "description": "Pre-defined page layouts for UCDS.",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "react": "^16.8.0"
   },
   "devDependencies": {
-    "@usercentric/uc-design-system-test-utils": "^4.0.0",
+    "@usercentric/uc-design-system-test-utils": "^4.0.1",
     "react": "^16.13.0"
   },
   "dependencies": {

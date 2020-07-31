@@ -1,6 +1,6 @@
 {
   "name": "@usercentric/uc-design-system-metrics",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "release": "1583350587083",
   "description": "Metrics handling for UCDS.",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "@usercentric/uc-design-system": "^3.0.0"
   },
   "devDependencies": {
-    "@usercentric/uc-design-system-test-utils": "^4.0.0"
+    "@usercentric/uc-design-system-test-utils": "^4.0.1"
   },
   "dependencies": {
     "@sentry/browser": "^5.15.0",
