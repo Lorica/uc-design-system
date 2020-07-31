@@ -1,5 +1,5 @@
 import React from 'react'
-import IconSettings from '@lorica/uc-design-system-icons/lib/interface/IconSettings'
+import IconSettings from '@usercentric/uc-design-system-icons/lib/interface/IconSettings'
 import LoremIpsum from ':storybook/components/LoremIpsum'
 import SideBar, { Item } from '../SideBar'
 import LayoutShell from '.'

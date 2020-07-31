@@ -1,6 +1,6 @@
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
-import { unwrapHOCs } from '@lorica/uc-design-system-test-utils'
+import { unwrapHOCs } from '@usercentric/uc-design-system-test-utils'
 import Table from '../../src/components/Table'
 
 function unwrap(element: React.ReactElement): Enzyme.ShallowWrapper {

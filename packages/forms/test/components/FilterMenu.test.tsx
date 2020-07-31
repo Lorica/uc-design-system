@@ -1,11 +1,11 @@
 import React from 'react'
 import Enzyme from 'enzyme'
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
-import Link from '@lorica/uc-design-system/lib/components/Link'
-import Button from '@lorica/uc-design-system/lib/components/Button'
-import Menu from '@lorica/uc-design-system/lib/components/Menu'
-import Dropdown from '@lorica/uc-design-system/lib/components/Dropdown'
-import SecondaryLink from '@lorica/uc-design-system/lib/components/SecondaryLink'
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
+import Link from '@usercentric/uc-design-system/lib/components/Link'
+import Button from '@usercentric/uc-design-system/lib/components/Button'
+import Menu from '@usercentric/uc-design-system/lib/components/Menu'
+import Dropdown from '@usercentric/uc-design-system/lib/components/Dropdown'
+import SecondaryLink from '@usercentric/uc-design-system/lib/components/SecondaryLink'
 import FilterMenu, { Row } from '../../src/components/FilterMenu'
 
 function openFilters(wrapper: Enzyme.ReactWrapper) {

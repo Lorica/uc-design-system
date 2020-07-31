@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import T from '@lorica/uc-design-system/lib/components/Translate'
-import MenuToggle from '@lorica/uc-design-system/lib/components/MenuToggle'
-import { DropdownProps } from '@lorica/uc-design-system/lib/components/Dropdown'
-import { MenuProps } from '@lorica/uc-design-system/lib/components/Menu'
-import Link from '@lorica/uc-design-system/lib/components/Link'
-import SecondaryLink from '@lorica/uc-design-system/lib/components/SecondaryLink'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
+import MenuToggle from '@usercentric/uc-design-system/lib/components/MenuToggle'
+import { DropdownProps } from '@usercentric/uc-design-system/lib/components/Dropdown'
+import { MenuProps } from '@usercentric/uc-design-system/lib/components/Menu'
+import Link from '@usercentric/uc-design-system/lib/components/Link'
+import SecondaryLink from '@usercentric/uc-design-system/lib/components/SecondaryLink'
 import useStyles, {
   StyleSheet,
-} from '@lorica/uc-design-system/lib/hooks/useStyles'
+} from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import Row from './private/Row'
 import { styleSheetFilterMenu } from './styles'
 
@@ -112,8 +112,8 @@ export default function FilterMenu({
   const toggleLabel = opened ? (
     <T k="uc-design-system.form.filter.close" phrase="Close filters" />
   ) : (
-    <T k="uc-design-system.form.filter.open" phrase="Open filters" />
-  )
+      <T k="uc-design-system.form.filter.open" phrase="Open filters" />
+    )
 
   return (
     <MenuToggle

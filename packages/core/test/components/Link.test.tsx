@@ -1,5 +1,5 @@
 import React from 'react'
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
 import Link from '../../src/components/Link'
 import ButtonOrLink from '../../src/components/private/ButtonOrLink'
 import Text from '../../src/components/Text'

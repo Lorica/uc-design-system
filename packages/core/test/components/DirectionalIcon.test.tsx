@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { DirectionContext } from 'aesthetic-react'
-import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
-import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
 import DirectionalIcon from '../../src/components/DirectionalIcon'
 
 describe('<DirectionalIcon />', () => {

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { BreadcrumbProps } from '@lorica/uc-design-system/lib/components/Breadcrumbs/Breadcrumb'
+import { BreadcrumbProps } from '@usercentric/uc-design-system/lib/components/Breadcrumbs/Breadcrumb'
 import AppContext from '../AppContext'
 
 export type TrackBreadcrumbProps = BreadcrumbProps

@@ -17,9 +17,9 @@ import {
   MutableState,
 } from 'final-form';
 import arrayMutators, { Mutators as ArrayMutators } from 'final-form-arrays';
-import T from '@lorica/uc-design-system/lib/components/Translate';
-import { getErrorMessage } from '@lorica/uc-design-system/lib/components/ErrorMessage';
-import FormErrorMessage from '@lorica/uc-design-system/lib/components/FormErrorMessage';
+import T from '@usercentric/uc-design-system/lib/components/Translate';
+import { getErrorMessage } from '@usercentric/uc-design-system/lib/components/ErrorMessage';
+import FormErrorMessage from '@usercentric/uc-design-system/lib/components/FormErrorMessage';
 import FormContext from '../FormContext';
 import { Errors, Parse, Field, FieldData } from '../../types';
 import { throttleToSinglePromise } from '../../helpers';
@@ -37,8 +37,8 @@ function mapSubscriptions(subscriptions: string[]): { [sub: string]: boolean } {
 export type FormProps<Data extends object> = {
   /** Form fields that will be registered and managed by the current form instance. */
   children:
-    | NonNullable<React.ReactNode>
-    | ((state: FormState<Data>) => NonNullable<React.ReactNode>);
+  | NonNullable<React.ReactNode>
+  | ((state: FormState<Data>) => NonNullable<React.ReactNode>);
   /** @ignore Initial values for form fields. Optional, as default values are injected when fields are rendered. */
   initialValues?: Data;
   /** Type of HTTP method. */
@@ -75,14 +75,14 @@ export type FormState<Data extends object> = FinalFormState<Data> & {
 export default class Form<Data extends object = {}> extends React.Component<
   FormProps<Data>,
   FormState<Data>
-> {
+  > {
   static defaultProps = {
     initialValues: {},
     method: 'post',
-    onFailedSubmit() {},
-    onFailedValidate() {},
-    onReset() {},
-    onStateUpdate() {},
+    onFailedSubmit() { },
+    onFailedValidate() { },
+    onReset() { },
+    onStateUpdate() { },
     onValidate: () => true,
     subscriptions: formSubscriptionItems,
   };

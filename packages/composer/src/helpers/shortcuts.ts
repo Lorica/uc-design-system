@@ -1,4 +1,4 @@
-import T from '@lorica/uc-design-system/lib/components/Translate'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
 import { MENU_SHORTCUTS } from '../constants'
 import {
   ShortcutArgument,

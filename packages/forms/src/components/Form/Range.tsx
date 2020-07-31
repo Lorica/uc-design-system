@@ -1,7 +1,7 @@
 import React from 'react'
 import Range, {
   RangeProps,
-} from '@lorica/uc-design-system/lib/components/Range'
+} from '@usercentric/uc-design-system/lib/components/Range'
 import { toNumber } from '../../helpers'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 

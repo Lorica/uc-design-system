@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mockNotification } from '@lorica/uc-design-system-test-utils';
+import { mockNotification } from '@usercentric/uc-design-system-test-utils';
 import BrowserNotification from '../../src/components/BrowserNotification';
 
 describe('<BrowserNotification />', () => {

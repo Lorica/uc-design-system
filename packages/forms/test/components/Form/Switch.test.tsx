@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseSwitch from '@lorica/uc-design-system/lib/components/Switch'
+import BaseSwitch from '@usercentric/uc-design-system/lib/components/Switch'
 import Switch from '../../../src/components/Form/Switch'
 import { toBool } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -15,7 +15,7 @@ describe('<Switch />', () => {
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <Switch defaultValue label="Label" name="foo" validator={() => {}} />,
+      <Switch defaultValue label="Label" name="foo" validator={() => { }} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
@@ -36,7 +36,7 @@ describe('<Switch />', () => {
 
   it('sets checked prop', () => {
     const wrapper = mount(
-      <Switch defaultValue label="Label" name="foo" validator={() => {}} />,
+      <Switch defaultValue label="Label" name="foo" validator={() => { }} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },

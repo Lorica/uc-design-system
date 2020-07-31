@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
 import IconAffix from '../../../src/components/private/IconAffix'
 
 describe('<IconAffix />', () => {

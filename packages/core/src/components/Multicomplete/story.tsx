@@ -1,5 +1,5 @@
 import React from 'react';
-import IconCloseAlt from '@lorica/uc-design-system-icons/src/interface/IconCloseAlt';
+import IconCloseAlt from '@usercentric/uc-design-system-icons/src/interface/IconCloseAlt';
 import Text from '../Text';
 import Multicomplete from '.';
 import IconButton from '../IconButton';

@@ -1,6 +1,6 @@
 import React from 'react'
-import IconAddAlt from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt'
-import T from '@lorica/uc-design-system/lib/components/Translate'
+import IconAddAlt from '@usercentric/uc-design-system-icons/lib/interface/IconAddAlt'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
 import ToggleButton from '../Menu/ToggleButton'
 import { MENU_ACTIONS } from '../../constants'
 

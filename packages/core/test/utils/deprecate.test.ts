@@ -1,4 +1,4 @@
-import { wrapEnv } from '@lorica/uc-design-system-test-utils'
+import { wrapEnv } from '@usercentric/uc-design-system-test-utils'
 import deprecate from '../../src/utils/deprecate'
 
 describe('deprecate', () => {

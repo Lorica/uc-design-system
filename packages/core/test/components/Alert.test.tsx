@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose';
+import IconClose from '@usercentric/uc-design-system-icons/lib/interface/IconClose';
 import Alert from '../../src/components/Alert';
 import Spacing from '../../src/components/Spacing';
 import { STATUSES as BASE_STATUSES } from '../../src/constants';
@@ -17,7 +17,7 @@ describe('<Alert />', () => {
   });
 
   it('renders close button', () => {
-    const wrapper = shallow(<Alert title="Title" onClose={() => {}} />);
+    const wrapper = shallow(<Alert title="Title" onClose={() => { }} />);
 
     expect(
       // @ts-ignore

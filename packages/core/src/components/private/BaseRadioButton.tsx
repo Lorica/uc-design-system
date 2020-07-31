@@ -1,6 +1,6 @@
 import React from 'react'
-import IconRecord from '@lorica/uc-design-system-icons/lib/interface/IconRecord'
-import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemove'
+import IconRecord from '@usercentric/uc-design-system-icons/lib/interface/IconRecord'
+import IconRemove from '@usercentric/uc-design-system-icons/lib/interface/IconRemove'
 import useStyles, { StyleSheet } from '../../hooks/useStyles'
 import FormInput, { InputProps } from './FormInput'
 import inputStyleSheet from '../../themes/inputStyleSheet'

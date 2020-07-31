@@ -1,5 +1,5 @@
 import React from 'react'
-import useStyles from '@lorica/uc-design-system/lib/hooks/useStyles'
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import Selection from './Selection'
 import { selectListStyleSheet } from '../../styles'
 
@@ -26,8 +26,8 @@ export default function SelectList({
       {childCount > 0 ? (
         children
       ) : (
-        <li className={cx(styles.row)}>{noResults}</li>
-      )}
+          <li className={cx(styles.row)}>{noResults}</li>
+        )}
     </ul>
   )
 }

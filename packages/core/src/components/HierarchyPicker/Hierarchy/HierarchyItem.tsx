@@ -1,7 +1,7 @@
 import React from 'react';
-import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft';
-import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight';
-import IconCheckmark from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft';
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight';
+import IconCheckmark from '@usercentric/uc-design-system-icons/lib/interface/IconCheck';
 import useStyles from '../../../hooks/useStyles';
 import useTheme from '../../../hooks/useTheme';
 import { ENTER, SPACE, ARROW_RIGHT, ARROW_LEFT } from '../../../keys';
@@ -98,18 +98,18 @@ export default function HierarchyItem({
     return renderItem ? (
       renderItem(item, selected, focused)
     ) : (
-      <>
-        {selected && (
-          <span className={cx(styles.checkmark)}>
-            <IconCheckmark decorative color={theme.color.core.primary[3]} size={ICON_SIZE} />
-          </span>
-        )}
+        <>
+          {selected && (
+            <span className={cx(styles.checkmark)}>
+              <IconCheckmark decorative color={theme.color.core.primary[3]} size={ICON_SIZE} />
+            </span>
+          )}
 
-        <span className={cx(styles.label)}>
-          <Text>{item.label || item.name}</Text>
-        </span>
-      </>
-    );
+          <span className={cx(styles.label)}>
+            <Text>{item.label || item.name}</Text>
+          </span>
+        </>
+      );
   };
 
   return (

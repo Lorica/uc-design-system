@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
-import T from '@lorica/uc-design-system/lib/components/Translate'
-import Interweave from '@lorica/uc-design-system/lib/components/Interweave'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
+import Interweave from '@usercentric/uc-design-system/lib/components/Interweave'
 import Menu from '../Menu'
 import Hotkey from '../Hotkey'
 import ComposerContext from '../../contexts/ComposerContext'
@@ -81,10 +81,10 @@ export default function Preview({
             onProofread={onProofread}
           />
         ) : (
-          <Window onConfirm={handleConfirmPreview}>
-            <Interweave content={context.data.value} />
-          </Window>
-        )}
+            <Window onConfirm={handleConfirmPreview}>
+              <Interweave content={context.data.value} />
+            </Window>
+          )}
       </Menu>
     </>
   )

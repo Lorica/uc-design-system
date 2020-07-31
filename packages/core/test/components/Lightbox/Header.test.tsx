@@ -1,5 +1,5 @@
 import React from 'react'
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
 import Button from '../../../src/components/Button'
 import IconButton from '../../../src/components/IconButton'
 import Pagination from '../../../src/components/Pagination'

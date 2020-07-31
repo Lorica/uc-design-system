@@ -1,8 +1,8 @@
 import React, { useCallback, useContext } from 'react'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { CanonicalEmoji } from 'interweave-emoji'
-import EmojiPicker from '@lorica/uc-design-system/lib/components/EmojiPicker'
-import EmojiRestrictedPicker from '@lorica/uc-design-system/lib/components/EmojiRestrictedPicker'
+import EmojiPicker from '@usercentric/uc-design-system/lib/components/EmojiPicker'
+import EmojiRestrictedPicker from '@usercentric/uc-design-system/lib/components/EmojiRestrictedPicker'
 import ComposerContext from '../../contexts/ComposerContext'
 import Menu from '../Menu'
 import EmojiButton from './EmojiButton'

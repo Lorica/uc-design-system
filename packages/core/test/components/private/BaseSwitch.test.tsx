@@ -1,13 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck'
+import IconCheck from '@usercentric/uc-design-system-icons/lib/interface/IconCheck'
 import BaseSwitch from '../../../src/components/private/BaseSwitch'
 import FormInput from '../../../src/components/private/FormInput'
 
 describe('<BaseSwitch />', () => {
   it('renders an input with the correct field', () => {
     const wrapper = shallow(
-      <BaseSwitch id="foo" name="foo" onChange={() => {}} />
+      <BaseSwitch id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.is('label')).toBe(true)
@@ -18,7 +18,7 @@ describe('<BaseSwitch />', () => {
 
   it('renders invalid', () => {
     const wrapper = shallow(
-      <BaseSwitch invalid id="foo" name="foo" onChange={() => {}} />
+      <BaseSwitch invalid id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(FormInput).prop('invalid')).toBe(true)
@@ -26,7 +26,7 @@ describe('<BaseSwitch />', () => {
 
   it('renders disabled', () => {
     const wrapper = shallow(
-      <BaseSwitch disabled id="foo" name="foo" onChange={() => {}} />
+      <BaseSwitch disabled id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(FormInput).prop('disabled')).toBe(true)
@@ -34,7 +34,7 @@ describe('<BaseSwitch />', () => {
 
   it('displays a checkmark when checked', () => {
     const wrapper = shallow(
-      <BaseSwitch id="foo" name="foo" onChange={() => {}} />
+      <BaseSwitch id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(IconCheck)).toHaveLength(0)

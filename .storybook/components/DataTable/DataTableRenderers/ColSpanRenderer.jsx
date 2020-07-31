@@ -1,7 +1,7 @@
 import React from 'react'
-import Text from '@lorica/uc-design-system/src/components/Text'
-import Spacing from '@lorica/uc-design-system/src/components/Spacing'
-import { getRowColor } from '@lorica/uc-design-system/src/components/DataTable/helpers'
+import Text from '@usercentric/uc-design-system/src/components/Text'
+import Spacing from '@usercentric/uc-design-system/src/components/Spacing'
+import { getRowColor } from '@usercentric/uc-design-system/src/components/DataTable/helpers'
 
 export default function ColspanRenderer({ row, zebra, theme }) {
   const { rowData, rowIndex } = row

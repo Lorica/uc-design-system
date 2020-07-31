@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from '@lorica/uc-design-system/lib/components/ButtonGroup'
+import ButtonGroup from '@usercentric/uc-design-system/lib/components/ButtonGroup'
 import Form from './Form'
 import ToggleButtonController from './Form/ToggleButtonController'
 
@@ -22,7 +22,7 @@ export function connectedToTheParentForm() {
       <ToggleButtonController
         name="field"
         label="Label"
-        validator={() => {}}
+        validator={() => { }}
         onChange={() => console.log('onChange')}
       >
         {(ControlledButton) => (

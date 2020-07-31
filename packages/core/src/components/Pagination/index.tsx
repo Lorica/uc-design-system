@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { requiredBy, mutuallyExclusiveTrueProps } from 'airbnb-prop-types'
-import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
-import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
-import IconFirst from '@lorica/uc-design-system-icons/lib/interface/IconFirst'
-import IconLast from '@lorica/uc-design-system-icons/lib/interface/IconLast'
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
+import IconFirst from '@usercentric/uc-design-system-icons/lib/interface/IconFirst'
+import IconLast from '@usercentric/uc-design-system-icons/lib/interface/IconLast'
 import useStyles, { StyleSheet } from '../../hooks/useStyles'
 import IconButton from '../IconButton'
 import Text from '../Text'
@@ -161,8 +161,8 @@ function Pagination({
         pageNumber={page}
       />
     ) : (
-      page
-    )
+        page
+      )
 
   if (pageLabel) {
     paginationText =
@@ -175,13 +175,13 @@ function Pagination({
           pageNumber={page}
         />
       ) : (
-        <T
-          k="uc-design-system.pagination.pageNumberLabeled"
-          phrase="%{pageLabel} %{pageNumber}"
-          pageLabel={pageLabel}
-          pageNumber={page}
-        />
-      )
+          <T
+            k="uc-design-system.pagination.pageNumberLabeled"
+            phrase="%{pageLabel} %{pageNumber}"
+            pageLabel={pageLabel}
+            pageNumber={page}
+          />
+        )
   }
 
   return (

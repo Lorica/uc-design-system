@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormState } from 'final-form'
-import T from '@lorica/uc-design-system/lib/components/Translate'
-import FormActions from '@lorica/uc-design-system/lib/components/FormActions'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
+import FormActions from '@usercentric/uc-design-system/lib/components/FormActions'
 import Form from '../Form'
 import TextArea from '../Form/TextArea'
 import Select from '../Form/Select'
@@ -44,7 +44,7 @@ export type FeedbackFormState = {
 export default class FeedbackForm extends React.PureComponent<
   FeedbackFormProps,
   FeedbackFormState
-> {
+  > {
   state = {
     data: {
       category: '',
@@ -163,13 +163,13 @@ export default class FeedbackForm extends React.PureComponent<
           placeholder={
             data.type === 'bug'
               ? T.phrase(
-                  'uc-design-system.form.feedback.moreBug',
-                  'What happened? Sharing steps to reproduce the problem you experienced can be helpful.'
-                )
+                'uc-design-system.form.feedback.moreBug',
+                'What happened? Sharing steps to reproduce the problem you experienced can be helpful.'
+              )
               : T.phrase(
-                  'uc-design-system.form.feedback.moreFeedback',
-                  'Share your experience with us. What went well? What could have gone better?'
-                )
+                'uc-design-system.form.feedback.moreFeedback',
+                'Share your experience with us. What went well? What could have gone better?'
+              )
           }
           validator={this.validate}
         />

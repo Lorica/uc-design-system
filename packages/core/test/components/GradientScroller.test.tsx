@@ -2,7 +2,7 @@ import React from 'react'
 import {
   shallowWithStyles,
   mockResizeObserver,
-} from '@lorica/uc-design-system-test-utils'
+} from '@usercentric/uc-design-system-test-utils'
 import GradientScroller, {
   GradientScroller as BaseGradientScroller,
 } from '../../src/components/GradientScroller'
@@ -40,7 +40,7 @@ describe('<GradientScroller />', () => {
     const spy = jest.fn()
     const wrapper = shallowWithStyles(<GradientScroller showArrows />)
 
-    ;(wrapper.instance() as BaseGradientScroller).doScroll = spy
+      ; (wrapper.instance() as BaseGradientScroller).doScroll = spy
 
     wrapper.find('button').at(0).simulate('click', { type: 'click' })
 
@@ -51,7 +51,7 @@ describe('<GradientScroller />', () => {
     const spy = jest.fn()
     const wrapper = shallowWithStyles(<GradientScroller showArrows />)
 
-    ;(wrapper.instance() as BaseGradientScroller).doScroll = spy
+      ; (wrapper.instance() as BaseGradientScroller).doScroll = spy
 
     wrapper.find('button').at(1).simulate('click', { type: 'click' })
 

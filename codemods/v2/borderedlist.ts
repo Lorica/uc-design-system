@@ -56,27 +56,27 @@ module.exports = function autocompleteProps(
 ): string | null | undefined | void {
   const mod = new Codemod(fileInfo, api)
 
-  // Add `bordered` to `BorderedListItem`
-  ;['@lorica/uc-design-system/lib/components/BorderedList/Item'].forEach(
-    (importPath) => {
-      const compName = mod.getComponentNameFromDefaultImport(importPath)
+    // Add `bordered` to `BorderedListItem`
+    ;['@usercentric/uc-design-system/lib/components/BorderedList/Item'].forEach(
+      (importPath) => {
+        const compName = mod.getComponentNameFromDefaultImport(importPath)
 
-      if (compName) {
-        addBorderedPropToItems(mod, compName)
+        if (compName) {
+          addBorderedPropToItems(mod, compName)
+        }
       }
-    }
-  )
+    )
 
-  // Add `bordered` to `Item` of `BorderedList`
-  ;['@lorica/uc-design-system/lib/components/BorderedList'].forEach(
-    (importPath) => {
-      const compName = mod.getComponentNameFromDefaultImport(importPath)
+    // Add `bordered` to `Item` of `BorderedList`
+    ;['@usercentric/uc-design-system/lib/components/BorderedList'].forEach(
+      (importPath) => {
+        const compName = mod.getComponentNameFromDefaultImport(importPath)
 
-      if (compName) {
-        addBorderedPropToChildren(mod, compName)
+        if (compName) {
+          addBorderedPropToChildren(mod, compName)
+        }
       }
-    }
-  )
+    )
 
   mod.source.find(mod.cs.ImportDefaultSpecifier).forEach(({ node }) => {
     if (

@@ -1,14 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck'
-import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemove'
+import IconCheck from '@usercentric/uc-design-system-icons/lib/interface/IconCheck'
+import IconRemove from '@usercentric/uc-design-system-icons/lib/interface/IconRemove'
 import BaseCheckBox from '../../../src/components/private/BaseCheckBox'
 import FormInput from '../../../src/components/private/FormInput'
 
 describe('<BaseCheckBox />', () => {
   it('renders an input with the correct field', () => {
     const wrapper = shallow(
-      <BaseCheckBox id="foo" name="foo" onChange={() => {}} />
+      <BaseCheckBox id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.is('label')).toBe(true)
@@ -19,7 +19,7 @@ describe('<BaseCheckBox />', () => {
 
   it('renders invalid', () => {
     const wrapper = shallow(
-      <BaseCheckBox invalid id="foo" name="foo" onChange={() => {}} />
+      <BaseCheckBox invalid id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(FormInput).prop('invalid')).toBe(true)
@@ -27,7 +27,7 @@ describe('<BaseCheckBox />', () => {
 
   it('renders disabled', () => {
     const wrapper = shallow(
-      <BaseCheckBox disabled id="foo" name="foo" onChange={() => {}} />
+      <BaseCheckBox disabled id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(FormInput).prop('disabled')).toBe(true)
@@ -35,7 +35,7 @@ describe('<BaseCheckBox />', () => {
 
   it('displays a checkmark when checked', () => {
     const wrapper = shallow(
-      <BaseCheckBox id="foo" name="foo" onChange={() => {}} />
+      <BaseCheckBox id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(IconCheck)).toHaveLength(0)
@@ -49,7 +49,7 @@ describe('<BaseCheckBox />', () => {
 
   it('displays a checkmark when indeterminate', () => {
     const wrapper = shallow(
-      <BaseCheckBox id="foo" name="foo" onChange={() => {}} />
+      <BaseCheckBox id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(IconRemove)).toHaveLength(0)
@@ -79,7 +79,7 @@ describe('<BaseCheckBox />', () => {
   it('renders in button mode', () => {
     const child = <div>Child</div>
     const wrapper = shallow(
-      <BaseCheckBox button id="foo" name="foo" onChange={() => {}}>
+      <BaseCheckBox button id="foo" name="foo" onChange={() => { }}>
         {child}
       </BaseCheckBox>
     )

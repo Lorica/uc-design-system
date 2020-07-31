@@ -1,7 +1,7 @@
 import React from 'react'
 import FileInput, {
   FileInputProps,
-} from '@lorica/uc-design-system/lib/components/FileInput'
+} from '@usercentric/uc-design-system/lib/components/FileInput'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 
 /** `FileInput` automatically connected to the parent `Form`.  */

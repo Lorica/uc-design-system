@@ -7,7 +7,7 @@ This will also set the Google Analytics `userId` if `ga` is global and `userID` 
 `Metrics.initialize`.
 
 ```bash static
-yarn add @lorica/uc-design-system-metrics
+yarn add @usercentric/uc-design-system-metrics
 ```
 
 ## Setup
@@ -15,7 +15,7 @@ yarn add @lorica/uc-design-system-metrics
 Initialize the metrics package with your Sentry key/project (optional) and the current user ID.
 
 ```js static
-import Metrics from '@lorica/uc-design-system-metrics'
+import Metrics from '@usercentric/uc-design-system-metrics'
 
 Metrics.initialize({
   context: { additionalParams: 'toLog' },
@@ -76,7 +76,7 @@ To log an error to both NewRelic and Sentry, use `captureError`. This function a
 2nd argument.
 
 ```js static
-import captureError from '@lorica/uc-design-system-metrics/lib/utils/captureError'
+import captureError from '@usercentric/uc-design-system-metrics/lib/utils/captureError'
 
 captureError('Something is broken')
 
@@ -93,7 +93,7 @@ If you'd like to capture a [Sentry breadcrumb](https://docs.sentry.io/learn/brea
 along side errors, use `captureBreadcrumb`.
 
 ```js static
-import captureBreadcrumb from '@lorica/uc-design-system-metrics/lib/utils/captureBreadcrumb'
+import captureBreadcrumb from '@usercentric/uc-design-system-metrics/lib/utils/captureBreadcrumb'
 
 captureBreadcrumb({
   message: 'Failed to login',

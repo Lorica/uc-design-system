@@ -1,5 +1,5 @@
 {
-  "name": "@lorica/uc-design-system-composer",
+  "name": "@usercentric/uc-design-system-composer",
   "version": "3.0.0",
   "release": "1583350587083",
   "description": "Unified composer for doing all the things.",
@@ -18,14 +18,14 @@
     "build:esm": "BUILD=esm babel --root-mode upward --extensions .ts,.tsx ./src --out-dir ./esm"
   },
   "peerDependencies": {
-    "@lorica/uc-design-system": "^3.0.0",
+    "@usercentric/uc-design-system": "^3.0.0",
     "react": "^16.9.0"
   },
   "devDependencies": {
     "react": "^16.13.0"
   },
   "dependencies": {
-    "@lorica/uc-design-system-icons": "^4.0.0",
+    "@usercentric/uc-design-system-icons": "^4.0.0",
     "lodash": "^4.17.15",
     "uuid": "^7.0.3"
   }

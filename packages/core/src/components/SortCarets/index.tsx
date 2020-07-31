@@ -1,6 +1,6 @@
 import React from 'react'
-import IconCaretUp from '@lorica/uc-design-system-icons/lib/interface/IconCaretUp'
-import IconCaretDown from '@lorica/uc-design-system-icons/lib/interface/IconCaretDown'
+import IconCaretUp from '@usercentric/uc-design-system-icons/lib/interface/IconCaretUp'
+import IconCaretDown from '@usercentric/uc-design-system-icons/lib/interface/IconCaretDown'
 import useStyles, { StyleSheet } from '../../hooks/useStyles'
 import { styleSheetSortCarets } from './styles'
 

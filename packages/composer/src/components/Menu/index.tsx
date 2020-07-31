@@ -1,9 +1,9 @@
 import React, { useContext, useCallback } from 'react'
-import useStyles from '@lorica/uc-design-system/lib/hooks/useStyles'
-import useTheme from '@lorica/uc-design-system/lib/hooks/useTheme'
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import useTheme from '@usercentric/uc-design-system/lib/hooks/useTheme'
 import Dropdown, {
   DropdownProps,
-} from '@lorica/uc-design-system/lib/components/Dropdown'
+} from '@usercentric/uc-design-system/lib/components/Dropdown'
 import ComposerContext from '../../contexts/ComposerContext'
 import ToggleButton from './ToggleButton'
 import { isElementWithID } from '../../helpers/platform'

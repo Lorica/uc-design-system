@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme from 'enzyme';
-import { mountWithStyles, shallowWithStyles } from '@lorica/uc-design-system-test-utils';
+import { mountWithStyles, shallowWithStyles } from '@usercentric/uc-design-system-test-utils';
 import Overlay, { OverlayProps, OverlayState } from '../../src/components/Overlay';
 import Portal, {
   Portal as BasePortal,
@@ -18,7 +18,7 @@ jest.mock('lodash/debounce', () => (value: unknown) => value);
 
 describe('<Overlay />', () => {
   const props = {
-    onClose() {},
+    onClose() { },
   };
 
   it('makes a portal', () => {

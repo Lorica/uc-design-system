@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import BaseBreadcrumbs, {
   Breadcrumb,
   BreadcrumbsProps as BaseProps,
-} from '@lorica/uc-design-system/lib/components/Breadcrumbs'
+} from '@usercentric/uc-design-system/lib/components/Breadcrumbs'
 import TrackBreadcrumb from './TrackBreadcrumb'
 import AppContext from '../AppContext'
 

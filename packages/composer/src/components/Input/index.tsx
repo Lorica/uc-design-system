@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useContext, useRef } from 'react'
-import useStyles from '@lorica/uc-design-system/lib/hooks/useStyles'
-import IconPlayAlt from '@lorica/uc-design-system-icons/lib/interface/IconPlayAlt'
-import Interweave from '@lorica/uc-design-system/lib/components/Interweave'
-import T from '@lorica/uc-design-system/lib/components/Translate'
-import passThroughRef from '@lorica/uc-design-system/lib/utils/passThroughRef'
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import IconPlayAlt from '@usercentric/uc-design-system-icons/lib/interface/IconPlayAlt'
+import Interweave from '@usercentric/uc-design-system/lib/components/Interweave'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
+import passThroughRef from '@usercentric/uc-design-system/lib/utils/passThroughRef'
 import ComposerContext from '../../contexts/ComposerContext'
 import HotkeyContext from '../../contexts/HotkeyContext'
 import Hotkey from '../Hotkey'
@@ -213,13 +213,13 @@ export default function Input({
           label={
             context.flags.previewConfirm
               ? T.phrase(
-                  'uc-design-system.composer.hotkey.returnToPreview',
-                  'to preview'
-                )
+                'uc-design-system.composer.hotkey.returnToPreview',
+                'to preview'
+              )
               : T.phrase(
-                  'uc-design-system.composer.hotkey.returnToSend',
-                  'to send'
-                )
+                'uc-design-system.composer.hotkey.returnToSend',
+                'to send'
+              )
           }
           order={100}
           onRun={handleSubmit}

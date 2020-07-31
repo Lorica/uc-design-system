@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseToggleButtonController from '@lorica/uc-design-system/lib/components/ToggleButtonController'
+import BaseToggleButtonController from '@usercentric/uc-design-system/lib/components/ToggleButtonController'
 import ToggleButtonController from '../../../src/components/Form/ToggleButtonController'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -21,7 +21,7 @@ describe('<ToggleButtonController />', () => {
         label="Label"
         name="foo"
         defaultValue="bar"
-        validator={() => {}}
+        validator={() => { }}
       >
         {(ProxyButton) => (
           <div>

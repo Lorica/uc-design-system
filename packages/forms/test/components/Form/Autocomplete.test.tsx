@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseAutocomplete from '@lorica/uc-design-system/lib/components/Autocomplete'
+import BaseAutocomplete from '@usercentric/uc-design-system/lib/components/Autocomplete'
 import Autocomplete from '../../../src/components/Form/Autocomplete'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -20,7 +20,7 @@ describe('<Autocomplete />', () => {
         accessibilityLabel="Label"
         name="foo"
         defaultValue="bar"
-        validator={() => {}}
+        validator={() => { }}
         onLoadItems={() => Promise.resolve([])}
       />,
       {

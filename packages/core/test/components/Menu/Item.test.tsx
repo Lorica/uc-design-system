@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import IconCaretRight from '@lorica/uc-design-system-icons/lib/interface/IconCaretRight'
+import IconCaretRight from '@usercentric/uc-design-system-icons/lib/interface/IconCaretRight'
 import Menu from '../../../src/components/Menu'
 import Item from '../../../src/components/Menu/Item'
 import ButtonOrLink from '../../../src/components/private/ButtonOrLink'

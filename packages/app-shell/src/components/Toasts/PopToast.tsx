@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { ToastProps } from '@lorica/uc-design-system/lib/components/Toast'
+import { ToastProps } from '@usercentric/uc-design-system/lib/components/Toast'
 import AppContext from '../AppContext'
 
 export type PopToastProps = Omit<ToastProps, 'id' | 'onRemove'>

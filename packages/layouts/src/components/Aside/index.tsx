@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import useStyles, {
   StyleSheet,
-} from '@lorica/uc-design-system/lib/hooks/useStyles'
+} from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import Tab from './private/Tab'
 
 export const styleSheetAside: StyleSheet = ({ ui, unit }) => ({
@@ -88,14 +88,14 @@ export default function Aside({
   const handleCollapseToggle: React.DOMAttributes<
     HTMLButtonElement
   >['onClick'] = collapsible
-    ? () => {
+      ? () => {
         setExpanded((prev) => !prev)
 
         if (onCollapseToggle) {
           onCollapseToggle(!isExpanded)
         }
       }
-    : undefined
+      : undefined
 
   useEffect(() => {
     if (expanded !== undefined) {

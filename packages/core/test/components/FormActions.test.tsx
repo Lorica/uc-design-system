@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
 import FormActions from '../../src/components/FormActions'
 import Button from '../../src/components/Button'
 import DangerButton from '../../src/components/DangerButton'

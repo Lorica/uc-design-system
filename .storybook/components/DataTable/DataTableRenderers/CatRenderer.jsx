@@ -1,6 +1,6 @@
 import React from 'react'
-import Emoji from '@lorica/uc-design-system/src/components/Emoji'
-import CountBadge from '@lorica/uc-design-system/src/components/CountBadge'
+import Emoji from '@usercentric/uc-design-system/src/components/Emoji'
+import CountBadge from '@usercentric/uc-design-system/src/components/CountBadge'
 
 class InnerCatRenderer extends React.Component {
   state = {

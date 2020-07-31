@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseFileInput from '@lorica/uc-design-system/lib/components/FileInput'
+import BaseFileInput from '@usercentric/uc-design-system/lib/components/FileInput'
 import FileInput from '../../../src/components/Form/FileInput'
 import { Context } from '../../../src/types'
 import { WrappingFormComponent, createFormContext } from '../../utils'
@@ -14,7 +14,7 @@ describe('<FileInput />', () => {
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <FileInput label="Label" name="foo" validator={() => {}} />,
+      <FileInput label="Label" name="foo" validator={() => { }} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },

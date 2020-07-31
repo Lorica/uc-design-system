@@ -1,7 +1,7 @@
 import React from 'react'
-import IconUser from '@lorica/uc-design-system-icons/lib/general/IconUser'
-import IconSettings from '@lorica/uc-design-system-icons/lib/interface/IconSettings'
-import IconChat from '@lorica/uc-design-system-icons/lib/interface/IconChat'
+import IconUser from '@usercentric/uc-design-system-icons/lib/general/IconUser'
+import IconSettings from '@usercentric/uc-design-system-icons/lib/interface/IconSettings'
+import IconChat from '@usercentric/uc-design-system-icons/lib/interface/IconChat'
 import SideBar, { Item } from '.'
 
 export default {

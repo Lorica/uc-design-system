@@ -40,7 +40,7 @@ To enable the actions menu, render the `Actions` component within the composer, 
 import Composer, {
   Actions,
   ActionButton,
-} from '@lorica/uc-design-system-composer'
+} from '@usercentric/uc-design-system-composer'
 ;<Composer
   afterButton={<ActionButton />}
   onChange={onChange}
@@ -73,7 +73,7 @@ render the `Emojis` component within the composer, and render the `EmojiButton` 
 import Composer, {
   Emojis,
   EmojiButton,
-} from '@lorica/uc-design-system-composer'
+} from '@usercentric/uc-design-system-composer'
 ;<Composer
   afterButton={<EmojiButton />}
   onChange={onChange}
@@ -101,7 +101,7 @@ To define a custom hotkey, render the `Hotkey` component within the composer. Fo
 current document.
 
 ```tsx
-import Composer, { Hotkey } from '@lorica/uc-design-system-composer'
+import Composer, { Hotkey } from '@usercentric/uc-design-system-composer'
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Hotkey
     name="print"
@@ -138,7 +138,7 @@ submission. Perfect for double checking the message before submitting. To enable
 `Preview` component within the composer.
 
 ```tsx
-import Composer, { Preview } from '@lorica/uc-design-system-composer'
+import Composer, { Preview } from '@usercentric/uc-design-system-composer'
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Preview />
 </Composer>
@@ -162,7 +162,7 @@ that returns an array of matches.
 import Composer, {
   Preview,
   ProofreaderParams,
-} from '@lorica/uc-design-system-composer'
+} from '@usercentric/uc-design-system-composer'
 
 function checkText({ text, locale, action }: ProofreaderParams) {
   return fetchFromLanguageToolLikeApi()
@@ -189,7 +189,7 @@ executed when the input is submitted. To enable shortcuts, render the `Shortcuts
 the composer, with an array of `shortcuts`.
 
 ```tsx
-import Composer, { Shortcuts } from '@lorica/uc-design-system-composer'
+import Composer, { Shortcuts } from '@usercentric/uc-design-system-composer'
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Shortcuts
     shortcuts={[
@@ -231,7 +231,7 @@ To enable suggestions, render the `Suggestions` component within the composer, a
 `onLoad` prop that returns a suggestion list promise.
 
 ```tsx
-import Composer, { Suggestions } from '@lorica/uc-design-system-composer'
+import Composer, { Suggestions } from '@usercentric/uc-design-system-composer'
 ;<Composer onChange={onChange} onSubmit={onSubmit}>
   <Suggestions onLoad={loadSuggestionsFromEndpoint} />
 </Composer>

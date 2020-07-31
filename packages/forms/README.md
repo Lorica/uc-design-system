@@ -4,7 +4,7 @@ Provides a robust form management layer powered by
 [final-form](https://github.com/final-form/final-form).
 
 ```bash static
-yarn add @lorica/uc-design-system-forms
+yarn add @usercentric/uc-design-system-forms
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ instance, they are: `Autocomplete`, `CheckBox`, `CheckBoxController`, `DatePicke
 `DateTimeSelect`, `Input`, `RadioButtonController`, `Select`, `Switch`, `TextArea`, and much more.
 
 ```jsx static
-import Form, { Input, Select } from '@lorica/uc-design-system-forms'
+import Form, { Input, Select } from '@usercentric/uc-design-system-forms'
 ;<Form onSubmit={this.handleSubmit}>
   <Input name="name" label="Name" />
 

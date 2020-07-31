@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 
 import React from 'react'
-import IconPhone from '@lorica/uc-design-system-icons/lib/general/IconPhone'
+import IconPhone from '@usercentric/uc-design-system-icons/lib/general/IconPhone'
 import Composer, {
   Actions,
   ActionButton,
@@ -167,7 +167,7 @@ export function checkText() {
 }
 
 const props = {
-  onChange: typeof action === 'undefined' ? () => {} : action('onChange'),
+  onChange: typeof action === 'undefined' ? () => { } : action('onChange'),
   onSubmit(result: DataSet) {
     alert('Submitted!')
   },

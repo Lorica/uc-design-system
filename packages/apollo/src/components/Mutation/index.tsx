@@ -7,11 +7,11 @@ import {
   OperationVariables,
 } from 'react-apollo';
 import { ApolloError } from 'apollo-client';
-import ErrorMessage from '@lorica/uc-design-system/lib/components/ErrorMessage';
-import Loader from '@lorica/uc-design-system/lib/components/Loader';
+import ErrorMessage from '@usercentric/uc-design-system/lib/components/ErrorMessage';
+import Loader from '@usercentric/uc-design-system/lib/components/Loader';
 import renderElementOrFunction, {
   RenderableProp,
-} from '@lorica/uc-design-system/lib/utils/renderElementOrFunction';
+} from '@usercentric/uc-design-system/lib/utils/renderElementOrFunction';
 
 export type MutationProps<Data, Vars> = Omit<MutationComponentOptions<Data, Vars>, 'client'> & {
   /**
@@ -38,7 +38,7 @@ export type MutationProps<Data, Vars> = Omit<MutationComponentOptions<Data, Vars
  */
 export default class Mutation<Data = {}, Vars = OperationVariables> extends React.Component<
   MutationProps<Data, Vars>
-> {
+  > {
   static defaultProps = {
     awaitRefetchQueries: false,
     ignoreGraphQLErrors: false,

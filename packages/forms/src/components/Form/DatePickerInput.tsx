@@ -1,7 +1,7 @@
 import React from 'react'
 import DatePickerInput, {
   DatePickerInputProps,
-} from '@lorica/uc-design-system/lib/components/DatePickerInput'
+} from '@usercentric/uc-design-system/lib/components/DatePickerInput'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 
 // The `react-day-picker` and `final-form` handlers collide a little bit,

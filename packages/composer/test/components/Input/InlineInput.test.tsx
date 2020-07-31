@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'rut-dom'
-import Input from '@lorica/uc-design-system/lib/components/Input'
+import Input from '@usercentric/uc-design-system/lib/components/Input'
 import InlineInput, {
   InlineInputProps,
 } from '../../../src/components/Input/InlineInput'

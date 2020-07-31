@@ -1,7 +1,7 @@
 import React from 'react'
 import CheckBox, {
   CheckBoxProps,
-} from '@lorica/uc-design-system/lib/components/CheckBox'
+} from '@usercentric/uc-design-system/lib/components/CheckBox'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toBool } from '../../helpers'
 

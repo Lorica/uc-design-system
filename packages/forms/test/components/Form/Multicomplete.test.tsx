@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseMulticomplete from '@lorica/uc-design-system/lib/components/Multicomplete'
+import BaseMulticomplete from '@usercentric/uc-design-system/lib/components/Multicomplete'
 import Multicomplete from '../../../src/components/Form/Multicomplete'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -20,7 +20,7 @@ describe('<Multicomplete />', () => {
         accessibilityLabel="Label"
         name="foo"
         defaultValue={['bar']}
-        validator={() => {}}
+        validator={() => { }}
         onLoadItems={() => Promise.resolve([])}
       />,
       {

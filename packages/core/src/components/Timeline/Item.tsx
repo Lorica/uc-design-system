@@ -1,5 +1,5 @@
 import React from 'react';
-import IconRecord from '@lorica/uc-design-system-icons/lib/interface/IconRecord';
+import IconRecord from '@usercentric/uc-design-system-icons/lib/interface/IconRecord';
 import useStyles, { StyleSheet } from '../../hooks/useStyles';
 import { styleSheetItem } from './styles';
 import Text from '../Text';

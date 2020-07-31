@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseTextArea from '@lorica/uc-design-system/lib/components/TextArea'
+import BaseTextArea from '@usercentric/uc-design-system/lib/components/TextArea'
 import TextArea from '../../../src/components/Form/TextArea'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -19,7 +19,7 @@ describe('<TextArea />', () => {
         label="Label"
         name="foo"
         defaultValue="bar"
-        validator={() => {}}
+        validator={() => { }}
       />,
       {
         wrappingComponent: WrappingFormComponent,

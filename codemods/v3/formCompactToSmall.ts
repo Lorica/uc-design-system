@@ -42,26 +42,26 @@ module.exports = function formCompactToSmall(
     'ToggleButtonController',
   ]
 
-  // Full path imports
-  ;[
-    '@lorica/uc-design-system/lib/components',
-    '@lorica/uc-design-system-forms/lib/components',
-  ].forEach((importPath) => {
-    inputTypes.forEach((type) => {
-      const compName = mod.getComponentNameFromDefaultImport(
-        `${importPath}/${type}`
-      )
+    // Full path imports
+    ;[
+      '@usercentric/uc-design-system/lib/components',
+      '@usercentric/uc-design-system-forms/lib/components',
+    ].forEach((importPath) => {
+      inputTypes.forEach((type) => {
+        const compName = mod.getComponentNameFromDefaultImport(
+          `${importPath}/${type}`
+        )
 
-      if (compName) {
-        convertCompactToSmall(mod, compName)
-      }
+        if (compName) {
+          convertCompactToSmall(mod, compName)
+        }
+      })
     })
-  })
 
   // Named forms imports
   inputTypes.forEach((type) => {
     mod
-      .getComponentNameFromNamedImports('@lorica/uc-design-system-forms', [
+      .getComponentNameFromNamedImports('@usercentric/uc-design-system-forms', [
         type,
       ])
       .forEach((compName) => convertCompactToSmall(mod, compName))
@@ -70,7 +70,7 @@ module.exports = function formCompactToSmall(
   // Prefix and suffix imports
   mod
     .getComponentNameFromNamedImports(
-      '@lorica/uc-design-system/lib/components/FormField',
+      '@usercentric/uc-design-system/lib/components/FormField',
       ['Prefix', 'Suffix']
     )
     .forEach((compName) => convertCompactToSmall(mod, compName))

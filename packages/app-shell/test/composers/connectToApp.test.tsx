@@ -3,7 +3,7 @@ import Enzyme, { shallow, mount } from 'enzyme'
 import {
   unwrapHOCs,
   WrappedComponent,
-} from '@lorica/uc-design-system-test-utils'
+} from '@usercentric/uc-design-system-test-utils'
 import connectToApp, {
   ConnectToAppProps,
 } from '../../src/composers/connectToApp'
@@ -75,7 +75,7 @@ describe('connectToApp()', () => {
 
   it('errors if name is missing', () => {
     expect(() => {
-      function Foo() {}
+      function Foo() { }
 
       // @ts-ignore Testing missing name
       Hoc = connectToApp()(Foo)

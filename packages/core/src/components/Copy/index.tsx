@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import copy from 'copy-to-clipboard'
-import IconCopy from '@lorica/uc-design-system-icons/lib/interface/IconCopy'
+import IconCopy from '@usercentric/uc-design-system-icons/lib/interface/IconCopy'
 import T from '../Translate'
 import Tooltip from '../Tooltip'
 import IconButton from '../IconButton'
@@ -72,13 +72,13 @@ export default function Copy({
         copied ? (
           <T k="uc-design-system.copy.copied" phrase="Copied!" />
         ) : (
-          prompt || (
-            <T
-              k="uc-design-system.copy.copyToClipboard"
-              phrase="Copy to clipboard"
-            />
+            prompt || (
+              <T
+                k="uc-design-system.copy.copyToClipboard"
+                phrase="Copy to clipboard"
+              />
+            )
           )
-        )
       }
       underlined={underlined}
     >

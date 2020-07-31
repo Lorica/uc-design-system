@@ -1,7 +1,7 @@
 import React from 'react'
 import DateTimeSelect, {
   DateTimeSelectProps,
-} from '@lorica/uc-design-system/lib/components/DateTimeSelect'
+} from '@usercentric/uc-design-system/lib/components/DateTimeSelect'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toString } from '../../helpers'
 

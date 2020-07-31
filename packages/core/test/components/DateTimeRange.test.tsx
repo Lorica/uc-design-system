@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { wrapEnv } from '@lorica/uc-design-system-test-utils';
+import { wrapEnv } from '@usercentric/uc-design-system-test-utils';
 import DateTime from '../../src/components/DateTime';
 import DateTimeRange from '../../src/components/DateTimeRange';
 import Empty from '../../src/components/Empty';

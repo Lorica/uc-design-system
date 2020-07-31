@@ -1,5 +1,5 @@
-import { BreadcrumbProps } from '@lorica/uc-design-system/lib/components/Breadcrumbs/Breadcrumb'
-import { ToastProps } from '@lorica/uc-design-system/lib/components/Toast'
+import { BreadcrumbProps } from '@usercentric/uc-design-system/lib/components/Breadcrumbs/Breadcrumb'
+import { ToastProps } from '@usercentric/uc-design-system/lib/components/Toast'
 
 export type Breadcrumb = {
   id: string

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
 import ResponsiveImage from '../../src/components/ResponsiveImage'
 import Shimmer from '../../src/components/Shimmer'
 

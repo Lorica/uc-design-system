@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { DirectionContext } from 'aesthetic-react'
-import { WithIconWrapperProps } from '@lorica/uc-design-system-icons/lib/withIcon'
+import { WithIconWrapperProps } from '@usercentric/uc-design-system-icons/lib/withIcon'
 import Core from '../..'
 
 export type DirectionalIconProps = {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseSelect from '@lorica/uc-design-system/lib/components/Select'
+import BaseSelect from '@usercentric/uc-design-system/lib/components/Select'
 import Select from '../../../src/components/Form/Select'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -15,7 +15,7 @@ describe('<Select />', () => {
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <Select label="Label" name="foo" defaultValue="bar" validator={() => {}}>
+      <Select label="Label" name="foo" defaultValue="bar" validator={() => { }}>
         <option value="foo">Foo</option>
         <option value="bar">Bar</option>
         <option value="baz">Baz</option>

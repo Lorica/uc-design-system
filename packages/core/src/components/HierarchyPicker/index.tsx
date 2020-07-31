@@ -1,6 +1,6 @@
 import React from 'react'
 import { FuseOptions } from 'fuse.js'
-import IconCaretDown from '@lorica/uc-design-system-icons/lib/interface/IconCaretDown'
+import IconCaretDown from '@usercentric/uc-design-system-icons/lib/interface/IconCaretDown'
 import Overlay from '../Overlay'
 import { SPACE, ENTER } from '../../keys'
 import T from '../Translate'
@@ -66,7 +66,7 @@ export type HierarchyPickerState = {
 export class HierarchyPicker extends React.Component<
   HierarchyPickerProps & WithStylesProps,
   HierarchyPickerState
-> {
+  > {
   static defaultProps = {
     chosen: [],
     disabled: false,
@@ -74,7 +74,7 @@ export class HierarchyPicker extends React.Component<
     hierarchyMaxHeight: 400,
     hierarchyWidth: 225,
     invalid: false,
-    onPickerToggle: () => {},
+    onPickerToggle: () => { },
     searchMaxHeight: 400,
     searchWidth: 300,
     verticallyAlign: false,

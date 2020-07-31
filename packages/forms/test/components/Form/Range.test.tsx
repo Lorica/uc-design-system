@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseRange from '@lorica/uc-design-system/lib/components/Range'
+import BaseRange from '@usercentric/uc-design-system/lib/components/Range'
 import Range from '../../../src/components/Form/Range'
 import { toNumber } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -19,7 +19,7 @@ describe('<Range />', () => {
         label="Range label"
         name="foo"
         defaultValue={7}
-        validator={() => {}}
+        validator={() => { }}
       />,
       {
         wrappingComponent: WrappingFormComponent,

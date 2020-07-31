@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '@lorica/uc-design-system/lib/components/Button'
-import Input from '@lorica/uc-design-system/lib/components/Input'
+import Button from '@usercentric/uc-design-system/lib/components/Button'
+import Input from '@usercentric/uc-design-system/lib/components/Input'
 import Breadcrumbs, { TrackBreadcrumb } from './components/Breadcrumbs'
 import { PopToast } from './components/Toasts'
 import AppContext from './components/AppContext'
@@ -10,7 +10,7 @@ import { Context } from './types'
 class PageDataExample extends React.Component<
   { onSubmit: Function },
   { data: string }
-> {
+  > {
   state = {
     data: '',
   }

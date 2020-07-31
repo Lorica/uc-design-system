@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseCheckBox from '@lorica/uc-design-system/lib/components/CheckBox'
+import BaseCheckBox from '@usercentric/uc-design-system/lib/components/CheckBox'
 import CheckBox from '../../../src/components/Form/CheckBox'
 import { toBool } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -15,7 +15,7 @@ describe('<CheckBox />', () => {
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <CheckBox defaultValue label="Label" name="foo" validator={() => {}} />,
+      <CheckBox defaultValue label="Label" name="foo" validator={() => { }} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
@@ -36,7 +36,7 @@ describe('<CheckBox />', () => {
 
   it('sets checked prop', () => {
     const wrapper = mount(
-      <CheckBox defaultValue label="Label" name="foo" validator={() => {}} />,
+      <CheckBox defaultValue label="Label" name="foo" validator={() => { }} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },

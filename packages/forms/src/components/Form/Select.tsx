@@ -1,7 +1,7 @@
 import React from 'react'
 import Select, {
   SelectProps,
-} from '@lorica/uc-design-system/lib/components/Select'
+} from '@usercentric/uc-design-system/lib/components/Select'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toString } from '../../helpers'
 

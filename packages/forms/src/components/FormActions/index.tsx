@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseFormActions, {
   FormActionsProps as BaseProps,
-} from '@lorica/uc-design-system/lib/components/FormActions'
+} from '@usercentric/uc-design-system/lib/components/FormActions'
 import useForm from '../../hooks/useForm'
 
 export type FormActionsProps = Omit<BaseProps, 'disabled' | 'processing'>

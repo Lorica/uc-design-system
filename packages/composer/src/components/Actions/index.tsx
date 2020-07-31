@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import T from '@lorica/uc-design-system/lib/components/Translate'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
 import ItemMenu, {
   Item,
   Row,
   Separator,
-} from '@lorica/uc-design-system/lib/components/Menu'
+} from '@usercentric/uc-design-system/lib/components/Menu'
 import ComposerContext from '../../contexts/ComposerContext'
 import Menu from '../Menu'
 import { MENU_ACTIONS, MAX_MENU_HEIGHT } from '../../constants'

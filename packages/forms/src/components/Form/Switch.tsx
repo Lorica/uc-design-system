@@ -1,7 +1,7 @@
 import React from 'react'
 import Switch, {
   SwitchProps,
-} from '@lorica/uc-design-system/lib/components/Switch'
+} from '@usercentric/uc-design-system/lib/components/Switch'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toBool } from '../../helpers'
 

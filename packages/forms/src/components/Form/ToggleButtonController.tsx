@@ -1,7 +1,7 @@
 import React from 'react'
 import ToggleButtonController, {
   ToggleButtonControllerProps,
-} from '@lorica/uc-design-system/lib/components/ToggleButtonController'
+} from '@usercentric/uc-design-system/lib/components/ToggleButtonController'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toString } from '../../helpers'
 

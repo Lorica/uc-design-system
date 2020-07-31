@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose'
+import IconClose from '@usercentric/uc-design-system-icons/lib/interface/IconClose'
 import { WithStylesProps } from '../../composers/withStyles'
 import { WithThemeProps } from '../../composers/withTheme'
 import useStyles, { StyleSheet } from '../../hooks/useStyles'
@@ -55,7 +55,7 @@ export type BaseSheetState = {
 export class BaseSheet extends React.Component<
   BaseSheetProps & PrivateProps & WithStylesProps & WithThemeProps,
   BaseSheetState
-> {
+  > {
   static defaultProps = {
     gap: false,
     noAnimation: false,
@@ -129,7 +129,7 @@ export class BaseSheet extends React.Component<
             )
 
             if (firstFocusableElement) {
-              ;(firstFocusableElement as HTMLElement).focus()
+              ; (firstFocusableElement as HTMLElement).focus()
             }
           }
         }, 0)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
 import ImageViewer from '../../../src/components/ImageViewer'
 import ResponsiveImage from '../../../src/components/ResponsiveImage'
 

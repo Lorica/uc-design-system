@@ -56,7 +56,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Update npmignore files. ([a2eda3f](https://github.com/lorica/uc-design-system/commit/a2eda3f))
 - Update Storybook to v5.1 (#93) ([4ee8f83](https://github.com/lorica/uc-design-system/commit/4ee8f83)), closes [#93](https://github.com/lorica/uc-design-system/issues/93)
 
-**Note:** Version bump only for package @lorica/uc-design-system-test-utils
+**Note:** Version bump only for package @usercentric/uc-design-system-test-utils
 
 
 

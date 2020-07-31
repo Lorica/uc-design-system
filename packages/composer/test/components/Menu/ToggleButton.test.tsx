@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'rut-dom'
-import IconStarAlt from '@lorica/uc-design-system-icons/lib/interface/IconStarAlt'
+import IconStarAlt from '@usercentric/uc-design-system-icons/lib/interface/IconStarAlt'
 import ToggleButton, {
   ToggleButtonProps,
 } from '../../../src/components/Menu/ToggleButton'

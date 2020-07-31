@@ -3,7 +3,7 @@
 Provides pre-defined page layouts that support top and side navigation bars.
 
 ```bash static
-yarn add @lorica/uc-design-system-layouts
+yarn add @usercentric/uc-design-system-layouts
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ To use, import the `LayoutShell` and render near the root of the application. Co
 may then be rendered as children of the shell.
 
 ```jsx static
-import LayoutShell from '@lorica/uc-design-system-layouts'
-import ThreeColumnLayout from '@lorica/uc-design-system-layouts/lib/components/ThreeColumnLayout'
+import LayoutShell from '@usercentric/uc-design-system-layouts'
+import ThreeColumnLayout from '@usercentric/uc-design-system-layouts/lib/components/ThreeColumnLayout'
 ;<LayoutShell sideBar={<SideBar />}>
   <ThreeColumnLayout fluid before={<LeftColumn />} after={<RightColumn />}>
     <Content />
