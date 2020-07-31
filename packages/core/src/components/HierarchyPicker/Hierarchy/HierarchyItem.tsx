@@ -98,18 +98,18 @@ export default function HierarchyItem({
     return renderItem ? (
       renderItem(item, selected, focused)
     ) : (
-        <>
-          {selected && (
-            <span className={cx(styles.checkmark)}>
-              <IconCheckmark decorative color={theme.color.core.primary[3]} size={ICON_SIZE} />
-            </span>
-          )}
-
-          <span className={cx(styles.label)}>
-            <Text>{item.label || item.name}</Text>
+      <>
+        {selected && (
+          <span className={cx(styles.checkmark)}>
+            <IconCheckmark decorative color={theme.color.core.primary[3]} size={ICON_SIZE} />
           </span>
-        </>
-      );
+        )}
+
+        <span className={cx(styles.label)}>
+          <Text>{item.label || item.name}</Text>
+        </span>
+      </>
+    );
   };
 
   return (

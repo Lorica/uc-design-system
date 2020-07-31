@@ -1,73 +1,73 @@
-import React from 'react'
-import useStyles, { StyleSheet } from '../../hooks/useStyles'
-import T from '../Translate'
-import Text from '../Text'
-import StatusText from '../StatusText'
-import FormErrorMessage from '../FormErrorMessage'
-import partitionFieldProps from './partitionFieldProps'
-import Prefix from './Prefix'
-import Suffix from './Suffix'
-import { styleSheetFormField } from './styles'
+import React from 'react';
+import useStyles, { StyleSheet } from '../../hooks/useStyles';
+import T from '../Translate';
+import Text from '../Text';
+import StatusText from '../StatusText';
+import FormErrorMessage from '../FormErrorMessage';
+import partitionFieldProps from './partitionFieldProps';
+import Prefix from './Prefix';
+import Suffix from './Suffix';
+import { styleSheetFormField } from './styles';
 
 export type FormFieldProps = {
   /** @ignore Decrease bottom margin of the field. (Internal use only) */
-  compactSpacing?: boolean
+  compactSpacing?: boolean;
   /** Mark the field as disabled. */
-  disabled?: boolean
+  disabled?: boolean;
   /** Error message to display under the input when invalid. */
-  errorMessage?: string
+  errorMessage?: string;
   /** @ignore Passed from final form. */
-  field?: object
+  field?: object;
   /** Visually hide the label. */
-  hideLabel?: boolean
+  hideLabel?: boolean;
   /** @ignore Hide optional label. (Internal use only) */
-  hideOptionalLabel?: boolean
+  hideOptionalLabel?: boolean;
   /** Render the input and label inline to each other. */
-  inline?: boolean
+  inline?: boolean;
   /** Mark the field as invalid. */
-  invalid?: boolean
+  invalid?: boolean;
   /** Descriptive label that appears above the input. */
-  label: NonNullable<React.ReactNode>
+  label: NonNullable<React.ReactNode>;
   /** Small description to display under the label. */
-  labelDescription?: React.ReactNode
+  labelDescription?: React.ReactNode;
   /** Increase label font size and spacing. */
-  large?: boolean
+  large?: boolean;
   /** Remove bottom margin from field. */
-  noSpacing?: boolean
+  noSpacing?: boolean;
   /** Mark the field as optional. */
-  optional?: boolean
+  optional?: boolean;
   /** Content to display before the input field. */
-  prefix?: React.ReactNode
+  prefix?: React.ReactNode;
   /** Decrease label font size and spacing. */
-  small?: boolean
+  small?: boolean;
   /** Content to display after the input field. */
-  suffix?: React.ReactNode
+  suffix?: React.ReactNode;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
 export type PrivateProps = FormFieldProps & {
   /** Input field to wrap. */
-  children: NonNullable<React.ReactNode>
+  children: NonNullable<React.ReactNode>;
   /** Unique ID of the field. */
-  id: string
+  id: string;
   /** @ignore Render the input field before the label. */
-  renderBeforeLabel?: boolean
+  renderBeforeLabel?: boolean;
   /** @ignore Render the input field as 100% width. */
-  renderFullWidth?: boolean
+  renderFullWidth?: boolean;
   /** @ignore Render the labels with large text. Should only be used for nested components, like through controllers. */
-  renderLargeLabel?: boolean
+  renderLargeLabel?: boolean;
   /** @ignore Stretches the label to 100%. */
-  stretchLabel?: boolean
+  stretchLabel?: boolean;
   /** @ignore Top align. (Internal use only) */
-  topAlign?: boolean
+  topAlign?: boolean;
   /** @ignore Middle align content. */
-  middleAlign?: boolean
+  middleAlign?: boolean;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
-export { partitionFieldProps, Prefix, Suffix }
+export { partitionFieldProps, Prefix, Suffix };
 
 /** A abstract form field wrapper that handles labels, affixes, errors, states, and more. */
 export default function FormField({
@@ -96,7 +96,7 @@ export default function FormField({
   styleSheet,
   topAlign,
 }: PrivateProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetFormField)
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetFormField);
 
   const content = (
     <div
@@ -105,7 +105,7 @@ export default function FormField({
         inline && renderBeforeLabel && styles.input_beforeInline,
         inline && !renderBeforeLabel && styles.input_afterInline,
         hideLabel && styles.input_hideLabel,
-        renderFullWidth && styles.input_fullWidth
+        renderFullWidth && styles.input_fullWidth,
       )}
     >
       {prefix && <div className={cx(styles.affix)}>{prefix}</div>}
@@ -114,22 +114,17 @@ export default function FormField({
 
       {suffix && <div className={cx(styles.affix)}>{suffix}</div>}
     </div>
-  )
+  );
 
   return (
     <section
       className={cx(
         styles.field,
         (compactSpacing || small) && !noSpacing && styles.field_compactSpacing,
-        noSpacing && styles.field_noSpacing
+        noSpacing && styles.field_noSpacing,
       )}
     >
-      <div
-        className={cx(
-          inline && styles.content_inline,
-          topAlign && styles.content_topAlign
-        )}
-      >
+      <div className={cx(inline && styles.content_inline, topAlign && styles.content_topAlign)}>
         {renderBeforeLabel && content}
 
         <label
@@ -138,7 +133,7 @@ export default function FormField({
             styles.label,
             stretchLabel && styles.label_stretch,
             hideLabel && styles.label_hidden,
-            (inline || renderBeforeLabel) && styles.label_noSpacing
+            (inline || renderBeforeLabel) && styles.label_noSpacing,
           )}
         >
           <StatusText
@@ -167,5 +162,5 @@ export default function FormField({
 
       {invalid && <FormErrorMessage id={id} error={errorMessage} />}
     </section>
-  )
+  );
 }

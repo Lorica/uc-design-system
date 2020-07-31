@@ -1,12 +1,12 @@
-import T from '../components/Translate'
-import { Locale } from '../types'
+import T from '../components/Translate';
+import { Locale } from '../types';
 
-let loaded = false
-let languages: { [locale: string]: string } = {}
+let loaded = false;
+let languages: { [locale: string]: string } = {};
 
 export default function getLanguageFromLocale(locale: Locale): string {
   if (!loaded) {
-    loaded = true
+    loaded = true;
     languages = {
       nl: T.phrase('uc-design-system.language.dutch', 'Dutch'),
       en: T.phrase('uc-design-system.language.english', 'English'),
@@ -21,8 +21,8 @@ export default function getLanguageFromLocale(locale: Locale): string {
       ru: T.phrase('uc-design-system.language.russian', 'Russian'),
       es: T.phrase('uc-design-system.language.spanish', 'Spanish'),
       tr: T.phrase('uc-design-system.language.turkish', 'Turkish'),
-    }
+    };
   }
 
-  return languages[locale]
+  return languages[locale];
 }

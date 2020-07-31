@@ -1,17 +1,17 @@
-import React from 'react'
-import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import { iconButtonStyleSheet } from '../styles'
+import React from 'react';
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import { iconButtonStyleSheet } from '../styles';
 
 export type IconButtonProps = {
-  accessibilityLabel: string
-  disabled?: boolean
+  accessibilityLabel: string;
+  disabled?: boolean;
   icon: React.ComponentType<{
-    accessibilityLabel?: string
-    size?: string | number
-  }>
-  id?: string
-  onClick?: () => void
-}
+    accessibilityLabel?: string;
+    size?: string | number;
+  }>;
+  id?: string;
+  onClick?: () => void;
+};
 
 export default function IconButton({
   accessibilityLabel,
@@ -20,7 +20,7 @@ export default function IconButton({
   id,
   onClick,
 }: IconButtonProps) {
-  const [styles, cx] = useStyles(iconButtonStyleSheet)
+  const [styles, cx] = useStyles(iconButtonStyleSheet);
 
   return (
     <button
@@ -32,5 +32,5 @@ export default function IconButton({
     >
       <Icon accessibilityLabel={accessibilityLabel} size="1.65em" />
     </button>
-  )
+  );
 }

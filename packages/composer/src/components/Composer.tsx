@@ -1,57 +1,50 @@
-import React, { useCallback, useState, useReducer } from 'react'
-import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import FormErrorMessage from '@usercentric/uc-design-system/lib/components/FormErrorMessage'
-import { v4 as uuid } from 'uuid'
-import ComposerContext from '../contexts/ComposerContext'
-import Footer from './Footer'
-import Input, { InputProps } from './Input'
+import React, { useCallback, useState, useReducer } from 'react';
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import FormErrorMessage from '@usercentric/uc-design-system/lib/components/FormErrorMessage';
+import { v4 as uuid } from 'uuid';
+import ComposerContext from '../contexts/ComposerContext';
+import Footer from './Footer';
+import Input, { InputProps } from './Input';
 import {
   onChangeHideMenusWhenEmpty,
   onChangeResetError,
   onChangeSyncValue,
   onChangeResetShadowIfMismatch,
-} from '../helpers/handlers'
-import { isShortcutCommand } from '../helpers/shortcuts'
-import HotkeyManager from './HotkeyManager'
-import { MENU_SHORTCUTS, MODE_MESSAGE } from '../constants'
-import {
-  ChangeHandler,
-  SubmitHandler,
-  WritingMode,
-  Context,
-  DataSet,
-  DataValue,
-} from '../types'
-import { composerStyleSheet } from '../styles'
+} from '../helpers/handlers';
+import { isShortcutCommand } from '../helpers/shortcuts';
+import HotkeyManager from './HotkeyManager';
+import { MENU_SHORTCUTS, MODE_MESSAGE } from '../constants';
+import { ChangeHandler, SubmitHandler, WritingMode, Context, DataSet, DataValue } from '../types';
+import { composerStyleSheet } from '../styles';
 
 export type ComposerProps = {
   /** Button to display after the input field. */
-  afterButton?: React.ReactNode
+  afterButton?: React.ReactNode;
   /** Button to display before the input field. */
-  beforeButton?: React.ReactNode
+  beforeButton?: React.ReactNode;
   /** Features to enable for the composer. */
-  children?: React.ReactNode
+  children?: React.ReactNode;
   /** Default value in specific input fields. */
-  defaultValues?: Partial<DataSet>
+  defaultValues?: Partial<DataSet>;
   /** Whether the input field is disabled or not. */
-  disabled?: boolean
+  disabled?: boolean;
   /** Placeholder for the email writing mode. */
-  emailPlaceholder?: string
+  emailPlaceholder?: string;
   /** Placeholder for the message writing mode. */
-  messagePlaceholder?: string
+  messagePlaceholder?: string;
   /** Gain a reference to the underlying `textarea`. */
-  propagateRef?: InputProps['propagateRef']
+  propagateRef?: InputProps['propagateRef'];
   /** Callback fired when the input value changes. */
-  onChange?: ChangeHandler
+  onChange?: ChangeHandler;
   /** Callback fired when the input is submitted. */
-  onSubmit?: SubmitHandler
+  onSubmit?: SubmitHandler;
   /** Placeholder for the private note writing mode. */
-  privateNotePlaceholder?: string
+  privateNotePlaceholder?: string;
   /** Trigger submit on enter instead of adding a new line. */
-  submitOnEnter?: boolean
+  submitOnEnter?: boolean;
   /** Default writing mode. */
-  writingMode?: WritingMode
-}
+  writingMode?: WritingMode;
+};
 
 function reducer(
   state: DataSet,
@@ -59,14 +52,14 @@ function reducer(
     name,
     value,
   }: {
-    name: string
-    value: DataValue | ((prevValue: DataValue) => DataValue)
-  }
+    name: string;
+    value: DataValue | ((prevValue: DataValue) => DataValue);
+  },
 ) {
   return {
     ...state,
     [name]: typeof value === 'function' ? value(state[name] ?? '') : value,
-  }
+  };
 }
 
 export default function Composer({
@@ -84,74 +77,70 @@ export default function Composer({
   submitOnEnter,
   writingMode,
 }: ComposerProps) {
-  const [styles, cx] = useStyles(composerStyleSheet)
-  const [menu, setMenu] = useState(
-    isShortcutCommand(defaultValues.value) ? MENU_SHORTCUTS : ''
-  )
-  const [mode, setMode] = useState<WritingMode>(writingMode ?? MODE_MESSAGE)
-  const [error, setError] = useState('')
-  const [id] = useState(() =>
-    process.env.NODE_ENV === 'test' ? 'composer' : uuid()
-  )
+  const [styles, cx] = useStyles(composerStyleSheet);
+  const [menu, setMenu] = useState(isShortcutCommand(defaultValues.value) ? MENU_SHORTCUTS : '');
+  const [mode, setMode] = useState<WritingMode>(writingMode ?? MODE_MESSAGE);
+  const [error, setError] = useState('');
+  const [id] = useState(() => (process.env.NODE_ENV === 'test' ? 'composer' : uuid()));
   const [data, setData] = useReducer(reducer, {
     focused: false,
     shadowValue: '',
     value: '',
     ...defaultValues,
-  })
+  });
 
   // Not using state on purpose
   const flags = {
     afterButton: Boolean(afterButton),
     beforeButton: Boolean(beforeButton),
-  }
-  const invalid = error !== ''
+  };
+  const invalid = error !== '';
 
   // Handlers
   const [changeHandlers, handleChange] = useReducer(
     (state: Set<ChangeHandler>, handler: ChangeHandler) => {
-      state.add(handler)
-      return state
+      state.add(handler);
+      return state;
     },
     new Set<ChangeHandler>([
       onChangeSyncValue,
       onChangeResetError,
       onChangeResetShadowIfMismatch,
       onChangeHideMenusWhenEmpty,
-    ])
-  )
+    ]),
+  );
 
   const [submitHandlers, handleSubmit] = useReducer(
     (state: Set<SubmitHandler>, handler: SubmitHandler) => {
-      state.add(handler)
-      return state
+      state.add(handler);
+      return state;
     },
-    new Set<SubmitHandler>()
-  )
+    new Set<SubmitHandler>(),
+  );
 
   const handleSetData = useCallback<Context['setData']>(
     (name, value) => {
-      setData({ name, value })
+      setData({ name, value });
     },
-    [setData]
-  )
+    [setData],
+  );
 
   const handleSetMenu = useCallback<Context['setMenu']>(
     (nextMenu) => {
-      setMenu(nextMenu)
+      setMenu(nextMenu);
 
       // Always focus the input when a menu is opened.
       // We need to focus so that hotkeys can be triggered.
       window.setTimeout(() => {
-        const composer = document.getElementById(id)
+        const composer = document.getElementById(id);
 
         if (composer && document.activeElement !== composer) {
-          composer.focus()
+          composer.focus();
         }
-      }, 0)
+      }, 0);
     },
-    [setMenu, id]
-  )
+    [setMenu, id],
+  );
 
   return (
     <ComposerContext.Provider
@@ -174,9 +163,7 @@ export default function Composer({
       <HotkeyManager>
         <div className={cx(styles.composer)}>
           <div className={cx(styles.field)}>
-            {beforeButton && (
-              <div className={cx(styles.affix)}>{beforeButton}</div>
-            )}
+            {beforeButton && <div className={cx(styles.affix)}>{beforeButton}</div>}
 
             <div className={cx(styles.input)}>
               <Input
@@ -192,16 +179,14 @@ export default function Composer({
               />
             </div>
 
-            {afterButton && (
-              <div className={cx(styles.affix)}>{afterButton}</div>
-            )}
+            {afterButton && <div className={cx(styles.affix)}>{afterButton}</div>}
           </div>
 
           <div
             className={cx(
               styles.footer,
               flags.beforeButton && styles.footer_before,
-              flags.afterButton && styles.footer_after
+              flags.afterButton && styles.footer_after,
             )}
           >
             {invalid ? <FormErrorMessage id={id} error={error} /> : <Footer />}
@@ -210,5 +195,5 @@ export default function Composer({
         </div>
       </HotkeyManager>
     </ComposerContext.Provider>
-  )
+  );
 }

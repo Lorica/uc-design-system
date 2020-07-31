@@ -1,50 +1,50 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { requiredBy, mutuallyExclusiveTrueProps } from 'airbnb-prop-types'
-import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft'
-import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
-import IconFirst from '@usercentric/uc-design-system-icons/lib/interface/IconFirst'
-import IconLast from '@usercentric/uc-design-system-icons/lib/interface/IconLast'
-import useStyles, { StyleSheet } from '../../hooks/useStyles'
-import IconButton from '../IconButton'
-import Text from '../Text'
-import T from '../Translate'
-import DirectionalIcon from '../DirectionalIcon'
-import { styleSheetPagination } from './styles'
-import useTheme from '../../hooks/useTheme'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { requiredBy, mutuallyExclusiveTrueProps } from 'airbnb-prop-types';
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft';
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight';
+import IconFirst from '@usercentric/uc-design-system-icons/lib/interface/IconFirst';
+import IconLast from '@usercentric/uc-design-system-icons/lib/interface/IconLast';
+import useStyles, { StyleSheet } from '../../hooks/useStyles';
+import IconButton from '../IconButton';
+import Text from '../Text';
+import T from '../Translate';
+import DirectionalIcon from '../DirectionalIcon';
+import { styleSheetPagination } from './styles';
+import useTheme from '../../hooks/useTheme';
 
 export type PaginationProps = {
   /** Align arrows in the center */
-  centerAlign?: boolean
+  centerAlign?: boolean;
   /** Align arrows to the end */
-  endAlign?: boolean
+  endAlign?: boolean;
   /** Show fetching state. */
-  fetching?: boolean
+  fetching?: boolean;
   /** Whether it has a next page. */
-  hasNext?: boolean
+  hasNext?: boolean;
   /** Whether it has a previous page. */
-  hasPrev?: boolean
+  hasPrev?: boolean;
   /** Show the first and last page buttons. */
-  showBookends?: boolean
+  showBookends?: boolean;
   /** Align arrows to the start */
-  startAlign?: boolean
+  startAlign?: boolean;
   /** Current page number. */
-  page: number
+  page: number;
   /** Content to label the pages. Default is "Page" */
-  pageLabel?: string
+  pageLabel?: string;
   /** Total page count. Required when `showBookends` is true. */
-  pageCount?: number
+  pageCount?: number;
   /** Invoked when the first page button is pressed. */
-  onFirst?: () => void
+  onFirst?: () => void;
   /** Invoked when the last page button is pressed. */
-  onLast?: () => void
+  onLast?: () => void;
   /** Invoked when the next page button is pressed. */
-  onNext: () => void
+  onNext: () => void;
   /** Invoked when the previous page button is pressed. */
-  onPrevious: () => void
+  onPrevious: () => void;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
 /** Pagination controls. */
 function Pagination({
@@ -64,73 +64,55 @@ function Pagination({
   pageCount,
   styleSheet,
 }: PaginationProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetPagination)
-  const theme = useTheme()
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetPagination);
+  const theme = useTheme();
 
   if (!(hasNext || hasPrev)) {
-    return null
+    return null;
   }
 
   const previousPage = (
-    <IconButton
-      active={hasPrev}
-      disabled={!hasPrev || fetching}
-      onClick={onPrevious}
-    >
+    <IconButton active={hasPrev} disabled={!hasPrev || fetching} onClick={onPrevious}>
       <DirectionalIcon
         direction="left"
         left={IconChevronLeft}
         right={IconChevronRight}
         accessibilityLabel={T.phrase(
           'uc-design-system.pagination.loadPrevious',
-          'Load previous page'
+          'Load previous page',
         )}
         size={4 * theme!.unit}
       />
     </IconButton>
-  )
+  );
 
   const nextPage = (
-    <IconButton
-      active={hasNext}
-      disabled={!hasNext || fetching}
-      onClick={onNext}
-    >
+    <IconButton active={hasNext} disabled={!hasNext || fetching} onClick={onNext}>
       <DirectionalIcon
         direction="right"
         left={IconChevronLeft}
         right={IconChevronRight}
-        accessibilityLabel={T.phrase(
-          'uc-design-system.pagination.loadNext',
-          'Load next page'
-        )}
+        accessibilityLabel={T.phrase('uc-design-system.pagination.loadNext', 'Load next page')}
         size={4 * theme!.unit}
       />
     </IconButton>
-  )
+  );
 
-  let firstPage = null
-  let lastPage = null
+  let firstPage = null;
+  let lastPage = null;
 
   if (showBookends && typeof pageCount === 'number') {
     firstPage = (
-      <IconButton
-        active={hasPrev}
-        disabled={page === 1 || fetching}
-        onClick={onFirst}
-      >
+      <IconButton active={hasPrev} disabled={page === 1 || fetching} onClick={onFirst}>
         <DirectionalIcon
           direction="left"
           left={IconFirst}
           right={IconLast}
-          accessibilityLabel={T.phrase(
-            'uc-design-system.pagination.loadFirst',
-            'Load first page'
-          )}
+          accessibilityLabel={T.phrase('uc-design-system.pagination.loadFirst', 'Load first page')}
           size={4 * theme!.unit}
         />
       </IconButton>
-    )
+    );
 
     lastPage = (
       <IconButton
@@ -142,14 +124,11 @@ function Pagination({
           direction="right"
           left={IconFirst}
           right={IconLast}
-          accessibilityLabel={T.phrase(
-            'uc-design-system.pagination.loadLast',
-            'Load last page'
-          )}
+          accessibilityLabel={T.phrase('uc-design-system.pagination.loadLast', 'Load last page')}
           size={4 * theme!.unit}
         />
       </IconButton>
-    )
+    );
   }
 
   let paginationText =
@@ -161,8 +140,8 @@ function Pagination({
         pageNumber={page}
       />
     ) : (
-        page
-      )
+      page
+    );
 
   if (pageLabel) {
     paginationText =
@@ -175,13 +154,13 @@ function Pagination({
           pageNumber={page}
         />
       ) : (
-          <T
-            k="uc-design-system.pagination.pageNumberLabeled"
-            phrase="%{pageLabel} %{pageNumber}"
-            pageLabel={pageLabel}
-            pageNumber={page}
-          />
-        )
+        <T
+          k="uc-design-system.pagination.pageNumberLabeled"
+          phrase="%{pageLabel} %{pageNumber}"
+          pageLabel={pageLabel}
+          pageNumber={page}
+        />
+      );
   }
 
   return (
@@ -190,7 +169,7 @@ function Pagination({
         styles.wrapper,
         endAlign && styles.wrapper_endAlign,
         centerAlign && styles.wrapper_centerAlign,
-        startAlign && styles.wrapper_startAlign
+        startAlign && styles.wrapper_startAlign,
       )}
     >
       <div className={cx(styles.previous)}>
@@ -207,14 +186,10 @@ function Pagination({
         {lastPage}
       </div>
     </div>
-  )
+  );
 }
 
-const alignProp = mutuallyExclusiveTrueProps(
-  'centerAlign',
-  'endAlign',
-  'startAlign'
-)
+const alignProp = mutuallyExclusiveTrueProps('centerAlign', 'endAlign', 'startAlign');
 
 Pagination.propTypes = {
   centerAlign: alignProp,
@@ -223,6 +198,6 @@ Pagination.propTypes = {
   startAlign: alignProp,
   onFirst: requiredBy('showBookends', PropTypes.func),
   onLast: requiredBy('showBookends', PropTypes.func),
-}
+};
 
-export default Pagination
+export default Pagination;

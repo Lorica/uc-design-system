@@ -1,13 +1,13 @@
-import React from 'react'
-import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
-import LoremIpsum from ':storybook/components/LoremIpsum'
-import ucDesignSystem from ':storybook/images/lunar-logo.png'
-import stars from ':storybook/images/stars.jpg'
-import moon from ':storybook/images/moon.png'
-import Text from '../Text'
-import ResponsiveImage from '../ResponsiveImage'
-import Image from '../Image'
-import Card, { Content } from '.'
+import React from 'react';
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight';
+import LoremIpsum from ':storybook/components/LoremIpsum';
+import ucDesignSystem from ':storybook/images/lunar-logo.png';
+import stars from ':storybook/images/stars.jpg';
+import moon from ':storybook/images/moon.png';
+import Text from '../Text';
+import ResponsiveImage from '../ResponsiveImage';
+import Image from '../Image';
+import Card, { Content } from '.';
 
 export default {
   title: 'Core/Card',
@@ -15,7 +15,7 @@ export default {
     inspectComponents: [Card, Content],
     happo: { delay: 500 },
   },
-}
+};
 
 export function aStandardCard() {
   return (
@@ -26,12 +26,12 @@ export function aStandardCard() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aStandardCard.story = {
   name: 'A standard card.',
-}
+};
 
 export function aCardWithOverflowVisible() {
   return (
@@ -53,12 +53,12 @@ export function aCardWithOverflowVisible() {
         </div>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithOverflowVisible.story = {
   name: 'A card with overflow visible.',
-}
+};
 
 export function aCardWithMultipleBlocksOfContent() {
   return (
@@ -75,12 +75,12 @@ export function aCardWithMultipleBlocksOfContent() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithMultipleBlocksOfContent.story = {
   name: 'A card with multiple blocks of content.',
-}
+};
 
 export function withAMaxHeight() {
   return (
@@ -91,12 +91,12 @@ export function withAMaxHeight() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 withAMaxHeight.story = {
   name: 'With a max height.',
-}
+};
 
 export function withAMinHeight() {
   return (
@@ -107,194 +107,164 @@ export function withAMinHeight() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 withAMinHeight.story = {
   name: 'With a min height.',
-}
+};
 
 export function aCardWithATopFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingTop
-        top={
-          <Image
-            background
-            cover
-            alt=""
-            height={105}
-            width="100%"
-            src={stars}
-          />
-        }
+        top={<Image background cover alt="" height={105} width="100%" src={stars} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithATopFeaturedImage.story = {
   name: 'A card with a top featured image.',
-}
+};
 
 export function aCardWithALargeTopFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingTop
-        top={
-          <Image
-            background
-            cover
-            alt=""
-            height={195}
-            width="100%"
-            src={stars}
-          />
-        }
+        top={<Image background cover alt="" height={195} width="100%" src={stars} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithALargeTopFeaturedImage.story = {
   name: 'A card with a large top featured image.',
-}
+};
 
 export function aCardWithASmallLeftFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingBefore
-        before={
-          <Image background cover alt="" height="100%" width={80} src={moon} />
-        }
+        before={<Image background cover alt="" height="100%" width={80} src={moon} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithASmallLeftFeaturedImage.story = {
   name: 'A card with a small left featured image.',
-}
+};
 
 export function aCardWithALeftFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingBefore
-        before={
-          <Image background cover alt="" height="100%" width={152} src={moon} />
-        }
+        before={<Image background cover alt="" height="100%" width={152} src={moon} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithALeftFeaturedImage.story = {
   name: 'A card with a left featured image.',
-}
+};
 
 export function aCardWithALargeLeftFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingBefore
-        before={
-          <Image background cover alt="" height="100%" width={195} src={moon} />
-        }
+        before={<Image background cover alt="" height="100%" width={195} src={moon} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithALargeLeftFeaturedImage.story = {
   name: 'A card with a large left featured image.',
-}
+};
 
 export function aCardWithASmallRightFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingAfter
-        after={
-          <Image background cover alt="" height="100%" width={80} src={moon} />
-        }
+        after={<Image background cover alt="" height="100%" width={80} src={moon} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithASmallRightFeaturedImage.story = {
   name: 'A card with a small right featured image.',
-}
+};
 
 export function aCardWithARightFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingAfter
-        after={
-          <Image background cover alt="" height="100%" width={152} src={moon} />
-        }
+        after={<Image background cover alt="" height="100%" width={152} src={moon} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithARightFeaturedImage.story = {
   name: 'A card with a right featured image.',
-}
+};
 
 export function aCardWithALargeRightFeaturedImage() {
   return (
     <Card>
       <Content
         noPaddingAfter
-        after={
-          <Image background cover alt="" height="100%" width={195} src={moon} />
-        }
+        after={<Image background cover alt="" height="100%" width={195} src={moon} />}
       >
         <Text>
           <LoremIpsum />
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithALargeRightFeaturedImage.story = {
   name: 'A card with a large right featured image.',
-}
+};
 
 export function aCardWithTextTruncation() {
   return (
@@ -302,9 +272,7 @@ export function aCardWithTextTruncation() {
       <Content
         truncated
         noPaddingBefore
-        before={
-          <Image background cover alt="" height="100%" width={152} src={moon} />
-        }
+        before={<Image background cover alt="" height="100%" width={152} src={moon} />}
       >
         <Text truncated>
           <LoremIpsum />
@@ -315,12 +283,12 @@ export function aCardWithTextTruncation() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 aCardWithTextTruncation.story = {
   name: 'A card with text truncation.',
-}
+};
 
 export function clickableCard() {
   return (
@@ -335,12 +303,12 @@ export function clickableCard() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 clickableCard.story = {
   name: 'Click-able.',
-}
+};
 
 export function asCompact() {
   return (
@@ -351,12 +319,12 @@ export function asCompact() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 asCompact.story = {
   name: 'As compact.',
-}
+};
 
 export function cardAsAButtonWithMiddleAlignment() {
   return (
@@ -387,21 +355,19 @@ export function cardAsAButtonWithMiddleAlignment() {
         <Text>Read more</Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 cardAsAButtonWithMiddleAlignment.story = {
   name: 'Card as a button with middle alignment.',
-}
+};
 
 export function asClickableBeforeImage() {
   return (
     <Card>
       <Content
         noPaddingBefore
-        before={
-          <Image background cover alt="" height="100%" width={152} src={moon} />
-        }
+        before={<Image background cover alt="" height="100%" width={152} src={moon} />}
         onBeforeClick={() => console.log('onClick before')}
       >
         <Text>
@@ -409,21 +375,19 @@ export function asClickableBeforeImage() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 asClickableBeforeImage.story = {
   name: 'A card with a clickable before image',
-}
+};
 
 export function asClickableAfterImage() {
   return (
     <Card>
       <Content
         noPaddingAfter
-        after={
-          <Image background cover alt="" height="100%" width={152} src={moon} />
-        }
+        after={<Image background cover alt="" height="100%" width={152} src={moon} />}
         onAfterClick={() => console.log('onClick after')}
       >
         <Text>
@@ -431,12 +395,12 @@ export function asClickableAfterImage() {
         </Text>
       </Content>
     </Card>
-  )
+  );
 }
 
 asClickableAfterImage.story = {
   name: 'A card with a clickable after image.',
-}
+};
 
 export function aCardWithAllTheExtraContentAndAlignMents() {
   return (
@@ -444,9 +408,7 @@ export function aCardWithAllTheExtraContentAndAlignMents() {
       <Card>
         <Content
           after={<Text>After</Text>}
-          before={
-            <Image background cover alt="" height={80} width={80} src={moon} />
-          }
+          before={<Image background cover alt="" height={80} width={80} src={moon} />}
           top={<Text centerAlign>Top</Text>}
         >
           <Text>Default alignment</Text>
@@ -459,19 +421,16 @@ export function aCardWithAllTheExtraContentAndAlignMents() {
         <Content
           middleAlign
           after={<Text>After</Text>}
-          before={
-            <Image background cover alt="" height={80} width={80} src={moon} />
-          }
+          before={<Image background cover alt="" height={80} width={80} src={moon} />}
           top={<Text centerAlign>Top</Text>}
         >
           <Text>Middle alignment</Text>
         </Content>
       </Card>
     </>
-  )
+  );
 }
 
 aCardWithAllTheExtraContentAndAlignMents.story = {
-  name:
-    'Cards with before, after, and top content showing different alignments.',
-}
+  name: 'Cards with before, after, and top content showing different alignments.',
+};

@@ -1,18 +1,18 @@
-import React from 'react'
-import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import Button from '@usercentric/uc-design-system/lib/components/Button'
-import T from '@usercentric/uc-design-system/lib/components/Translate'
-import Row from '@usercentric/uc-design-system/lib/components/Row'
-import { previewWindowStyleSheet } from '../../styles'
+import React from 'react';
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import Button from '@usercentric/uc-design-system/lib/components/Button';
+import T from '@usercentric/uc-design-system/lib/components/Translate';
+import Row from '@usercentric/uc-design-system/lib/components/Row';
+import { previewWindowStyleSheet } from '../../styles';
 
 export type WindowProps = {
-  children: NonNullable<React.ReactNode>
-  controls?: React.ReactNode
-  onConfirm: () => void
-}
+  children: NonNullable<React.ReactNode>;
+  controls?: React.ReactNode;
+  onConfirm: () => void;
+};
 
 export default function Window({ children, controls, onConfirm }: WindowProps) {
-  const [styles, cx] = useStyles(previewWindowStyleSheet)
+  const [styles, cx] = useStyles(previewWindowStyleSheet);
 
   return (
     <>
@@ -31,5 +31,5 @@ export default function Window({ children, controls, onConfirm }: WindowProps) {
         </Row>
       </footer>
     </>
-  )
+  );
 }

@@ -1,21 +1,21 @@
-import React from 'react'
-import BaseEmojiPicker, { PickerProps } from 'interweave-emoji-picker'
-import IconBolt from '@usercentric/uc-design-system-icons/lib/general/IconBolt'
-import IconBulb from '@usercentric/uc-design-system-icons/lib/general/IconBulb'
-import IconClock from '@usercentric/uc-design-system-icons/lib/general/IconClock'
-import IconFlag from '@usercentric/uc-design-system-icons/lib/interface/IconFlag'
-import IconFlower from '@usercentric/uc-design-system-icons/lib/general/IconFlower'
-import IconPlane from '@usercentric/uc-design-system-icons/lib/general/IconPlane'
-import IconSmile from '@usercentric/uc-design-system-icons/lib/general/IconSmile'
-import IconThumbUp from '@usercentric/uc-design-system-icons/lib/interface/IconThumbUp'
-import IconUtensils from '@usercentric/uc-design-system-icons/lib/general/IconUtensils'
-import IconVideoGame from '@usercentric/uc-design-system-icons/lib/general/IconVideoGame'
-import IconCloseAlt from '@usercentric/uc-design-system-icons/lib/interface/IconCloseAlt'
-import useStyles, { StyleSheet } from '../../hooks/useStyles'
-import Core from '../..'
-import { ESCAPE } from '../../keys'
-import T from '../Translate'
-import { styleSheetEmojiPicker } from './styles'
+import React from 'react';
+import BaseEmojiPicker, { PickerProps } from 'interweave-emoji-picker';
+import IconBolt from '@usercentric/uc-design-system-icons/lib/general/IconBolt';
+import IconBulb from '@usercentric/uc-design-system-icons/lib/general/IconBulb';
+import IconClock from '@usercentric/uc-design-system-icons/lib/general/IconClock';
+import IconFlag from '@usercentric/uc-design-system-icons/lib/interface/IconFlag';
+import IconFlower from '@usercentric/uc-design-system-icons/lib/general/IconFlower';
+import IconPlane from '@usercentric/uc-design-system-icons/lib/general/IconPlane';
+import IconSmile from '@usercentric/uc-design-system-icons/lib/general/IconSmile';
+import IconThumbUp from '@usercentric/uc-design-system-icons/lib/interface/IconThumbUp';
+import IconUtensils from '@usercentric/uc-design-system-icons/lib/general/IconUtensils';
+import IconVideoGame from '@usercentric/uc-design-system-icons/lib/general/IconVideoGame';
+import IconCloseAlt from '@usercentric/uc-design-system-icons/lib/interface/IconCloseAlt';
+import useStyles, { StyleSheet } from '../../hooks/useStyles';
+import Core from '../..';
+import { ESCAPE } from '../../keys';
+import T from '../Translate';
+import { styleSheetEmojiPicker } from './styles';
 
 // Exclude inappropriate or offensive emojis
 const blockList = [
@@ -34,7 +34,7 @@ const blockList = [
   '1F52B', // 🔫 pistol
   '1F489', // 💉 syringe
   '1F48A', // 💊 pill
-]
+];
 
 const groupIcons = {
   commonlyUsed: <IconClock decorative />,
@@ -47,18 +47,18 @@ const groupIcons = {
   objects: <IconBulb decorative />,
   symbols: <IconBolt decorative />,
   flags: <IconFlag decorative />,
-}
+};
 
-const clearIcon = <IconCloseAlt decorative size="1.325em" />
+const clearIcon = <IconCloseAlt decorative size="1.325em" />;
 
 export type EmojiPickerProps = Partial<PickerProps> & {
   /** @ignore */
-  disableAutoFocus?: boolean
+  disableAutoFocus?: boolean;
   /** A function to close the picker. Is triggered by the escape key. */
-  onClosePicker: () => void
+  onClosePicker: () => void;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
 /**
  * Display an emoji picker using [interweave-emoji-picker](https://github.com/milesj/interweave/tree/master/packages/interweave-emoji-picker).
@@ -70,14 +70,14 @@ export default function EmojiPicker({
   styleSheet,
   ...props
 }: EmojiPickerProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetEmojiPicker)
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetEmojiPicker);
 
   const handleKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
     // When the picker wrapper is focused, we need to close on esc
     if (event.key === ESCAPE && onClosePicker) {
-      onClosePicker()
+      onClosePicker();
     }
-  }
+  };
 
   const classNames = {
     picker: cx(styles.picker),
@@ -106,76 +106,37 @@ export default function EmojiPicker({
     search: cx(styles.search),
     searchInput: cx(styles.searchInput),
     clear: cx(styles.clear),
-  }
+  };
 
   const messages = {
-    recentlyUsed: T.phrase(
-      'uc-design-system.emoji.recentlyUsed',
-      'Recently Used'
-    ),
-    frequentlyUsed: T.phrase(
-      'uc-design-system.emoji.frequentlyUsed',
-      'Frequently Used'
-    ),
-    smileysEmotion: T.phrase(
-      'uc-design-system.emoji.smileysEmotion',
-      'Smileys & Emotions'
-    ),
-    peopleBody: T.phrase(
-      'uc-design-system.emoji.peopleBody',
-      'People & Bodies'
-    ),
-    animalsNature: T.phrase(
-      'uc-design-system.emoji.animalsNature',
-      'Animals & Nature'
-    ),
+    recentlyUsed: T.phrase('uc-design-system.emoji.recentlyUsed', 'Recently Used'),
+    frequentlyUsed: T.phrase('uc-design-system.emoji.frequentlyUsed', 'Frequently Used'),
+    smileysEmotion: T.phrase('uc-design-system.emoji.smileysEmotion', 'Smileys & Emotions'),
+    peopleBody: T.phrase('uc-design-system.emoji.peopleBody', 'People & Bodies'),
+    animalsNature: T.phrase('uc-design-system.emoji.animalsNature', 'Animals & Nature'),
     foodDrink: T.phrase('uc-design-system.emoji.foodDrink', 'Food & Drink'),
-    travelPlaces: T.phrase(
-      'uc-design-system.emoji.travelWeather',
-      'Travel & Weather'
-    ),
+    travelPlaces: T.phrase('uc-design-system.emoji.travelWeather', 'Travel & Weather'),
     activities: T.phrase('uc-design-system.emoji.activities', 'Activities'),
     objects: T.phrase('uc-design-system.emoji.objects', 'Objects'),
     symbols: T.phrase('uc-design-system.emoji.symbols', 'Symbols'),
     flags: T.phrase('uc-design-system.emoji.flags', 'Flags'),
     variations: T.phrase('uc-design-system.emoji.variations', 'Variations'),
-    searchResults: T.phrase(
-      'uc-design-system.emoji.searchResults',
-      'Search results'
-    ),
+    searchResults: T.phrase('uc-design-system.emoji.searchResults', 'Search results'),
     none: T.phrase('uc-design-system.emoji.allResults', 'All emojis'),
     skinNone: T.phrase('uc-design-system.emoji.noSkinTone', 'No skin tone'),
-    skinLight: T.phrase(
-      'uc-design-system.emoji.lightSkinTone',
-      'Light skin tone'
-    ),
+    skinLight: T.phrase('uc-design-system.emoji.lightSkinTone', 'Light skin tone'),
     skinMediumLight: T.phrase(
       'uc-design-system.emoji.mediumLightSkinTone',
-      'Medium-light skin tone'
+      'Medium-light skin tone',
     ),
-    skinMedium: T.phrase(
-      'uc-design-system.emoji.mediumSkinTone',
-      'Medium skin tone'
-    ),
-    skinMediumDark: T.phrase(
-      'uc-design-system.emoji.mediumDarkSkinTone',
-      'Medium-dark skin tone'
-    ),
+    skinMedium: T.phrase('uc-design-system.emoji.mediumSkinTone', 'Medium skin tone'),
+    skinMediumDark: T.phrase('uc-design-system.emoji.mediumDarkSkinTone', 'Medium-dark skin tone'),
     skinDark: T.phrase('uc-design-system.emoji.darkSkinTone', 'Dark skin tone'),
     search: T.phrase('uc-design-system.emoji.search', 'Search emojis'),
-    searchA11y: T.phrase(
-      'uc-design-system.emoji.searchKeyword',
-      'Search for emojis by keyword'
-    ),
-    noResults: T.phrase(
-      'uc-design-system.emoji.noResults',
-      'No results, please try again.'
-    ),
-    clearUsed: T.phrase(
-      'uc-design-system.emoji.clearFrequentlyUsed',
-      'Clear frequently used'
-    ),
-  }
+    searchA11y: T.phrase('uc-design-system.emoji.searchKeyword', 'Search for emojis by keyword'),
+    noResults: T.phrase('uc-design-system.emoji.noResults', 'No results, please try again.'),
+    clearUsed: T.phrase('uc-design-system.emoji.clearFrequentlyUsed', 'Clear frequently used'),
+  };
 
   return (
     <div role="presentation" onKeyUp={handleKeyUp}>
@@ -198,5 +159,5 @@ export default function EmojiPicker({
         messages={messages}
       />
     </div>
-  )
+  );
 }

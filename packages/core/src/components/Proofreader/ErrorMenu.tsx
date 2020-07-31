@@ -1,41 +1,41 @@
-import React from 'react'
-import T from '../Translate'
-import Menu, { Row, Item } from '../Menu'
-import Text from '../Text'
-import Interweave from '../Interweave'
-import TrackingBoundary from '../TrackingBoundary'
-import { ProofreadRuleMatch } from './types'
+import React from 'react';
+import T from '../Translate';
+import Menu, { Row, Item } from '../Menu';
+import Text from '../Text';
+import Interweave from '../Interweave';
+import TrackingBoundary from '../TrackingBoundary';
+import { ProofreadRuleMatch } from './types';
 
 export type ErrorMenuProps = {
-  error: ProofreadRuleMatch
-  onReplaceText: (error: ProofreadRuleMatch, replacement: string) => void
-}
+  error: ProofreadRuleMatch;
+  onReplaceText: (error: ProofreadRuleMatch, replacement: string) => void;
+};
 
 export default class ErrorMenu extends React.Component<ErrorMenuProps> {
   private handleClick = (replacement: string) => {
-    this.props.onReplaceText(this.props.error, replacement)
-  }
+    this.props.onReplaceText(this.props.error, replacement);
+  };
 
   private replacementText = (replacement: string) => {
     switch (replacement) {
       case ' ':
-        return T.phrase('uc-design-system.proofreader.whiteSpace', '(Space)')
+        return T.phrase('uc-design-system.proofreader.whiteSpace', '(Space)');
       case '':
-        return T.phrase('uc-design-system.proofreader.delete', 'Delete')
+        return T.phrase('uc-design-system.proofreader.delete', 'Delete');
       default:
-        return replacement
+        return replacement;
     }
-  }
+  };
 
   render() {
-    const { error } = this.props
+    const { error } = this.props;
 
     return (
       <TrackingBoundary name="Proofreader/ErrorMenu">
         <Menu
           accessibilityLabel={T.phrase(
             'uc-design-system.proofreader.replacementLabel',
-            'Spelling or grammar replacements'
+            'Spelling or grammar replacements',
           )}
         >
           <Row>
@@ -45,15 +45,12 @@ export default class ErrorMenu extends React.Component<ErrorMenuProps> {
           </Row>
 
           {error.replacements!.map((replacement) => (
-            <Item
-              key={replacement!}
-              onClick={() => this.handleClick(replacement)}
-            >
+            <Item key={replacement!} onClick={() => this.handleClick(replacement)}>
               <Text>{this.replacementText(replacement)}</Text>
             </Item>
           ))}
         </Menu>
       </TrackingBoundary>
-    )
+    );
   }
 }

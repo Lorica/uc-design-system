@@ -1,15 +1,15 @@
-import React from 'react'
-import IconSettings from '@usercentric/uc-design-system-icons/lib/interface/IconSettings'
-import LoremIpsum from ':storybook/components/LoremIpsum'
-import SideBar, { Item } from '../SideBar'
-import LayoutShell from '.'
+import React from 'react';
+import IconSettings from '@usercentric/uc-design-system-icons/lib/interface/IconSettings';
+import LoremIpsum from ':storybook/components/LoremIpsum';
+import SideBar, { Item } from '../SideBar';
+import LayoutShell from '.';
 
 export default {
   title: 'Layouts/LayoutShell',
   parameters: {
     inspectComponents: [LayoutShell],
   },
-}
+};
 
 export function standardShellWithNoTopOrSideBars() {
   return (
@@ -19,12 +19,12 @@ export function standardShellWithNoTopOrSideBars() {
       <LoremIpsum />
       <LoremIpsum />
     </LayoutShell>
-  )
+  );
 }
 
 standardShellWithNoTopOrSideBars.story = {
   name: 'Standard shell with no top or side bars.',
-}
+};
 
 export function withSideBarAndNoBackgroundColor() {
   return (
@@ -40,9 +40,9 @@ export function withSideBarAndNoBackgroundColor() {
       <LoremIpsum />
       <LoremIpsum />
     </LayoutShell>
-  )
+  );
 }
 
 withSideBarAndNoBackgroundColor.story = {
   name: 'With side bar and no background color.',
-}
+};

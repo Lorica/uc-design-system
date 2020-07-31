@@ -17,7 +17,7 @@ describe('<Alert />', () => {
   });
 
   it('renders close button', () => {
-    const wrapper = shallow(<Alert title="Title" onClose={() => { }} />);
+    const wrapper = shallow(<Alert title="Title" onClose={() => {}} />);
 
     expect(
       // @ts-ignore

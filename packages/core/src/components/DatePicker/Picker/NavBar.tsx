@@ -1,23 +1,23 @@
-import React from 'react'
-import { NavbarElementProps } from 'react-day-picker'
-import IconArrowLeft from '@usercentric/uc-design-system-icons/lib/interface/IconArrowLeft'
-import IconArrowRight from '@usercentric/uc-design-system-icons/lib/interface/IconArrowRight'
-import datePickerStyles from '../../private/datePickerStyles'
-import DirectionalIcon from '../../DirectionalIcon'
-import IconButton from '../../IconButton'
-import T from '../../Translate'
-import useStyles, { StyleSheet } from '../../../hooks/useStyles'
+import React from 'react';
+import { NavbarElementProps } from 'react-day-picker';
+import IconArrowLeft from '@usercentric/uc-design-system-icons/lib/interface/IconArrowLeft';
+import IconArrowRight from '@usercentric/uc-design-system-icons/lib/interface/IconArrowRight';
+import datePickerStyles from '../../private/datePickerStyles';
+import DirectionalIcon from '../../DirectionalIcon';
+import IconButton from '../../IconButton';
+import T from '../../Translate';
+import useStyles, { StyleSheet } from '../../../hooks/useStyles';
 
 export type NavBarProps = NavbarElementProps & {
   /** Callback for a reset button. */
-  onResetClick?: () => void
+  onResetClick?: () => void;
   /** Show the reset button. */
-  showResetButton?: boolean
+  showResetButton?: boolean;
   /** Whether there is a footer to account for positioning. */
-  noFooter?: boolean
+  noFooter?: boolean;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
 export default function NavBar({
   className,
@@ -32,30 +32,27 @@ export default function NavBar({
   onResetClick,
   styleSheet,
 }: NavBarProps) {
-  const [styles, cx] = useStyles(styleSheet ?? datePickerStyles)
+  const [styles, cx] = useStyles(styleSheet ?? datePickerStyles);
 
   const handleNextClick = () => {
-    onNextClick()
-  }
+    onNextClick();
+  };
 
   const handlePreviousClick = () => {
-    onPreviousClick()
-  }
+    onPreviousClick();
+  };
 
   const handleResetClick = () => {
     if (onResetClick) {
-      onResetClick()
+      onResetClick();
     }
-  }
+  };
 
   return (
     <div className={className}>
       {showPreviousButton && (
         <div className={classNames.navButtonPrev}>
-          <IconButton
-            tooltip={labels.previousMonth}
-            onClick={handlePreviousClick}
-          >
+          <IconButton tooltip={labels.previousMonth} onClick={handlePreviousClick}>
             <DirectionalIcon
               direction="left"
               left={IconArrowLeft}
@@ -82,21 +79,12 @@ export default function NavBar({
       )}
 
       {showResetButton && (
-        <div
-          className={cx(
-            styles.resetButton,
-            noFooter && styles.resetButton_noFooter
-          )}
-        >
-          <button
-            className={cx(styles.todayButton)}
-            type="button"
-            onClick={handleResetClick}
-          >
+        <div className={cx(styles.resetButton, noFooter && styles.resetButton_noFooter)}>
+          <button className={cx(styles.todayButton)} type="button" onClick={handleResetClick}>
             <T k="lunar.common.reset" phrase="Reset" />
           </button>
         </div>
       )}
     </div>
-  )
+  );
 }

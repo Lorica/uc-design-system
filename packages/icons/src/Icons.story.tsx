@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/no-onchange */
 
-import React, { ChangeEvent } from 'react'
-import { WithIconWrapperProps } from './withIcon'
-import FakeIcon from './FakeIcon'
+import React, { ChangeEvent } from 'react';
+import { WithIconWrapperProps } from './withIcon';
+import FakeIcon from './FakeIcon';
 
 type IconSet = {
-  label: string
-  icons: React.ComponentType<WithIconWrapperProps>[]
-}
+  label: string;
+  icons: React.ComponentType<WithIconWrapperProps>[];
+};
 
-const context = require.context('.', true, /icon[a-z]+\.tsx/i)
+const context = require.context('.', true, /icon[a-z]+\.tsx/i);
 const iconData: { [key: string]: IconSet } = {
   general: {
     label: 'General Objects',
@@ -23,25 +23,25 @@ const iconData: { [key: string]: IconSet } = {
     label: 'Social Media',
     icons: [],
   },
-}
+};
 
 context.keys().forEach((file) => {
-  const Icon = context(file).default
-  const [category] = file.slice(2).split('/Icon')
+  const Icon = context(file).default;
+  const [category] = file.slice(2).split('/Icon');
 
-  iconData[category].icons.push(Icon)
-})
+  iconData[category].icons.push(Icon);
+});
 
 function IconGrid(props: {
-  category: string
-  color: string
-  flip: boolean
-  flipVertical: boolean
-  icons: IconSet['icons']
-  size: string
-  title: string
+  category: string;
+  color: string;
+  flip: boolean;
+  flipVertical: boolean;
+  icons: IconSet['icons'];
+  size: string;
+  title: string;
 }) {
-  const { category, title, icons, color, size, flip, flipVertical } = props
+  const { category, title, icons, color, size, flip, flipVertical } = props;
 
   return (
     <div style={{ marginBottom: 16 }}>
@@ -65,11 +65,11 @@ function IconGrid(props: {
               width: 90,
             }}
             onClick={() => {
-              const icon = Icon.displayName!
+              const icon = Icon.displayName!;
 
               action(icon)(
-                `import ${icon} from '@usercentric/uc-design-system-icons/lib/${category}/${icon}';`
-              )
+                `import ${icon} from '@usercentric/uc-design-system-icons/lib/${category}/${icon}';`,
+              );
             }}
           >
             <Icon
@@ -81,53 +81,51 @@ function IconGrid(props: {
               flipVertical={flipVertical}
             />
 
-            <div style={{ fontSize: 11, marginTop: 4 }}>
-              {Icon.displayName!.slice(4)}
-            </div>
+            <div style={{ fontSize: 11, marginTop: 4 }}>{Icon.displayName!.slice(4)}</div>
           </button>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 class IconList extends React.Component<
   {},
   { color: string; flipX: boolean; flipY: boolean; size: string }
-  > {
+> {
   state = {
     color: '',
     flipX: false,
     flipY: false,
     size: '2em',
-  }
+  };
 
   handleColorChange = (event: ChangeEvent<HTMLSelectElement>) => {
     this.setState({
       color: event.currentTarget.value,
-    })
-  }
+    });
+  };
 
   handleFlipXChange = () => {
     this.setState((prevState) => ({
       flipX: !prevState.flipX,
-    }))
-  }
+    }));
+  };
 
   handleFlipYChange = () => {
     this.setState((prevState) => ({
       flipY: !prevState.flipY,
-    }))
-  }
+    }));
+  };
 
   handleSizeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     this.setState({
       size: event.currentTarget.value,
-    })
-  }
+    });
+  };
 
   render() {
-    const { color, flipX, flipY, size } = this.state
+    const { color, flipX, flipY, size } = this.state;
 
     return (
       <div style={{ position: 'relative' }}>
@@ -165,22 +163,12 @@ class IconList extends React.Component<
 
           <div style={{ margin: '0 8px' }}>
             Flip X{' '}
-            <input
-              checked={flipX}
-              type="checkbox"
-              name="flipx"
-              onChange={this.handleFlipXChange}
-            />
+            <input checked={flipX} type="checkbox" name="flipx" onChange={this.handleFlipXChange} />
           </div>
 
           <div style={{ margin: '0 8px' }}>
             Flip Y{' '}
-            <input
-              checked={flipY}
-              type="checkbox"
-              name="flipy"
-              onChange={this.handleFlipYChange}
-            />
+            <input checked={flipY} type="checkbox" name="flipy" onChange={this.handleFlipYChange} />
           </div>
         </div>
 
@@ -197,7 +185,7 @@ class IconList extends React.Component<
           />
         ))}
       </div>
-    )
+    );
   }
 }
 
@@ -206,12 +194,12 @@ export default {
   parameters: {
     inspectComponents: [FakeIcon],
   },
-}
+};
 
 export function iconGallery() {
-  return <IconList />
+  return <IconList />;
 }
 
 iconGallery.story = {
   name: 'Icon gallery.',
-}
+};

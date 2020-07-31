@@ -1,13 +1,13 @@
-import React from 'react'
-import DangerButton from '.'
-import ButtonGroup from '../ButtonGroup'
+import React from 'react';
+import DangerButton from '.';
+import ButtonGroup from '../ButtonGroup';
 
 export default {
   title: 'Core/DangerButton',
   parameters: {
     inspectComponents: [DangerButton],
   },
-}
+};
 
 export function buttonWithAnInvertedVariant() {
   return (
@@ -15,37 +15,30 @@ export function buttonWithAnInvertedVariant() {
       <DangerButton>Button</DangerButton>
       <DangerButton inverted>Button</DangerButton>
     </ButtonGroup>
-  )
+  );
 }
 
 buttonWithAnInvertedVariant.story = {
   name: 'Button with an inverted variant.',
-}
+};
 
 export function anAnchorLinkWhenPassingHref() {
   return (
     <ButtonGroup>
-      <DangerButton
-        openInNewWindow
-        href="https://github.com/lorica/uc-design-system"
-      >
+      <DangerButton openInNewWindow href="https://github.com/lorica/uc-design-system">
         Link
       </DangerButton>
 
-      <DangerButton
-        openInNewWindow
-        inverted
-        href="https://github.com/lorica/uc-design-system"
-      >
+      <DangerButton openInNewWindow inverted href="https://github.com/lorica/uc-design-system">
         Link
       </DangerButton>
     </ButtonGroup>
-  )
+  );
 }
 
 anAnchorLinkWhenPassingHref.story = {
   name: 'An anchor link when passing `href`.',
-}
+};
 
 export function withEventHandlers() {
   return (
@@ -56,12 +49,12 @@ export function withEventHandlers() {
     >
       Button
     </DangerButton>
-  )
+  );
 }
 
 withEventHandlers.story = {
   name: 'With event handlers.',
-}
+};
 
 export function withDifferentSizingSmallRegularDefaultAndLarge() {
   return (
@@ -86,12 +79,12 @@ export function withDifferentSizingSmallRegularDefaultAndLarge() {
         </DangerButton>
       </ButtonGroup>
     </>
-  )
+  );
 }
 
 withDifferentSizingSmallRegularDefaultAndLarge.story = {
   name: 'With different sizing: small, regular (default), and large.',
-}
+};
 
 export function withDifferentStatesDisabledAndLoading() {
   return (
@@ -113,9 +106,9 @@ export function withDifferentStatesDisabledAndLoading() {
         </DangerButton>
       </ButtonGroup>
     </>
-  )
+  );
 }
 
 withDifferentStatesDisabledAndLoading.story = {
   name: 'With different states: disabled and loading.',
-}
+};

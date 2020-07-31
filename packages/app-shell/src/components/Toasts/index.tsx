@@ -1,15 +1,13 @@
 /* eslint-disable react/jsx-handler-names */
 
-import React, { useContext } from 'react'
-import useStyles, {
-  StyleSheet,
-} from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import Toast from '@usercentric/uc-design-system/lib/components/Toast'
-import { Z_INDEX_TOAST } from '@usercentric/uc-design-system/lib/constants'
-import PopToast from './PopToast'
-import AppContext from '../AppContext'
+import React, { useContext } from 'react';
+import useStyles, { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import Toast from '@usercentric/uc-design-system/lib/components/Toast';
+import { Z_INDEX_TOAST } from '@usercentric/uc-design-system/lib/constants';
+import PopToast from './PopToast';
+import AppContext from '../AppContext';
 
-export { PopToast }
+export { PopToast };
 
 export const styleSheet: StyleSheet = ({ unit }) => ({
   toasts: {
@@ -21,19 +19,19 @@ export const styleSheet: StyleSheet = ({ unit }) => ({
     // Higher than modals
     zIndex: Z_INDEX_TOAST,
   },
-})
+});
 
 export default function Toasts() {
-  const context = useContext(AppContext)
-  const [styles, cx] = useStyles(styleSheet)
+  const context = useContext(AppContext);
+  const [styles, cx] = useStyles(styleSheet);
 
   if (!context || context.toasts.length === 0) {
-    return null
+    return null;
   }
 
-  const toasts = [...context.toasts]
+  const toasts = [...context.toasts];
 
-  toasts.reverse()
+  toasts.reverse();
 
   return (
     <div className={cx(styles.toasts)}>
@@ -47,5 +45,5 @@ export default function Toasts() {
         />
       ))}
     </div>
-  )
+  );
 }

@@ -1,184 +1,180 @@
-import React, { useContext } from 'react'
-import IconClose from '@usercentric/uc-design-system-icons/lib/interface/IconClose'
-import { WithStylesProps } from '../../composers/withStyles'
-import { WithThemeProps } from '../../composers/withTheme'
-import useStyles, { StyleSheet } from '../../hooks/useStyles'
-import useTheme from '../../hooks/useTheme'
-import { ESCAPE } from '../../keys'
-import focusableSelector from '../../utils/focusableSelector'
-import FocusTrap from '../FocusTrap'
-import IconButton from '../IconButton'
-import Portal from '../Portal'
-import Row from '../Row'
-import Spacing from '../Spacing'
-import T from '../Translate'
-import SheetArea from './SheetArea'
-import SheetContext, { Context } from './SheetContext'
-import { styleSheetSheet } from './styles'
+import React, { useContext } from 'react';
+import IconClose from '@usercentric/uc-design-system-icons/lib/interface/IconClose';
+import { WithStylesProps } from '../../composers/withStyles';
+import { WithThemeProps } from '../../composers/withTheme';
+import useStyles, { StyleSheet } from '../../hooks/useStyles';
+import useTheme from '../../hooks/useTheme';
+import { ESCAPE } from '../../keys';
+import focusableSelector from '../../utils/focusableSelector';
+import FocusTrap from '../FocusTrap';
+import IconButton from '../IconButton';
+import Portal from '../Portal';
+import Row from '../Row';
+import Spacing from '../Spacing';
+import T from '../Translate';
+import SheetArea from './SheetArea';
+import SheetContext, { Context } from './SheetContext';
+import { styleSheetSheet } from './styles';
 
-export { SheetArea, SheetContext }
+export { SheetArea, SheetContext };
 
 export type BaseSheetProps = {
   /** The contents of the sheet. */
-  children: NonNullable<React.ReactNode>
+  children: NonNullable<React.ReactNode>;
   /** Render with reduced padding */
-  compact?: boolean
+  compact?: boolean;
   /** Determines if the sheet has a side gap. */
-  gap?: boolean
+  gap?: boolean;
   /** Content of the header bar */
-  header?: React.ReactNode
+  header?: React.ReactNode;
   /** Render the header area with a drop-shadow */
-  headerShadow?: boolean
+  headerShadow?: boolean;
   /** Determines if the sheet animates in/out. */
-  noAnimation?: boolean
+  noAnimation?: boolean;
   /** Invoked when the sheet close button is pressed, or when escape is pressed when displaying a portal sheet. This function should set the `visible` prop to false. */
-  onClose: () => void
+  onClose: () => void;
   /** Determines if the sheet is displayed as a full-page view that covers the entire application. */
-  portal?: boolean
+  portal?: boolean;
   /** Determines if the sheet is currently visible or not. */
-  visible?: boolean
+  visible?: boolean;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
 export type PrivateProps = {
   /** @ignore */
-  setSheetVisible: Context
+  setSheetVisible: Context;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
 export type BaseSheetState = {
-  animating: boolean
-}
+  animating: boolean;
+};
 
 export class BaseSheet extends React.Component<
   BaseSheetProps & PrivateProps & WithStylesProps & WithThemeProps,
   BaseSheetState
-  > {
+> {
   static defaultProps = {
     gap: false,
     noAnimation: false,
     portal: false,
     visible: false,
-  }
+  };
 
-  lastActiveElement: HTMLElement | null = null
+  lastActiveElement: HTMLElement | null = null;
 
-  openTimeout: number = 0
+  openTimeout: number = 0;
 
-  sheetRef = React.createRef<HTMLDivElement>()
+  sheetRef = React.createRef<HTMLDivElement>();
 
-  wrapperRef = React.createRef<HTMLDivElement>()
+  wrapperRef = React.createRef<HTMLDivElement>();
 
   state = {
     animating: false,
-  }
+  };
 
   componentDidMount() {
     if (this.props.visible) {
-      this.visibilityChange()
+      this.visibilityChange();
     }
   }
 
   componentDidUpdate(prevProps: BaseSheetProps) {
     if (prevProps.visible !== this.props.visible) {
-      this.visibilityChange()
+      this.visibilityChange();
     }
   }
 
   componentWillUnmount() {
-    this.cleanupPortal()
+    this.cleanupPortal();
   }
 
   cleanupPortal() {
     if (this.openTimeout) {
-      window.clearTimeout(this.openTimeout)
+      window.clearTimeout(this.openTimeout);
     }
 
-    document.removeEventListener('keydown', this.handleKeyDown)
-    document.body.style.overflow = ''
+    document.removeEventListener('keydown', this.handleKeyDown);
+    document.body.style.overflow = '';
   }
 
   visibilityChange() {
-    const { noAnimation, portal, visible } = this.props
+    const { noAnimation, portal, visible } = this.props;
 
     this.setState({
       animating: !noAnimation,
-    })
+    });
 
     if (visible && !portal) {
-      this.props.setSheetVisible(visible)
+      this.props.setSheetVisible(visible);
     }
 
     // Custom portal logic:
     if (portal) {
       if (visible) {
-        document.addEventListener('keydown', this.handleKeyDown)
-        document.body.style.overflow = 'hidden'
+        document.addEventListener('keydown', this.handleKeyDown);
+        document.body.style.overflow = 'hidden';
 
-        this.lastActiveElement = document.activeElement as HTMLElement
+        this.lastActiveElement = document.activeElement as HTMLElement;
 
         // NOTE: Putting this in a setTimeout helps screen readers notice that focus has changed:
         this.openTimeout = window.setTimeout(() => {
-          this.openTimeout = 0
+          this.openTimeout = 0;
 
           if (this.sheetRef.current) {
-            const firstFocusableElement = this.sheetRef.current.querySelector(
-              focusableSelector
-            )
+            const firstFocusableElement = this.sheetRef.current.querySelector(focusableSelector);
 
             if (firstFocusableElement) {
-              ; (firstFocusableElement as HTMLElement).focus()
+              (firstFocusableElement as HTMLElement).focus();
             }
           }
-        }, 0)
+        }, 0);
       } else {
-        this.cleanupPortal()
+        this.cleanupPortal();
 
         if (this.lastActiveElement) {
-          this.lastActiveElement.focus()
-          this.lastActiveElement = null
+          this.lastActiveElement.focus();
+          this.lastActiveElement = null;
         }
       }
     }
   }
 
-  private handleAnimationEnd = (
-    event: React.AnimationEvent<HTMLDivElement>
-  ) => {
-    const { gap } = this.props
+  private handleAnimationEnd = (event: React.AnimationEvent<HTMLDivElement>) => {
+    const { gap } = this.props;
 
     if (
       (!gap && event.target !== this.sheetRef.current) ||
       (gap && event.target !== this.wrapperRef.current)
     ) {
-      return
+      return;
     }
 
     this.setState({
       animating: false,
-    })
+    });
 
     // If we're animating out, then we defered the visible reset call, so let's make it now:
     if (!this.props.portal && !this.props.visible) {
-      this.props.setSheetVisible(false)
+      this.props.setSheetVisible(false);
     }
-  }
+  };
 
   private handleKeyDown = (event: KeyboardEvent) => {
     if (this.props.portal && event.key === ESCAPE) {
-      this.props.onClose()
-      event.stopPropagation()
+      this.props.onClose();
+      event.stopPropagation();
     }
-  }
+  };
 
   private handleClose = () => {
-    this.props.onClose()
-  }
+    this.props.onClose();
+  };
 
   render() {
-    const { animating } = this.state
+    const { animating } = this.state;
     const {
       cx,
       gap,
@@ -190,18 +186,18 @@ export class BaseSheet extends React.Component<
       header,
       compact,
       headerShadow,
-    } = this.props
+    } = this.props;
 
     if (!visible && !animating) {
-      return null
+      return null;
     }
 
-    const closeText = T.phrase('uc-design-system.common.close', 'Close')
+    const closeText = T.phrase('uc-design-system.common.close', 'Close');
     const closeIcon = (
       <IconButton onClick={this.handleClose}>
         <IconClose accessibilityLabel={closeText} size={3 * theme.unit} />
       </IconButton>
-    )
+    );
 
     const sheetContent = (
       <div
@@ -213,7 +209,7 @@ export class BaseSheet extends React.Component<
           portal && styles.sheet_portal,
           !gap && animating && styles.sheet_animating,
           !gap && animating && !visible && styles.sheet_out,
-          !gap && animating && visible && styles.sheet_in
+          !gap && animating && visible && styles.sheet_in,
         )}
         onAnimationEnd={this.handleAnimationEnd}
       >
@@ -222,7 +218,7 @@ export class BaseSheet extends React.Component<
             className={cx(
               styles.container,
               gap && styles.container_gap,
-              portal && animating && styles.container_animating
+              portal && animating && styles.container_animating,
             )}
           >
             {gap && (
@@ -241,41 +237,32 @@ export class BaseSheet extends React.Component<
                 gap && styles.wrapper_gap,
                 gap && animating && styles.sheet_animating,
                 gap && animating && !visible && styles.sheet_slide_out,
-                gap && animating && visible && styles.sheet_slide_in
+                gap && animating && visible && styles.sheet_slide_in,
               )}
               onAnimationEnd={this.handleAnimationEnd}
             >
               <div className={cx(headerShadow && styles.headerShadow)}>
                 <Spacing all={compact ? 1 : 4} bottom={0}>
-                  <Row
-                    middleAlign
-                    before={!gap && closeIcon}
-                    after={gap && closeIcon}
-                  >
+                  <Row middleAlign before={!gap && closeIcon} after={gap && closeIcon}>
                     {header || ''}
                   </Row>
                 </Spacing>
               </div>
 
-              <div
-                className={cx(
-                  styles.content,
-                  compact && styles.content_compact
-                )}
-              >
+              <div className={cx(styles.content, compact && styles.content_compact)}>
                 {children}
               </div>
             </div>
           </div>
         </FocusTrap>
       </div>
-    )
+    );
 
     if (portal) {
-      return <Portal>{sheetContent}</Portal>
+      return <Portal>{sheetContent}</Portal>;
     }
 
-    return sheetContent
+    return sheetContent;
   }
 }
 
@@ -292,17 +279,11 @@ export class BaseSheet extends React.Component<
  * `SheetArea`.
  */
 export default function Sheet({ styleSheet, ...props }: BaseSheetProps) {
-  const setSheetVisible = useContext(SheetContext)
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetSheet)
-  const theme = useTheme()
+  const setSheetVisible = useContext(SheetContext);
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetSheet);
+  const theme = useTheme();
 
   return (
-    <BaseSheet
-      {...props}
-      theme={theme}
-      cx={cx}
-      styles={styles}
-      setSheetVisible={setSheetVisible}
-    />
-  )
+    <BaseSheet {...props} theme={theme} cx={cx} styles={styles} setSheetVisible={setSheetVisible} />
+  );
 }

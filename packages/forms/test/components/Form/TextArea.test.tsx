@@ -1,31 +1,26 @@
-import React from 'react'
-import { mount } from 'enzyme'
-import BaseTextArea from '@usercentric/uc-design-system/lib/components/TextArea'
-import TextArea from '../../../src/components/Form/TextArea'
-import { toString } from '../../../src/helpers'
-import { Context } from '../../../src/types'
-import { WrappingFormComponent, createFormContext } from '../../utils'
+import React from 'react';
+import { mount } from 'enzyme';
+import BaseTextArea from '@usercentric/uc-design-system/lib/components/TextArea';
+import TextArea from '../../../src/components/Form/TextArea';
+import { toString } from '../../../src/helpers';
+import { Context } from '../../../src/types';
+import { WrappingFormComponent, createFormContext } from '../../utils';
 
 describe('<TextArea />', () => {
-  let context: Context
+  let context: Context;
 
   beforeEach(() => {
-    context = createFormContext()
-  })
+    context = createFormContext();
+  });
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <TextArea
-        label="Label"
-        name="foo"
-        defaultValue="bar"
-        validator={() => { }}
-      />,
+      <TextArea label="Label" name="foo" defaultValue="bar" validator={() => {}} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      }
-    )
+      },
+    );
 
     expect(context.register).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -33,9 +28,9 @@ describe('<TextArea />', () => {
         defaultValue: 'bar',
         parse: toString,
       }),
-      expect.anything()
-    )
+      expect.anything(),
+    );
 
-    expect(wrapper.find(BaseTextArea)).toHaveLength(1)
-  })
-})
+    expect(wrapper.find(BaseTextArea)).toHaveLength(1);
+  });
+});

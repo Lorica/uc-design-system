@@ -1,28 +1,22 @@
-import React, { useRef } from 'react'
-import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import useScrollIntoView from '../../hooks/useScrollIntoView'
-import { selectListItemStyleSheet } from '../../styles'
+import React, { useRef } from 'react';
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import useScrollIntoView from '../../hooks/useScrollIntoView';
+import { selectListItemStyleSheet } from '../../styles';
 
 export type SelectionProps = {
-  active: boolean
-  description?: string
-  name: string
-  status?: string
-  onClick: () => void
-}
+  active: boolean;
+  description?: string;
+  name: string;
+  status?: string;
+  onClick: () => void;
+};
 
-export default function Selection({
-  active,
-  description,
-  name,
-  status,
-  onClick,
-}: SelectionProps) {
-  const [styles, cx] = useStyles(selectListItemStyleSheet)
-  const ref = useRef<HTMLLIElement | null>(null)
+export default function Selection({ active, description, name, status, onClick }: SelectionProps) {
+  const [styles, cx] = useStyles(selectListItemStyleSheet);
+  const ref = useRef<HTMLLIElement | null>(null);
 
   // Passive hooks
-  useScrollIntoView(ref.current, active)
+  useScrollIntoView(ref.current, active);
 
   return (
     <li ref={ref}>
@@ -36,10 +30,8 @@ export default function Selection({
           {status && <span className={cx(styles.status)}>{status}</span>}
         </div>
 
-        {description && (
-          <div className={cx(styles.description)}>{description}</div>
-        )}
+        {description && <div className={cx(styles.description)}>{description}</div>}
       </button>
     </li>
-  )
+  );
 }

@@ -1,28 +1,28 @@
-import React from 'react'
-import TermList, { Term } from '.'
-import Link from '../Link'
-import Spacing from '../Spacing'
+import React from 'react';
+import TermList, { Term } from '.';
+import Link from '../Link';
+import Spacing from '../Spacing';
 
-import Card, { Content } from '../Card'
+import Card, { Content } from '../Card';
 
 export default {
   title: 'Core/TermList',
   parameters: {
     inspectComponents: [TermList, Term],
   },
-}
+};
 
 export function standaloneTerm() {
   return (
     <TermList>
       <Term label="Clusters">8</Term>
     </TermList>
-  )
+  );
 }
 
 standaloneTerm.story = {
   name: 'Standalone term.',
-}
+};
 
 export function termsUsingTextProperties() {
   return (
@@ -40,12 +40,12 @@ export function termsUsingTextProperties() {
         with &quot;large&quot; prop
       </Term>
     </TermList>
-  )
+  );
 }
 
 termsUsingTextProperties.story = {
   name: 'Examples of Term using Text properties.',
-}
+};
 
 export function standaloneTermWithAfterContent() {
   return (
@@ -68,12 +68,12 @@ export function standaloneTermWithAfterContent() {
         8
       </Term>
     </TermList>
-  )
+  );
 }
 
 standaloneTermWithAfterContent.story = {
   name: 'Standalone Term with after content.',
-}
+};
 
 export function standaloneTermWithAfterContentEndAligned() {
   return (
@@ -90,10 +90,7 @@ export function standaloneTermWithAfterContentEndAligned() {
                     Details
                   </Link>
                   <Spacing inline left={1}>
-                    <Link
-                      small
-                      href="https://github.com/lorica/uc-design-system"
-                    >
+                    <Link small href="https://github.com/lorica/uc-design-system">
                       Git
                     </Link>
                   </Spacing>
@@ -106,12 +103,12 @@ export function standaloneTermWithAfterContentEndAligned() {
         </Content>
       </Card>
     </div>
-  )
+  );
 }
 
 standaloneTermWithAfterContentEndAligned.story = {
   name: 'Standalone Term in a Card with after content end-aligned.',
-}
+};
 
 export function listOfTerms() {
   return (
@@ -120,12 +117,12 @@ export function listOfTerms() {
       <Term label="Active Clusters">4</Term>
       <Term label="Inactive Clusters">12</Term>
     </TermList>
-  )
+  );
 }
 
 listOfTerms.story = {
   name: 'Vertical list of terms.',
-}
+};
 
 export function horizontalListOfTerms() {
   return (
@@ -134,9 +131,9 @@ export function horizontalListOfTerms() {
       <Term label="Inactive Clusters">12</Term>
       <Term label="Active">123456789</Term>
     </TermList>
-  )
+  );
 }
 
 horizontalListOfTerms.story = {
   name: 'Horizontal list of terms.',
-}
+};

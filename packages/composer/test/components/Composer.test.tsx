@@ -32,8 +32,8 @@ jest.mock('lodash/debounce', () => (cb: Function) => {
 
 describe('<Composer />', () => {
   const props = {
-    onChange() { },
-    onSubmit() { },
+    onChange() {},
+    onSubmit() {},
   };
 
   beforeEach(() => {
@@ -55,7 +55,7 @@ describe('<Composer />', () => {
       },
     ]);
 
-    jest.spyOn(window, 'alert').mockImplementation(() => { });
+    jest.spyOn(window, 'alert').mockImplementation(() => {});
   });
 
   it('renders', () => {
@@ -311,7 +311,7 @@ describe('<Composer />', () => {
           click() {
             root.findOne('button', { id: 'composer-submit-button' }).dispatch('onClick');
           },
-          focus() { },
+          focus() {},
         }),
       );
 

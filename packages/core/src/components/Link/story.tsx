@@ -1,31 +1,31 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React from 'react'
-import IconAddAlt from '@usercentric/uc-design-system-icons/lib/interface/IconAddAlt'
-import Link from '.'
+import React from 'react';
+import IconAddAlt from '@usercentric/uc-design-system-icons/lib/interface/IconAddAlt';
+import Link from '.';
 
 export default {
   title: 'Core/Link',
   parameters: {
     inspectComponents: [Link],
   },
-}
+};
 
 export function aStandardLink() {
-  return <Link href="https://github.com/lorica/uc-design-system">Link</Link>
+  return <Link href="https://github.com/lorica/uc-design-system">Link</Link>;
 }
 
 aStandardLink.story = {
   name: 'A standard link.',
-}
+};
 
 export function aButtonLink() {
-  return <Link onClick={() => console.log('onClick')}>Button</Link>
+  return <Link onClick={() => console.log('onClick')}>Button</Link>;
 }
 
 aButtonLink.story = {
   name: 'A button link.',
-}
+};
 
 export function withDifferentSizingMicroSmallRegularDefaultAndLarge() {
   return (
@@ -41,12 +41,12 @@ export function withDifferentSizingMicroSmallRegularDefaultAndLarge() {
         Link
       </Link>
     </>
-  )
+  );
 }
 
 withDifferentSizingMicroSmallRegularDefaultAndLarge.story = {
   name: 'With different sizing: small, regular (default), and large.',
-}
+};
 
 export function withDifferentStatesMutedDisabledAndInverted() {
   return (
@@ -61,12 +61,12 @@ export function withDifferentStatesMutedDisabledAndInverted() {
         Link
       </Link>
     </>
-  )
+  );
 }
 
 withDifferentStatesMutedDisabledAndInverted.story = {
   name: 'With different states: muted, disabled, and inverted.',
-}
+};
 
 export function withBeforeAndOrAfterIcons() {
   return (
@@ -78,19 +78,16 @@ export function withBeforeAndOrAfterIcons() {
         Link
       </Link>
       <br />
-      <Link
-        href="https://github.com/lorica/uc-design-system"
-        afterIcon={<IconAddAlt decorative />}
-      >
+      <Link href="https://github.com/lorica/uc-design-system" afterIcon={<IconAddAlt decorative />}>
         Link
       </Link>
     </div>
-  )
+  );
 }
 
 withBeforeAndOrAfterIcons.story = {
   name: 'With before and or after icons.',
-}
+};
 
 export function stopClickAndDefaultEventsWhenDisabled() {
   return (
@@ -101,12 +98,12 @@ export function stopClickAndDefaultEventsWhenDisabled() {
     >
       Link
     </Link>
-  )
+  );
 }
 
 stopClickAndDefaultEventsWhenDisabled.story = {
   name: 'Stop click and default events when disabled.',
-}
+};
 
 export function boldText() {
   return (
@@ -119,9 +116,9 @@ export function boldText() {
         Button
       </Link>
     </>
-  )
+  );
 }
 
 boldText.story = {
   name: 'Bold text.',
-}
+};

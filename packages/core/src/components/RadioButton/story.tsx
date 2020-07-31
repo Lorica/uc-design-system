@@ -1,15 +1,15 @@
-import React from 'react'
-import ucDesignSystem from ':storybook/images/lunar-logo.png'
-import RadioButton from '.'
-import Row from '../Row'
-import ProfilePhoto from '../ProfilePhoto'
+import React from 'react';
+import ucDesignSystem from ':storybook/images/lunar-logo.png';
+import RadioButton from '.';
+import Row from '../Row';
+import ProfilePhoto from '../ProfilePhoto';
 
 export default {
   title: 'Core/RadioButton',
   parameters: {
     inspectComponents: [RadioButton],
   },
-}
+};
 
 export function aStandardRadioButtonField() {
   return (
@@ -33,12 +33,12 @@ export function aStandardRadioButtonField() {
         }
       />
     </>
-  )
+  );
 }
 
 aStandardRadioButtonField.story = {
   name: 'A standard radio button field.',
-}
+};
 
 export function inDifferentSizes() {
   return (
@@ -73,12 +73,12 @@ export function inDifferentSizes() {
         }
       />
     </>
-  )
+  );
 }
 
 inDifferentSizes.story = {
   name: 'In different sizes.',
-}
+};
 
 export function withAnErrorMessageInAnInvalidState() {
   return (
@@ -92,12 +92,12 @@ export function withAnErrorMessageInAnInvalidState() {
         console.log('onChange', `checked: ${checked}`, `value: ${value}`)
       }
     />
-  )
+  );
 }
 
 withAnErrorMessageInAnInvalidState.story = {
   name: 'With an error message in an invalid state.',
-}
+};
 
 export function withALabelDescriptionInADisabledState() {
   return (
@@ -111,12 +111,12 @@ export function withALabelDescriptionInADisabledState() {
         console.log('onChange', `checked: ${checked}`, `value: ${value}`)
       }
     />
-  )
+  );
 }
 
 withALabelDescriptionInADisabledState.story = {
   name: 'With a label description in a disabled state.',
-}
+};
 
 export function withALabelDescriptionInAIndeterminateState() {
   return (
@@ -130,12 +130,12 @@ export function withALabelDescriptionInAIndeterminateState() {
         console.log('onChange', `checked: ${checked}`, `value: ${value}`)
       }
     />
-  )
+  );
 }
 
 withALabelDescriptionInAIndeterminateState.story = {
   name: 'With a label description in a indeterminate state.',
-}
+};
 
 export function withAMiddleAlignment() {
   return (
@@ -161,12 +161,12 @@ export function withAMiddleAlignment() {
         }
       />
     </>
-  )
+  );
 }
 
 withAMiddleAlignment.story = {
   name: 'With a middle alignment.',
-}
+};
 
 export function markedAsOptional() {
   return (
@@ -179,12 +179,12 @@ export function markedAsOptional() {
         console.log('onChange', `checked: ${checked}`, `value: ${value}`)
       }
     />
-  )
+  );
 }
 
 markedAsOptional.story = {
   name: 'Marked as optional.',
-}
+};
 
 export function markedAsCheckedInDifferentStates() {
   return (
@@ -219,12 +219,12 @@ export function markedAsCheckedInDifferentStates() {
         }
       />
     </>
-  )
+  );
 }
 
 markedAsCheckedInDifferentStates.story = {
   name: 'Marked as checked in different states.',
-}
+};
 
 export function asAClickableButton() {
   return (
@@ -239,12 +239,12 @@ export function asAClickableButton() {
         console.log('onChange', `checked: ${checked}`, `value: ${value}`)
       }
     />
-  )
+  );
 }
 
 asAClickableButton.story = {
   name: 'As a clickable button.',
-}
+};
 
 export function asACompactClickableButton() {
   return (
@@ -259,15 +259,13 @@ export function asACompactClickableButton() {
         console.log('onChange', `checked: ${checked}`, `value: ${value}`)
       }
     >
-      <Row
-        after={<ProfilePhoto small imageSrc={ucDesignSystem} title="Photo" />}
-      >
+      <Row after={<ProfilePhoto small imageSrc={ucDesignSystem} title="Photo" />}>
         Label from children
       </Row>
     </RadioButton>
-  )
+  );
 }
 
 asACompactClickableButton.story = {
   name: 'As a small clickable button.',
-}
+};

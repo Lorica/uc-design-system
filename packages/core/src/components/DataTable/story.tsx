@@ -1,32 +1,30 @@
-import React from 'react'
-import IconStar from '@usercentric/uc-design-system-icons/lib/interface/IconStar'
-import getData, {
-  generateRandomData,
-} from ':storybook/components/DataTable/DataTableData'
-import TenureRenderer from ':storybook/components/DataTable/DataTableRenderers/TenureRenderer'
-import ColSpanRenderer from ':storybook/components/DataTable/DataTableRenderers/ColSpanRenderer'
-import CatRenderer from ':storybook/components/DataTable/DataTableRenderers/CatRenderer'
-import MenuRenderer from ':storybook/components/DataTable/DataTableRenderers/MenuRenderer'
-import DataTable from '.'
-import Button from '../Button'
-import Input from '../Input'
-import Row from '../Row'
-import Spacing from '../Spacing'
-import Text from '../Text'
-import { RendererProps, IndexedParentRow } from './types'
-import { DataTable as StyledDataTable } from './DataTable'
-import Tabs, { Tab } from '../Tabs'
+import React from 'react';
+import IconStar from '@usercentric/uc-design-system-icons/lib/interface/IconStar';
+import getData, { generateRandomData } from ':storybook/components/DataTable/DataTableData';
+import TenureRenderer from ':storybook/components/DataTable/DataTableRenderers/TenureRenderer';
+import ColSpanRenderer from ':storybook/components/DataTable/DataTableRenderers/ColSpanRenderer';
+import CatRenderer from ':storybook/components/DataTable/DataTableRenderers/CatRenderer';
+import MenuRenderer from ':storybook/components/DataTable/DataTableRenderers/MenuRenderer';
+import DataTable from '.';
+import Button from '../Button';
+import Input from '../Input';
+import Row from '../Row';
+import Spacing from '../Spacing';
+import Text from '../Text';
+import { RendererProps, IndexedParentRow } from './types';
+import { DataTable as StyledDataTable } from './DataTable';
+import Tabs, { Tab } from '../Tabs';
 
 type CustomShape = {
-  name: string
-  jobTitle: string
-  tenureDays: number
-  menu: string
-  cats: number
-}
+  name: string;
+  jobTitle: string;
+  tenureDays: number;
+  menu: string;
+  cats: number;
+};
 
 function CustomRenderer({ row, keyName }: RendererProps<CustomShape>) {
-  return <span>{String(row.rowData.data[keyName])}</span>
+  return <span>{String(row.rowData.data[keyName])}</span>;
 }
 
 const renderers = {
@@ -35,7 +33,7 @@ const renderers = {
   tenureDays: TenureRenderer,
   menu: MenuRenderer,
   custom: CustomRenderer,
-}
+};
 
 const columnMetadata = {
   jobTitle: {
@@ -48,7 +46,7 @@ const columnMetadata = {
   tenureDays: {
     rightAlign: 1,
   },
-}
+};
 
 const columnToLabel = {
   tenureDays: (
@@ -57,50 +55,44 @@ const columnToLabel = {
       <IconStar decorative inline />
     </span>
   ),
-}
+};
 
 const filterData = (data: IndexedParentRow[]) => {
-  return data.filter((row) => row.data.jobTitle === 'Engineer')
-}
+  return data.filter((row) => row.data.jobTitle === 'Engineer');
+};
 
 class SearchDemo extends React.Component {
   state = {
     search: '',
     data: generateRandomData(),
-  }
+  };
 
   handleChange = (value: string) => {
     this.setState({
       search: value,
-    })
-  }
+    });
+  };
 
   private handleNewData = () => {
     this.setState({
       data: generateRandomData(),
-    })
-  }
+    });
+  };
 
   // Providing this function instead of filtering outside DataTable allows new data to be renderered
   // Without changing the underlying data prop, which lets selectedRows/expandedRows persist.
-  filter = (search: string) => (
-    data: IndexedParentRow[]
-  ): IndexedParentRow[] => {
-    return data.filter((row: IndexedParentRow) =>
-      String(row.data.number).includes(search)
-    )
-  }
+  filter = (search: string) => (data: IndexedParentRow[]): IndexedParentRow[] => {
+    return data.filter((row: IndexedParentRow) => String(row.data.number).includes(search));
+  };
 
   render() {
-    const { data, search } = this.state
-    const filteredData = this.filter(search)
-    const button = <Button onClick={this.handleNewData}>New Data</Button>
+    const { data, search } = this.state;
+    const filteredData = this.filter(search);
+    const button = <Button onClick={this.handleNewData}>New Data</Button>;
 
     return (
       <div style={{ height: 500 }}>
-        <div
-          style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-        >
+        <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
           <Spacing bottom={2}>
             <Row before={button}>
               <Input
@@ -129,7 +121,7 @@ class SearchDemo extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -140,7 +132,7 @@ export default {
     happo: false,
     inspectComponents: [DataTable],
   },
-}
+};
 
 export function aStandardTable() {
   return (
@@ -149,9 +141,7 @@ export function aStandardTable() {
       keys={['name', 'jobTitle', 'tenureDays']}
       renderers={{
         tenureDays: ({ row }: RendererProps<CustomShape>) => (
-          <div style={{ float: 'right', marginRight: -8 }}>
-            {row.rowData.data.tenureDays}
-          </div>
+          <div style={{ float: 'right', marginRight: -8 }}>{row.rowData.data.tenureDays}</div>
         ),
       }}
       columnMetadata={{
@@ -160,12 +150,12 @@ export function aStandardTable() {
         },
       }}
     />
-  )
+  );
 }
 
 aStandardTable.story = {
   name: 'A standard table.',
-}
+};
 
 export function aStandardTableWithAFlexWrapper() {
   return (
@@ -175,7 +165,7 @@ export function aStandardTableWithAFlexWrapper() {
       </Spacing>
       <DataTable data={getData()} keys={['name', 'jobTitle', 'tenureDays']} />
     </div>
-  )
+  );
 }
 
 const dynamicRowData = [
@@ -212,57 +202,49 @@ const dynamicRowData = [
     },
   },
   ...getData(),
-]
+];
 
-class ForceUpdateDynamicSize extends React.Component<
-  {},
-  { extraCount: number }
-  > {
+class ForceUpdateDynamicSize extends React.Component<{}, { extraCount: number }> {
   state = {
     extraCount: 0,
-  }
+  };
 
-  ref?: StyledDataTable
+  ref?: StyledDataTable;
 
   setRef = (ref: StyledDataTable) => {
-    this.ref = ref
-  }
+    this.ref = ref;
+  };
 
   handleAddText = () => {
-    this.setState(
-      ({ extraCount }) => ({ extraCount: extraCount + 1 }),
-      this.updateTable
-    )
-  }
+    this.setState(({ extraCount }) => ({ extraCount: extraCount + 1 }), this.updateTable);
+  };
 
   handleRemoveText = () => {
     this.setState(
       ({ extraCount }) => ({ extraCount: Math.max(0, extraCount - 1) }),
-      this.updateTable
-    )
-  }
+      this.updateTable,
+    );
+  };
 
   updateTable = () => {
     if (this.ref) {
-      this.ref.cache.clearAll()
-      this.ref.forceUpdate()
+      this.ref.cache.clearAll();
+      this.ref.forceUpdate();
     }
-  }
+  };
 
   renderers = {
-    name: ({
-      row: { rowData },
-    }: RendererProps<{ name: string; jobTitle: string }>) => (
-        <>
-          {rowData.data.name}{' '}
-          {this.state.extraCount > 0 && (
-            <span style={{ color: '#6f44ff' }}>
-              {new Array(this.state.extraCount).fill('more more').join(' ')}
-            </span>
-          )}
-        </>
-      ),
-  }
+    name: ({ row: { rowData } }: RendererProps<{ name: string; jobTitle: string }>) => (
+      <>
+        {rowData.data.name}{' '}
+        {this.state.extraCount > 0 && (
+          <span style={{ color: '#6f44ff' }}>
+            {new Array(this.state.extraCount).fill('more more').join(' ')}
+          </span>
+        )}
+      </>
+    ),
+  };
 
   render() {
     return (
@@ -298,17 +280,17 @@ class ForceUpdateDynamicSize extends React.Component<
           data={dynamicRowData}
         />
       </>
-    )
+    );
   }
 }
 
 export function ForceUpdateDynamicSizeStory() {
-  return <ForceUpdateDynamicSize />
+  return <ForceUpdateDynamicSize />;
 }
 
 ForceUpdateDynamicSizeStory.story = {
   name: 'Dynamic row height with force update.',
-}
+};
 
 export function aStandardTableWithDynamicRowHeight() {
   return (
@@ -329,12 +311,12 @@ export function aStandardTableWithDynamicRowHeight() {
       }}
       data={dynamicRowData}
     />
-  )
+  );
 }
 
 aStandardTableWithDynamicRowHeight.story = {
   name: 'A table with dynamic row height.',
-}
+};
 
 export function aStandardTableWithInitialSorting() {
   return (
@@ -344,12 +326,12 @@ export function aStandardTableWithInitialSorting() {
       sortByOverride="name"
       sortDirectionOverride="ASC"
     />
-  )
+  );
 }
 
 aStandardTableWithInitialSorting.story = {
   name: 'A standard table with initial sorting.',
-}
+};
 
 export function aTableWithFilteredData() {
   return (
@@ -359,20 +341,20 @@ export function aTableWithFilteredData() {
       keys={['name', 'jobTitle']}
       filterData={filterData}
     />
-  )
+  );
 }
 
 aTableWithFilteredData.story = {
   name: 'A table with filtered data.',
-}
+};
 
 export function aTableWithASearchBoxAndParentHeight() {
-  return <SearchDemo />
+  return <SearchDemo />;
 }
 
 aTableWithASearchBoxAndParentHeight.story = {
   name: 'A table with a search box and dynamic row height that shows all rows.',
-}
+};
 
 export function aTableThatShowsAllRows() {
   return (
@@ -387,12 +369,12 @@ export function aTableThatShowsAllRows() {
         keys={['name', 'jobTitle']}
       />
     </div>
-  )
+  );
 }
 
 aTableThatShowsAllRows.story = {
   name: 'A table that shows all rows.',
-}
+};
 
 export function anTableWithZebraColoringAColspanInferredKeysAndRenderers() {
   return (
@@ -403,12 +385,12 @@ export function anTableWithZebraColoringAColspanInferredKeysAndRenderers() {
       data={getData()}
       renderers={renderers}
     />
-  )
+  );
 }
 
 anTableWithZebraColoringAColspanInferredKeysAndRenderers.story = {
   name: 'An table with zebra coloring, a colspan, inferred keys and renderers.',
-}
+};
 
 export function aTableWithDifferentRowColumnHeaderAndTableHeaderHeights() {
   return (
@@ -422,12 +404,12 @@ export function aTableWithDifferentRowColumnHeaderAndTableHeaderHeights() {
       columnHeaderHeight="micro"
       tableHeaderHeight="large"
     />
-  )
+  );
 }
 
 aTableWithDifferentRowColumnHeaderAndTableHeaderHeights.story = {
   name: 'A table with different row, column header and table header heights.',
-}
+};
 
 export function aComplexTableWithAllFeaturesEnabled() {
   return (
@@ -448,12 +430,12 @@ export function aComplexTableWithAllFeaturesEnabled() {
       tableHeaderHeight="large"
       keys={['name', 'cats', 'tenureDays']}
     />
-  )
+  );
 }
 
 aComplexTableWithAllFeaturesEnabled.story = {
   name: 'A complex table with all features enabled.',
-}
+};
 
 const dynamicSortKeyData = [
   {
@@ -493,10 +475,10 @@ const dynamicSortKeyData = [
       ],
     },
   },
-]
+];
 
 export function ATableWithDynamicSortKey() {
-  const [sortByKey, setSortByKey] = React.useState<'banana' | 'grape'>('grape')
+  const [sortByKey, setSortByKey] = React.useState<'banana' | 'grape'>('grape');
 
   return (
     <>
@@ -506,7 +488,7 @@ export function ATableWithDynamicSortKey() {
           secondary
           defaultKey={sortByKey}
           onChange={(key) => {
-            setSortByKey(key as 'banana' | 'grape')
+            setSortByKey(key as 'banana' | 'grape');
           }}
         >
           <Tab key="grape" label="grape 🍇" />
@@ -525,14 +507,10 @@ export function ATableWithDynamicSortKey() {
         renderers={{
           banana: ({ row: { rowData } }) => <div>{rowData.data.banana}</div>,
           grape: ({ row: { rowData } }) => <div>{rowData.data.grape}</div>,
-          mix: ({ row: { rowData } }) => (
-            <div>{`${rowData.data.grape}${rowData.data.banana}`}</div>
-          ),
+          mix: ({ row: { rowData } }) => <div>{`${rowData.data.grape}${rowData.data.banana}`}</div>,
         }}
         columnToLabel={{
-          mix: `Mix: Sorting on selection: "${sortByKey} ${
-            sortByKey === 'banana' ? '🍌' : '🍇'
-            }"`,
+          mix: `Mix: Sorting on selection: "${sortByKey} ${sortByKey === 'banana' ? '🍌' : '🍇'}"`,
           banana: 'Sort by 🍌',
           grape: 'Sort by 🍇',
         }}
@@ -540,5 +518,5 @@ export function ATableWithDynamicSortKey() {
         sortByCacheKey={sortByKey}
       />
     </>
-  )
+  );
 }

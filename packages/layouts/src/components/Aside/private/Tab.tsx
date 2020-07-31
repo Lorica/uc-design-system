@@ -1,13 +1,11 @@
-import React from 'react'
-import useStyles, {
-  StyleSheet,
-} from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import DirectionalIcon from '@usercentric/uc-design-system/lib/components/DirectionalIcon'
-import T from '@usercentric/uc-design-system/lib/components/Translate'
-import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft'
-import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
+import React from 'react';
+import useStyles, { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import DirectionalIcon from '@usercentric/uc-design-system/lib/components/DirectionalIcon';
+import T from '@usercentric/uc-design-system/lib/components/Translate';
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft';
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight';
 
-const ICON_SIZE = 18
+const ICON_SIZE = 18;
 
 const styleSheet: StyleSheet = ({ color, pattern, transition, ui, unit }) => ({
   tab: {
@@ -57,22 +55,22 @@ const styleSheet: StyleSheet = ({ color, pattern, transition, ui, unit }) => ({
       borderRightColor: color.accent.bgHover,
     },
   },
-})
+});
 
 export type TabProps = {
   /** Whether to apply bordered styles. */
-  bordered?: boolean
+  bordered?: boolean;
   /** Whether the column is expanded. */
-  expanded?: boolean
+  expanded?: boolean;
   /**
    Tab's position relative to the column:
     `after` tab is on the right for a left column (default);
     `before` tab is on the left for a right column.
   */
-  position?: 'before' | 'after'
+  position?: 'before' | 'after';
   /** Callback when column is toggled. */
-  onCollapseToggle: React.DOMAttributes<HTMLButtonElement>['onClick']
-}
+  onCollapseToggle: React.DOMAttributes<HTMLButtonElement>['onClick'];
+};
 
 /** A tab for toggling an aside. */
 export default function Tab({
@@ -81,15 +79,15 @@ export default function Tab({
   position = 'after',
   onCollapseToggle,
 }: TabProps) {
-  const [styles, cx] = useStyles(styleSheet)
+  const [styles, cx] = useStyles(styleSheet);
 
-  const labelCollapse = T.phrase('uc-design-system.common.collapse', 'Collapse')
+  const labelCollapse = T.phrase('uc-design-system.common.collapse', 'Collapse');
 
-  const labelExpand = T.phrase('uc-design-system.common.expand', 'Expand')
+  const labelExpand = T.phrase('uc-design-system.common.expand', 'Expand');
 
-  let direction: 'left' | 'right' = expanded ? 'left' : 'right'
+  let direction: 'left' | 'right' = expanded ? 'left' : 'right';
   if (position === 'before') {
-    direction = expanded ? 'right' : 'left'
+    direction = expanded ? 'right' : 'left';
   }
 
   return (
@@ -98,7 +96,7 @@ export default function Tab({
         styles.tab,
         bordered && styles.tab_bordered,
         position === 'after' && styles.tab_after,
-        position === 'before' && styles.tab_before
+        position === 'before' && styles.tab_before,
       )}
       type="button"
       onClick={onCollapseToggle}
@@ -111,5 +109,5 @@ export default function Tab({
         size={ICON_SIZE}
       />
     </button>
-  )
+  );
 }

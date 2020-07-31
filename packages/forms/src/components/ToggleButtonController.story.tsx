@@ -1,28 +1,28 @@
-import React from 'react'
-import ButtonGroup from '@usercentric/uc-design-system/lib/components/ButtonGroup'
-import Form from './Form'
-import ToggleButtonController from './Form/ToggleButtonController'
+import React from 'react';
+import ButtonGroup from '@usercentric/uc-design-system/lib/components/ButtonGroup';
+import Form from './Form';
+import ToggleButtonController from './Form/ToggleButtonController';
 
 export default {
   title: 'Forms/ToggleButtonController',
   parameters: {
     inspectComponents: [ToggleButtonController],
   },
-}
+};
 
 export function connectedToTheParentForm() {
   return (
     <Form
       onSubmit={() => {
-        action('onSubmit')()
+        action('onSubmit')();
 
-        return Promise.resolve()
+        return Promise.resolve();
       }}
     >
       <ToggleButtonController
         name="field"
         label="Label"
-        validator={() => { }}
+        validator={() => {}}
         onChange={() => console.log('onChange')}
       >
         {(ControlledButton) => (
@@ -40,9 +40,9 @@ export function connectedToTheParentForm() {
         )}
       </ToggleButtonController>
     </Form>
-  )
+  );
 }
 
 connectedToTheParentForm.story = {
   name: 'Connected to the parent `Form`.',
-}
+};

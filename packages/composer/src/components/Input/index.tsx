@@ -1,43 +1,43 @@
-import React, { useState, useCallback, useContext, useRef } from 'react'
-import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import IconPlayAlt from '@usercentric/uc-design-system-icons/lib/interface/IconPlayAlt'
-import Interweave from '@usercentric/uc-design-system/lib/components/Interweave'
-import T from '@usercentric/uc-design-system/lib/components/Translate'
-import passThroughRef from '@usercentric/uc-design-system/lib/utils/passThroughRef'
-import ComposerContext from '../../contexts/ComposerContext'
-import HotkeyContext from '../../contexts/HotkeyContext'
-import Hotkey from '../Hotkey'
-import IconButton from '../IconButton'
-import useAutoResize from '../../hooks/useAutoResize'
+import React, { useState, useCallback, useContext, useRef } from 'react';
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import IconPlayAlt from '@usercentric/uc-design-system-icons/lib/interface/IconPlayAlt';
+import Interweave from '@usercentric/uc-design-system/lib/components/Interweave';
+import T from '@usercentric/uc-design-system/lib/components/Translate';
+import passThroughRef from '@usercentric/uc-design-system/lib/utils/passThroughRef';
+import ComposerContext from '../../contexts/ComposerContext';
+import HotkeyContext from '../../contexts/HotkeyContext';
+import Hotkey from '../Hotkey';
+import IconButton from '../IconButton';
+import useAutoResize from '../../hooks/useAutoResize';
 import {
   processHotkeys,
   showWhenValueNotEmptyCondition,
   closeMenu,
   activeWhenMenuOpen,
   OS_KEY,
-} from '../../helpers/hotkeys'
+} from '../../helpers/hotkeys';
 import {
   processChangeHandlers,
   processSubmitHandlers,
   onSubmitResetValue,
-} from '../../helpers/handlers'
-import { MODE_PRIVATE_NOTE, MODE_EMAIL } from '../../constants'
-import InlineInput from './InlineInput'
-import { ChangeHandler, SubmitHandler } from '../../types'
-import { inputStyleSheet } from '../../styles'
-import { isShortcutCommand } from '../../helpers/shortcuts'
+} from '../../helpers/handlers';
+import { MODE_PRIVATE_NOTE, MODE_EMAIL } from '../../constants';
+import InlineInput from './InlineInput';
+import { ChangeHandler, SubmitHandler } from '../../types';
+import { inputStyleSheet } from '../../styles';
+import { isShortcutCommand } from '../../helpers/shortcuts';
 
 export type InputProps = {
-  disabled?: boolean
-  invalid?: boolean
-  onChange?: ChangeHandler
-  onSubmit?: SubmitHandler
-  emailPlaceholder?: string
-  messagePlaceholder?: string
-  privateNotePlaceholder?: string
-  propagateRef?: React.Ref<HTMLTextAreaElement>
-  submitOnEnter?: boolean
-}
+  disabled?: boolean;
+  invalid?: boolean;
+  onChange?: ChangeHandler;
+  onSubmit?: SubmitHandler;
+  emailPlaceholder?: string;
+  messagePlaceholder?: string;
+  privateNotePlaceholder?: string;
+  propagateRef?: React.Ref<HTMLTextAreaElement>;
+  submitOnEnter?: boolean;
+};
 
 export default function Input({
   disabled,
@@ -50,34 +50,29 @@ export default function Input({
   propagateRef,
   submitOnEnter = false,
 }: InputProps) {
-  const ref = useRef<HTMLTextAreaElement | null>(null)
-  const context = useContext(ComposerContext)
-  const { hotkeys } = useContext(HotkeyContext)
-  const [styles, cx] = useStyles(inputStyleSheet)
-  const [focused, setFocused] = useState(false)
-  const blocked = disabled || invalid || context.data.value.trim() === ''
+  const ref = useRef<HTMLTextAreaElement | null>(null);
+  const context = useContext(ComposerContext);
+  const { hotkeys } = useContext(HotkeyContext);
+  const [styles, cx] = useStyles(inputStyleSheet);
+  const [focused, setFocused] = useState(false);
+  const blocked = disabled || invalid || context.data.value.trim() === '';
   let placeholder =
-    messagePlaceholder ??
-    T.phrase('uc-design-system.composer.labels.sendMessage', 'Send message…')
+    messagePlaceholder ?? T.phrase('uc-design-system.composer.labels.sendMessage', 'Send message…');
 
   if (context.mode === MODE_EMAIL) {
     placeholder =
-      emailPlaceholder ??
-      T.phrase('uc-design-system.composer.labels.sendEmail', 'Send email…')
+      emailPlaceholder ?? T.phrase('uc-design-system.composer.labels.sendEmail', 'Send email…');
   } else if (context.mode === MODE_PRIVATE_NOTE) {
     placeholder =
       privateNotePlaceholder ??
-      T.phrase(
-        'uc-design-system.composer.labels.privateToAirbnb',
-        'Private to Airbnb'
-      )
+      T.phrase('uc-design-system.composer.labels.privateToAirbnb', 'Private to Airbnb');
   }
 
   // Form handlers
   const handleBlur = () => {
-    setFocused(false)
-    context.setData('focused', false)
-  }
+    setFocused(false);
+    context.setData('focused', false);
+  };
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -86,65 +81,62 @@ export default function Input({
         processChangeHandlers(
           [...context.changeHandlers, onChange],
           event.currentTarget.value,
-          context
-        )
+          context,
+        );
       } catch (error) {
         if (error instanceof Error) {
-          context.setError(error.message)
+          context.setError(error.message);
         }
       }
     },
-    [onChange, context]
-  )
+    [onChange, context],
+  );
 
   const handleFocus = () => {
-    setFocused(true)
-    context.setData('focused', true)
-  }
+    setFocused(true);
+    context.setData('focused', true);
+  };
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
       // Shortcuts should never allow multiline
       if (isShortcutCommand(context.data.value) && event.key === 'Enter') {
-        event.preventDefault()
+        event.preventDefault();
       }
 
-      processHotkeys(hotkeys, event, context, context)
+      processHotkeys(hotkeys, event, context, context);
     },
-    [hotkeys, context]
-  )
+    [hotkeys, context],
+  );
 
   const handleSubmit = useCallback(() => {
     try {
-      context.setMenu('')
+      context.setMenu('');
 
       if (!blocked) {
         // Consumer `onSubmit` should always be last
         processSubmitHandlers(
           [...context.submitHandlers, onSubmit, onSubmitResetValue],
           context.data,
-          context
-        )
+          context,
+        );
       }
     } catch (error) {
       if (error instanceof Error) {
-        context.setError(error.message)
+        context.setError(error.message);
       }
     }
-  }, [blocked, onSubmit, context])
+  }, [blocked, onSubmit, context]);
 
   // Passive hooks
-  useAutoResize(ref.current, context.data.value)
+  useAutoResize(ref.current, context.data.value);
 
   return (
     <>
       {context.mode === MODE_EMAIL && (
         <>
           <InlineInput
-            label={T.phrase(
-              'uc-design-system.composer.email.subjectLine',
-              'Re:'
-            )}
+            label={T.phrase('uc-design-system.composer.email.subjectLine', 'Re:')}
             name="emailSubject"
             value={context.data.emailSubject}
           />
@@ -163,7 +155,7 @@ export default function Input({
           context.mode === MODE_PRIVATE_NOTE && styles.container_important,
           focused && styles.container_focused,
           disabled && styles.container_disabled,
-          invalid && styles.container_invalid
+          invalid && styles.container_invalid,
         )}
       >
         <section className={cx(styles.input, styles.input_shadow)}>
@@ -176,8 +168,8 @@ export default function Input({
 
         <textarea
           ref={(element) => {
-            passThroughRef(ref, element)
-            passThroughRef(propagateRef, element)
+            passThroughRef(ref, element);
+            passThroughRef(propagateRef, element);
           }}
           className={cx(styles.input, styles.input_original)}
           disabled={disabled}
@@ -196,7 +188,7 @@ export default function Input({
           <IconButton
             accessibilityLabel={T.phrase(
               'uc-design-system.composer.labels.submitComposer',
-              'Submit composer'
+              'Submit composer',
             )}
             disabled={blocked}
             icon={IconPlayAlt}
@@ -212,14 +204,8 @@ export default function Input({
           name="submit"
           label={
             context.flags.previewConfirm
-              ? T.phrase(
-                'uc-design-system.composer.hotkey.returnToPreview',
-                'to preview'
-              )
-              : T.phrase(
-                'uc-design-system.composer.hotkey.returnToSend',
-                'to send'
-              )
+              ? T.phrase('uc-design-system.composer.hotkey.returnToPreview', 'to preview')
+              : T.phrase('uc-design-system.composer.hotkey.returnToSend', 'to send')
           }
           order={100}
           onRun={handleSubmit}
@@ -230,13 +216,10 @@ export default function Input({
           combo="esc"
           condition={activeWhenMenuOpen}
           name="closeMenu"
-          label={T.phrase(
-            'uc-design-system.composer.hotkey.toDismiss',
-            'to dismiss'
-          )}
+          label={T.phrase('uc-design-system.composer.hotkey.toDismiss', 'to dismiss')}
           onRun={closeMenu}
         />
       </div>
     </>
-  )
+  );
 }

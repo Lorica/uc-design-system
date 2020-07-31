@@ -1,9 +1,9 @@
-import React from 'react'
-import Fuse from 'fuse.js'
-import Autocomplete from '../../Autocomplete'
-import SearchResult from './SearchResult'
-import T from '../../Translate'
-import withStyles, { WithStylesProps } from '../../../composers/withStyles'
+import React from 'react';
+import Fuse from 'fuse.js';
+import Autocomplete from '../../Autocomplete';
+import SearchResult from './SearchResult';
+import T from '../../Translate';
+import withStyles, { WithStylesProps } from '../../../composers/withStyles';
 import {
   Formatter,
   ItemPickedHandler,
@@ -11,22 +11,22 @@ import {
   SearchItemShape,
   SearchItemResult,
   TreePath,
-} from '../types'
-import { styleSheet } from './styles'
+} from '../types';
+import { styleSheet } from './styles';
 
 export type SearchProps = {
-  items?: ItemShape[]
-  onItemPicked: ItemPickedHandler
-  formatter: Formatter
-  query?: string
-  noResultsLabel: NonNullable<React.ReactNode>
-  onSearch: (searchQuery: string) => void
-  placeholder?: string
-  indexParentPath?: boolean
-  fuseOptions?: Fuse.FuseOptions<SearchItemShape>
-  width: number
-  maxHeight?: number
-}
+  items?: ItemShape[];
+  onItemPicked: ItemPickedHandler;
+  formatter: Formatter;
+  query?: string;
+  noResultsLabel: NonNullable<React.ReactNode>;
+  onSearch: (searchQuery: string) => void;
+  placeholder?: string;
+  indexParentPath?: boolean;
+  fuseOptions?: Fuse.FuseOptions<SearchItemShape>;
+  width: number;
+  maxHeight?: number;
+};
 
 const defaultFuseOptions: Fuse.FuseOptions<SearchItemShape> = {
   shouldSort: true,
@@ -38,9 +38,9 @@ const defaultFuseOptions: Fuse.FuseOptions<SearchItemShape> = {
   distance: 200,
   maxPatternLength: 32,
   minMatchCharLength: 3,
-}
+};
 
-type FuseKey = { name: keyof SearchItemShape; weight: number }
+type FuseKey = { name: keyof SearchItemShape; weight: number };
 
 const defaultFuseKeys: FuseKey[] = [
   {
@@ -55,103 +55,95 @@ const defaultFuseKeys: FuseKey[] = [
     name: 'description',
     weight: 0.25,
   },
-]
+];
 
 export class Search extends React.Component<SearchProps & WithStylesProps> {
   static defaultProps = {
     fuseOptions: {},
     items: [],
     query: '',
-  }
+  };
 
-  fuse?: Fuse<SearchItemShape, Fuse.FuseOptions<SearchItemShape>>
+  fuse?: Fuse<SearchItemShape, Fuse.FuseOptions<SearchItemShape>>;
 
   componentDidMount() {
-    this.buildIndex(this.props.items)
+    this.buildIndex(this.props.items);
   }
 
   componentDidUpdate(prevProps: SearchProps) {
-    const { items, indexParentPath } = this.props
+    const { items, indexParentPath } = this.props;
 
-    if (
-      items !== prevProps.items ||
-      indexParentPath !== prevProps.indexParentPath
-    ) {
-      this.buildIndex(items)
+    if (items !== prevProps.items || indexParentPath !== prevProps.indexParentPath) {
+      this.buildIndex(items);
     }
   }
 
   buildIndex(inputItems: ItemShape[] = []) {
-    const flatItemList: SearchItemShape[] = []
+    const flatItemList: SearchItemShape[] = [];
 
     const walk = (one: ItemShape, parents: TreePath = []) => {
-      const definition = [...parents, one.name]
-      const { items, ...item } = one
-      const { readonly } = item
+      const definition = [...parents, one.name];
+      const { items, ...item } = one;
+      const { readonly } = item;
 
       if (!readonly) {
         flatItemList.push({
           ...item,
           definition,
           label: item.label || item.name,
-          formattedParents:
-            parents.length > 0 ? this.props.formatter([...parents, '']) : '',
-        })
+          formattedParents: parents.length > 0 ? this.props.formatter([...parents, '']) : '',
+        });
       }
 
-      ;(items || []).forEach((sub) => walk(sub, definition))
-    }
+      (items || []).forEach((sub) => walk(sub, definition));
+    };
 
     if (inputItems) {
-      inputItems.forEach((item) => walk(item))
+      inputItems.forEach((item) => walk(item));
     }
 
-    const fuseKeys = [...defaultFuseKeys]
+    const fuseKeys = [...defaultFuseKeys];
 
     if (this.props.indexParentPath) {
       fuseKeys.push({
         name: 'formattedParents',
         weight: 0.1,
-      })
+      });
     }
 
-    const fuseOptions = { ...defaultFuseOptions, keys: fuseKeys }
+    const fuseOptions = { ...defaultFuseOptions, keys: fuseKeys };
 
     this.fuse = new Fuse(flatItemList, {
       ...fuseOptions,
       ...this.props.fuseOptions,
-    })
+    });
   }
 
-  getItemValue = (result: SearchItemResult) => result.item.name
+  getItemValue = (result: SearchItemResult) => result.item.name;
 
   handleItemPicked = (itemValue: string, result: SearchItemResult | null) => {
-    const { query, onItemPicked } = this.props
+    const { query, onItemPicked } = this.props;
 
     onItemPicked(result?.item?.definition ?? null, result?.item ?? null, {
       origin: 'Search',
       charCount: query!.length,
-    })
-  }
+    });
+  };
 
   handleSearch = (query: string) => {
-    const trimmedQuery = query.trim()
+    const trimmedQuery = query.trim();
 
     if (!trimmedQuery || !this.fuse) {
-      return []
+      return [];
     }
 
-    return (this.fuse.search(trimmedQuery) as unknown) as SearchItemResult[]
-  }
+    return (this.fuse.search(trimmedQuery) as unknown) as SearchItemResult[];
+  };
 
-  handleAsyncSearch = (query: string) =>
-    Promise.resolve(this.handleSearch(query))
+  handleAsyncSearch = (query: string) => Promise.resolve(this.handleSearch(query));
 
-  renderItem = ({
-    matches,
-    item: { formattedParents, ...item },
-  }: SearchItemResult) => {
-    const { query } = this.props
+  renderItem = ({ matches, item: { formattedParents, ...item } }: SearchItemResult) => {
+    const { query } = this.props;
 
     return (
       <SearchResult
@@ -160,8 +152,8 @@ export class Search extends React.Component<SearchProps & WithStylesProps> {
         formattedParents={formattedParents}
         matches={matches}
       />
-    )
-  }
+    );
+  };
 
   render() {
     const {
@@ -173,18 +165,16 @@ export class Search extends React.Component<SearchProps & WithStylesProps> {
       query,
       styles,
       width,
-    } = this.props
+    } = this.props;
 
     return (
-      <div
-        className={cx(styles.container, { width: query ? width : undefined })}
-      >
+      <div className={cx(styles.container, { width: query ? width : undefined })}>
         <Autocomplete<SearchItemResult>
           hideLabel
           optional
           accessibilityLabel={T.phrase(
             'uc-design-system.picker.searchLabel',
-            'Hierarchy item search'
+            'Hierarchy item search',
           )}
           getItemValue={this.getItemValue}
           maxHeight={maxHeight}
@@ -200,8 +190,8 @@ export class Search extends React.Component<SearchProps & WithStylesProps> {
           onChange={onSearch}
         />
       </div>
-    )
+    );
   }
 }
 
-export default withStyles(styleSheet)(Search)
+export default withStyles(styleSheet)(Search);

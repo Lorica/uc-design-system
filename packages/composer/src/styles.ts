@@ -1,5 +1,5 @@
-import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import baseInputStyleSheet from '@usercentric/uc-design-system/lib/themes/inputStyleSheet'
+import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import baseInputStyleSheet from '@usercentric/uc-design-system/lib/themes/inputStyleSheet';
 
 export const composerStyleSheet: StyleSheet = ({ ui, unit }) => ({
   composer: {
@@ -28,7 +28,7 @@ export const composerStyleSheet: StyleSheet = ({ ui, unit }) => ({
   footer_after: {
     paddingRight: unit * 4,
   },
-})
+});
 
 export const iconButtonStyleSheet: StyleSheet = ({ color, pattern, unit }) => ({
   button: {
@@ -47,7 +47,7 @@ export const iconButtonStyleSheet: StyleSheet = ({ color, pattern, unit }) => ({
       },
     },
   },
-})
+});
 
 export const footerStyleSheet: StyleSheet = ({ color, font, unit }) => ({
   footer: {
@@ -58,7 +58,7 @@ export const footerStyleSheet: StyleSheet = ({ color, font, unit }) => ({
     paddingBottom: unit / 2,
     lineHeight: 1,
   },
-})
+});
 
 export const footerMarkStyleSheet: StyleSheet = ({ color, ui, unit }) => ({
   mark: {
@@ -73,7 +73,7 @@ export const footerMarkStyleSheet: StyleSheet = ({ color, ui, unit }) => ({
     marginRight: unit / 2,
     display: 'inline-block',
   },
-})
+});
 
 export const footerTipStyleSheet: StyleSheet = ({ unit }) => ({
   tip: {
@@ -81,11 +81,11 @@ export const footerTipStyleSheet: StyleSheet = ({ unit }) => ({
     marginLeft: unit,
     marginBottom: 2,
   },
-})
+});
 
 export const inputStyleSheet: StyleSheet = (theme) => {
-  const inputStyles = baseInputStyleSheet(theme)
-  const { color, font, transition, ui, unit } = theme
+  const inputStyles = baseInputStyleSheet(theme);
+  const { color, font, transition, ui, unit } = theme;
 
   return {
     container: {
@@ -156,8 +156,8 @@ export const inputStyleSheet: StyleSheet = (theme) => {
       right: unit / 2,
       zIndex: 2,
     },
-  }
-}
+  };
+};
 
 export const menuStyleSheet: StyleSheet = ({ color, font, ui, unit }) => ({
   menu: {
@@ -187,7 +187,7 @@ export const menuStyleSheet: StyleSheet = ({ color, font, ui, unit }) => ({
     padding: `${unit}px ${unit * 2}px`,
     fontWeight: font.weights.bold,
   },
-})
+});
 
 export const previewWindowStyleSheet: StyleSheet = ({ unit }) => ({
   preview: {
@@ -200,7 +200,7 @@ export const previewWindowStyleSheet: StyleSheet = ({ unit }) => ({
     paddingBottom: unit,
     paddingLeft: unit * 2,
   },
-})
+});
 
 export const selectListStyleSheet: StyleSheet = ({ unit }) => ({
   list: {
@@ -214,14 +214,9 @@ export const selectListStyleSheet: StyleSheet = ({ unit }) => ({
   row: {
     padding: `${unit}px ${unit * 2}px`,
   },
-})
+});
 
-export const selectListItemStyleSheet: StyleSheet = ({
-  color,
-  font,
-  pattern,
-  unit,
-}) => ({
+export const selectListItemStyleSheet: StyleSheet = ({ color, font, pattern, unit }) => ({
   button: {
     ...pattern.resetButton,
     background: color.accent.bg,
@@ -265,4 +260,4 @@ export const selectListItemStyleSheet: StyleSheet = ({
   description: {
     opacity: 0.75,
   },
-})
+});

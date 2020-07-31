@@ -1,24 +1,21 @@
-import React from 'react'
-import {
-  mountWithStyles,
-  WrappingComponent,
-} from '@usercentric/uc-design-system-test-utils'
-import { ApolloProvider } from 'react-apollo'
-import Apollo from '../../src'
-import Provider from '../../src/components/Provider'
+import React from 'react';
+import { mountWithStyles, WrappingComponent } from '@usercentric/uc-design-system-test-utils';
+import { ApolloProvider } from 'react-apollo';
+import Apollo from '../../src';
+import Provider from '../../src/components/Provider';
 
 describe('Provider', () => {
   beforeEach(() => {
-    Apollo.initialize()
-  })
+    Apollo.initialize();
+  });
 
   it('renders an `ApolloProvider`', () => {
     const wrapper = mountWithStyles(
       <WrappingComponent>
         <Provider>Foo</Provider>
-      </WrappingComponent>
-    )
+      </WrappingComponent>,
+    );
 
-    expect(wrapper.find(ApolloProvider)).toHaveLength(1)
-  })
-})
+    expect(wrapper.find(ApolloProvider)).toHaveLength(1);
+  });
+});

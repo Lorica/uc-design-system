@@ -1,12 +1,12 @@
-import React from 'react'
-import { MutationResult, MutationFunction } from 'react-apollo'
-import { mount } from 'enzyme'
-import gql from 'graphql-tag'
-import { WrappingComponent } from '@usercentric/uc-design-system-test-utils'
-import Loader from '@usercentric/uc-design-system/lib/components/Loader'
-import ErrorMessage from '@usercentric/uc-design-system/lib/components/ErrorMessage'
-import { MockedProvider, MockedResponse, wait } from '@apollo/react-testing'
-import Mutation from '../../src/components/Mutation'
+import React from 'react';
+import { MutationResult, MutationFunction } from 'react-apollo';
+import { mount } from 'enzyme';
+import gql from 'graphql-tag';
+import { WrappingComponent } from '@usercentric/uc-design-system-test-utils';
+import Loader from '@usercentric/uc-design-system/lib/components/Loader';
+import ErrorMessage from '@usercentric/uc-design-system/lib/components/ErrorMessage';
+import { MockedProvider, MockedResponse, wait } from '@apollo/react-testing';
+import Mutation from '../../src/components/Mutation';
 
 const MUTATION = gql`
   mutation updateSomething($id: Int!, $name: String!) {
@@ -15,31 +15,28 @@ const MUTATION = gql`
       name
     }
   }
-`
+`;
 
 function ApolloComponent({
   children,
   mocks,
 }: {
-  children: NonNullable<React.ReactNode>
-  mocks: MockedResponse[]
+  children: NonNullable<React.ReactNode>;
+  mocks: MockedResponse[];
 }) {
   return (
     <MockedProvider mocks={mocks} addTypename={false}>
       <WrappingComponent>{children}</WrappingComponent>
     </MockedProvider>
-  )
+  );
 }
 
 describe('Mutation', () => {
   const childHandler = (mutate: MutationFunction<unknown, {}>) => (
-    <button
-      type="button"
-      onClick={() => mutate({ variables: { id: 123, name: 'Something' } })}
-    >
+    <button type="button" onClick={() => mutate({ variables: { id: 123, name: 'Something' } })}>
       Submit
     </button>
-  )
+  );
 
   describe('loading', () => {
     const mock = {
@@ -56,24 +53,21 @@ describe('Mutation', () => {
           },
         },
       },
-    }
+    };
 
     it('renders a `Loader` by default', () => {
-      const wrapper = mount(
-        <Mutation mutation={MUTATION}>{childHandler}</Mutation>,
-        {
-          wrappingComponent: ApolloComponent,
-          wrappingComponentProps: { mocks: [mock] },
-        }
-      )
+      const wrapper = mount(<Mutation mutation={MUTATION}>{childHandler}</Mutation>, {
+        wrappingComponent: ApolloComponent,
+        wrappingComponentProps: { mocks: [mock] },
+      });
 
-      wrapper.find('button').simulate('click')
+      wrapper.find('button').simulate('click');
 
-      expect(wrapper.find(Loader)).toHaveLength(1)
-    })
+      expect(wrapper.find(Loader)).toHaveLength(1);
+    });
 
     it('can pass a custom loading element with `loading` prop', () => {
-      const loader = <div>Loading!</div>
+      const loader = <div>Loading!</div>;
       const wrapper = mount(
         <Mutation mutation={MUTATION} loading={loader}>
           {childHandler}
@@ -81,14 +75,14 @@ describe('Mutation', () => {
         {
           wrappingComponent: ApolloComponent,
           wrappingComponentProps: { mocks: [mock] },
-        }
-      )
+        },
+      );
 
-      wrapper.find('button').simulate('click')
+      wrapper.find('button').simulate('click');
 
-      expect(wrapper.find(Mutation).contains(loader)).toBe(true)
-    })
-  })
+      expect(wrapper.find(Mutation).contains(loader)).toBe(true);
+    });
+  });
 
   // Requires hook/act support
   // eslint-disable-next-line jest/no-disabled-tests
@@ -120,7 +114,7 @@ describe('Mutation', () => {
           },
         },
       },
-    }
+    };
 
     it('renders an `ErrorMessage` by default', async () => {
       try {
@@ -131,55 +125,51 @@ describe('Mutation', () => {
           {
             wrappingComponent: ApolloComponent,
             wrappingComponentProps: { mocks: [mock] },
-          }
-        )
+          },
+        );
 
-        wrapper.find('button').simulate('click')
+        wrapper.find('button').simulate('click');
 
-        await wait(0)
+        await wait(0);
 
-        const error = wrapper.find(ErrorMessage)
+        const error = wrapper.find(ErrorMessage);
 
-        expect(error).toBeDefined()
+        expect(error).toBeDefined();
         expect(error.props()).toEqual(
           expect.objectContaining({
             error: new Error('Network error: 404'),
-          })
-        )
+          }),
+        );
       } catch (error) {
         // Ignore
       }
-    })
+    });
 
     it('can pass a custom error element with `error` prop', async () => {
       try {
-        const error = <div>Failed!</div>
+        const error = <div>Failed!</div>;
         const wrapper = mount(
-          <Mutation
-            mutation={MUTATION}
-            error={error}
-            variables={mock.request.variables}
-          >
+          <Mutation mutation={MUTATION} error={error} variables={mock.request.variables}>
             {childHandler}
           </Mutation>,
           {
             wrappingComponent: ApolloComponent,
             wrappingComponentProps: { mocks: [mock] },
-          }
-        )
+          },
+        );
 
-        wrapper.find('button').simulate('click')
+        wrapper.find('button').simulate('click');
 
-        await wait(0)
+        await wait(0);
 
-        expect(wrapper.find(Mutation).contains(error)).toBe(true)
+        expect(wrapper.find(Mutation).contains(error)).toBe(true);
       } catch (error) {
         // Ignore
       }
-    })
+    });
 
     it('will ignore an error with the `ignoreGraphQLErrors` prop', () => {
-      const spy = jest.fn(() => null)
+      const spy = jest.fn(() => null);
 
       mount(
         <Mutation ignoreGraphQLErrors mutation={MUTATION}>
@@ -188,12 +178,12 @@ describe('Mutation', () => {
         {
           wrappingComponent: ApolloComponent,
           wrappingComponentProps: { mocks: [mock] },
-        }
-      )
+        },
+      );
 
-      expect(spy).toHaveBeenCalled()
-    })
-  })
+      expect(spy).toHaveBeenCalled();
+    });
+  });
 
   describe('result', () => {
     const mock = {
@@ -202,39 +192,39 @@ describe('Mutation', () => {
         variables: { id: 123 },
       },
       result: {},
-    }
+    };
 
     it('triggers child function', () => {
-      const spy = jest.fn(() => null)
+      const spy = jest.fn(() => null);
 
       mount(<Mutation mutation={MUTATION}>{spy}</Mutation>, {
         wrappingComponent: ApolloComponent,
         wrappingComponentProps: { mocks: [mock] },
-      })
+      });
 
-      expect(spy).toHaveBeenCalled()
-    })
+      expect(spy).toHaveBeenCalled();
+    });
 
     it('passes mutator and result to child function', () => {
       mount(
         <Mutation mutation={MUTATION}>
           {(mutator: MutationFunction, result: MutationResult) => {
-            expect(typeof mutator).toBe('function')
+            expect(typeof mutator).toBe('function');
             expect(result).toEqual(
               expect.objectContaining({
                 called: false,
                 loading: false,
-              })
-            )
+              }),
+            );
 
-            return null
+            return null;
           }}
         </Mutation>,
         {
           wrappingComponent: ApolloComponent,
           wrappingComponentProps: { mocks: [mock] },
-        }
-      )
-    })
-  })
-})
+        },
+      );
+    });
+  });
+});

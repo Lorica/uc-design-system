@@ -78,7 +78,7 @@ describe('<Button />', () => {
 
     wrapper.simulate('mouseup', {
       currentTarget: {
-        blur() { },
+        blur() {},
       },
     });
 
