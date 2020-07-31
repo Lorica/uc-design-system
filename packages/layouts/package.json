@@ -1,6 +1,6 @@
 {
   "name": "@lorica/uc-design-system-layouts",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "release": "1583350587083",
   "description": "Pre-defined page layouts for UCDS.",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "react": "^16.8.0"
   },
   "devDependencies": {
-    "@lorica/uc-design-system-test-utils": "^3.0.2",
+    "@lorica/uc-design-system-test-utils": "^4.0.0",
     "react": "^16.13.0"
   },
   "dependencies": {

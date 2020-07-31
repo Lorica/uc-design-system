@@ -1,6 +1,6 @@
 {
   "name": "@lorica/uc-design-system-forms",
-  "version": "3.3.2",
+  "version": "4.0.0",
   "release": "1583350587083",
   "description": "Form functionality for UCDS.",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "react": "^16.8.0"
   },
   "devDependencies": {
-    "@lorica/uc-design-system-test-utils": "^3.0.2",
+    "@lorica/uc-design-system-test-utils": "^4.0.0",
     "react": "^16.13.0"
   },
   "dependencies": {

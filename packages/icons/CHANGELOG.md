@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 - 2020-07-31
+
+#### 🎉 Release
+
+- Update peers to v3. ([1732307](https://github.com/lorica/uc-design-system/commit/1732307))
+
+#### 💥 Breaking
+
+- Migrate to Aesthetic v4 (#86) ([1b9b3f6](https://github.com/lorica/uc-design-system/commit/1b9b3f6)), closes [#86](https://github.com/lorica/uc-design-system/issues/86)
+- Update peer dependencies to v2. ([536607d](https://github.com/lorica/uc-design-system/commit/536607d))
+
+#### 🚀 Updates
+
+- **[Icon]** Add IconSnooze (#112) ([2f69c92](https://github.com/lorica/uc-design-system/commit/2f69c92)), closes [#112](https://github.com/lorica/uc-design-system/issues/112)
+- Final round of polish before official release (#15) ([1209775](https://github.com/lorica/uc-design-system/commit/1209775)), closes [#15](https://github.com/lorica/uc-design-system/issues/15)
+- **[Icon]** Add IconTune (#63) ([59025ef](https://github.com/lorica/uc-design-system/commit/59025ef)), closes [#63](https://github.com/lorica/uc-design-system/issues/63)
+- **[IconInstagram, IconTwitter]** Add new social icons. (#347) ([a94f5d7](https://github.com/lorica/uc-design-system/commit/a94f5d7)), closes [#347](https://github.com/lorica/uc-design-system/issues/347)
+- **[Icons]** Add help and status icons. (#241) ([5f5d233](https://github.com/lorica/uc-design-system/commit/5f5d233)), closes [#241](https://github.com/lorica/uc-design-system/issues/241)
+- **[Icons]** Add IconCode (#90) ([ab50abb](https://github.com/lorica/uc-design-system/commit/ab50abb)), closes [#90](https://github.com/lorica/uc-design-system/issues/90)
+- **[Icons]** Add IconVariable, IconViewList, IconZoomToFit icons. (#217) ([baeefdd](https://github.com/lorica/uc-design-system/commit/baeefdd)), closes [#217](https://github.com/lorica/uc-design-system/issues/217)
+- **[Icons]** Add pie chart icon (#48) ([69ba4bd](https://github.com/lorica/uc-design-system/commit/69ba4bd)), closes [#48](https://github.com/lorica/uc-design-system/issues/48)
+- **[Icons]** Add return icon. (#301) ([54ba77d](https://github.com/lorica/uc-design-system/commit/54ba77d)), closes [#301](https://github.com/lorica/uc-design-system/issues/301)
+- **[Icons]** Add timeline icons (#170) ([fea4de3](https://github.com/lorica/uc-design-system/commit/fea4de3)), closes [#170](https://github.com/lorica/uc-design-system/issues/170)
+- **[Icons]** Update gen:icon script and remove unused paths and fills. (#222) ([7440f0b](https://github.com/lorica/uc-design-system/commit/7440f0b)), closes [#222](https://github.com/lorica/uc-design-system/issues/222)
+- **[RTL]** Support RTL. Add DirectionProvider, DirectionalIcon, and ExpandableIcon components. (#94) ([153a66f](https://github.com/lorica/uc-design-system/commit/153a66f)), closes [#94](https://github.com/lorica/uc-design-system/issues/94)
+- **[withIcon]** Add new icon props to flip horizontally and/or vertically. (#72) ([84bda27](https://github.com/lorica/uc-design-system/commit/84bda27)), closes [#72](https://github.com/lorica/uc-design-system/issues/72)
+- **[withIcon]** Throw dev error if an ally prop is missing. (#84) ([75acae5](https://github.com/lorica/uc-design-system/commit/75acae5)), closes [#84](https://github.com/lorica/uc-design-system/issues/84)
+- Migrate some class components to function components. (#319) ([25a969a](https://github.com/lorica/uc-design-system/commit/25a969a)), closes [#319](https://github.com/lorica/uc-design-system/issues/319)
+- Migrate to Nimbus. Update to latest TypeScript, Babel, ESLint, and more. (#196) ([fe0962b](https://github.com/lorica/uc-design-system/commit/fe0962b)), closes [#196](https://github.com/lorica/uc-design-system/issues/196)
+
+#### 🐞 Fixes
+
+- Add index file to resolve imports. (#348) ([94cf430](https://github.com/lorica/uc-design-system/commit/94cf430)), closes [#348](https://github.com/lorica/uc-design-system/issues/348)
+- Remove Babel runtime setup (#65) ([a58ade2](https://github.com/lorica/uc-design-system/commit/a58ade2)), closes [#65](https://github.com/lorica/uc-design-system/issues/65)
+- Remove package dev deps and bump root dev deps. (#44) ([4c26b33](https://github.com/lorica/uc-design-system/commit/4c26b33)), closes [#44](https://github.com/lorica/uc-design-system/issues/44)
+- Rewrite stories to remove `@emotion/core` unintended import. (#210) ([5976e92](https://github.com/lorica/uc-design-system/commit/5976e92)), closes [#210](https://github.com/lorica/uc-design-system/issues/210)
+
+#### 📦 Dependencies
+
+- Audit 2019-01-22 (#289) ([7c1033c](https://github.com/lorica/uc-design-system/commit/7c1033c)), closes [#289](https://github.com/lorica/uc-design-system/issues/289)
+- Audit 2020-03-24 (#344) ([1db54a9](https://github.com/lorica/uc-design-system/commit/1db54a9)), closes [#344](https://github.com/lorica/uc-design-system/issues/344)
+- Update [@types](https://github.com/types) to use star versions. ([96d2804](https://github.com/lorica/uc-design-system/commit/96d2804))
+- Update Interweave and Aesthetic. (#51) ([d36b547](https://github.com/lorica/uc-design-system/commit/d36b547)), closes [#51](https://github.com/lorica/uc-design-system/issues/51)
+- Update minor and patch versions. ([f2abbb0](https://github.com/lorica/uc-design-system/commit/f2abbb0))
+- Update package dependencies to latest. ([1a07250](https://github.com/lorica/uc-design-system/commit/1a07250))
+- **[nimbus]** Update to v3. ([177f8d7](https://github.com/lorica/uc-design-system/commit/177f8d7))
+- **[react]** Update to v16.13. ([dc7902a](https://github.com/lorica/uc-design-system/commit/dc7902a))
+- **[React]** Test against v16.9. ([c3eafd4](https://github.com/lorica/uc-design-system/commit/c3eafd4))
+- **[React]** Update to v12. ([002d30c](https://github.com/lorica/uc-design-system/commit/002d30c))
+- **[React]** Update to v16.11. ([07b80dc](https://github.com/lorica/uc-design-system/commit/07b80dc))
+
+#### 🛠 Internals
+
+- Fix lint and test failures. ([f2ccc7f](https://github.com/lorica/uc-design-system/commit/f2ccc7f))
+- Migrate to Storybook v5.2. (#199) ([5b546fa](https://github.com/lorica/uc-design-system/commit/5b546fa)), closes [#199](https://github.com/lorica/uc-design-system/issues/199)
+- Migrate to Yarn from NPM (#122) ([60c62c7](https://github.com/lorica/uc-design-system/commit/60c62c7)), closes [#122](https://github.com/lorica/uc-design-system/issues/122)
+- Release 1.0.0-alpha.1 [ci skip] (#13) ([b99688d](https://github.com/lorica/uc-design-system/commit/b99688d)), closes [#13](https://github.com/lorica/uc-design-system/issues/13)
+- Release v1.0.0 [ci skip] (#17) ([5b19a9e](https://github.com/lorica/uc-design-system/commit/5b19a9e)), closes [#17](https://github.com/lorica/uc-design-system/issues/17)
+- Switch to Storybook from Styleguidist (#19) ([129e5c7](https://github.com/lorica/uc-design-system/commit/129e5c7)), closes [#19](https://github.com/lorica/uc-design-system/issues/19)
+- Update dependencies. Rework build. (#10) ([59c8ddb](https://github.com/lorica/uc-design-system/commit/59c8ddb)), closes [#10](https://github.com/lorica/uc-design-system/issues/10)
+- Update Happo to support light and dark themes. (#259) ([dbb347a](https://github.com/lorica/uc-design-system/commit/dbb347a)), closes [#259](https://github.com/lorica/uc-design-system/issues/259)
+- Update npmignore files. ([a2eda3f](https://github.com/lorica/uc-design-system/commit/a2eda3f))
+- Update Storybook to v5.1 (#93) ([4ee8f83](https://github.com/lorica/uc-design-system/commit/4ee8f83)), closes [#93](https://github.com/lorica/uc-design-system/issues/93)
+
+**Note:** Version bump only for package @lorica/uc-design-system-icons
+
+
+
+
+
 ### 3.1.1 - 2020-04-07
 
 **Note:** Version bump only for package @airbnb/lunar-icons

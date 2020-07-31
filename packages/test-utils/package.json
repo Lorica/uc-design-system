@@ -1,6 +1,6 @@
 {
   "name": "@lorica/uc-design-system-test-utils",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "release": "1583350587083",
   "description": "Utilities for local testing.",
   "license": "MIT",
