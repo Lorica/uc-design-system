@@ -1,31 +1,26 @@
-import React from 'react'
-import { mount } from 'enzyme'
-import BaseRange from '@usercentric/uc-design-system/lib/components/Range'
-import Range from '../../../src/components/Form/Range'
-import { toNumber } from '../../../src/helpers'
-import { Context } from '../../../src/types'
-import { WrappingFormComponent, createFormContext } from '../../utils'
+import React from 'react';
+import { mount } from 'enzyme';
+import BaseRange from '@usercentric/uc-design-system/lib/components/Range';
+import Range from '../../../src/components/Form/Range';
+import { toNumber } from '../../../src/helpers';
+import { Context } from '../../../src/types';
+import { WrappingFormComponent, createFormContext } from '../../utils';
 
 describe('<Range />', () => {
-  let context: Context
+  let context: Context;
 
   beforeEach(() => {
-    context = createFormContext()
-  })
+    context = createFormContext();
+  });
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <Range
-        label="Range label"
-        name="foo"
-        defaultValue={7}
-        validator={() => { }}
-      />,
+      <Range label="Range label" name="foo" defaultValue={7} validator={() => {}} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      }
-    )
+      },
+    );
 
     expect(context.register).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -33,9 +28,9 @@ describe('<Range />', () => {
         defaultValue: 7,
         parse: toNumber,
       }),
-      expect.anything()
-    )
+      expect.anything(),
+    );
 
-    expect(wrapper.find(BaseRange)).toHaveLength(1)
-  })
-})
+    expect(wrapper.find(BaseRange)).toHaveLength(1);
+  });
+});

@@ -1,19 +1,19 @@
-import React from 'react'
-import { mount } from 'enzyme'
-import BaseCheckBoxController from '@usercentric/uc-design-system/lib/components/CheckBoxController'
-import CheckBoxController from '../../../src/components/Form/CheckBoxController'
-import { toString } from '../../../src/helpers'
-import { Context } from '../../../src/types'
-import { WrappingFormComponent, createFormContext } from '../../utils'
+import React from 'react';
+import { mount } from 'enzyme';
+import BaseCheckBoxController from '@usercentric/uc-design-system/lib/components/CheckBoxController';
+import CheckBoxController from '../../../src/components/Form/CheckBoxController';
+import { toString } from '../../../src/helpers';
+import { Context } from '../../../src/types';
+import { WrappingFormComponent, createFormContext } from '../../utils';
 
 describe('<CheckBoxController />', () => {
-  let context: Context
+  let context: Context;
 
   beforeEach(() => {
-    context = createFormContext()
-  })
+    context = createFormContext();
+  });
 
-  type Value = 'foo' | 'bar' | 'baz'
+  type Value = 'foo' | 'bar' | 'baz';
 
   it('connects to the form', () => {
     const wrapper = mount(
@@ -21,7 +21,7 @@ describe('<CheckBoxController />', () => {
         label="Label"
         name="foo"
         defaultValue={['bar']}
-        validator={() => { }}
+        validator={() => {}}
       >
         {(CB) => (
           <div>
@@ -34,8 +34,8 @@ describe('<CheckBoxController />', () => {
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      }
-    )
+      },
+    );
 
     expect(context.register).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -43,11 +43,11 @@ describe('<CheckBoxController />', () => {
         defaultValue: ['bar'],
         parse: toString,
       }),
-      expect.anything()
-    )
+      expect.anything(),
+    );
 
-    expect(wrapper.find(BaseCheckBoxController)).toHaveLength(1)
-  })
+    expect(wrapper.find(BaseCheckBoxController)).toHaveLength(1);
+  });
 
   it('passes value as an array', () => {
     const wrapper = mount(
@@ -55,7 +55,7 @@ describe('<CheckBoxController />', () => {
         label="Label"
         name="foo"
         defaultValue={['bar']}
-        validator={() => { }}
+        validator={() => {}}
       >
         {(CB) => (
           <div>
@@ -68,9 +68,9 @@ describe('<CheckBoxController />', () => {
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      }
-    )
+      },
+    );
 
-    expect(wrapper.find(BaseCheckBoxController).prop('value')).toEqual(['bar'])
-  })
-})
+    expect(wrapper.find(BaseCheckBoxController).prop('value')).toEqual(['bar']);
+  });
+});

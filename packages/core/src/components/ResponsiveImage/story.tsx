@@ -1,14 +1,14 @@
-import React from 'react'
-import ucDesignSystem from ':storybook/images/lunar-logo.png'
-import Shimmer from '../Shimmer'
-import ResponsiveImage from '.'
+import React from 'react';
+import ucDesignSystem from ':storybook/images/lunar-logo.png';
+import Shimmer from '../Shimmer';
+import ResponsiveImage from '.';
 
 export default {
   title: 'Core/ResponsiveImage',
   parameters: {
     inspectComponents: [ResponsiveImage],
   },
-}
+};
 
 export function anImageThatIsConstrainedProportionally() {
   return (
@@ -20,12 +20,12 @@ export function anImageThatIsConstrainedProportionally() {
       borderRadius={6}
       shimmer={<Shimmer block height={150} width={150} />}
     />
-  )
+  );
 }
 
 anImageThatIsConstrainedProportionally.story = {
   name: 'An image that is constrained proportionally.',
-}
+};
 
 export function withContain() {
   return (
@@ -37,12 +37,12 @@ export function withContain() {
       maxHeight={100}
       shimmer={<Shimmer block height={100} width={150} />}
     />
-  )
+  );
 }
 
 withContain.story = {
   name: 'With contain.',
-}
+};
 
 export function withCover() {
   return (
@@ -54,12 +54,12 @@ export function withCover() {
       maxHeight={100}
       shimmer={<Shimmer block height={100} width={150} />}
     />
-  )
+  );
 }
 
 withCover.story = {
   name: 'With cover.',
-}
+};
 
 export function withNoShadow() {
   return (
@@ -70,9 +70,9 @@ export function withNoShadow() {
       maxWidth={150}
       shimmer={<Shimmer block height={150} width={150} />}
     />
-  )
+  );
 }
 
 withNoShadow.story = {
   name: 'With no shadow.',
-}
+};

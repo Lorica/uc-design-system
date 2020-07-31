@@ -45,7 +45,7 @@ describe('<Copy />', () => {
     const wrapper = shallow(<Copy text="foo" onCopy={spy} />);
 
     wrapper.find(IconButton).simulate('click', {
-      preventDefault() { },
+      preventDefault() {},
     });
 
     expect(spy).toHaveBeenCalledWith('foo', true);

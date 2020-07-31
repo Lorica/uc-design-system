@@ -1,31 +1,26 @@
-import React from 'react'
-import { mount } from 'enzyme'
-import BaseInput from '@usercentric/uc-design-system/lib/components/Input'
-import Input from '../../../src/components/Form/Input'
-import { toString } from '../../../src/helpers'
-import { Context } from '../../../src/types'
-import { WrappingFormComponent, createFormContext } from '../../utils'
+import React from 'react';
+import { mount } from 'enzyme';
+import BaseInput from '@usercentric/uc-design-system/lib/components/Input';
+import Input from '../../../src/components/Form/Input';
+import { toString } from '../../../src/helpers';
+import { Context } from '../../../src/types';
+import { WrappingFormComponent, createFormContext } from '../../utils';
 
 describe('<Input />', () => {
-  let context: Context
+  let context: Context;
 
   beforeEach(() => {
-    context = createFormContext()
-  })
+    context = createFormContext();
+  });
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <Input
-        label="Label"
-        name="foo"
-        defaultValue="bar"
-        validator={() => { }}
-      />,
+      <Input label="Label" name="foo" defaultValue="bar" validator={() => {}} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      }
-    )
+      },
+    );
 
     expect(context.register).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -33,9 +28,9 @@ describe('<Input />', () => {
         defaultValue: 'bar',
         parse: toString,
       }),
-      expect.anything()
-    )
+      expect.anything(),
+    );
 
-    expect(wrapper.find(BaseInput)).toHaveLength(1)
-  })
-})
+    expect(wrapper.find(BaseInput)).toHaveLength(1);
+  });
+});

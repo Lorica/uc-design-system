@@ -1,13 +1,13 @@
-import React from 'react'
-import IconRecord from '@usercentric/uc-design-system-icons/lib/interface/IconRecord'
-import IconRemove from '@usercentric/uc-design-system-icons/lib/interface/IconRemove'
-import useStyles, { StyleSheet } from '../../hooks/useStyles'
-import FormInput, { InputProps } from './FormInput'
-import inputStyleSheet from '../../themes/inputStyleSheet'
+import React from 'react';
+import IconRecord from '@usercentric/uc-design-system-icons/lib/interface/IconRecord';
+import IconRemove from '@usercentric/uc-design-system-icons/lib/interface/IconRemove';
+import useStyles, { StyleSheet } from '../../hooks/useStyles';
+import FormInput, { InputProps } from './FormInput';
+import inputStyleSheet from '../../themes/inputStyleSheet';
 
 export const styleSheetRadioButton: StyleSheet = (theme) => {
-  const styles = inputStyleSheet(theme)
-  const { pattern } = theme
+  const styles = inputStyleSheet(theme);
+  const { pattern } = theme;
 
   return {
     ...styles,
@@ -66,27 +66,23 @@ export const styleSheetRadioButton: StyleSheet = (theme) => {
       marginLeft: theme.unit,
       width: '100%',
     },
-  }
-}
+  };
+};
 
 export type BaseRadioButtonProps<T extends string = string> = InputProps<T> & {
   /** Render the field as a large clickable button. */
-  button?: boolean
+  button?: boolean;
   /** Content to display when in button mode. Defaults to the current label bolded followed by the label description. */
-  children?: React.ReactNode
+  children?: React.ReactNode;
   /** Hide the native radio button label. */
-  hideLabel?: boolean
+  hideLabel?: boolean;
   /** Callback fired when the value changes. */
-  onChange: (
-    checked: boolean,
-    value: T,
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => void
+  onChange: (checked: boolean, value: T, event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Mark the checkbox as greyed out with a dash to indicate an indeterminate state. */
-  indeterminate?: boolean
+  indeterminate?: boolean;
   /** Custom style sheet. */
-  styleSheet?: StyleSheet
-}
+  styleSheet?: StyleSheet;
+};
 
 export default function BaseRadioButton<T extends string = string>({
   button,
@@ -102,17 +98,14 @@ export default function BaseRadioButton<T extends string = string>({
   styleSheet,
   ...restProps
 }: BaseRadioButtonProps<T>) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetRadioButton)
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetRadioButton);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.currentTarget.checked, event.currentTarget.value as T, event)
-  }
+    onChange(event.currentTarget.checked, event.currentTarget.value as T, event);
+  };
 
   const radioButton = (
-    <label
-      htmlFor={id}
-      className={cx(styles.radio, hideLabel && styles.radio_hideLabel)}
-    >
+    <label htmlFor={id} className={cx(styles.radio, hideLabel && styles.radio_hideLabel)}>
       <FormInput
         {...restProps}
         hidden
@@ -132,7 +125,7 @@ export default function BaseRadioButton<T extends string = string>({
           indeterminate && styles.input_indeterminate,
           checked && styles.input_checked,
           invalid && styles.input_invalid,
-          disabled && styles.input_disabled
+          disabled && styles.input_disabled,
         )}
       >
         {checked && (
@@ -147,10 +140,10 @@ export default function BaseRadioButton<T extends string = string>({
         )}
       </span>
     </label>
-  )
+  );
 
   if (!button) {
-    return radioButton
+    return radioButton;
   }
 
   return (
@@ -162,12 +155,12 @@ export default function BaseRadioButton<T extends string = string>({
         checked && styles.button_checked,
         invalid && styles.button_invalid,
         disabled && styles.button_disabled,
-        small && styles.button_small
+        small && styles.button_small,
       )}
     >
       {radioButton}
 
       <div className={cx(styles.children)}>{children}</div>
     </label>
-  )
+  );
 }

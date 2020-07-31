@@ -21,14 +21,6 @@ jobs:
         - yarn run build:sizes
         - yarn run check:build
       node_js: '12'
-    - name: Happo (Dark)
-      if: type = pull_request OR branch = master
-      script: yarn run check:happo:dark
-      node_js: '12'
-    - name: Happo (Light)
-      if: type = pull_request OR branch = master
-      script: yarn run check:happo:light
-      node_js: '12'
     - stage: Tests
       name: Test @ 10
       script: yarn run jest:coverage -w 4 && yarn run lint:errors
@@ -57,8 +49,8 @@ jobs:
         - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
         - git config --global user.name ${GITHUB_USER}
         - git config --global user.email ${GITHUB_EMAIL}
-        - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/lorica/uc-design-system.git" >
-          /dev/null 2>&1
+        - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/lorica/uc-design-system.git"
+          > /dev/null 2>&1
         - git checkout master
       deploy:
         provider: script

@@ -1,14 +1,14 @@
-import React from 'react'
-import ucDesignSystem from ':storybook/images/lunar-logo.png'
-import ProfilePhoto from '../ProfilePhoto'
-import ProfilePhotoGroup from '.'
+import React from 'react';
+import ucDesignSystem from ':storybook/images/lunar-logo.png';
+import ProfilePhoto from '../ProfilePhoto';
+import ProfilePhotoGroup from '.';
 
 export default {
   title: 'Core/ProfilePhotoGroup',
   parameters: {
     inspectComponents: [ProfilePhotoGroup],
   },
-}
+};
 
 export function displayAHorizontalGroupOfProfilePhotos() {
   return (
@@ -19,12 +19,12 @@ export function displayAHorizontalGroupOfProfilePhotos() {
 
       <ProfilePhoto imageSrc={ucDesignSystem} title="Photo" />
     </ProfilePhotoGroup>
-  )
+  );
 }
 
 displayAHorizontalGroupOfProfilePhotos.story = {
   name: 'Display a horizontal group of profile photos.',
-}
+};
 
 export function showARemainderWhenTheMaxIsMet() {
   return (
@@ -37,12 +37,12 @@ export function showARemainderWhenTheMaxIsMet() {
 
       <ProfilePhoto imageSrc={ucDesignSystem} title="Photo" />
     </ProfilePhotoGroup>
-  )
+  );
 }
 
 showARemainderWhenTheMaxIsMet.story = {
   name: 'Show a remainder when the max is met.',
-}
+};
 
 export function supportDifferentSizes() {
   return (
@@ -63,9 +63,9 @@ export function supportDifferentSizes() {
         <ProfilePhoto imageSrc={ucDesignSystem} title="Photo" />
       </ProfilePhotoGroup>
     </div>
-  )
+  );
 }
 
 supportDifferentSizes.story = {
   name: 'Support different sizes.',
-}
+};

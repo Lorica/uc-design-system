@@ -1,4 +1,4 @@
-import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles';
 
 export const styleSheetSplitLayout: StyleSheet = () => ({
   wrapper: {
@@ -9,4 +9,4 @@ export const styleSheetSplitLayout: StyleSheet = () => ({
   column: {
     width: '50%',
   },
-})
+});

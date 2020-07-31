@@ -1,19 +1,13 @@
-import React from 'react'
-import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import Layout, { LayoutProps, AsideProps } from '../Layout'
-import { styleSheetSplitLayout } from './styles'
+import React from 'react';
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import Layout, { LayoutProps, AsideProps } from '../Layout';
+import { styleSheetSplitLayout } from './styles';
 
-export type SplitLayoutProps = Required<AsideProps> &
-  Pick<LayoutProps, 'fluid' | 'styleSheet'>
+export type SplitLayoutProps = Required<AsideProps> & Pick<LayoutProps, 'fluid' | 'styleSheet'>;
 
 /** A symmetrical two-column layout. */
-export default function SplitLayout({
-  after,
-  before,
-  fluid,
-  styleSheet,
-}: SplitLayoutProps) {
-  const [styles, cx] = useStyles(styleSheet ?? styleSheetSplitLayout)
+export default function SplitLayout({ after, before, fluid, styleSheet }: SplitLayoutProps) {
+  const [styles, cx] = useStyles(styleSheet ?? styleSheetSplitLayout);
 
   return (
     <Layout noBackground noPadding fluid={fluid}>
@@ -22,5 +16,5 @@ export default function SplitLayout({
         <div className={cx(styles.column)}>{after}</div>
       </div>
     </Layout>
-  )
+  );
 }

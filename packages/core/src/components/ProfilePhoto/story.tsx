@@ -1,21 +1,21 @@
-import React from 'react'
-import ucDesignSystem from ':storybook/images/lunar-logo.png'
-import ProfilePhoto from '.'
+import React from 'react';
+import ucDesignSystem from ':storybook/images/lunar-logo.png';
+import ProfilePhoto from '.';
 
 export default {
   title: 'Core/ProfilePhoto',
   parameters: {
     inspectComponents: [ProfilePhoto],
   },
-}
+};
 
 export function defaultProfilePhoto() {
-  return <ProfilePhoto imageSrc={ucDesignSystem} title="Photo" />
+  return <ProfilePhoto imageSrc={ucDesignSystem} title="Photo" />;
 }
 
 defaultProfilePhoto.story = {
   name: 'Default profile photo.',
-}
+};
 
 export function withDifferentSizingUnitsBasedSizeSmallRegularDefaultLargeMacro() {
   return (
@@ -26,13 +26,12 @@ export function withDifferentSizingUnitsBasedSizeSmallRegularDefaultLargeMacro()
       <ProfilePhoto large imageSrc={ucDesignSystem} title="Photo" />
       <ProfilePhoto macro imageSrc={ucDesignSystem} title="Photo" />
     </>
-  )
+  );
 }
 
 withDifferentSizingUnitsBasedSizeSmallRegularDefaultLargeMacro.story = {
-  name:
-    'With different sizing: units-based size, small, regular (default), large, macro.',
-}
+  name: 'With different sizing: units-based size, small, regular (default), large, macro.',
+};
 
 export function inlineProfilePhotos() {
   return (
@@ -43,30 +42,28 @@ export function inlineProfilePhotos() {
       <ProfilePhoto inline large imageSrc={ucDesignSystem} title="Photo" />
       <ProfilePhoto inline macro imageSrc={ucDesignSystem} title="Photo" />
     </>
-  )
+  );
 }
 
 inlineProfilePhotos.story = {
   name: 'Inline profile photos.',
-}
+};
 
 export function squareProfilePhoto() {
-  return (
-    <ProfilePhoto inline large square imageSrc={ucDesignSystem} title="Photo" />
-  )
+  return <ProfilePhoto inline large square imageSrc={ucDesignSystem} title="Photo" />;
 }
 
 squareProfilePhoto.story = {
   name: 'Square profile photo.',
-}
+};
 
 export function brokenImageWithOverflowingAltText() {
-  return <ProfilePhoto large imageSrc="BROKEN_IMAGE" title="Alt title text." />
+  return <ProfilePhoto large imageSrc="BROKEN_IMAGE" title="Alt title text." />;
 }
 
 brokenImageWithOverflowingAltText.story = {
   name: 'Broken image with overflowing alt text.',
-}
+};
 
 export function fallbackImageSrcWhenImageIsBroken() {
   return (
@@ -76,9 +73,9 @@ export function fallbackImageSrcWhenImageIsBroken() {
       imageSrc="BROKEN_IMAGE"
       title="Alt title text."
     />
-  )
+  );
 }
 
 fallbackImageSrcWhenImageIsBroken.story = {
   name: 'Fallback image src when image is broken.',
-}
+};

@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import Button from '@usercentric/uc-design-system/lib/components/Button'
-import LoremIpsum from ':storybook/components/LoremIpsum'
-import Aside from '.'
+import React, { useState } from 'react';
+import Button from '@usercentric/uc-design-system/lib/components/Button';
+import LoremIpsum from ':storybook/components/LoremIpsum';
+import Aside from '.';
 
 export default {
   title: 'Layouts/Aside',
   parameters: {
     inspectComponents: [Aside],
   },
-}
+};
 
 export function standardAsideWithAWidth() {
   return (
@@ -18,12 +18,12 @@ export function standardAsideWithAWidth() {
       <LoremIpsum />
       <LoremIpsum />
     </Aside>
-  )
+  );
 }
 
 standardAsideWithAWidth.story = {
   name: 'Standard aside with a width',
-}
+};
 
 export function withABeforeLeftBorder() {
   return (
@@ -33,12 +33,12 @@ export function withABeforeLeftBorder() {
       <LoremIpsum />
       <LoremIpsum />
     </Aside>
-  )
+  );
 }
 
 withABeforeLeftBorder.story = {
   name: 'With a before (left) border.',
-}
+};
 
 export function withCollapsibleBefore() {
   return (
@@ -48,12 +48,12 @@ export function withCollapsibleBefore() {
       <LoremIpsum />
       <LoremIpsum />
     </Aside>
-  )
+  );
 }
 
 withCollapsibleBefore.story = {
   name: 'With a collapsible tab on the right.',
-}
+};
 
 export function withAnAfterRightBorder() {
   return (
@@ -63,12 +63,12 @@ export function withAnAfterRightBorder() {
       <LoremIpsum />
       <LoremIpsum />
     </Aside>
-  )
+  );
 }
 
 withAnAfterRightBorder.story = {
   name: 'With an after (right) border.',
-}
+};
 
 export function withCollapsibleAfter() {
   return (
@@ -78,12 +78,12 @@ export function withCollapsibleAfter() {
       <LoremIpsum />
       <LoremIpsum />
     </Aside>
-  )
+  );
 }
 
 withCollapsibleAfter.story = {
   name: 'With a collapsible tab on the left.',
-}
+};
 
 export function withNoPadding() {
   return (
@@ -93,12 +93,12 @@ export function withNoPadding() {
       <LoremIpsum />
       <LoremIpsum />
     </Aside>
-  )
+  );
 }
 
 withNoPadding.story = {
   name: 'With no padding.',
-}
+};
 
 export function asAScrollableContainer() {
   return (
@@ -110,12 +110,12 @@ export function asAScrollableContainer() {
         <LoremIpsum />
       </Aside>
     </div>
-  )
+  );
 }
 
 asAScrollableContainer.story = {
   name: 'As a scrollable container.',
-}
+};
 
 export function asAScrollableContainerWithCollapsibleTab() {
   return (
@@ -127,21 +127,21 @@ export function asAScrollableContainerWithCollapsibleTab() {
         <LoremIpsum />
       </Aside>
     </div>
-  )
+  );
 }
 
 asAScrollableContainerWithCollapsibleTab.story = {
   name: 'As a scrollable container with a collapsible tab.',
-}
+};
 
 export function CanExternallyControlExpandedState() {
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <div>
       <Button
         onClick={() => {
-          setExpanded((prev) => !prev)
+          setExpanded((prev) => !prev);
         }}
       >
         Toggle
@@ -156,7 +156,7 @@ export function CanExternallyControlExpandedState() {
           width={300}
           onCollapseToggle={(ex) => {
             if (ex !== expanded) {
-              setExpanded(ex)
+              setExpanded(ex);
             }
           }}
         >
@@ -167,29 +167,29 @@ export function CanExternallyControlExpandedState() {
         </Aside>
       </div>
     </div>
-  )
+  );
 }
 
 CanExternallyControlExpandedState.story = {
   name: 'Can externally control expanded state.',
-}
+};
 
 export function CanControlMultipleAsides() {
-  const [expanded, setExpanded] = useState('left')
+  const [expanded, setExpanded] = useState('left');
 
   return (
     <div>
       <div>
         <Button
           onClick={() => {
-            setExpanded('left')
+            setExpanded('left');
           }}
         >
           Expand left
         </Button>{' '}
         <Button
           onClick={() => {
-            setExpanded('right')
+            setExpanded('right');
           }}
         >
           Expand right
@@ -206,9 +206,9 @@ export function CanControlMultipleAsides() {
             expanded={expanded === 'left'}
             onCollapseToggle={(exp) => {
               if (exp) {
-                setExpanded('left')
+                setExpanded('left');
               } else {
-                setExpanded('right')
+                setExpanded('right');
               }
             }}
           >
@@ -230,9 +230,9 @@ export function CanControlMultipleAsides() {
             expanded={expanded === 'right'}
             onCollapseToggle={(exp) => {
               if (exp) {
-                setExpanded('right')
+                setExpanded('right');
               } else {
-                setExpanded('left')
+                setExpanded('left');
               }
             }}
           >
@@ -244,9 +244,9 @@ export function CanControlMultipleAsides() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 CanControlMultipleAsides.story = {
   name: 'Can externally control multiple asides.',
-}
+};

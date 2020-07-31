@@ -1,36 +1,36 @@
-import React from 'react'
-import IconCalendar from '@usercentric/uc-design-system-icons/lib/general/IconCalendar'
-import IconUser from '@usercentric/uc-design-system-icons/lib/general/IconUser'
-import IconCloseAlt from '@usercentric/uc-design-system-icons/lib/interface/IconCloseAlt'
-import IconSettings from '@usercentric/uc-design-system-icons/lib/interface/IconSettings'
-import ucDesignSystem from ':storybook/images/lunar-logo.png'
-import Spacing from '../Spacing'
-import Chip from '.'
-import ButtonGroup from '../ButtonGroup'
-import Text from '../Text'
+import React from 'react';
+import IconCalendar from '@usercentric/uc-design-system-icons/lib/general/IconCalendar';
+import IconUser from '@usercentric/uc-design-system-icons/lib/general/IconUser';
+import IconCloseAlt from '@usercentric/uc-design-system-icons/lib/interface/IconCloseAlt';
+import IconSettings from '@usercentric/uc-design-system-icons/lib/interface/IconSettings';
+import ucDesignSystem from ':storybook/images/lunar-logo.png';
+import Spacing from '../Spacing';
+import Chip from '.';
+import ButtonGroup from '../ButtonGroup';
+import Text from '../Text';
 
 export default {
   title: 'Core/Chip',
   parameters: {
     inspectComponents: [Chip],
   },
-}
+};
 
 export function simpleChip() {
-  return <Chip>Chip</Chip>
+  return <Chip>Chip</Chip>;
 }
 
 simpleChip.story = {
   name: 'Simple chip.',
-}
+};
 
 export function withActive() {
-  return <Chip active>Chip</Chip>
+  return <Chip active>Chip</Chip>;
 }
 
 withActive.story = {
   name: 'With `active`.',
-}
+};
 
 export function withAIconsBeforeAndOrAfter() {
   return (
@@ -42,9 +42,7 @@ export function withAIconsBeforeAndOrAfter() {
       <ButtonGroup>
         <Chip afterIcon={<IconCloseAlt decorative size="2em" />}>Chip</Chip>
 
-        <Chip beforeIcon={<IconCalendar decorative size="1.2em" />}>
-          Calendar
-        </Chip>
+        <Chip beforeIcon={<IconCalendar decorative size="1.2em" />}>Calendar</Chip>
 
         <Chip
           afterIcon={<IconCalendar decorative size="1.2em" />}
@@ -54,12 +52,12 @@ export function withAIconsBeforeAndOrAfter() {
         </Chip>
       </ButtonGroup>
     </>
-  )
+  );
 }
 
 withAIconsBeforeAndOrAfter.story = {
   name: 'With a icons before and/or after.',
-}
+};
 
 export function compactChip() {
   return (
@@ -90,12 +88,12 @@ export function compactChip() {
         </Chip>
       </ButtonGroup>
     </>
-  )
+  );
 }
 
 compactChip.story = {
   name: 'Compact chip.',
-}
+};
 
 export function withAnIconButton() {
   return (
@@ -115,35 +113,32 @@ export function withAnIconButton() {
         Close
       </Chip>
     </ButtonGroup>
-  )
+  );
 }
 
 withAnIconButton.story = {
   name: 'With an icon button.',
-}
+};
 
 export function withAProfilePhoto() {
-  return <Chip profileImageSrc={ucDesignSystem}>User</Chip>
+  return <Chip profileImageSrc={ucDesignSystem}>User</Chip>;
 }
 
 withAProfilePhoto.story = {
   name: 'With a profile photo.',
-}
+};
 
 export function withBothAProfilePhotoAndAnIcon() {
   return (
-    <Chip
-      afterIcon={<IconSettings decorative size="2em" />}
-      profileImageSrc={ucDesignSystem}
-    >
+    <Chip afterIcon={<IconSettings decorative size="2em" />} profileImageSrc={ucDesignSystem}>
       Settings
     </Chip>
-  )
+  );
 }
 
 withBothAProfilePhotoAndAnIcon.story = {
   name: 'With both a profile photo and an icon.',
-}
+};
 
 export function disabledChips() {
   return (
@@ -162,12 +157,12 @@ export function disabledChips() {
         Settings
       </Chip>
     </ButtonGroup>
-  )
+  );
 }
 
 disabledChips.story = {
   name: 'Disabled chips.',
-}
+};
 
 export function asButtons() {
   return (
@@ -189,9 +184,9 @@ export function asButtons() {
         Settings
       </Chip>
     </ButtonGroup>
-  )
+  );
 }
 
 asButtons.story = {
   name: 'As buttons.',
-}
+};

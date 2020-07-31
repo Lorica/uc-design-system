@@ -1,17 +1,17 @@
-import React from 'react'
-import { mount } from 'enzyme'
-import BaseMulticomplete from '@usercentric/uc-design-system/lib/components/Multicomplete'
-import Multicomplete from '../../../src/components/Form/Multicomplete'
-import { toString } from '../../../src/helpers'
-import { Context } from '../../../src/types'
-import { WrappingFormComponent, createFormContext } from '../../utils'
+import React from 'react';
+import { mount } from 'enzyme';
+import BaseMulticomplete from '@usercentric/uc-design-system/lib/components/Multicomplete';
+import Multicomplete from '../../../src/components/Form/Multicomplete';
+import { toString } from '../../../src/helpers';
+import { Context } from '../../../src/types';
+import { WrappingFormComponent, createFormContext } from '../../utils';
 
 describe('<Multicomplete />', () => {
-  let context: Context
+  let context: Context;
 
   beforeEach(() => {
-    context = createFormContext()
-  })
+    context = createFormContext();
+  });
 
   it('connects to the form', () => {
     const wrapper = mount(
@@ -20,14 +20,14 @@ describe('<Multicomplete />', () => {
         accessibilityLabel="Label"
         name="foo"
         defaultValue={['bar']}
-        validator={() => { }}
+        validator={() => {}}
         onLoadItems={() => Promise.resolve([])}
       />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      }
-    )
+      },
+    );
 
     expect(context.register).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -35,9 +35,9 @@ describe('<Multicomplete />', () => {
         defaultValue: ['bar'],
         parse: toString,
       }),
-      expect.anything()
-    )
+      expect.anything(),
+    );
 
-    expect(wrapper.find(BaseMulticomplete)).toHaveLength(1)
-  })
-})
+    expect(wrapper.find(BaseMulticomplete)).toHaveLength(1);
+  });
+});

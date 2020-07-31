@@ -1,24 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import BaseBreadcrumbs, {
   Breadcrumb,
   BreadcrumbsProps as BaseProps,
-} from '@usercentric/uc-design-system/lib/components/Breadcrumbs'
-import TrackBreadcrumb from './TrackBreadcrumb'
-import AppContext from '../AppContext'
+} from '@usercentric/uc-design-system/lib/components/Breadcrumbs';
+import TrackBreadcrumb from './TrackBreadcrumb';
+import AppContext from '../AppContext';
 
-export { TrackBreadcrumb }
+export { TrackBreadcrumb };
 
-export type BreadcrumbsProps = Omit<BaseProps, 'children'>
+export type BreadcrumbsProps = Omit<BaseProps, 'children'>;
 
 export default function Breadcrumbs(props: BreadcrumbsProps) {
-  const context = useContext(AppContext)
+  const context = useContext(AppContext);
 
   if (!context || context.breadcrumbs.length === 0) {
-    return null
+    return null;
   }
 
-  const { breadcrumbs } = context
-  const lastIndex = breadcrumbs.length - 1
+  const { breadcrumbs } = context;
+  const lastIndex = breadcrumbs.length - 1;
 
   return (
     <BaseBreadcrumbs {...props}>
@@ -32,5 +32,5 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
         />
       ))}
     </BaseBreadcrumbs>
-  )
+  );
 }

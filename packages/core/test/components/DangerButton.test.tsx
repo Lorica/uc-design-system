@@ -1,12 +1,12 @@
-import React from 'react'
-import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
-import DangerButton from '../../src/components/DangerButton'
-import ButtonOrLink from '../../src/components/private/ButtonOrLink'
+import React from 'react';
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils';
+import DangerButton from '../../src/components/DangerButton';
+import ButtonOrLink from '../../src/components/private/ButtonOrLink';
 
 describe('<DangerButton />', () => {
   it('renders a primary button', () => {
-    const wrapper = mountUseStyles(<DangerButton>Button</DangerButton>)
+    const wrapper = mountUseStyles(<DangerButton>Button</DangerButton>);
 
-    expect(wrapper.find(ButtonOrLink)).toHaveLength(1)
-  })
-})
+    expect(wrapper.find(ButtonOrLink)).toHaveLength(1);
+  });
+});

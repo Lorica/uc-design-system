@@ -1,26 +1,23 @@
-import React from 'react'
-import { mount } from 'enzyme'
-import BaseCheckBox from '@usercentric/uc-design-system/lib/components/CheckBox'
-import CheckBox from '../../../src/components/Form/CheckBox'
-import { toBool } from '../../../src/helpers'
-import { Context } from '../../../src/types'
-import { WrappingFormComponent, createFormContext } from '../../utils'
+import React from 'react';
+import { mount } from 'enzyme';
+import BaseCheckBox from '@usercentric/uc-design-system/lib/components/CheckBox';
+import CheckBox from '../../../src/components/Form/CheckBox';
+import { toBool } from '../../../src/helpers';
+import { Context } from '../../../src/types';
+import { WrappingFormComponent, createFormContext } from '../../utils';
 
 describe('<CheckBox />', () => {
-  let context: Context
+  let context: Context;
 
   beforeEach(() => {
-    context = createFormContext()
-  })
+    context = createFormContext();
+  });
 
   it('connects to the form', () => {
-    const wrapper = mount(
-      <CheckBox defaultValue label="Label" name="foo" validator={() => { }} />,
-      {
-        wrappingComponent: WrappingFormComponent,
-        wrappingComponentProps: { context },
-      }
-    )
+    const wrapper = mount(<CheckBox defaultValue label="Label" name="foo" validator={() => {}} />, {
+      wrappingComponent: WrappingFormComponent,
+      wrappingComponentProps: { context },
+    });
 
     expect(context.register).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -28,21 +25,18 @@ describe('<CheckBox />', () => {
         defaultValue: true,
         parse: toBool,
       }),
-      expect.anything()
-    )
+      expect.anything(),
+    );
 
-    expect(wrapper.find(BaseCheckBox)).toHaveLength(1)
-  })
+    expect(wrapper.find(BaseCheckBox)).toHaveLength(1);
+  });
 
   it('sets checked prop', () => {
-    const wrapper = mount(
-      <CheckBox defaultValue label="Label" name="foo" validator={() => { }} />,
-      {
-        wrappingComponent: WrappingFormComponent,
-        wrappingComponentProps: { context },
-      }
-    )
+    const wrapper = mount(<CheckBox defaultValue label="Label" name="foo" validator={() => {}} />, {
+      wrappingComponent: WrappingFormComponent,
+      wrappingComponentProps: { context },
+    });
 
-    expect(wrapper.find(BaseCheckBox).prop('checked')).toBe(true)
-  })
-})
+    expect(wrapper.find(BaseCheckBox).prop('checked')).toBe(true);
+  });
+});

@@ -1,47 +1,47 @@
-import React from 'react'
-import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
-import FieldAffix from '../../../src/components/private/FieldAffix'
+import React from 'react';
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils';
+import FieldAffix from '../../../src/components/private/FieldAffix';
 
 describe('<FieldAffix />', () => {
   it('renders before and after with different classes', () => {
-    const wrapper = shallowWithStyles(<FieldAffix before>Child</FieldAffix>)
-    const beforeClass = wrapper.prop('className')
+    const wrapper = shallowWithStyles(<FieldAffix before>Child</FieldAffix>);
+    const beforeClass = wrapper.prop('className');
 
     wrapper.setProps({
       before: false,
       after: true,
-    })
+    });
 
-    expect(wrapper.prop('className')).not.toBe(beforeClass)
-  })
+    expect(wrapper.prop('className')).not.toBe(beforeClass);
+  });
 
   it('renders small', () => {
     const wrapper = shallowWithStyles(
       <FieldAffix after small>
         Child
-      </FieldAffix>
-    )
+      </FieldAffix>,
+    );
 
-    expect(wrapper.prop('className')).toMatch('affix_small')
-  })
+    expect(wrapper.prop('className')).toMatch('affix_small');
+  });
 
   it('renders large', () => {
     const wrapper = shallowWithStyles(
       <FieldAffix after large>
         Child
-      </FieldAffix>
-    )
+      </FieldAffix>,
+    );
 
-    expect(wrapper.prop('className')).toMatch('affix_large')
-  })
+    expect(wrapper.prop('className')).toMatch('affix_large');
+  });
 
   it('errors if both props used', () => {
     expect(() => {
       shallowWithStyles(
         <FieldAffix before after>
           Child
-        </FieldAffix>
-      )
-    }).toThrow()
-  })
-})
+        </FieldAffix>,
+      );
+    }).toThrow();
+  });
+});

@@ -151,16 +151,16 @@ export class Toast extends React.Component<ToastProps & WithStylesProps> {
             </Spacing>
           </div>
         ) : (
-            <div>
-              {title && (
-                <Text bold inverted>
-                  {title}
-                </Text>
-              )}
+          <div>
+            {title && (
+              <Text bold inverted>
+                {title}
+              </Text>
+            )}
 
-              <Text inverted>{isError ? getErrorMessage(message, true) : message}</Text>
-            </div>
-          )}
+            <Text inverted>{isError ? getErrorMessage(message, true) : message}</Text>
+          </div>
+        )}
 
         <div className={cx(styles.right)}>
           <IconButton inverted onClick={this.handleClosePress}>

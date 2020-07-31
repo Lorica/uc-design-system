@@ -1,4 +1,4 @@
-import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles';
 
 export const styleSheetSideBar: StyleSheet = ({ unit, color }) => ({
   bar: {
@@ -20,14 +20,9 @@ export const styleSheetSideBar: StyleSheet = ({ unit, color }) => ({
       },
     },
   },
-})
+});
 
-export const styleSheetItem: StyleSheet = ({
-  unit,
-  color,
-  pattern,
-  transition,
-}) => ({
+export const styleSheetItem: StyleSheet = ({ unit, color, pattern, transition }) => ({
   item: {
     ...pattern.resetButton,
     ...transition.box,
@@ -65,4 +60,4 @@ export const styleSheetItem: StyleSheet = ({
     display: 'block',
     paddingTop: unit * 0.25,
   },
-})
+});

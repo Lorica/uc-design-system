@@ -83,8 +83,8 @@ function MenuItem({
       size="1.5em"
     />
   ) : (
-      tip
-    );
+    tip
+  );
 
   return (
     <li role="none" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

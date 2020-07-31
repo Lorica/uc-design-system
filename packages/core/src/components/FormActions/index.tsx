@@ -1,38 +1,38 @@
-import React from 'react'
-import T from '../Translate'
-import NormalButton from '../Button'
-import DangerButton from '../DangerButton'
-import MutedButton from '../MutedButton'
-import ButtonGroup from '../ButtonGroup'
+import React from 'react';
+import T from '../Translate';
+import NormalButton from '../Button';
+import DangerButton from '../DangerButton';
+import MutedButton from '../MutedButton';
+import ButtonGroup from '../ButtonGroup';
 
 export type FormActionsProps = {
   /** Render buttons as a block with full width. */
-  block?: boolean
+  block?: boolean;
   /** Text to display in the cancel button. Defaults to "Cancel". */
-  cancelText?: React.ReactNode
+  cancelText?: React.ReactNode;
   /** Text to display in the continue/submit button. Defaults to "Submit". */
-  continueText?: React.ReactNode
+  continueText?: React.ReactNode;
   /** Render a danger button over a regular button. */
-  danger?: boolean
+  danger?: boolean;
   /** Whether to disable the continue button. */
-  disabled?: boolean
+  disabled?: boolean;
   /** Hide the cancel button. */
-  hideCancel?: boolean
+  hideCancel?: boolean;
   /** Callback fired when the cancel button is clicked. */
-  onCancel?: () => void
+  onCancel?: () => void;
   /** Callback fired when the continue button is clicked. */
-  onContinue?: () => void
+  onContinue?: () => void;
   /** Whether the form is being processed. Will disable buttons.  */
-  processing?: boolean
+  processing?: boolean;
   /** Text to display in the continue/submit button while processing. Defaults to "Submitting…". */
-  processingText?: React.ReactNode
+  processingText?: React.ReactNode;
   /** Text to display in the reset button. Defaults to "Reset". */
-  resetText?: React.ReactNode
+  resetText?: React.ReactNode;
   /** Show the reset button. */
-  showReset?: boolean
+  showReset?: boolean;
   /** Show small buttons. */
-  small?: boolean
-}
+  small?: boolean;
+};
 
 /** A pair of action buttons to display at the bottom of a form. */
 export default function FormActions({
@@ -50,7 +50,7 @@ export default function FormActions({
   showReset,
   small,
 }: FormActionsProps) {
-  const Button = danger ? DangerButton : NormalButton
+  const Button = danger ? DangerButton : NormalButton;
 
   return (
     <ButtonGroup stacked={block}>
@@ -63,39 +63,21 @@ export default function FormActions({
         onClick={onContinue}
       >
         {processing
-          ? processingText || (
-              <T k="uc-design-system.common.saving" phrase="Saving" />
-            )
-          : continueText || (
-              <T k="uc-design-system.common.save" phrase="Save" />
-            )}
+          ? processingText || <T k="uc-design-system.common.saving" phrase="Saving" />
+          : continueText || <T k="uc-design-system.common.save" phrase="Save" />}
       </Button>
 
       {!hideCancel && (
-        <MutedButton
-          inverted
-          block={block}
-          small={small}
-          disabled={processing}
-          onClick={onCancel}
-        >
-          {cancelText || (
-            <T k="uc-design-system.common.cancel" phrase="Cancel" />
-          )}
+        <MutedButton inverted block={block} small={small} disabled={processing} onClick={onCancel}>
+          {cancelText || <T k="uc-design-system.common.cancel" phrase="Cancel" />}
         </MutedButton>
       )}
 
       {showReset && (
-        <MutedButton
-          inverted
-          block={block}
-          type="reset"
-          small={small}
-          disabled={processing}
-        >
+        <MutedButton inverted block={block} type="reset" small={small} disabled={processing}>
           {resetText || <T k="uc-design-system.common.reset" phrase="Reset" />}
         </MutedButton>
       )}
     </ButtonGroup>
-  )
+  );
 }

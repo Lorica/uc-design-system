@@ -1,67 +1,61 @@
-import T from '@usercentric/uc-design-system/lib/components/Translate'
-import { MENU_SHORTCUTS } from '../constants'
+import T from '@usercentric/uc-design-system/lib/components/Translate';
+import { MENU_SHORTCUTS } from '../constants';
 import {
   ShortcutArgument,
   ShortcutConfig,
   WritableContext,
   ReadableContext,
   DataSet,
-} from '../types'
+} from '../types';
 
 export function formatArguments(args: ShortcutArgument[]): string {
-  return args
-    .map((arg) => (arg.optional ? `[${arg.name}]` : `<${arg.name}>`))
-    .join(' ')
+  return args.map((arg) => (arg.optional ? `[${arg.name}]` : `<${arg.name}>`)).join(' ');
 }
 
-export function formatConfigIntoCommand(
-  shortcut: Required<ShortcutConfig>
-): string {
-  let cmd = `/${shortcut.name}`
+export function formatConfigIntoCommand(shortcut: Required<ShortcutConfig>): string {
+  let cmd = `/${shortcut.name}`;
 
   if (shortcut.arguments.length > 0) {
-    cmd += ' '
-    cmd += formatArguments(shortcut.arguments)
+    cmd += ' ';
+    cmd += formatArguments(shortcut.arguments);
   }
 
-  return cmd
+  return cmd;
 }
 
 export function filterAndSortShortcuts(
   shortcuts: ShortcutConfig[],
-  enteredName: string
+  enteredName: string,
 ): Required<ShortcutConfig>[] {
-  const usedNames = new Set()
-  const filteredShortcuts: Required<ShortcutConfig>[] = shortcuts.map(
-    (config) => {
-      if (usedNames.has(config.name)) {
-        throw new Error(
-          T.phrase(
-            'uc-design-system.composer.shortcuts.nameExists',
-            'Shortcut with name "%{name}" already exists.',
-            { name: config.name }
-          )
-        )
-      } else {
-        usedNames.add(config.name)
-      }
-
-      return {
-        arguments: [],
-        ...config,
-      }
+  const usedNames = new Set();
+  const filteredShortcuts: Required<ShortcutConfig>[] = shortcuts.map((config) => {
+    if (usedNames.has(config.name)) {
+      throw new Error(
+        T.phrase(
+          'uc-design-system.composer.shortcuts.nameExists',
+          'Shortcut with name "%{name}" already exists.',
+          { name: config.name },
+        ),
+      );
+    } else {
+      usedNames.add(config.name);
     }
-  )
+
+    return {
+      arguments: [],
+      ...config,
+    };
+  });
 
   // Sort by name A-Z
-  filteredShortcuts.sort((a, b) => a.name.localeCompare(b.name))
+  filteredShortcuts.sort((a, b) => a.name.localeCompare(b.name));
 
   // Filter by name entered in input
-  return filteredShortcuts.filter((a) => a.name.startsWith(enteredName))
+  return filteredShortcuts.filter((a) => a.name.startsWith(enteredName));
 }
 
 export function isShortcutCommand(value?: string): boolean {
-  return !!value && (value === '/' || !!value.match(/^\/\w+/i))
+  return !!value && (value === '/' || !!value.match(/^\/\w+/i));
 }
 
 export function activeWhenShortcutsMenuOpen(context: ReadableContext): boolean {
@@ -69,27 +63,24 @@ export function activeWhenShortcutsMenuOpen(context: ReadableContext): boolean {
     !!context.data.focused &&
     context.menu === MENU_SHORTCUTS &&
     isShortcutCommand(context.data.value)
-  )
+  );
 }
 
 export function openShortcutsMenu({ setMenu }: WritableContext) {
-  setMenu(MENU_SHORTCUTS)
+  setMenu(MENU_SHORTCUTS);
 }
 
 /**
  * When the user starts typing a shortcut starting with "/",
  * we should open the shortcuts menu.
  */
-export function onChangeToggleShortcutsMenu(
-  nextValue: string,
-  { setMenu }: WritableContext
-) {
-  const isShortcut = isShortcutCommand(nextValue)
+export function onChangeToggleShortcutsMenu(nextValue: string, { setMenu }: WritableContext) {
+  const isShortcut = isShortcutCommand(nextValue);
 
   if (isShortcut) {
-    setMenu(MENU_SHORTCUTS)
+    setMenu(MENU_SHORTCUTS);
   } else if (nextValue.startsWith('/') && !isShortcut) {
-    setMenu('')
+    setMenu('');
   }
 }
 
@@ -104,66 +95,60 @@ export function onChangeToggleShortcutsMenu(
 export function onSubmitExecuteShortcut(
   { value }: DataSet,
   context: WritableContext,
-  shortcuts: ShortcutConfig[]
+  shortcuts: ShortcutConfig[],
 ): boolean {
   if (!isShortcutCommand(value)) {
-    return false
+    return false;
   }
 
   // Remove slash and split into command and arguments
-  const [name, ...params] = value.slice(1).split(' ')
-  const shortcut = shortcuts.find((sc) => sc.name === name)
+  const [name, ...params] = value.slice(1).split(' ');
+  const shortcut = shortcuts.find((sc) => sc.name === name);
 
   // Validate shortcut
   if (!shortcut) {
     throw new Error(
-      T.phrase(
-        'uc-design-system.composer.shortcuts.invalidName',
-        'Invalid shortcut "%{name}".',
-        { name }
-      )
-    )
+      T.phrase('uc-design-system.composer.shortcuts.invalidName', 'Invalid shortcut "%{name}".', {
+        name,
+      }),
+    );
   }
 
-  const args = shortcut.arguments ?? []
+  const args = shortcut.arguments ?? [];
 
   if (params.length > args.length) {
     throw new Error(
       T.phrase(
         'uc-design-system.composer.shortcuts.tooManyArgs',
-        'Too many shortcut arguments provided.'
-      )
-    )
+        'Too many shortcut arguments provided.',
+      ),
+    );
   }
 
   // Validate arguments
   args.forEach((arg, index) => {
-    const param = params[index]
+    const param = params[index];
 
-    if (
-      (!arg.optional && !param) ||
-      param === `[${arg.name}]` ||
-      param === `<${arg.name}>`
-    ) {
+    if ((!arg.optional && !param) || param === `[${arg.name}]` || param === `<${arg.name}>`) {
       throw new Error(
         T.phrase(
           'uc-design-system.composer.shortcuts.argRequired',
           'Shortcut argument "%{name}" is required.',
-          { name: arg.name }
-        )
-      )
+          { name: arg.name },
+        ),
+      );
     }
 
     if (arg.validator) {
-      arg.validator(param)
+      arg.validator(param);
     }
-  })
+  });
 
   // Everything is good, so execute handler
-  shortcut.onRun(context, ...params)
+  shortcut.onRun(context, ...params);
 
   // Clear the input
-  context.setData('value', '')
+  context.setData('value', '');
 
-  return true
+  return true;
 }

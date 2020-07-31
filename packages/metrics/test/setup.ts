@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import Metrics, { Settings } from '../src'
+import Metrics, { Settings } from '../src';
 
 // eslint-disable-next-line import/prefer-default-export
 export const settings: Required<Settings> = {
@@ -10,16 +10,16 @@ export const settings: Required<Settings> = {
   sentryKey: '',
   sentryProject: '',
   userID: null,
-}
+};
 
 beforeEach(() => {
   Metrics.settings = {
     ...settings,
     sentryKey: 'key',
     sentryProject: 'uc-design-system',
-  }
-})
+  };
+});
 
 afterEach(() => {
-  Metrics.settings = { ...settings }
-})
+  Metrics.settings = { ...settings };
+});

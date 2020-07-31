@@ -1,36 +1,34 @@
-import React, { useContext, useCallback } from 'react'
-import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
-import useTheme from '@usercentric/uc-design-system/lib/hooks/useTheme'
-import Dropdown, {
-  DropdownProps,
-} from '@usercentric/uc-design-system/lib/components/Dropdown'
-import ComposerContext from '../../contexts/ComposerContext'
-import ToggleButton from './ToggleButton'
-import { isElementWithID } from '../../helpers/platform'
-import { menuStyleSheet } from '../../styles'
+import React, { useContext, useCallback } from 'react';
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles';
+import useTheme from '@usercentric/uc-design-system/lib/hooks/useTheme';
+import Dropdown, { DropdownProps } from '@usercentric/uc-design-system/lib/components/Dropdown';
+import ComposerContext from '../../contexts/ComposerContext';
+import ToggleButton from './ToggleButton';
+import { isElementWithID } from '../../helpers/platform';
+import { menuStyleSheet } from '../../styles';
 
 export type MenuProps = {
   /** Remove border around menu container. */
-  borderless?: boolean
+  borderless?: boolean;
   /** Content to render. */
-  children: NonNullable<React.ReactNode>
+  children: NonNullable<React.ReactNode>;
   /** Display in the center at 100% width. */
-  centerAlign?: boolean
+  centerAlign?: boolean;
   /** Display on the right with a custom width. */
-  endAlign?: boolean
+  endAlign?: boolean;
   /** Unique name of the menu that determines active state. */
-  name: string
+  name: string;
   /** Display on the left with a custom width. */
-  startAlign?: boolean
+  startAlign?: boolean;
   /** Optional title to display above the content. */
-  title?: React.ReactNode
+  title?: React.ReactNode;
   /** Callback fired when clicking outside the menu. */
-  onClickOutside?: DropdownProps['onClickOutside']
+  onClickOutside?: DropdownProps['onClickOutside'];
   /** Custom width for side menus. */
-  width?: number | string
-}
+  width?: number | string;
+};
 
-export { ToggleButton }
+export { ToggleButton };
 
 export default function Menu({
   borderless,
@@ -43,15 +41,15 @@ export default function Menu({
   onClickOutside,
   width,
 }: MenuProps) {
-  const [styles, cx] = useStyles(menuStyleSheet)
-  const { flags, id, menu, setMenu } = useContext(ComposerContext)
-  const { unit } = useTheme()
+  const [styles, cx] = useStyles(menuStyleSheet);
+  const { flags, id, menu, setMenu } = useContext(ComposerContext);
+  const { unit } = useTheme();
 
   // Handlers
   const handleClickOutside = useCallback(
     // istanbul ignore next
     (event: MouseEvent) => {
-      const target = event.target as HTMLElement
+      const target = event.target as HTMLElement;
 
       // Never close when clicking the textarea or the toggle button
       if (
@@ -59,31 +57,31 @@ export default function Menu({
         (isElementWithID(target, 'textarea', id) ||
           isElementWithID(target, 'button', `toggle-button-${name}`))
       ) {
-        return
+        return;
       }
 
       if (onClickOutside) {
-        onClickOutside(event)
+        onClickOutside(event);
       }
 
       // Always close active menu
-      setMenu('')
+      setMenu('');
     },
-    [onClickOutside, name, setMenu, id]
-  )
+    [onClickOutside, name, setMenu, id],
+  );
 
   // Only display if menu is active
   if (menu !== name) {
-    return null
+    return null;
   }
 
-  let left = startAlign ? unit / 2 : 'auto'
-  let right = endAlign ? unit / 2 : 'auto'
+  let left = startAlign ? unit / 2 : 'auto';
+  let right = endAlign ? unit / 2 : 'auto';
 
   // Spacing for side affixes
   if (centerAlign) {
-    left = flags.beforeButton ? unit * 4 : 0
-    right = flags.afterButton ? unit * 4 : 0
+    left = flags.beforeButton ? unit * 4 : 0;
+    right = flags.afterButton ? unit * 4 : 0;
   }
 
   return (
@@ -101,7 +99,7 @@ export default function Menu({
           borderless && styles.menu_borderless,
           centerAlign && styles.menu_centerAlign,
           (startAlign || endAlign) && styles.menu_sideAlign,
-          !centerAlign && { width }
+          !centerAlign && { width },
         )}
       >
         {title && <div className={cx(styles.title)}>{title}</div>}
@@ -109,5 +107,5 @@ export default function Menu({
         {children}
       </div>
     </Dropdown>
-  )
+  );
 }

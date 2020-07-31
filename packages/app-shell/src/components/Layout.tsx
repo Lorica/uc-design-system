@@ -1,22 +1,20 @@
-import React from 'react'
-import useStyles, {
-  StyleSheet,
-} from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import React from 'react';
+import useStyles, { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles';
 
 export const styleSheet: StyleSheet = () => ({
   layout: {
     minHeight: '100vh',
   },
-})
+});
 
 export type ShellLayoutProps = {
-  children: NonNullable<React.ReactNode>
-}
+  children: NonNullable<React.ReactNode>;
+};
 
 function ShellLayout({ children }: ShellLayoutProps) {
-  const [styles, cx] = useStyles(styleSheet)
+  const [styles, cx] = useStyles(styleSheet);
 
-  return <div className={cx(styles.layout)}>{children}</div>
+  return <div className={cx(styles.layout)}>{children}</div>;
 }
 
-export default React.memo(ShellLayout)
+export default React.memo(ShellLayout);

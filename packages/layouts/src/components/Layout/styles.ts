@@ -1,4 +1,4 @@
-import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles';
 
 export const styleSheetLayout: StyleSheet = ({ breakpoints, color, unit }) => ({
   layout: {
@@ -32,4 +32,4 @@ export const styleSheetLayout: StyleSheet = ({ breakpoints, color, unit }) => ({
   mainContent_fluid: {
     maxWidth: '100%',
   },
-})
+});

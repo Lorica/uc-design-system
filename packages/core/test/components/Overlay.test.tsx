@@ -18,7 +18,7 @@ jest.mock('lodash/debounce', () => (value: unknown) => value);
 
 describe('<Overlay />', () => {
   const props = {
-    onClose() { },
+    onClose() {},
   };
 
   it('makes a portal', () => {

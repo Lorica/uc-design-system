@@ -1,19 +1,19 @@
-import React from 'react'
-import { mount } from 'enzyme'
-import BaseToggleButtonController from '@usercentric/uc-design-system/lib/components/ToggleButtonController'
-import ToggleButtonController from '../../../src/components/Form/ToggleButtonController'
-import { toString } from '../../../src/helpers'
-import { Context } from '../../../src/types'
-import { WrappingFormComponent, createFormContext } from '../../utils'
+import React from 'react';
+import { mount } from 'enzyme';
+import BaseToggleButtonController from '@usercentric/uc-design-system/lib/components/ToggleButtonController';
+import ToggleButtonController from '../../../src/components/Form/ToggleButtonController';
+import { toString } from '../../../src/helpers';
+import { Context } from '../../../src/types';
+import { WrappingFormComponent, createFormContext } from '../../utils';
 
 describe('<ToggleButtonController />', () => {
-  let context: Context
+  let context: Context;
 
   beforeEach(() => {
-    context = createFormContext()
-  })
+    context = createFormContext();
+  });
 
-  type Value = 'foo' | 'bar' | 'baz'
+  type Value = 'foo' | 'bar' | 'baz';
 
   it('connects to the form', () => {
     const wrapper = mount(
@@ -21,7 +21,7 @@ describe('<ToggleButtonController />', () => {
         label="Label"
         name="foo"
         defaultValue="bar"
-        validator={() => { }}
+        validator={() => {}}
       >
         {(ProxyButton) => (
           <div>
@@ -34,8 +34,8 @@ describe('<ToggleButtonController />', () => {
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },
-      }
-    )
+      },
+    );
 
     expect(context.register).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -43,9 +43,9 @@ describe('<ToggleButtonController />', () => {
         defaultValue: 'bar',
         parse: toString,
       }),
-      expect.anything()
-    )
+      expect.anything(),
+    );
 
-    expect(wrapper.find(BaseToggleButtonController)).toHaveLength(1)
-  })
-})
+    expect(wrapper.find(BaseToggleButtonController)).toHaveLength(1);
+  });
+});

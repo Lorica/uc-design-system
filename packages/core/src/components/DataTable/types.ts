@@ -1,232 +1,224 @@
-import React from 'react'
-import { SortDirectionType, Table } from 'react-virtualized'
-import { WithStylesProps } from '../../composers/withStyles'
-import { DataTable } from './DataTable'
+import React from 'react';
+import { SortDirectionType, Table } from 'react-virtualized';
+import { WithStylesProps } from '../../composers/withStyles';
+import { DataTable } from './DataTable';
 
-export type DataTableRef = (instance: DataTable) => void
-export type TableRef = React.RefObject<Table>
-export type RowHeightOptions =
-  | 'micro'
-  | 'small'
-  | 'regular'
-  | 'large'
-  | 'xlarge'
-  | 'jumbo'
-export type HeightOptions = RowHeightOptions | undefined
-export type ColumnLabelCase = 'sentence' | 'title' | 'uppercase' | ''
+export type DataTableRef = (instance: DataTable) => void;
+export type TableRef = React.RefObject<Table>;
+export type RowHeightOptions = 'micro' | 'small' | 'regular' | 'large' | 'xlarge' | 'jumbo';
+export type HeightOptions = RowHeightOptions | undefined;
+export type ColumnLabelCase = 'sentence' | 'title' | 'uppercase' | '';
 
-export type DefaultDataTableProps = keyof DataTableProps
+export type DefaultDataTableProps = keyof DataTableProps;
 
 export type SortByValueAccessor<T extends GenericRow = GenericRow> = (
   row: T,
-  columnKey: string
-) => unknown
+  columnKey: string,
+) => unknown;
 
 export interface DataTableProps {
   /** If enabled height will be inferred from parent. */
-  autoHeight?: boolean
+  autoHeight?: boolean;
   /** Height of the column header. */
-  columnHeaderHeight?: HeightOptions
+  columnHeaderHeight?: HeightOptions;
   /** Change all column label keys to UPPERCASE or Title Case or Sentence case */
-  columnLabelCase?: ColumnLabelCase
+  columnLabelCase?: ColumnLabelCase;
   /** Keys mapped onto custom column label names. */
-  columnToLabel?: ColumnToLabel
+  columnToLabel?: ColumnToLabel;
   /** Override default width for specific a column's properties. */
-  columnMetadata?: ColumnMetadata
+  columnMetadata?: ColumnMetadata;
   /** Array of data rows. */
-  data?: ParentRow[]
+  data?: ParentRow[];
   /** Ref to the underlying DataTable instance. */
-  dataTableRef?: DataTableRef
+  dataTableRef?: DataTableRef;
   /** If dynamicRowHeight is enabled, this sets the default value for measured row height. */
-  defaultDynamicRowHeight?: number
+  defaultDynamicRowHeight?: number;
   /** When enabled, row height is set dynamically to accomodate content. */
-  dynamicRowHeight?: boolean
+  dynamicRowHeight?: boolean;
   /** If enabled, a special column is rendered that allows row to be expanded. */
-  expandable?: boolean
+  expandable?: boolean;
   /** Filter function to handle searching and filtering.. */
-  filterData?: (data: IndexedParentRow[]) => IndexedParentRow[]
+  filterData?: (data: IndexedParentRow[]) => IndexedParentRow[];
   /** Function that gets called on row click. */
-  onRowClick?: (rowData: ExpandedRow) => void
+  onRowClick?: (rowData: ExpandedRow) => void;
   /** Height of the entire table. */
-  height?: number
+  height?: number;
   /** References row fields to render as columns, infered from data if not specified. */
-  keys?: string[]
+  keys?: string[];
   /** If dynamicRowHeight is enabled, this sets the maximum value for measured row height. */
-  maximumDynamicRowHeight?: number
+  maximumDynamicRowHeight?: number;
   /** If dynamicRowHeight is enabled, this sets the minimum value for measured row height. */
-  minimumDynamicRowHeight?: number
+  minimumDynamicRowHeight?: number;
   /**
    * Specify number of additional rows react-virtualized renders in the direction the user is scrolling.
    * The higher the value, the more work react-virtualized needs to do in reaction to each scroll event.
    * Not respected when both dynamicRowHeight and showAllRows are true.
    */
-  overscanRowCount?: number
+  overscanRowCount?: number;
   /** Propagated as the 'ref' prop to the underlying react-virtualized Table instance. */
-  propagateRef?: TableRef
+  propagateRef?: TableRef;
   /** Custom renderers mapped to column keys. */
   // Any so that consumers can pass any types they want.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  renderers?: Renderers<any>
+  renderers?: Renderers<any>;
   /** Height of table rows, default for table header and column header height. */
-  rowHeight?: RowHeightOptions
+  rowHeight?: RowHeightOptions;
   /**
    * If true, will set Table height to accomodate showing _all_ rows.
    * This effectively _disables_ virtualized row rendering and may have detrimental
    * performance implications for rendering many rows.
    */
-  showAllRows?: boolean
+  showAllRows?: boolean;
   /** If enabled, renders a border between each column. */
-  showColumnDividers?: boolean
+  showColumnDividers?: boolean;
   /** If enabled, renders a border between each row. */
-  showRowDividers?: boolean
+  showRowDividers?: boolean;
   /** Overrides sort and hands control to the parent component. */
-  sortOverride?: boolean
+  sortOverride?: boolean;
   /** sortBy value if override is enabled. */
-  sortByOverride?: string
+  sortByOverride?: string;
   /** Key used as part of the sort cache key, can be used to force re-sorting without a full sortOverride. */
-  sortByCacheKey?: string
+  sortByCacheKey?: string;
   /** Given rowData and a column key, returns the value used for sorting rows. Defaults to rowData.data[columnKey]. */
-  sortByValue?: SortByValueAccessor
+  sortByValue?: SortByValueAccessor;
   /** sortDirection value if override is enabled. */
-  sortDirectionOverride?: SortDirectionType
+  sortDirectionOverride?: SortDirectionType;
   /** sortCallback if override is enabled. */
-  sortCallback?: (sortBy: string, sortDirection: SortDirectionType) => void
+  sortCallback?: (sortBy: string, sortDirection: SortDirectionType) => void;
   /** Label for the table header. */
-  tableHeaderLabel?: string
+  tableHeaderLabel?: string;
   /** Height of the table header. */
-  tableHeaderHeight?: HeightOptions
+  tableHeaderHeight?: HeightOptions;
   /** Width of the entire table. */
-  width?: number
+  width?: number;
   /** If enabled, every other row will appear in grey. */
-  zebra?: boolean
+  zebra?: boolean;
 }
 
 export interface GenericRow {
   data: {
-    [key: string]: unknown
-  }
+    [key: string]: unknown;
+  };
   metadata: {
-    [key: string]: unknown
-  }
+    [key: string]: unknown;
+  };
 }
 
 /** The row used by React Virtualized. */
 export interface VirtualRow<T = RowData> {
-  cellData?: unknown
-  columnData?: unknown
-  columnIndex: number
-  dataKey: string
-  isScrolling?: boolean
-  parent?: React.ReactNode
-  rowData: ExpandedRow<T>
-  rowIndex: number
+  cellData?: unknown;
+  columnData?: unknown;
+  columnIndex: number;
+  dataKey: string;
+  isScrolling?: boolean;
+  parent?: React.ReactNode;
+  rowData: ExpandedRow<T>;
+  rowIndex: number;
 }
 
-export type Status = string
+export type Status = string;
 
 type ParentMetadata = {
-  colSpanKey?: string
-  children?: ChildRow[]
-  status?: string
-}
+  colSpanKey?: string;
+  children?: ChildRow[];
+  status?: string;
+};
 
 type ChildMetadata = {
-  colSpanKey?: string
-  status?: Status
-}
+  colSpanKey?: string;
+  status?: Status;
+};
 
 type IndexedParentMetadata = ParentMetadata & {
-  originalIndex: number
-  isChild: boolean
-  children: IndexedChildRow[]
-}
+  originalIndex: number;
+  isChild: boolean;
+  children: IndexedChildRow[];
+};
 
 type IndexedChildMetadata = ChildMetadata & {
-  originalIndex: number
-  children?: undefined
-  isChild: boolean
-}
+  originalIndex: number;
+  children?: undefined;
+  isChild: boolean;
+};
 
 type ExpandedParentMetadata = IndexedParentMetadata & {
-  preExpandedIndex: number
-  parentIndex?: undefined
-  parentOriginalIndex?: undefined
-}
+  preExpandedIndex: number;
+  parentIndex?: undefined;
+  parentOriginalIndex?: undefined;
+};
 
 type ExpandedChildMetadata = IndexedChildMetadata & {
-  preExpandedIndex?: undefined
-  parentIndex: number
-  parentOriginalIndex: number
-}
+  preExpandedIndex?: undefined;
+  parentIndex: number;
+  parentOriginalIndex: number;
+};
 
 export interface RowData {
-  [key: string]: unknown
+  [key: string]: unknown;
 }
 
 export interface Row<T = RowData> {
-  data: T
+  data: T;
 }
 
 export interface ChildRow<T = RowData> extends Row<T> {
-  metadata?: ChildMetadata
+  metadata?: ChildMetadata;
 }
 
 export interface ParentRow<T = RowData> extends Row<T> {
-  metadata?: ParentMetadata
+  metadata?: ParentMetadata;
 }
 
 export interface IndexedParentRow<T = RowData> extends Row<T> {
-  metadata: IndexedParentMetadata
+  metadata: IndexedParentMetadata;
 }
 
 export interface IndexedChildRow<T = RowData> extends Row<T> {
-  metadata: IndexedChildMetadata
+  metadata: IndexedChildMetadata;
 }
 
 export interface ExpandedParentRow<T = RowData> extends Row<T> {
-  metadata: ExpandedParentMetadata
+  metadata: ExpandedParentMetadata;
 }
 
 export interface ExpandedChildRow<T = RowData> extends Row<T> {
-  metadata: ExpandedChildMetadata
+  metadata: ExpandedChildMetadata;
 }
 
-export type IndexedRow<T = RowData> = IndexedChildRow<T> | IndexedParentRow<T>
-export type ExpandedRow<T = RowData> =
-  | ExpandedParentRow<T>
-  | ExpandedChildRow<T>
+export type IndexedRow<T = RowData> = IndexedChildRow<T> | IndexedParentRow<T>;
+export type ExpandedRow<T = RowData> = ExpandedParentRow<T> | ExpandedChildRow<T>;
 
 export type RowStyles = {
-  [key: string]: string
-}
+  [key: string]: string;
+};
 
 export type ColumnMetadata = {
   [key: string]: {
-    [key: string]: number
-  }
-}
+    [key: string]: number;
+  };
+};
 
 export type ColumnToLabel = {
-  [key: string]: React.ReactNode
-}
+  [key: string]: React.ReactNode;
+};
 
 export type RendererProps<T = RowData> = {
   /** Row including row data and metadata. */
-  row: VirtualRow<T>
+  row: VirtualRow<T>;
   /** Key being rendered. */
-  keyName: keyof T
+  keyName: keyof T;
   /** Whether or not zebra mode is enabled. */
-  zebra: boolean
+  zebra: boolean;
   /** Theme from UCDS. */
-  theme: WithStylesProps['theme']
-}
+  theme: WithStylesProps['theme'];
+};
 
-export type Renderer<T = RowData> = React.ComponentType<RendererProps<T>>
+export type Renderer<T = RowData> = React.ComponentType<RendererProps<T>>;
 
 export type Renderers<T = RowData> = {
-  [key: string]: Renderer<T>
-}
+  [key: string]: Renderer<T>;
+};
 
 export type WidthProperties = {
-  [property: string]: number
-}
+  [property: string]: number;
+};
