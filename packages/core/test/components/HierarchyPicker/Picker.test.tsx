@@ -3,7 +3,7 @@ import Enzyme from 'enzyme'
 import {
   mountWithStyles,
   shallowWithStyles,
-} from '@lorica/uc-design-system-test-utils'
+} from '@usercentric/uc-design-system-test-utils'
 import Picker, {
   Picker as BasePicker,
   PickerProps,

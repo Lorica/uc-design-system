@@ -2,7 +2,7 @@ import React from 'react'
 import Multicomplete, {
   MulticompleteProps,
   Item,
-} from '@lorica/uc-design-system/lib/components/Multicomplete'
+} from '@usercentric/uc-design-system/lib/components/Multicomplete'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toString } from '../../helpers'
 

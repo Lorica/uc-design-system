@@ -1,6 +1,6 @@
 import React from 'react';
 import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types';
-import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose';
+import IconClose from '@usercentric/uc-design-system-icons/lib/interface/IconClose';
 import withStyles, { WithStylesProps } from '../../composers/withStyles';
 import { getErrorMessage } from '../ErrorMessage';
 import IconButton from '../IconButton';
@@ -151,16 +151,16 @@ export class Toast extends React.Component<ToastProps & WithStylesProps> {
             </Spacing>
           </div>
         ) : (
-          <div>
-            {title && (
-              <Text bold inverted>
-                {title}
-              </Text>
-            )}
+            <div>
+              {title && (
+                <Text bold inverted>
+                  {title}
+                </Text>
+              )}
 
-            <Text inverted>{isError ? getErrorMessage(message, true) : message}</Text>
-          </div>
-        )}
+              <Text inverted>{isError ? getErrorMessage(message, true) : message}</Text>
+            </div>
+          )}
 
         <div className={cx(styles.right)}>
           <IconButton inverted onClick={this.handleClosePress}>

@@ -1,11 +1,11 @@
 import React from 'react'
 import useStyles, {
   StyleSheet,
-} from '@lorica/uc-design-system/lib/hooks/useStyles'
-import DirectionalIcon from '@lorica/uc-design-system/lib/components/DirectionalIcon'
-import T from '@lorica/uc-design-system/lib/components/Translate'
-import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
-import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+} from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import DirectionalIcon from '@usercentric/uc-design-system/lib/components/DirectionalIcon'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
 
 const ICON_SIZE = 18
 

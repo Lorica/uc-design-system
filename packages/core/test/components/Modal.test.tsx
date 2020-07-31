@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { mountWithStyles, shallowWithStyles } from '@lorica/uc-design-system-test-utils';
+import { mountWithStyles, shallowWithStyles } from '@usercentric/uc-design-system-test-utils';
 import Modal, { ModalProps } from '../../src/components/Modal';
 import ModalImageLayout from '../../src/components/Modal/private/ImageLayout';
 import ModalInner from '../../src/components/Modal/private/Inner';
@@ -18,7 +18,7 @@ describe('<Modal />', () => {
   function setup(override = {}, isShallow = true) {
     const props: ModalProps = {
       children: 'Modal content',
-      onClose() {},
+      onClose() { },
       title: 'Modal test',
       ...override,
     };
@@ -134,7 +134,7 @@ describe('<Modal />', () => {
     it('adds event listener', () => {
       const eventSpy = jest.spyOn(document, 'addEventListener');
 
-      shallowWithStyles(<ModalInner onClose={() => {}}>Foo</ModalInner>);
+      shallowWithStyles(<ModalInner onClose={() => { }}>Foo</ModalInner>);
 
       expect(eventSpy).toHaveBeenCalledWith('click', expect.any(Function), true);
 
@@ -146,7 +146,7 @@ describe('<Modal />', () => {
     it('removes event listener', () => {
       const eventSpy = jest.spyOn(document, 'removeEventListener');
 
-      const wrapper = shallowWithStyles(<ModalInner onClose={() => {}}>Foo</ModalInner>);
+      const wrapper = shallowWithStyles(<ModalInner onClose={() => { }}>Foo</ModalInner>);
 
       // @ts-ignore
       wrapper.instance().componentWillUnmount();
@@ -227,7 +227,7 @@ describe('<Modal />', () => {
     focused.focus();
 
     const clearTimeoutSpy = jest.spyOn(window, 'clearTimeout');
-    clearTimeoutSpy.mockImplementation(() => {});
+    clearTimeoutSpy.mockImplementation(() => { });
 
     const { wrapper } = setup({}, false /* isShallow */);
 

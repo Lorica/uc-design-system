@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from '@lorica/uc-design-system/lib/components/Button'
+import Button from '@usercentric/uc-design-system/lib/components/Button'
 import LoremIpsum from ':storybook/components/LoremIpsum'
 import Aside from '.'
 

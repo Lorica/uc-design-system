@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ButtonOrLink from '@lorica/uc-design-system/lib/components/private/ButtonOrLink'
+import ButtonOrLink from '@usercentric/uc-design-system/lib/components/private/ButtonOrLink'
 import IconAdd from '../../../../icons/src/interface/IconAdd'
 import SideBarItem from '../../../src/components/SideBar/Item'
 

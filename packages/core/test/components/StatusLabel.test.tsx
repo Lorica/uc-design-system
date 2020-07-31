@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck'
+import IconCheck from '@usercentric/uc-design-system-icons/lib/interface/IconCheck'
 import StatusLabel from '../../src/components/StatusLabel'
 import { STATUSES as BASE_STATUSES } from '../../src/constants'
 

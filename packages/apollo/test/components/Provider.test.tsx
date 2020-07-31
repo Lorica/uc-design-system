@@ -2,7 +2,7 @@ import React from 'react'
 import {
   mountWithStyles,
   WrappingComponent,
-} from '@lorica/uc-design-system-test-utils'
+} from '@usercentric/uc-design-system-test-utils'
 import { ApolloProvider } from 'react-apollo'
 import Apollo from '../../src'
 import Provider from '../../src/components/Provider'

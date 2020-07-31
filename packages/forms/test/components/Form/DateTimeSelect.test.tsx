@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseDateTimeSelect from '@lorica/uc-design-system/lib/components/DateTimeSelect'
+import BaseDateTimeSelect from '@usercentric/uc-design-system/lib/components/DateTimeSelect'
 import DateTimeSelect from '../../../src/components/Form/DateTimeSelect'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -20,7 +20,7 @@ describe('<DateTimeSelect />', () => {
         label="Label"
         name="foo"
         defaultValue={date}
-        validator={() => {}}
+        validator={() => { }}
       />,
       {
         wrappingComponent: WrappingFormComponent,

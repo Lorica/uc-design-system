@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseInput from '@lorica/uc-design-system/lib/components/Input'
+import BaseInput from '@usercentric/uc-design-system/lib/components/Input'
 import Input from '../../../src/components/Form/Input'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -19,7 +19,7 @@ describe('<Input />', () => {
         label="Label"
         name="foo"
         defaultValue="bar"
-        validator={() => {}}
+        validator={() => { }}
       />,
       {
         wrappingComponent: WrappingFormComponent,

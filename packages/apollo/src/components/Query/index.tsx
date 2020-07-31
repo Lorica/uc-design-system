@@ -6,11 +6,11 @@ import {
   OperationVariables,
 } from 'react-apollo'
 import { ApolloError } from 'apollo-client'
-import ErrorMessage from '@lorica/uc-design-system/lib/components/ErrorMessage'
-import Loader from '@lorica/uc-design-system/lib/components/Loader'
+import ErrorMessage from '@usercentric/uc-design-system/lib/components/ErrorMessage'
+import Loader from '@usercentric/uc-design-system/lib/components/Loader'
 import renderElementOrFunction, {
   RenderableProp,
-} from '@lorica/uc-design-system/lib/utils/renderElementOrFunction'
+} from '@usercentric/uc-design-system/lib/utils/renderElementOrFunction'
 
 export type QueryProps<Data, Vars> = Omit<
   QueryComponentOptions<Data, Vars>,
@@ -46,7 +46,7 @@ export type QueryProps<Data, Vars> = Omit<
 export default class Query<
   Data = {},
   Vars = OperationVariables
-> extends React.Component<QueryProps<Data, Vars>> {
+  > extends React.Component<QueryProps<Data, Vars>> {
   static defaultProps = {
     ignoreGraphQLErrors: false,
     notifyOnNetworkStatusChange: false,

@@ -1,5 +1,5 @@
 import React from 'react';
-import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
+import IconCheck from '@usercentric/uc-design-system-icons/lib/interface/IconCheck';
 import useStyles, { StyleSheet } from '../../hooks/useStyles';
 import FormInput, { InputProps } from './FormInput';
 import inputStyleSheet from '../../themes/inputStyleSheet';

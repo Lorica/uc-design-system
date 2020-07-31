@@ -1,5 +1,5 @@
 {
-  "name": "@lorica/uc-design-system-test-utils",
+  "name": "@usercentric/uc-design-system-test-utils",
   "version": "4.0.0",
   "release": "1583350587083",
   "description": "Utilities for local testing.",

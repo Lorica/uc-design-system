@@ -3,7 +3,7 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import { Grid, Table } from 'react-virtualized';
-import { shallowWithStyles, mountWithStyles } from '@lorica/uc-design-system-test-utils';
+import { shallowWithStyles, mountWithStyles } from '@usercentric/uc-design-system-test-utils';
 import DataTable, { ParentRow } from '../../src/components/DataTable';
 import StyledDataTable, {
   DataTable as InnerDataTable,

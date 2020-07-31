@@ -1,5 +1,5 @@
-import ThemeProvider from '@lorica/uc-design-system/lib/providers/ThemeProvider'
-import DirectionProvider from '@lorica/uc-design-system/lib/providers/DirectionProvider'
+import ThemeProvider from '@usercentric/uc-design-system/lib/providers/ThemeProvider'
+import DirectionProvider from '@usercentric/uc-design-system/lib/providers/DirectionProvider'
 import { THEME } from './constants'
 
 export default [

@@ -1,11 +1,11 @@
 import React from 'react'
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
 import Dropdown from '../../src/components/Dropdown'
 
 describe('<Dropdown />', () => {
   it('renders a div with style attributes', () => {
     const wrapper = mountUseStyles(
-      <Dropdown visible onClickOutside={() => {}}>
+      <Dropdown visible onClickOutside={() => { }}>
         Foo
       </Dropdown>
     )
@@ -21,7 +21,7 @@ describe('<Dropdown />', () => {
         left="15px"
         top={15}
         zIndex={1}
-        onClickOutside={() => {}}
+        onClickOutside={() => { }}
       >
         Foo
       </Dropdown>
@@ -33,7 +33,7 @@ describe('<Dropdown />', () => {
   it('sets `onBlur` prop', () => {
     const spy = jest.fn()
     const wrapper = mountUseStyles(
-      <Dropdown visible onBlur={spy} onClickOutside={() => {}}>
+      <Dropdown visible onBlur={spy} onClickOutside={() => { }}>
         Foo
       </Dropdown>
     )
@@ -44,7 +44,7 @@ describe('<Dropdown />', () => {
   it('sets `onFocus` prop', () => {
     const spy = jest.fn()
     const wrapper = mountUseStyles(
-      <Dropdown visible onFocus={spy} onClickOutside={() => {}}>
+      <Dropdown visible onFocus={spy} onClickOutside={() => { }}>
         Foo
       </Dropdown>
     )
@@ -81,7 +81,7 @@ describe('<Dropdown />', () => {
       const eventSpy = jest.spyOn(document, 'addEventListener')
 
       mountUseStyles(
-        <Dropdown visible onClickOutside={() => {}}>
+        <Dropdown visible onClickOutside={() => { }}>
           Foo
         </Dropdown>
       )
@@ -97,7 +97,7 @@ describe('<Dropdown />', () => {
       const eventSpy = jest.spyOn(document, 'addEventListener')
 
       const wrapper = mountUseStyles(
-        <Dropdown onClickOutside={() => {}}>Foo</Dropdown>
+        <Dropdown onClickOutside={() => { }}>Foo</Dropdown>
       )
 
       wrapper.setProps({
@@ -113,7 +113,7 @@ describe('<Dropdown />', () => {
       const eventSpy = jest.spyOn(document, 'removeEventListener')
 
       const wrapper = mountUseStyles(
-        <Dropdown visible onClickOutside={() => {}}>
+        <Dropdown visible onClickOutside={() => { }}>
           Foo
         </Dropdown>
       )
@@ -133,7 +133,7 @@ describe('<Dropdown />', () => {
       const eventSpy = jest.spyOn(document, 'removeEventListener')
 
       const wrapper = mountUseStyles(
-        <Dropdown visible onClickOutside={() => {}}>
+        <Dropdown visible onClickOutside={() => { }}>
           Foo
         </Dropdown>
       )

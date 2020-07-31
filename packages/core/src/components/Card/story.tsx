@@ -1,5 +1,5 @@
 import React from 'react'
-import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
 import LoremIpsum from ':storybook/components/LoremIpsum'
 import ucDesignSystem from ':storybook/images/lunar-logo.png'
 import stars from ':storybook/images/stars.jpg'

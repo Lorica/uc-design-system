@@ -1,8 +1,8 @@
 import React from 'react'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
-import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
-import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
 import withStyles, { WithStylesProps } from '../../composers/withStyles'
 import DirectionalIcon from '../DirectionalIcon'
 import { styleSheetGradientScroller } from './styles'
@@ -29,7 +29,7 @@ export type GradientScrollerState = {
 export class GradientScroller extends React.Component<
   GradientScrollerProps & WithStylesProps,
   GradientScrollerState
-> {
+  > {
   static defaultProps = {
     children: null,
     hideScrollbar: false,
@@ -252,12 +252,12 @@ export class GradientScroller extends React.Component<
               />
             </button>
           ) : (
-            <span
-              className={cx(styles.scrollTrigger)}
-              onMouseEnter={this.handleScrollLeft}
-              onMouseLeave={this.handleScrollStop}
-            />
-          )}
+              <span
+                className={cx(styles.scrollTrigger)}
+                onMouseEnter={this.handleScrollLeft}
+                onMouseLeave={this.handleScrollStop}
+              />
+            )}
         </div>
 
         <div
@@ -284,12 +284,12 @@ export class GradientScroller extends React.Component<
               />
             </button>
           ) : (
-            <span
-              className={cx(styles.scrollTrigger)}
-              onMouseEnter={this.handleScrollRight}
-              onMouseLeave={this.handleScrollStop}
-            />
-          )}
+              <span
+                className={cx(styles.scrollTrigger)}
+                onMouseEnter={this.handleScrollRight}
+                onMouseLeave={this.handleScrollStop}
+              />
+            )}
         </div>
 
         <div

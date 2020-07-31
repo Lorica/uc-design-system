@@ -1,7 +1,7 @@
 import React from 'react'
 import shallowEqual from 'shallowequal'
-import finishHOC from '@lorica/uc-design-system/lib/utils/finishHOC'
-import withBoundary from '@lorica/uc-design-system/lib/composers/withBoundary'
+import finishHOC from '@usercentric/uc-design-system/lib/utils/finishHOC'
+import withBoundary from '@usercentric/uc-design-system/lib/composers/withBoundary'
 import AppContext from '../components/AppContext'
 import { Context } from '../types'
 
@@ -30,7 +30,7 @@ export default function connectToApp(scope: string) /* infer */ {
   ): React.ComponentType<Props> {
     class ConnectToApp extends React.Component<
       Props & ConnectToAppWrapperProps
-    > {
+      > {
       id: string = ''
 
       instanceRef = React.createRef<ConnectedComponent>()

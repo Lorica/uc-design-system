@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Apollo getClient() errors if client not initialized 1`] = `"Apollo has not been initialized. Please call \`Apollo.initialize()\` from \`@lorica/uc-design-system-apollo\`."`;
+exports[`Apollo getClient() errors if client not initialized 1`] = `"Apollo has not been initialized. Please call \`Apollo.initialize()\` from \`@usercentric/uc-design-system-apollo\`."`;

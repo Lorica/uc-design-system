@@ -1,9 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import gql from 'graphql-tag'
-import { WrappingComponent } from '@lorica/uc-design-system-test-utils'
-import Loader from '@lorica/uc-design-system/lib/components/Loader'
-import ErrorMessage from '@lorica/uc-design-system/lib/components/ErrorMessage'
+import { WrappingComponent } from '@usercentric/uc-design-system-test-utils'
+import Loader from '@usercentric/uc-design-system/lib/components/Loader'
+import ErrorMessage from '@usercentric/uc-design-system/lib/components/ErrorMessage'
 import { MockedProvider, MockedResponse, wait } from '@apollo/react-testing'
 import Query from '../../src/components/Query'
 

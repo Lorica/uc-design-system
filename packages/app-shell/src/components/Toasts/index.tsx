@@ -3,9 +3,9 @@
 import React, { useContext } from 'react'
 import useStyles, {
   StyleSheet,
-} from '@lorica/uc-design-system/lib/hooks/useStyles'
-import Toast from '@lorica/uc-design-system/lib/components/Toast'
-import { Z_INDEX_TOAST } from '@lorica/uc-design-system/lib/constants'
+} from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import Toast from '@usercentric/uc-design-system/lib/components/Toast'
+import { Z_INDEX_TOAST } from '@usercentric/uc-design-system/lib/constants'
 import PopToast from './PopToast'
 import AppContext from '../AppContext'
 

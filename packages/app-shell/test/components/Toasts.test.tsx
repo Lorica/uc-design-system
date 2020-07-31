@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'rut-dom'
-import { Toast } from '@lorica/uc-design-system/lib/components/Toast'
+import { Toast } from '@usercentric/uc-design-system/lib/components/Toast'
 import Toasts from '../../src/components/Toasts'
 import AppContext, { defaultContext } from '../../src/components/AppContext'
 

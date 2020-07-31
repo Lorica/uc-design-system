@@ -1,4 +1,4 @@
-import Core from '@lorica/uc-design-system'
+import Core from '@usercentric/uc-design-system'
 import { ApolloClient, ApolloClientOptions } from 'apollo-client'
 import { InMemoryCache, InMemoryCacheConfig } from 'apollo-cache-inmemory'
 import { ApolloLink } from 'apollo-link'
@@ -68,7 +68,7 @@ class Apollo {
     if (__DEV__) {
       if (!this.client) {
         throw new Error(
-          'Apollo has not been initialized. Please call `Apollo.initialize()` from `@lorica/uc-design-system-apollo`.'
+          'Apollo has not been initialized. Please call `Apollo.initialize()` from `@usercentric/uc-design-system-apollo`.'
         )
       }
     }

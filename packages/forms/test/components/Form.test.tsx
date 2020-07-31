@@ -1,7 +1,7 @@
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import { FORM_ERROR } from 'final-form'
-import FormErrorMessage from '@lorica/uc-design-system/lib/components/FormErrorMessage'
+import FormErrorMessage from '@usercentric/uc-design-system/lib/components/FormErrorMessage'
 import Form, { FormProps } from '../../src/components/Form'
 
 describe('<Form />', () => {
@@ -39,7 +39,7 @@ describe('<Form />', () => {
       </Form>
     )
 
-    ;(wrapper.instance() as Form).form.initialize = spy
+      ; (wrapper.instance() as Form).form.initialize = spy
 
     wrapper.setProps({
       initialValues: { foo: 'qux' },
@@ -97,27 +97,27 @@ describe('<Form />', () => {
         {
           name: 'foo',
           defaultValue: 'foo',
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
 
       instance.registerField(
         {
           name: 'bar',
           defaultValue: 'bar',
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
 
       instance.registerField(
         {
           name: 'baz',
           defaultValue: 'baz',
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
     })
 
@@ -158,7 +158,7 @@ describe('<Form />', () => {
   describe('handleSubmit()', () => {
     it('returns promise from `onSubmit`', () => {
       // @ts-ignore Allow private access
-      const promise = instance.handleSubmit({}, {}, () => {})
+      const promise = instance.handleSubmit({}, {}, () => { })
 
       expect(promise).toBeInstanceOf(Promise)
     })
@@ -170,7 +170,7 @@ describe('<Form />', () => {
       })
 
       // @ts-ignore Allow private access
-      const promise = instance.handleSubmit({}, {}, () => {})
+      const promise = instance.handleSubmit({}, {}, () => { })
 
       expect(promise).toBeInstanceOf(Promise)
     })
@@ -190,14 +190,14 @@ describe('<Form />', () => {
         .then(() => {
           expect(spy).toHaveBeenCalled()
         })
-        .catch(() => {})
+        .catch(() => { })
 
       expect(promise).toBeInstanceOf(Promise)
     })
 
     it('passes data through', async () => {
       // @ts-ignore Allow private access
-      const data = await instance.handleSubmit({ foo: 'bar' }, {}, () => {})
+      const data = await instance.handleSubmit({ foo: 'bar' }, {}, () => { })
 
       expect(data).toEqual({ foo: 'bar' })
     })
@@ -231,7 +231,7 @@ describe('<Form />', () => {
 
       try {
         // @ts-ignore Allow private access
-        await instance.handleSubmit({ foo: 'bar' }, {}, () => {})
+        await instance.handleSubmit({ foo: 'bar' }, {}, () => { })
       } catch (error_) {
         expect(error_).toBe(error)
       }
@@ -266,7 +266,7 @@ describe('<Form />', () => {
     it('calls submit on form', () => {
       const spy = jest.spyOn(instance.form, 'submit')
 
-      wrapper.find('form').simulate('submit', { preventDefault() {} })
+      wrapper.find('form').simulate('submit', { preventDefault() { } })
 
       expect(spy).toHaveBeenCalled()
     })
@@ -279,9 +279,9 @@ describe('<Form />', () => {
           name: 'foo',
           defaultValue: 'foo',
           parse: String,
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
 
       instance.registerField(
@@ -293,7 +293,7 @@ describe('<Form />', () => {
             throw new Error('Failure')
           },
         },
-        () => {}
+        () => { }
       )
 
       instance.registerField(
@@ -301,9 +301,9 @@ describe('<Form />', () => {
           name: 'baz',
           defaultValue: 'baz',
           parse: Boolean,
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
     })
 
@@ -382,9 +382,9 @@ describe('<Form />', () => {
           name: 'foo',
           defaultValue: 'foo',
           parse: String,
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
 
       instance.registerField(
@@ -392,9 +392,9 @@ describe('<Form />', () => {
           name: 'bar',
           defaultValue: 'bar',
           parse: Number,
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
 
       instance.registerField(
@@ -402,9 +402,9 @@ describe('<Form />', () => {
           name: 'baz',
           defaultValue: 'baz',
           parse: Boolean,
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
     })
 
@@ -457,7 +457,7 @@ describe('<Form />', () => {
   describe('registerField()', () => {
     it('registers a field in the form', () => {
       const spy = jest.fn()
-      const func = () => {}
+      const func = () => { }
 
       instance.form.registerField = spy
       instance.registerField(
@@ -466,7 +466,7 @@ describe('<Form />', () => {
           isEqual: () => true,
           validateFields: ['foo'],
           subscriptions: ['dirty'],
-          validator() {},
+          validator() { },
         },
         func
       )
@@ -483,7 +483,7 @@ describe('<Form />', () => {
 
     it('registers a field in the component', () => {
       const spy = jest.fn()
-      const func = () => {}
+      const func = () => { }
 
       instance.form.registerField = spy
       instance.registerField(
@@ -492,7 +492,7 @@ describe('<Form />', () => {
           isEqual: () => true,
           validateFields: ['foo'],
           subscriptions: ['dirty'],
-          validator() {},
+          validator() { },
         },
         func
       )
@@ -502,7 +502,7 @@ describe('<Form />', () => {
 
     it('unregisters a field', () => {
       const spy = jest.fn()
-      const func = () => {}
+      const func = () => { }
 
       instance.form.registerField = () => spy
 
@@ -512,7 +512,7 @@ describe('<Form />', () => {
           isEqual: () => true,
           validateFields: ['foo'],
           subscriptions: ['dirty'],
-          validator() {},
+          validator() { },
         },
         func
       )
@@ -529,7 +529,7 @@ describe('<Form />', () => {
       const spy = jest.fn()
 
       instance.form.mutators.setFieldConfig = spy
-      instance.registerField({ name: 'foo', validator() {} }, () => {})
+      instance.registerField({ name: 'foo', validator() { } }, () => { })
 
       expect(spy).toHaveBeenCalledWith(
         'foo',
@@ -540,9 +540,9 @@ describe('<Form />', () => {
     it('only calls mutator once for consecutive registers', () => {
       const spy = jest.spyOn(instance.form.mutators, 'setFieldConfig')
 
-      instance.registerField({ name: 'foo', validator() {} }, () => {})
-      instance.registerField({ name: 'foo', validator() {} }, () => {})
-      instance.registerField({ name: 'foo', validator() {} }, () => {})
+      instance.registerField({ name: 'foo', validator() { } }, () => { })
+      instance.registerField({ name: 'foo', validator() { } }, () => { })
+      instance.registerField({ name: 'foo', validator() { } }, () => { })
 
       expect(spy).toHaveBeenCalledTimes(1)
     })
@@ -554,7 +554,7 @@ describe('<Form />', () => {
         name: 'foo',
         defaultValue: '123',
         validateDefaultValue: true,
-        validator() {},
+        validator() { },
       }
       const fields = { foo: { data: {} } }
       const formState = { initialValues: {}, values: {} }
@@ -585,7 +585,7 @@ describe('<Form />', () => {
       const config = {
         name: 'foo',
         validateDefaultValue: true,
-        validator() {},
+        validator() { },
       }
       const fields = { foo: { data: {} } }
       const formState = {
@@ -640,7 +640,7 @@ describe('<Form />', () => {
             throw new Error('Failed')
           },
         },
-        () => {}
+        () => { }
       )
 
       expect(await instance.validate({ foo: 123 })).toEqual({ foo: 'Failed' })
@@ -651,9 +651,9 @@ describe('<Form />', () => {
         {
           name: 'foo',
           defaultValue: 'foo',
-          validator: () => {},
+          validator: () => { },
         },
-        () => {}
+        () => { }
       )
 
       expect(await instance.validate({ foo: 123 })).toEqual({})
@@ -664,9 +664,9 @@ describe('<Form />', () => {
         {
           name: 'foo',
           defaultValue: 'foo',
-          validator() {},
+          validator() { },
         },
-        () => {}
+        () => { }
       )
 
       expect(await instance.validate({ foo: 123 })).toEqual({})
@@ -681,7 +681,7 @@ describe('<Form />', () => {
             throw new Error('Failed')
           },
         },
-        () => {}
+        () => { }
       )
 
       expect(await instance.validate({ bar: 123 })).toEqual({})
@@ -696,7 +696,7 @@ describe('<Form />', () => {
             throw new Error('Failed')
           },
         },
-        () => {}
+        () => { }
       )
 
       expect(await instance.validate({ foo: { bar: { baz: 123 } } })).toEqual({
@@ -713,7 +713,7 @@ describe('<Form />', () => {
           defaultValue: 'foo',
           validator: () => Promise.resolve(),
         },
-        () => {}
+        () => { }
       )
 
       const promise = instance
@@ -739,7 +739,7 @@ describe('<Form />', () => {
           defaultValue: 'foo',
           validator: () => Promise.reject(new Error(FAILED)),
         },
-        () => {}
+        () => { }
       )
 
       const promise = instance

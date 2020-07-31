@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'rut-dom'
-import Dropdown from '@lorica/uc-design-system/lib/components/Dropdown'
+import Dropdown from '@usercentric/uc-design-system/lib/components/Dropdown'
 import Menu, { MenuProps } from '../../src/components/Menu'
 import { Wrapper } from '../mocks'
 

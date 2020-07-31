@@ -1,6 +1,6 @@
 import React from 'react'
 import Enzyme from 'enzyme'
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
 import DateTimeSelect, {
   DateTimeSelect as BaseDateTimeSelect,
   DateTimeSelectProps,
@@ -14,7 +14,7 @@ describe('<DateTimeSelect />', () => {
     name: 'foo',
     label: 'Label',
     value: '',
-    onChange() {},
+    onChange() { },
     locale: 'en',
     timezone: 'UTC',
   }

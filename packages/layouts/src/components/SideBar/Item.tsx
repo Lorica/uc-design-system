@@ -1,12 +1,12 @@
 import React from 'react'
 import useStyles, {
   StyleSheet,
-} from '@lorica/uc-design-system/lib/hooks/useStyles'
+} from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import ButtonOrLink, {
   ButtonOrLinkTypes,
-} from '@lorica/uc-design-system/lib/components/private/ButtonOrLink'
-import iconComponent from '@lorica/uc-design-system/lib/prop-types/iconComponent'
-import Text from '@lorica/uc-design-system/lib/components/Text'
+} from '@usercentric/uc-design-system/lib/components/private/ButtonOrLink'
+import iconComponent from '@usercentric/uc-design-system/lib/prop-types/iconComponent'
+import Text from '@usercentric/uc-design-system/lib/components/Text'
 import { styleSheetItem } from './styles'
 
 export type SideBarItemProps = {

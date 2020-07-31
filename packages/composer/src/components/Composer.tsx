@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useReducer } from 'react'
-import useStyles from '@lorica/uc-design-system/lib/hooks/useStyles'
-import FormErrorMessage from '@lorica/uc-design-system/lib/components/FormErrorMessage'
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import FormErrorMessage from '@usercentric/uc-design-system/lib/components/FormErrorMessage'
 import { v4 as uuid } from 'uuid'
 import ComposerContext from '../contexts/ComposerContext'
 import Footer from './Footer'

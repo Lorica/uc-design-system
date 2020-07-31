@@ -1,5 +1,5 @@
 {
-  "name": "@lorica/uc-design-system-metrics",
+  "name": "@usercentric/uc-design-system-metrics",
   "version": "4.0.0",
   "release": "1583350587083",
   "description": "Metrics handling for UCDS.",
@@ -18,10 +18,10 @@
     "build:esm": "BUILD=esm babel --root-mode upward --extensions .ts,.tsx ./src --out-dir ./esm"
   },
   "peerDependencies": {
-    "@lorica/uc-design-system": "^3.0.0"
+    "@usercentric/uc-design-system": "^3.0.0"
   },
   "devDependencies": {
-    "@lorica/uc-design-system-test-utils": "^4.0.0"
+    "@usercentric/uc-design-system-test-utils": "^4.0.0"
   },
   "dependencies": {
     "@sentry/browser": "^5.15.0",

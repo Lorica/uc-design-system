@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState, useEffect } from 'react'
-import T from '@lorica/uc-design-system/lib/components/Translate'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
 import Menu from './Menu'
 import SelectList, { Selection } from './SelectList'
 import ComposerContext from '../contexts/ComposerContext'

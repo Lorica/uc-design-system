@@ -1,5 +1,5 @@
 import React from 'react'
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
 import UrlFactory from '../../../src/components/Interweave/factories/Url'
 import Link from '../../../src/components/Link'
 

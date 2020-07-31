@@ -2,7 +2,7 @@ import React from 'react'
 import Autocomplete, {
   AutocompleteProps,
   Item,
-} from '@lorica/uc-design-system/lib/components/Autocomplete'
+} from '@usercentric/uc-design-system/lib/components/Autocomplete'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toString } from '../../helpers'
 

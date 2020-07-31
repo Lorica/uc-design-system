@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import FormActions from '@lorica/uc-design-system/lib/components/FormActions'
+import FormActions from '@usercentric/uc-design-system/lib/components/FormActions'
 import FeedbackForm from '../../src/components/FeedbackForm'
 import Form from '../../src/components/Form'
 import TextArea from '../../src/components/Form/TextArea'

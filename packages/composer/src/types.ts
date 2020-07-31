@@ -1,9 +1,9 @@
 import React from 'react'
-import { WithIconWrapperProps } from '@lorica/uc-design-system-icons/lib/withIcon'
+import { WithIconWrapperProps } from '@usercentric/uc-design-system-icons/lib/withIcon'
 import {
   ProofreadRuleMatch,
   ProofreaderParams,
-} from '@lorica/uc-design-system/lib/components/Proofreader/types'
+} from '@usercentric/uc-design-system/lib/components/Proofreader/types'
 
 export type WritingMode = 'message' | 'email' | 'private-note'
 

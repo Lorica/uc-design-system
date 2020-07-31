@@ -1,6 +1,6 @@
 import React from 'react'
-import IconChevronLeft from '@lorica/uc-design-system-icons/lib/interface/IconChevronLeft'
-import IconChevronRight from '@lorica/uc-design-system-icons/lib/interface/IconChevronRight'
+import IconChevronLeft from '@usercentric/uc-design-system-icons/lib/interface/IconChevronLeft'
+import IconChevronRight from '@usercentric/uc-design-system-icons/lib/interface/IconChevronRight'
 import useStyles, { StyleSheet } from '../../hooks/useStyles'
 import ButtonOrLink from '../private/ButtonOrLink'
 import DirectionalIcon from '../DirectionalIcon'

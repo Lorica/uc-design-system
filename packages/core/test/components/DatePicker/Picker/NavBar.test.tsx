@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
 // @ts-ignore
 import { LocaleUtils } from 'react-day-picker/lib/src/LocaleUtils'
 import DirectionalIcon from '../../../../src/components/DirectionalIcon'
@@ -48,9 +48,9 @@ describe('<DatePicker />', () => {
     showPreviousButton: true,
     showNextButton: true,
     showResetButton: false,
-    onNextClick: () => {},
-    onPreviousClick: () => {},
-    onResetClick: () => {},
+    onNextClick: () => { },
+    onPreviousClick: () => { },
+    onResetClick: () => { },
   }
 
   it('renders next & previous icons', () => {

@@ -1,4 +1,4 @@
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils'
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils'
 import transformer from '../../../src/components/Interweave/factories/transformer'
 import Link from '../../../src/components/Link'
 

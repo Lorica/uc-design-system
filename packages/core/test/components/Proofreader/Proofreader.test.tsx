@@ -1,6 +1,6 @@
 import React from 'react'
 import Enzyme from 'enzyme'
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
 import Proofreader, {
   ProofreaderProps,
   ProofreaderState,
@@ -504,7 +504,7 @@ describe('<Proofreader />', () => {
           scrollTop: 100,
           // @ts-ignore
           style: {},
-          setSelectionRange: () => {},
+          setSelectionRange: () => { },
         },
       }
     })

@@ -1,5 +1,5 @@
 import React from 'react'
-import Text from '@lorica/uc-design-system/src/components/Text'
+import Text from '@usercentric/uc-design-system/src/components/Text'
 
 function daysBreakdown(totalDays) {
   const years = Math.floor(totalDays / 365)

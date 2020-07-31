@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { WrappingComponent } from '@lorica/uc-design-system-test-utils'
+import { WrappingComponent } from '@usercentric/uc-design-system-test-utils'
 import Loadable from '../../src/components/Loadable'
 import Loader from '../../src/components/Loader'
 import ErrorMessage from '../../src/components/ErrorMessage'

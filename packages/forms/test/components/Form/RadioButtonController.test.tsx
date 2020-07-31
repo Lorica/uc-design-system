@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseRadioButtonController from '@lorica/uc-design-system/lib/components/RadioButtonController'
+import BaseRadioButtonController from '@usercentric/uc-design-system/lib/components/RadioButtonController'
 import RadioButtonController from '../../../src/components/Form/RadioButtonController'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -21,7 +21,7 @@ describe('<RadioButtonController />', () => {
         label="Label"
         name="foo"
         defaultValue="bar"
-        validator={() => {}}
+        validator={() => { }}
       >
         {(RB) => (
           <div>

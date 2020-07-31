@@ -1,6 +1,6 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils';
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils';
 import DatePicker from '../../src/components/DatePicker';
 
 describe('<DatePicker />', () => {

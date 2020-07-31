@@ -1,6 +1,6 @@
 import React, { useContext, useCallback, useRef, useEffect } from 'react'
 import debounce from 'lodash/debounce'
-import T from '@lorica/uc-design-system/lib/components/Translate'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
 import Hotkey from './Hotkey'
 import ComposerContext from '../contexts/ComposerContext'
 import {

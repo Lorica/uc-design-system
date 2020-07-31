@@ -1,6 +1,6 @@
 import React from 'react';
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils';
-import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils';
+import IconCheck from '@usercentric/uc-design-system-icons/lib/interface/IconCheck';
 import ButtonOrLink from '../../src/components/private/ButtonOrLink';
 import Button from '../../src/components/Button';
 import Loader from '../../src/components/Loader';
@@ -78,7 +78,7 @@ describe('<Button />', () => {
 
     wrapper.simulate('mouseup', {
       currentTarget: {
-        blur() {},
+        blur() { },
       },
     });
 

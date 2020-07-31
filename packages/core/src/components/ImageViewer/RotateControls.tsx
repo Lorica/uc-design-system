@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
-import IconRotateLeft from '@lorica/uc-design-system-icons/lib/interface/IconRotateLeft'
-import IconRotateRight from '@lorica/uc-design-system-icons/lib/interface/IconRotateRight'
+import IconRotateLeft from '@usercentric/uc-design-system-icons/lib/interface/IconRotateLeft'
+import IconRotateRight from '@usercentric/uc-design-system-icons/lib/interface/IconRotateRight'
 import IconButton from '../IconButton'
 import ButtonGroup from '../ButtonGroup'
 import T from '../Translate'

@@ -48,7 +48,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Fix build based on rebase. ([b8e18fc](https://github.com/lorica/uc-design-system/commit/b8e18fc))
 
-**Note:** Version bump only for package @lorica/uc-design-system-composer
+**Note:** Version bump only for package @usercentric/uc-design-system-composer
 
 
 

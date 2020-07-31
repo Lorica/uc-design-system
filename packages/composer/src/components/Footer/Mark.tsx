@@ -1,5 +1,5 @@
 import React from 'react'
-import useStyles from '@lorica/uc-design-system/lib/hooks/useStyles'
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import { footerMarkStyleSheet } from '../../styles'
 
 export type MarkProps = {

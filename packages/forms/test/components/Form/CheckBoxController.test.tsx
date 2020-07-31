@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseCheckBoxController from '@lorica/uc-design-system/lib/components/CheckBoxController'
+import BaseCheckBoxController from '@usercentric/uc-design-system/lib/components/CheckBoxController'
 import CheckBoxController from '../../../src/components/Form/CheckBoxController'
 import { toString } from '../../../src/helpers'
 import { Context } from '../../../src/types'
@@ -21,7 +21,7 @@ describe('<CheckBoxController />', () => {
         label="Label"
         name="foo"
         defaultValue={['bar']}
-        validator={() => {}}
+        validator={() => { }}
       >
         {(CB) => (
           <div>
@@ -55,7 +55,7 @@ describe('<CheckBoxController />', () => {
         label="Label"
         name="foo"
         defaultValue={['bar']}
-        validator={() => {}}
+        validator={() => { }}
       >
         {(CB) => (
           <div>

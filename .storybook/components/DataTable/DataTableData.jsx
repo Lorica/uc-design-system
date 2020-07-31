@@ -1,4 +1,4 @@
-import { STATUS_OPTIONS } from '@lorica/uc-design-system/src/components/DataTable/constants'
+import { STATUS_OPTIONS } from '@usercentric/uc-design-system/src/components/DataTable/constants'
 
 export function generateRandomData() {
   return new Array(50).fill(0).map((x, i) => ({

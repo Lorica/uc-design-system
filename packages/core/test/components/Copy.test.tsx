@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import copy from 'copy-to-clipboard';
-import IconCopy from '@lorica/uc-design-system-icons/lib/interface/IconCopy';
+import IconCopy from '@usercentric/uc-design-system-icons/lib/interface/IconCopy';
 import Copy from '../../src/components/Copy';
 import IconButton from '../../src/components/IconButton';
 import { Tooltip } from '../../src/components/Tooltip';
@@ -45,7 +45,7 @@ describe('<Copy />', () => {
     const wrapper = shallow(<Copy text="foo" onCopy={spy} />);
 
     wrapper.find(IconButton).simulate('click', {
-      preventDefault() {},
+      preventDefault() { },
     });
 
     expect(spy).toHaveBeenCalledWith('foo', true);

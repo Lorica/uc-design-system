@@ -1,5 +1,5 @@
 import React from 'react';
-import IconCloseAlt from '@lorica/uc-design-system-icons/lib/interface/IconCloseAlt';
+import IconCloseAlt from '@usercentric/uc-design-system-icons/lib/interface/IconCloseAlt';
 import Chip from '../../Chip';
 
 export type MulticompleteChipProps = {

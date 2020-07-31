@@ -3,7 +3,7 @@
 A root component that should wrap your entire application.
 
 ```bash static
-yarn add @lorica/uc-design-system-app-shell
+yarn add @usercentric/uc-design-system-app-shell
 ```
 
 ## Usage
@@ -14,7 +14,7 @@ root component in the application tree (excluding HMR and other wrappers/provide
 ```jsx static
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AppShell from '@lorica/uc-design-system-app-shell'
+import AppShell from '@usercentric/uc-design-system-app-shell'
 import App from '../local/components/App'
 
 ReactDOM.render(

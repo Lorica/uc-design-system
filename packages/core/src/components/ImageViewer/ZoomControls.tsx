@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import IconAdd from '@lorica/uc-design-system-icons/lib/interface/IconAdd';
-import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemove';
+import IconAdd from '@usercentric/uc-design-system-icons/lib/interface/IconAdd';
+import IconRemove from '@usercentric/uc-design-system-icons/lib/interface/IconRemove';
 import Button from '../Button';
 import IconButton from '../IconButton';
 import ButtonGroup from '../ButtonGroup';

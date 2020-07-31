@@ -1,7 +1,7 @@
 import React from 'react'
 import useStyles, {
   StyleSheet,
-} from '@lorica/uc-design-system/lib/hooks/useStyles'
+} from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import { styleSheetLayout } from './styles'
 
 export type LayoutProps = {

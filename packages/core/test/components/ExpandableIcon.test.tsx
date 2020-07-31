@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { DirectionContext } from 'aesthetic-react'
-import IconChevronDown from '@lorica/uc-design-system-icons/lib/interface/IconChevronDown'
+import IconChevronDown from '@usercentric/uc-design-system-icons/lib/interface/IconChevronDown'
 import ExpandableIcon from '../../src/components/ExpandableIcon'
 import DirectionalIcon from '../../src/components/DirectionalIcon'
 

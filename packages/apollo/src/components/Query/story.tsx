@@ -1,6 +1,6 @@
 import React from 'react'
-import Shimmer from '@lorica/uc-design-system/lib/components/Shimmer'
-import ErrorMessage from '@lorica/uc-design-system/lib/components/ErrorMessage'
+import Shimmer from '@usercentric/uc-design-system/lib/components/Shimmer'
+import ErrorMessage from '@usercentric/uc-design-system/lib/components/ErrorMessage'
 import { MockedProvider } from '@apollo/react-testing'
 import gql from 'graphql-tag'
 import Query from '.'

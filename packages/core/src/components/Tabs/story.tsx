@@ -1,6 +1,6 @@
 import React from 'react';
-import IconAdd from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt';
-import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemoveAlt';
+import IconAdd from '@usercentric/uc-design-system-icons/lib/interface/IconAddAlt';
+import IconRemove from '@usercentric/uc-design-system-icons/lib/interface/IconRemoveAlt';
 import LoremIpsum from ':storybook/components/LoremIpsum';
 import Text from '../Text';
 import Tabs, { Tab } from '.';

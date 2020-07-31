@@ -1,7 +1,7 @@
 import React from 'react'
 import RadioButtonController, {
   RadioButtonControllerProps,
-} from '@lorica/uc-design-system/lib/components/RadioButtonController'
+} from '@usercentric/uc-design-system/lib/components/RadioButtonController'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 import { toString } from '../../helpers'
 

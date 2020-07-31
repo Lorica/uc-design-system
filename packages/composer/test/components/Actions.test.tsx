@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'rut-dom'
-import IconPhone from '@lorica/uc-design-system-icons/lib/general/IconPhone'
-import { Item } from '@lorica/uc-design-system/lib/components/Menu'
+import IconPhone from '@usercentric/uc-design-system-icons/lib/general/IconPhone'
+import { Item } from '@usercentric/uc-design-system/lib/components/Menu'
 import Actions, { ActionsProps } from '../../src/components/Actions'
 import Menu from '../../src/components/Menu'
 import { Wrapper } from '../mocks'
@@ -19,14 +19,14 @@ describe('<Actions />', () => {
       label: 'Call',
       group: 'Do…',
       icon: IconPhone,
-      onRun() {},
+      onRun() { },
     },
     {
       condition: (ctx) => ctx.data.value === '',
       label: 'Write',
       group: 'Do…',
       icon: IconPhone,
-      onRun() {},
+      onRun() { },
     },
   ]
 

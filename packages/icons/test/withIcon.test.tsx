@@ -1,5 +1,5 @@
 import React from 'react'
-import { WrappedComponent } from '@lorica/uc-design-system-test-utils'
+import { WrappedComponent } from '@usercentric/uc-design-system-test-utils'
 import { shallow } from 'enzyme'
 import withIcon from '../src/withIcon'
 

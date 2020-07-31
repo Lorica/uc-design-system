@@ -1,10 +1,10 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import IconUpload from '@lorica/uc-design-system-icons/lib/interface/IconUpload'
-import IconAudio from '@lorica/uc-design-system-icons/lib/interface/IconAudio'
-import IconPhoto from '@lorica/uc-design-system-icons/lib/interface/IconPhoto'
-import IconVideo from '@lorica/uc-design-system-icons/lib/interface/IconVideo'
-import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose'
+import IconUpload from '@usercentric/uc-design-system-icons/lib/interface/IconUpload'
+import IconAudio from '@usercentric/uc-design-system-icons/lib/interface/IconAudio'
+import IconPhoto from '@usercentric/uc-design-system-icons/lib/interface/IconPhoto'
+import IconVideo from '@usercentric/uc-design-system-icons/lib/interface/IconVideo'
+import IconClose from '@usercentric/uc-design-system-icons/lib/interface/IconClose'
 import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types'
 import FormInput, { InputProps } from '../private/FormInput'
 import FormField, { FormFieldProps, partitionFieldProps } from '../FormField'
@@ -56,7 +56,7 @@ export type FileInputState = {
 export default class FileInput extends React.Component<
   FileInputProps,
   FileInputState
-> {
+  > {
   static propTypes = {
     onlyAudio: acceptProp,
     onlyImages: acceptProp,

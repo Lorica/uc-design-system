@@ -1,6 +1,6 @@
 import React from 'react'
-import IconStarAlt from '@lorica/uc-design-system-icons/lib/interface/IconStarAlt'
-import T from '@lorica/uc-design-system/lib/components/Translate'
+import IconStarAlt from '@usercentric/uc-design-system-icons/lib/interface/IconStarAlt'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
 import ToggleButton from '../Menu/ToggleButton'
 import { MENU_EMOJIS } from '../../constants'
 

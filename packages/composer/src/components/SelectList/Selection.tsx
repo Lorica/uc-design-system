@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import useStyles from '@lorica/uc-design-system/lib/hooks/useStyles'
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import useScrollIntoView from '../../hooks/useScrollIntoView'
 import { selectListItemStyleSheet } from '../../styles'
 

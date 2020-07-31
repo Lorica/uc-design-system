@@ -1,13 +1,13 @@
 import React from 'react';
-import { mountUseStyles } from '@lorica/uc-design-system-test-utils';
-import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck';
+import { mountUseStyles } from '@usercentric/uc-design-system-test-utils';
+import IconCheck from '@usercentric/uc-design-system-icons/lib/interface/IconCheck';
 import Tab from '../../src/components/Tabs/Tab';
 import TrackingBoundary from '../../src/components/TrackingBoundary';
 import ButtonOrLink from '../../src/components/private/ButtonOrLink';
 
 describe('<Tab/>', () => {
   it('renders a button', () => {
-    const wrapper = mountUseStyles(<Tab keyName="default" label="Tab" onClick={() => {}} />);
+    const wrapper = mountUseStyles(<Tab keyName="default" label="Tab" onClick={() => { }} />);
 
     expect(wrapper.find('span').at(0).prop('className')).toBe('tab');
   });
@@ -15,7 +15,7 @@ describe('<Tab/>', () => {
   it('renders a before icon', () => {
     const icon = <IconCheck decorative />;
     const wrapper = mountUseStyles(
-      <Tab disabled keyName="default" label="Tab" beforeIcon={icon} onClick={() => {}} />,
+      <Tab disabled keyName="default" label="Tab" beforeIcon={icon} onClick={() => { }} />,
     );
 
     expect(wrapper.find(ButtonOrLink).prop('beforeIcon')).toBe(icon);
@@ -24,7 +24,7 @@ describe('<Tab/>', () => {
   it('renders a after icon', () => {
     const icon = <IconCheck decorative />;
     const wrapper = mountUseStyles(
-      <Tab disabled keyName="default" label="Tab" afterIcon={icon} onClick={() => {}} />,
+      <Tab disabled keyName="default" label="Tab" afterIcon={icon} onClick={() => { }} />,
     );
 
     expect(wrapper.find(ButtonOrLink).prop('afterIcon')).toBe(icon);
@@ -32,7 +32,7 @@ describe('<Tab/>', () => {
 
   it('renders disabled', () => {
     const wrapper = mountUseStyles(
-      <Tab disabled keyName="default" label="Tab" onClick={() => {}} />,
+      <Tab disabled keyName="default" label="Tab" onClick={() => { }} />,
     );
 
     expect(wrapper.find('span').at(0).prop('className')).toMatch('tab_disabled');
@@ -40,7 +40,7 @@ describe('<Tab/>', () => {
 
   it('renders secondary', () => {
     const wrapper = mountUseStyles(
-      <Tab secondary keyName="default" label="Tab" onClick={() => {}} />,
+      <Tab secondary keyName="default" label="Tab" onClick={() => { }} />,
     );
 
     const className = wrapper.find('span').at(0).prop('className');
@@ -50,7 +50,7 @@ describe('<Tab/>', () => {
 
   it('renders selected', () => {
     const wrapper = mountUseStyles(
-      <Tab selected keyName="default" label="Tab" onClick={() => {}} />,
+      <Tab selected keyName="default" label="Tab" onClick={() => { }} />,
     );
 
     expect(wrapper.find('span').at(0).prop('className')).toMatch('tab_selected');
@@ -58,7 +58,7 @@ describe('<Tab/>', () => {
 
   it('renders stretched', () => {
     const wrapper = mountUseStyles(
-      <Tab stretched keyName="default" label="Tab" onClick={() => {}} />,
+      <Tab stretched keyName="default" label="Tab" onClick={() => { }} />,
     );
 
     expect(wrapper.find('span').at(0).prop('className')).toMatch('tab_stretched');
@@ -67,7 +67,7 @@ describe('<Tab/>', () => {
   it('doesnt render children', () => {
     const child = <div>Foo</div>;
     const wrapper = mountUseStyles(
-      <Tab keyName="default" label="Tab" onClick={() => {}}>
+      <Tab keyName="default" label="Tab" onClick={() => { }}>
         {child}
       </Tab>,
     );
@@ -87,7 +87,7 @@ describe('<Tab/>', () => {
   it('triggers `onSelected` when selected', () => {
     const spy = jest.fn();
     const wrapper = mountUseStyles(
-      <Tab keyName="foo" label="Tab" onClick={() => {}} onSelected={spy} />,
+      <Tab keyName="foo" label="Tab" onClick={() => { }} onSelected={spy} />,
     );
 
     expect(spy).not.toHaveBeenCalled();

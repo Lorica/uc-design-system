@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import React from 'react'
-import IconAddAlt from '@lorica/uc-design-system-icons/lib/interface/IconAddAlt'
+import IconAddAlt from '@usercentric/uc-design-system-icons/lib/interface/IconAddAlt'
 import Link from '.'
 
 export default {

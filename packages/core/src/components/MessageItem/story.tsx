@@ -1,5 +1,5 @@
 import React from 'react'
-import IconBolt from '@lorica/uc-design-system-icons/lib/general/IconBolt'
+import IconBolt from '@usercentric/uc-design-system-icons/lib/general/IconBolt'
 import LoremIpsum from ':storybook/components/LoremIpsum'
 import ucDesignSystem from ':storybook/images/lunar-logo.png'
 import Text from '../Text'

@@ -68,7 +68,7 @@ function IconGrid(props: {
               const icon = Icon.displayName!
 
               action(icon)(
-                `import ${icon} from '@lorica/uc-design-system-icons/lib/${category}/${icon}';`
+                `import ${icon} from '@usercentric/uc-design-system-icons/lib/${category}/${icon}';`
               )
             }}
           >
@@ -94,7 +94,7 @@ function IconGrid(props: {
 class IconList extends React.Component<
   {},
   { color: string; flipX: boolean; flipY: boolean; size: string }
-> {
+  > {
   state = {
     color: '',
     flipX: false,

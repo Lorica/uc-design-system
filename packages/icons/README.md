@@ -3,7 +3,7 @@
 Collection of Material design UI icons.
 
 ```bash static
-yarn add @lorica/uc-design-system-icons
+yarn add @usercentric/uc-design-system-icons
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ Icons are grouped into the following categories: `general` (common objects and s
 "Icon" and can be imported from their category folder.
 
 ```js static
-import IconCheck from '@lorica/uc-design-system-icons/lib/interface/IconCheck'
+import IconCheck from '@usercentric/uc-design-system-icons/lib/interface/IconCheck'
 ```
 
 Icon components support the following props:

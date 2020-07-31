@@ -1,4 +1,4 @@
-import { StyleSheet } from '@lorica/uc-design-system/lib/hooks/useStyles'
+import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles'
 
 export const styleSheetSplitLayout: StyleSheet = () => ({
   wrapper: {

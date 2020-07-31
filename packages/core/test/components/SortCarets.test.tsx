@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import IconCaretUp from '@lorica/uc-design-system-icons/lib/interface/IconCaretUp'
-import IconCaretDown from '@lorica/uc-design-system-icons/lib/interface/IconCaretDown'
+import IconCaretUp from '@usercentric/uc-design-system-icons/lib/interface/IconCaretUp'
+import IconCaretDown from '@usercentric/uc-design-system-icons/lib/interface/IconCaretDown'
 import SortCarets from '../../src/components/SortCarets'
 
 describe('<SortCarets />', () => {

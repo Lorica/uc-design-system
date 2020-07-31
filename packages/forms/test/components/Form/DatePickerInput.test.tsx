@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import BaseDatePickerInput from '@lorica/uc-design-system/lib/components/DatePickerInput'
+import BaseDatePickerInput from '@usercentric/uc-design-system/lib/components/DatePickerInput'
 import DatePickerInput from '../../../src/components/Form/DatePickerInput'
 import { Context } from '../../../src/types'
 import { WrappingFormComponent, createFormContext } from '../../utils'
@@ -14,7 +14,7 @@ describe('<DatePickerInput />', () => {
 
   it('connects to the form', () => {
     const wrapper = mount(
-      <DatePickerInput label="Label" name="foo" validator={() => {}} />,
+      <DatePickerInput label="Label" name="foo" validator={() => { }} />,
       {
         wrappingComponent: WrappingFormComponent,
         wrappingComponentProps: { context },

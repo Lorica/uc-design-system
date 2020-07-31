@@ -24,22 +24,22 @@ module.exports = function autocompleteProps(
 ): string | null | undefined | void {
   const mod = new Codemod(fileInfo, api)
 
-  // Rename `onLoadOptions` to `onLoadItems`
-  ;[
-    '@lorica/uc-design-system/lib/components/Autocomplete',
-    '@lorica/uc-design-system/lib/components/Multicomplete',
-    '@lorica/uc-design-system-forms/lib/components/Form/Autocomplete',
-    '@lorica/uc-design-system-forms/lib/components/Form/Multicomplete',
-  ].forEach((importPath) => {
-    const compName = mod.getComponentNameFromDefaultImport(importPath)
+    // Rename `onLoadOptions` to `onLoadItems`
+    ;[
+      '@usercentric/uc-design-system/lib/components/Autocomplete',
+      '@usercentric/uc-design-system/lib/components/Multicomplete',
+      '@usercentric/uc-design-system-forms/lib/components/Form/Autocomplete',
+      '@usercentric/uc-design-system-forms/lib/components/Form/Multicomplete',
+    ].forEach((importPath) => {
+      const compName = mod.getComponentNameFromDefaultImport(importPath)
 
-    if (compName) {
-      renameOnLoadProp(mod, compName)
-    }
-  })
+      if (compName) {
+        renameOnLoadProp(mod, compName)
+      }
+    })
 
   mod
-    .getComponentNameFromNamedImports('@lorica/uc-design-system-forms', [
+    .getComponentNameFromNamedImports('@usercentric/uc-design-system-forms', [
       'Autocomplete',
       'Multicomplete',
     ])

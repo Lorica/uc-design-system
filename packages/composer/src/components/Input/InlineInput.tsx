@@ -1,16 +1,16 @@
 import React, { useState, useContext } from 'react'
-import T from '@lorica/uc-design-system/lib/components/Translate'
-import IconCreate from '@lorica/uc-design-system-icons/lib/interface/IconCreate'
-import IconCloseAlt from '@lorica/uc-design-system-icons/lib/interface/IconCloseAlt'
-import Input from '@lorica/uc-design-system/lib/components/Input'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
+import IconCreate from '@usercentric/uc-design-system-icons/lib/interface/IconCreate'
+import IconCloseAlt from '@usercentric/uc-design-system-icons/lib/interface/IconCloseAlt'
+import Input from '@usercentric/uc-design-system/lib/components/Input'
 import {
   Prefix,
   Suffix,
-} from '@lorica/uc-design-system/lib/components/FormField'
-import Row from '@lorica/uc-design-system/lib/components/Row'
-import Text from '@lorica/uc-design-system/lib/components/Text'
-import Spacing from '@lorica/uc-design-system/lib/components/Spacing'
-import IconButton from '@lorica/uc-design-system/lib/components/IconButton'
+} from '@usercentric/uc-design-system/lib/components/FormField'
+import Row from '@usercentric/uc-design-system/lib/components/Row'
+import Text from '@usercentric/uc-design-system/lib/components/Text'
+import Spacing from '@usercentric/uc-design-system/lib/components/Spacing'
+import IconButton from '@usercentric/uc-design-system/lib/components/IconButton'
 import ComposerContext from '../../contexts/ComposerContext'
 
 export type InlineInputProps = {
@@ -39,8 +39,8 @@ export default function InlineInput({ label, name, value }: InlineInputProps) {
       {editing ? (
         <IconCloseAlt accessibilityLabel={editLabel} size="1.25em" />
       ) : (
-        <IconCreate accessibilityLabel={editLabel} size="1em" />
-      )}
+          <IconCreate accessibilityLabel={editLabel} size="1em" />
+        )}
     </IconButton>
   )
 

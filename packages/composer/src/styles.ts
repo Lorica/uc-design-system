@@ -1,5 +1,5 @@
-import { StyleSheet } from '@lorica/uc-design-system/lib/hooks/useStyles'
-import baseInputStyleSheet from '@lorica/uc-design-system/lib/themes/inputStyleSheet'
+import { StyleSheet } from '@usercentric/uc-design-system/lib/hooks/useStyles'
+import baseInputStyleSheet from '@usercentric/uc-design-system/lib/themes/inputStyleSheet'
 
 export const composerStyleSheet: StyleSheet = ({ ui, unit }) => ({
   composer: {

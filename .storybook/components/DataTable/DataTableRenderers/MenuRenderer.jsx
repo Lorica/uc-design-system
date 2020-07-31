@@ -1,7 +1,7 @@
 import React from 'react'
-import Menu, { Item } from '@lorica/uc-design-system/src/components/Menu'
-import Button from '@lorica/uc-design-system/src/components/Button'
-import IconMenuDots from '@lorica/uc-design-system-icons/lib/interface/IconMenuDots'
+import Menu, { Item } from '@usercentric/uc-design-system/src/components/Menu'
+import Button from '@usercentric/uc-design-system/src/components/Button'
+import IconMenuDots from '@usercentric/uc-design-system-icons/lib/interface/IconMenuDots'
 
 export class InnerMenuRenderer extends React.Component {
   state = {

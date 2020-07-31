@@ -1,5 +1,5 @@
 import React from 'react';
-import IconClose from '@lorica/uc-design-system-icons/lib/interface/IconClose';
+import IconClose from '@usercentric/uc-design-system-icons/lib/interface/IconClose';
 import Row from '../../Row';
 import Text from '../../Text';
 import Title from '../../Title';

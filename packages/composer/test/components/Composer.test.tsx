@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { render, renderAndWait, DomElement, mockFetch } from 'rut-dom';
-import Interweave from '@lorica/uc-design-system/lib/components/Interweave';
-import ErrorMenu from '@lorica/uc-design-system/lib/components/Proofreader/ErrorMenu';
-import Mark from '@lorica/uc-design-system/lib/components/Proofreader/Mark';
+import Interweave from '@usercentric/uc-design-system/lib/components/Interweave';
+import ErrorMenu from '@usercentric/uc-design-system/lib/components/Proofreader/ErrorMenu';
+import Mark from '@usercentric/uc-design-system/lib/components/Proofreader/Mark';
 import Composer, { ComposerProps } from '../../src/components/Composer';
 import Hotkey from '../../src/components/Hotkey';
 import Shortcuts from '../../src/components/Shortcuts';
@@ -32,8 +32,8 @@ jest.mock('lodash/debounce', () => (cb: Function) => {
 
 describe('<Composer />', () => {
   const props = {
-    onChange() {},
-    onSubmit() {},
+    onChange() { },
+    onSubmit() { },
   };
 
   beforeEach(() => {
@@ -55,7 +55,7 @@ describe('<Composer />', () => {
       },
     ]);
 
-    jest.spyOn(window, 'alert').mockImplementation(() => {});
+    jest.spyOn(window, 'alert').mockImplementation(() => { });
   });
 
   it('renders', () => {
@@ -311,7 +311,7 @@ describe('<Composer />', () => {
           click() {
             root.findOne('button', { id: 'composer-submit-button' }).dispatch('onClick');
           },
-          focus() {},
+          focus() { },
         }),
       );
 

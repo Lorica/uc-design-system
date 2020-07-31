@@ -1,7 +1,7 @@
 import React from 'react';
-import IconUser from '@lorica/uc-design-system-icons/lib/general/IconUser';
-import IconSettings from '@lorica/uc-design-system-icons/lib/interface/IconSettings';
-import IconKey from '@lorica/uc-design-system-icons/lib/interface/IconKey';
+import IconUser from '@usercentric/uc-design-system-icons/lib/general/IconUser';
+import IconSettings from '@usercentric/uc-design-system-icons/lib/interface/IconSettings';
+import IconKey from '@usercentric/uc-design-system-icons/lib/interface/IconKey';
 import Text from '../Text';
 import Menu, { Item, Separator, Row } from '.';
 

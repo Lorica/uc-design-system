@@ -1,5 +1,5 @@
 import React from 'react'
-import finishHOC from '@lorica/uc-design-system/lib/utils/finishHOC'
+import finishHOC from '@usercentric/uc-design-system/lib/utils/finishHOC'
 import useFormField, {
   Options as BaseOptions,
   FieldProps,

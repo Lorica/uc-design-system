@@ -1,7 +1,7 @@
-import T from '@lorica/uc-design-system/lib/components/Translate'
-import IconEmail from '@lorica/uc-design-system-icons/lib/general/IconEmail'
-import IconChatGroup from '@lorica/uc-design-system-icons/lib/interface/IconChatGroup'
-import IconLock from '@lorica/uc-design-system-icons/lib/interface/IconLock'
+import T from '@usercentric/uc-design-system/lib/components/Translate'
+import IconEmail from '@usercentric/uc-design-system-icons/lib/general/IconEmail'
+import IconChatGroup from '@usercentric/uc-design-system-icons/lib/interface/IconChatGroup'
+import IconLock from '@usercentric/uc-design-system-icons/lib/interface/IconLock'
 import { MODE_MESSAGE, MODE_EMAIL, MODE_PRIVATE_NOTE } from '../constants'
 import { ActionConfig, GroupedActions } from '../types'
 

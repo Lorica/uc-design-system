@@ -1,5 +1,5 @@
 import React from 'react'
-import IconStar from '@lorica/uc-design-system-icons/lib/interface/IconStar'
+import IconStar from '@usercentric/uc-design-system-icons/lib/interface/IconStar'
 import getData, {
   generateRandomData,
 } from ':storybook/components/DataTable/DataTableData'
@@ -217,7 +217,7 @@ const dynamicRowData = [
 class ForceUpdateDynamicSize extends React.Component<
   {},
   { extraCount: number }
-> {
+  > {
   state = {
     extraCount: 0,
   }
@@ -253,15 +253,15 @@ class ForceUpdateDynamicSize extends React.Component<
     name: ({
       row: { rowData },
     }: RendererProps<{ name: string; jobTitle: string }>) => (
-      <>
-        {rowData.data.name}{' '}
-        {this.state.extraCount > 0 && (
-          <span style={{ color: '#6f44ff' }}>
-            {new Array(this.state.extraCount).fill('more more').join(' ')}
-          </span>
-        )}
-      </>
-    ),
+        <>
+          {rowData.data.name}{' '}
+          {this.state.extraCount > 0 && (
+            <span style={{ color: '#6f44ff' }}>
+              {new Array(this.state.extraCount).fill('more more').join(' ')}
+            </span>
+          )}
+        </>
+      ),
   }
 
   render() {
@@ -532,7 +532,7 @@ export function ATableWithDynamicSortKey() {
         columnToLabel={{
           mix: `Mix: Sorting on selection: "${sortByKey} ${
             sortByKey === 'banana' ? '🍌' : '🍇'
-          }"`,
+            }"`,
           banana: 'Sort by 🍌',
           grape: 'Sort by 🍇',
         }}

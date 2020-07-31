@@ -1,7 +1,7 @@
 import React from 'react'
 import Input, {
   InputProps,
-} from '@lorica/uc-design-system/lib/components/Input'
+} from '@usercentric/uc-design-system/lib/components/Input'
 import { toString } from '../../helpers'
 import useFormField, { FieldProps } from '../../hooks/useFormField'
 

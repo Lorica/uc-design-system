@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import useStyles from '@lorica/uc-design-system/lib/hooks/useStyles'
+import useStyles from '@usercentric/uc-design-system/lib/hooks/useStyles'
 import { SYMBOLS } from '../../helpers/hotkeys'
 import ComposerContext from '../../contexts/ComposerContext'
 import HotkeyContext from '../../contexts/HotkeyContext'

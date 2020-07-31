@@ -1,14 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import IconRecord from '@lorica/uc-design-system-icons/lib/interface/IconRecord'
-import IconRemove from '@lorica/uc-design-system-icons/lib/interface/IconRemove'
+import IconRecord from '@usercentric/uc-design-system-icons/lib/interface/IconRecord'
+import IconRemove from '@usercentric/uc-design-system-icons/lib/interface/IconRemove'
 import BaseRadioButton from '../../../src/components/private/BaseRadioButton'
 import FormInput from '../../../src/components/private/FormInput'
 
 describe('<BaseRadioButton />', () => {
   it('renders an input with the correct field', () => {
     const wrapper = shallow(
-      <BaseRadioButton id="foo" name="foo" onChange={() => {}} />
+      <BaseRadioButton id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.is('label')).toBe(true)
@@ -19,7 +19,7 @@ describe('<BaseRadioButton />', () => {
 
   it('renders invalid', () => {
     const wrapper = shallow(
-      <BaseRadioButton invalid id="foo" name="foo" onChange={() => {}} />
+      <BaseRadioButton invalid id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(FormInput).prop('invalid')).toBe(true)
@@ -27,7 +27,7 @@ describe('<BaseRadioButton />', () => {
 
   it('renders disabled', () => {
     const wrapper = shallow(
-      <BaseRadioButton disabled id="foo" name="foo" onChange={() => {}} />
+      <BaseRadioButton disabled id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(FormInput).prop('disabled')).toBe(true)
@@ -35,7 +35,7 @@ describe('<BaseRadioButton />', () => {
 
   it('displays a bullet when checked', () => {
     const wrapper = shallow(
-      <BaseRadioButton id="foo" name="foo" onChange={() => {}} />
+      <BaseRadioButton id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(IconRecord)).toHaveLength(0)
@@ -49,7 +49,7 @@ describe('<BaseRadioButton />', () => {
 
   it('displays a dash when indeterminate', () => {
     const wrapper = shallow(
-      <BaseRadioButton id="foo" name="foo" onChange={() => {}} />
+      <BaseRadioButton id="foo" name="foo" onChange={() => { }} />
     )
 
     expect(wrapper.find(IconRemove)).toHaveLength(0)
@@ -81,7 +81,7 @@ describe('<BaseRadioButton />', () => {
   it('renders in button mode', () => {
     const child = <div>Child</div>
     const wrapper = shallow(
-      <BaseRadioButton button id="foo" name="foo" onChange={() => {}}>
+      <BaseRadioButton button id="foo" name="foo" onChange={() => { }}>
         {child}
       </BaseRadioButton>
     )

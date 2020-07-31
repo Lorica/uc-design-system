@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import IconUpload from '@lorica/uc-design-system-icons/lib/interface/IconUpload'
-import IconAudio from '@lorica/uc-design-system-icons/lib/interface/IconAudio'
-import IconPhoto from '@lorica/uc-design-system-icons/lib/interface/IconPhoto'
-import IconVideo from '@lorica/uc-design-system-icons/lib/interface/IconVideo'
+import IconUpload from '@usercentric/uc-design-system-icons/lib/interface/IconUpload'
+import IconAudio from '@usercentric/uc-design-system-icons/lib/interface/IconAudio'
+import IconPhoto from '@usercentric/uc-design-system-icons/lib/interface/IconPhoto'
+import IconVideo from '@usercentric/uc-design-system-icons/lib/interface/IconVideo'
 import FileInput from '../../src/components/FileInput'
 import FormField from '../../src/components/FormField'
 import FormInput from '../../src/components/private/FormInput'
@@ -15,7 +15,7 @@ describe('<FileInput />', () => {
   const props = {
     name: 'foo',
     label: 'Label',
-    onChange() {},
+    onChange() { },
   }
 
   it('renders a field and input', () => {

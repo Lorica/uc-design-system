@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallowWithStyles } from '@lorica/uc-design-system-test-utils'
+import { shallowWithStyles } from '@usercentric/uc-design-system-test-utils'
 import Toast, { Toast as BaseToast } from '../../src/components/Toast'
 import IconButton from '../../src/components/IconButton'
 import Button from '../../src/components/Button'
@@ -57,7 +57,7 @@ describe('<Toast />', () => {
 
     expect(wrapper.state('visible')).toBe(false)
 
-    ;(wrapper.instance() as BaseToast).showToast()
+      ; (wrapper.instance() as BaseToast).showToast()
 
     expect(wrapper.state('visible')).toBe(true)
     expect(spy).toHaveBeenCalled()

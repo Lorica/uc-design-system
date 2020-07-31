@@ -1,10 +1,10 @@
-export default function getImportPath (filePath, baseName) {
+export default function getImportPath(filePath, baseName) {
   const indexParts = filePath.match(/^packages\/([\w-]+)\/src\/index\.tsx?#(\w+)$/i);
 
   if (indexParts) {
     const [, packageName, compName] = indexParts;
 
-    return `import ${compName} from '@lorica/${packageName}';`;
+    return `import ${compName} from '@usercentric/${packageName}';`;
   }
 
   const parts = filePath.match(/^packages\/([\w-]+)\/src\/components\/(\w+)(\/\w+)?\.tsx#(\w+)$/i);
@@ -20,20 +20,20 @@ export default function getImportPath (filePath, baseName) {
   // Composer
   if (packageName === 'uc-design-system-composer') {
     if (compName === 'Composer') {
-      return `import ${compName} from '@lorica/${packageName}'`;
+      return `import ${compName} from '@usercentric/${packageName}'`;
     }
 
-    return `import { ${compName || childName} } from '@lorica/${packageName}'`;
+    return `import { ${compName || childName} } from '@usercentric/${packageName}'`;
   }
 
   // Forms
   if (compName === 'Form') {
-    return `import ${compName} from '@lorica/${packageName}'`;
+    return `import ${compName} from '@usercentric/${packageName}'`;
   }
 
   if (!childName || childName === 'index') {
-    return `import ${compName} from '@lorica/${packageName}/lib/components/${compName}'`;
+    return `import ${compName} from '@usercentric/${packageName}/lib/components/${compName}'`;
   }
 
-  return `import { ${childName} } from '@lorica/${packageName}/lib/components/${compName}'`;
+  return `import { ${childName} } from '@usercentric/${packageName}/lib/components/${compName}'`;
 }

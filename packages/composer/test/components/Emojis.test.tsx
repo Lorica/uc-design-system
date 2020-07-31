@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderAndWait, mockFetch } from 'rut-dom'
-import EmojiRestrictedPicker from '@lorica/uc-design-system/lib/components/EmojiRestrictedPicker'
+import EmojiRestrictedPicker from '@usercentric/uc-design-system/lib/components/EmojiRestrictedPicker'
 import Emojis, { EmojisProps } from '../../src/components/Emojis'
 import Menu from '../../src/components/Menu'
 import { Wrapper } from '../mocks'
