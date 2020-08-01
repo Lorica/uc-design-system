@@ -41,6 +41,8 @@ jobs:
         skip_cleanup: true
         on:
           branch: master
+      after_deploy:
+        - npx chromatic -d ./storybook-static
     - name: NPM
       script: skip
       node_js: '12'
