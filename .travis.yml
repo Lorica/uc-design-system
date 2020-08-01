@@ -42,7 +42,7 @@ jobs:
         on:
           branch: master
       after_deploy:
-        - npx chromatic --storybook-build-dir ./storybook-static
+        - npx chromatic -- --storybook-build-dir ./storybook-static
     - name: NPM
       script: skip
       node_js: '12'
