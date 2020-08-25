@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "@usercentric/uc-design-system",
   "version": "4.1.1",
-=======
-  "name": "@airbnb/lunar",
-  "version": "3.25.0",
->>>>>>> d45fefc4d35f0055cb2baac869e1e4a9d1f395bc
   "release": "1583350587083",
   "description": "React toolkit and design language for Airbnb open source and internal projects.",
   "license": "MIT",
