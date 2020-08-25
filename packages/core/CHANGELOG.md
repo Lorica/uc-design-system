@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.0 - 2020-08-25
+
+#### 🚀 Updates
+
+- **[Card]** Adding two props 'noShadow' and 'selected' for Card (#396) ([a57ae8e](https://github.com/lorica/uc-design-system/commit/a57ae8e)), closes [#396](https://github.com/lorica/uc-design-system/issues/396)
+- **[Link]** Add `truncated` prop (#397) ([29abe18](https://github.com/lorica/uc-design-system/commit/29abe18)), closes [#397](https://github.com/lorica/uc-design-system/issues/397)
+
+**Note:** Version bump only for package @usercentric/uc-design-system
+
+
+
+
+
 ### 4.1.1 - 2020-08-01
 
 **Note:** Version bump only for package @usercentric/uc-design-system
