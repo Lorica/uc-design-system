@@ -1,1 +1,38 @@
-{"apollo":{"esm":10986,"lib":14319},"app-shell":{"esm":13066,"lib":20052},"composer":{"esm":69462,"lib":103020},"core":{"esm":582495,"lib":727972},"forms":{"esm":37999,"lib":49947},"icons":{"esm":156355,"lib":205626},"layouts":{"esm":15544,"lib":21016},"metrics":{"esm":5467,"lib":7729},"test-utils":{"esm":4279,"lib":5937}}
+{
+  "apollo": {
+    "esm": 10986,
+    "lib": 14319
+  },
+  "app-shell": {
+    "esm": 13066,
+    "lib": 20052
+  },
+  "composer": {
+    "esm": 69462,
+    "lib": 103020
+  },
+  "core": {
+    "esm": 582495,
+    "lib": 727972
+  },
+  "forms": {
+    "esm": 37999,
+    "lib": 49947
+  },
+  "icons": {
+    "esm": 156355,
+    "lib": 205626
+  },
+  "layouts": {
+    "esm": 15544,
+    "lib": 21016
+  },
+  "metrics": {
+    "esm": 5467,
+    "lib": 7729
+  },
+  "test-utils": {
+    "esm": 4279,
+    "lib": 5937
+  }
+}

@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @usercentric/uc-design-system
 
-
-
-
-
 ## 4.1.0 - 2020-07-31
 
 #### 🚀 Updates
