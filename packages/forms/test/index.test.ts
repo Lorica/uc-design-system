@@ -20,14 +20,6 @@ describe('forms', () => {
       'Switch',
       'TextArea',
       'ToggleButtonController',
-      'IsEqual',
-      'FormState',
-      'FieldState',
-      'FieldSubscriber',
-      'FieldSubscription',
-      'FieldValidator',
-      'Unsubscribe',
-      'Mutators',
     ]);
   });
 });
