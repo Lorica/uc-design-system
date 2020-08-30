@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {
+import type {
   IsEqual,
   FormState,
   FieldState,
@@ -9,9 +9,9 @@ import {
   FieldValidator,
   Unsubscribe,
 } from 'final-form';
-import { Mutators } from 'final-form-arrays';
+import type { Mutators } from 'final-form-arrays';
 
-export {
+export type {
   IsEqual,
   FormState,
   FieldState,
