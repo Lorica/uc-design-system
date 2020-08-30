@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 4.1.1 - 2020-08-30
+
+#### 🐞 Fixes
+
+- **[types]** re-export types with import type/export type ([48c51a0](https://github.com/lorica/uc-design-system/commit/48c51a0))
+
+#### 🛠 Internals
+
+- **[forms]** remove types from test since these are exported with export type now ([0cc87ef](https://github.com/lorica/uc-design-system/commit/0cc87ef))
+
+**Note:** Version bump only for package @usercentric/uc-design-system-forms
+
+
+
+
+
 ## 4.1.0 - 2020-07-31
 
 #### 🚀 Updates
