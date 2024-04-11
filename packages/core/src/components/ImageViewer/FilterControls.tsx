@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import IconTune from '@airbnb/lunar-icons/lib/interface/IconTune';
+import IconTune from '@usercentric/uc-design-system-icons/lib/interface/IconTune';
 import ButtonGroup from '../ButtonGroup';
 import Card, { Content } from '../Card';
 import Dropdown from '../Dropdown';

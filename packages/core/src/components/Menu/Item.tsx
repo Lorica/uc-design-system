@@ -31,6 +31,8 @@ export type MenuItemProps = {
   spacious?: boolean;
   /** A sub-menu to display on hover. */
   submenu?: React.ReactNode;
+  /** Direction to display submenu */
+  submenuDirection?: 'left' | 'right';
   /** Tab index for the current menu. */
   tabIndex?: number;
   /** Tip to display after the item. */
@@ -54,6 +56,7 @@ function MenuItem({
   role = 'menuitem',
   spacious,
   submenu,
+  submenuDirection = 'right',
   tabIndex = -1,
   tip,
   trackingName,
@@ -117,7 +120,11 @@ function MenuItem({
         {children}
       </ButtonOrLink>
 
-      {showSubmenu && <div className={cx(styles.submenu)}>{submenu}</div>}
+      {showSubmenu && (
+        <div className={submenuDirection === 'left' ? cx(styles.submenu_left) : cx(styles.submenu)}>
+          {submenu}
+        </div>
+      )}
     </li>
   );
 }

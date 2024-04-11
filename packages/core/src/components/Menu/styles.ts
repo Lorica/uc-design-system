@@ -91,6 +91,12 @@ export const styleSheetItem: StyleSheet = ({ color, font, pattern, unit, transit
     top: -1,
     left: '99%',
   },
+
+  submenu_left: {
+    position: 'absolute',
+    top: -1,
+    right: '100%'
+  }
 });
 
 export const styleSheetRow: StyleSheet = ({ unit }) => ({
