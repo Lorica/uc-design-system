@@ -129,3 +129,44 @@ export function withNestedSubMenus() {
 withNestedSubMenus.story = {
   name: 'With nested sub-menus.',
 };
+
+export function withSubmenuDirection() {
+  return (
+    <Menu accessibilityLabel="Menu">
+      <Item>A</Item>
+      <Item
+        submenuDirection="left"
+        submenu={
+          <Menu accessibilityLabel="B menu">
+            <Item tip="Ctrl + A">{'B > 1'}</Item>
+            <Item tip="Cmd + S">{'B > 2'}</Item>
+            <Item
+              submenu={
+                <Menu accessibilityLabel="B > 3 menu">
+                  <Item>{'B > 3 > 1'}</Item>
+                </Menu>
+              }
+            >
+              {'B > 3'}
+            </Item>
+          </Menu>
+        }
+      >
+        B
+      </Item>
+      <Item
+        submenu={
+          <Menu accessibilityLabel="C menu">
+            <Item>{'C > 1'}</Item>
+          </Menu>
+        }
+      >
+        C
+      </Item>
+    </Menu>
+  );
+}
+
+withSubmenuDirection.story = {
+  name: 'With submenu expanding direction'
+}

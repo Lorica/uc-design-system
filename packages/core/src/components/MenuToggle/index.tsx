@@ -7,7 +7,7 @@ import IconButton from '../IconButton';
 import ExpandableIcon from '../ExpandableIcon';
 import Dropdown, { DropdownProps } from '../Dropdown';
 import Menu, { Item, Separator, MenuProps } from '../Menu';
-import { styleSheetMenuToggle } from './styles';
+import { styleSheetMenu, styleSheetMenuToggle } from './styles';
 import { MenuItemProps } from '../Menu/Item';
 
 export type MenuToggleProps = {
@@ -149,7 +149,7 @@ export class MenuToggle extends React.Component<
       dropdownProps = { right: 0 },
       inverted,
       large,
-      menuProps,
+      menuProps = {},
       muted,
       small,
       styles,
@@ -210,6 +210,7 @@ export class MenuToggle extends React.Component<
                 minWidth={250}
                 maxHeight={300}
                 accessibilityLabel={accessibilityLabel}
+                styleSheet={styleSheetMenu}
                 {...menuProps}
               >
                 {closeOnClick

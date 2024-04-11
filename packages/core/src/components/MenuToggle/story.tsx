@@ -1,5 +1,6 @@
 import React from 'react';
 import IconMenuDots from '@usercentric/uc-design-system-icons/lib/interface/IconMenuDots';
+import Menu from '../Menu';
 import MenuToggle, { Item } from '.';
 import Emoji from '../Emoji';
 
@@ -114,6 +115,68 @@ export function asLeftAlign() {
 asLeftAlign.story = {
   name: 'As left align.',
 };
+
+export function withSubmenu() {
+  return (
+    <MenuToggle accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+      <Item
+        submenu={
+          <Menu accessibilityLabel="B menu">
+            <Item tip="Ctrl + A">{'B > 1'}</Item>
+            <Item tip="Cmd + S">{'B > 2'}</Item>
+            <Item
+              submenu={
+                <Menu accessibilityLabel="B > 3 menu">
+                  <Item>{'B > 3 > 1'}</Item>
+                </Menu>
+              }
+            >
+              {'B > 3'}
+            </Item>
+          </Menu>
+        }
+      >
+        B
+      </Item>
+    </MenuToggle>
+  );
+}
+
+withSubmenu.story = {
+  name: 'With submenu'
+}
+
+export function withSubmenuLeft() {
+  return (
+    <MenuToggle accessibilityLabel="Actions" toggleLabel="Actions" zIndex={10}>
+      <Item
+        submenuDirection="left"
+        submenu={
+          <Menu accessibilityLabel="B menu">
+            <Item tip="Ctrl + A">{'B > 1'}</Item>
+            <Item tip="Cmd + S">{'B > 2'}</Item>
+            <Item
+              submenuDirection="left"
+              submenu={
+                <Menu accessibilityLabel="B > 3 menu">
+                  <Item>{'B > 3 > 1'}</Item>
+                </Menu>
+              }
+            >
+              {'B > 3'}
+            </Item>
+          </Menu>
+        }
+      >
+        B
+      </Item>
+    </MenuToggle>
+  );
+}
+
+withSubmenuLeft.story = {
+  name: 'With submenu expanding left'
+}
 
 export function withMaxHeight() {
   return (

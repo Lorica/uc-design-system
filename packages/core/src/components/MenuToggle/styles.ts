@@ -20,6 +20,7 @@ export const styleSheetMenuToggle: StyleSheet = ({ pattern, unit, transition }) 
 
   menu: {
     marginTop: unit,
+    position: 'relative',
   },
 
   controls: {
@@ -29,5 +30,36 @@ export const styleSheetMenuToggle: StyleSheet = ({ pattern, unit, transition }) 
 
   customToggle: {
     ...pattern.resetButton,
+  },
+});
+
+export const styleSheetMenu: StyleSheet = ({ color, ui, pattern, unit }) => ({
+  menu: {
+    ...pattern.box,
+    margin: 0,
+    padding: `${unit}px 0`,
+    backgroundColor: color.accent.bg,
+    listStyle: 'none',
+
+    '@selectors': {
+      '> li': {
+        position: 'initial',
+      },
+
+      // These are jank. Better way?
+      '> li:first-child > *': {
+        borderTopLeftRadius: ui.borderRadius,
+        borderTopRightRadius: ui.borderRadius,
+      },
+
+      '> li:last-child > *': {
+        borderBottomLeftRadius: ui.borderRadius,
+        borderBottomRightRadius: ui.borderRadius,
+      },
+    },
+  },
+
+  menu_scrollable: {
+    overflowY: 'auto',
   },
 });
