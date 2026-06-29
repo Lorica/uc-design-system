@@ -116,7 +116,14 @@ export class Tooltip extends React.Component<TooltipProps & WithStylesProps, Too
     this.mounted = true;
 
     this.rafHandle = requestAnimationFrame(() => {
-      const targetRect = document.body.getBoundingClientRect();
+      // Seed from the trigger (container) rect, not document.body. The body rect
+      // has the full viewport width, which makes `bestPosition`'s centered
+      // `marginLeft` (-width/2 + targetWidth/2) a large positive value and
+      // teleports the popup far to the right on the frame it first renders.
+      const { current } = this.containerRef;
+      const targetRect = current
+        ? current.getBoundingClientRect()
+        : document.body.getBoundingClientRect();
 
       // use a second rAF in case setState causes layout thrashing
       this.rafHandle = requestAnimationFrame(() => {

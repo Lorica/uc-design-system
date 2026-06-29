@@ -1,6 +1,6 @@
 {
   "name": "@usercentric/uc-design-system",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "release": "1583350587083",
   "description": "React toolkit and design language for Airbnb open source and internal projects.",
   "license": "MIT",
@@ -8,6 +8,10 @@
   "types": "./lib/index.d.ts",
   "module": "./esm/index.js",
   "sideEffects": false,
+  "files": [
+    "esm",
+    "lib"
+  ],
   "repository": "https://github.com/lorica/uc-design-system/tree/master/packages/core",
   "publishConfig": {
     "access": "public"

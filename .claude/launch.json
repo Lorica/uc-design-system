@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "storybook",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["scripts/sb-node24.sh"],
+      "port": 6006,
+      "autoPort": true
+    },
+    {
+      "name": "react18-host",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["../ucds-react18-host/run-node24.sh"],
+      "port": 5180,
+      "autoPort": true
+    }
+  ]
+}
