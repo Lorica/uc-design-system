@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "storybook",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["scripts/sb-node24.sh"],
+      "port": 6006,
+      "autoPort": true
+    }
+  ]
+}
