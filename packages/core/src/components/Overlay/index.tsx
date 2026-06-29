@@ -43,28 +43,53 @@ export default class Overlay extends React.PureComponent<OverlayProps, OverlaySt
 
   scrollers: ArrayOfScrollables = [];
 
-  componentDidUpdate() {
-    const { current } = this.ref;
+  componentDidMount() {
+    // Measure on mount as well as on update. React 18's automatic batching can
+    // collapse the post-mount re-render that previously triggered the first
+    // `componentDidUpdate`, so the overlay never measured, `targetRectReady`
+    // stayed false, and the popup (`open && targetRectReady`) never rendered.
+    this.measurePosition();
 
-    /* istanbul ignore next: refs are hard */
-    if (current) {
-      this.rafHandle = requestAnimationFrame(() => {
-        // getBoundingClientRect casues a reflow
-        const { x, y } = current.getBoundingClientRect() as DOMRect;
-
-        if (x !== this.state.x || y !== this.state.y) {
-          this.rafHandle = requestAnimationFrame(() => {
-            this.setState({ x, y, targetRectReady: true });
-          });
-        }
-      });
+    if (this.props.open && this.props.noBackground) {
+      this.addScrollListeners();
     }
+  }
+
+  componentDidUpdate() {
+    this.measurePosition();
 
     this.removeScrollListeners();
 
     if (this.props.open && this.props.noBackground) {
       this.addScrollListeners();
     }
+  }
+
+  private measurePosition() {
+    const { current } = this.ref;
+
+    /* istanbul ignore next: refs are hard */
+    if (!current) {
+      return;
+    }
+
+    cancelAnimationFrame(this.rafHandle);
+
+    this.rafHandle = requestAnimationFrame(() => {
+      // getBoundingClientRect causes a reflow
+      const { x, y } = current.getBoundingClientRect() as DOMRect;
+
+      // second rAF in case setState causes layout thrashing
+      this.rafHandle = requestAnimationFrame(() => {
+        // Functional update is safe under React 18 automatic batching and always
+        // flips `targetRectReady` once measured, even when the rect is at (0, 0).
+        this.setState((prev) =>
+          prev.x === x && prev.y === y && prev.targetRectReady
+            ? null
+            : { x, y, targetRectReady: true },
+        );
+      });
+    });
   }
 
   componentWillUnmount() {
