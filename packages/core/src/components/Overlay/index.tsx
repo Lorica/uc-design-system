@@ -43,22 +43,21 @@ export default class Overlay extends React.PureComponent<OverlayProps, OverlaySt
 
   scrollers: ArrayOfScrollables = [];
 
-  componentDidUpdate() {
-    const { current } = this.ref;
+  componentDidMount() {
+    // Measure on mount as well as on update. Previously the position was only
+    // read in `componentDidUpdate`, so the overlay relied on an external
+    // re-render cascade to ever flip `targetRectReady`. React 18 automatic
+    // batching changes when those cascading updates flush, which could leave
+    // the popup permanently hidden. Measuring on mount removes that dependency.
+    this.measurePosition();
 
-    /* istanbul ignore next: refs are hard */
-    if (current) {
-      this.rafHandle = requestAnimationFrame(() => {
-        // getBoundingClientRect casues a reflow
-        const { x, y } = current.getBoundingClientRect() as DOMRect;
-
-        if (x !== this.state.x || y !== this.state.y) {
-          this.rafHandle = requestAnimationFrame(() => {
-            this.setState({ x, y, targetRectReady: true });
-          });
-        }
-      });
+    if (this.props.open && this.props.noBackground) {
+      this.addScrollListeners();
     }
+  }
+
+  componentDidUpdate() {
+    this.measurePosition();
 
     this.removeScrollListeners();
 
@@ -70,6 +69,35 @@ export default class Overlay extends React.PureComponent<OverlayProps, OverlaySt
   componentWillUnmount() {
     this.removeScrollListeners();
     cancelAnimationFrame(this.rafHandle);
+  }
+
+  private measurePosition() {
+    const { current } = this.ref;
+
+    /* istanbul ignore next: refs are hard */
+    if (!current) {
+      return;
+    }
+
+    cancelAnimationFrame(this.rafHandle);
+
+    this.rafHandle = requestAnimationFrame(() => {
+      // getBoundingClientRect causes a reflow
+      const { x, y } = current.getBoundingClientRect() as DOMRect;
+
+      // use a second rAF in case setState causes layout thrashing
+      this.rafHandle = requestAnimationFrame(() => {
+        // Functional update is safe under React 18 automatic batching, and
+        // always flips `targetRectReady` once measured. The previous guard
+        // (`x !== state.x || y !== state.y`) could leave the overlay hidden
+        // forever when the measured rect sits at the origin (0, 0).
+        this.setState((prev) =>
+          prev.x === x && prev.y === y && prev.targetRectReady
+            ? null
+            : { x, y, targetRectReady: true },
+        );
+      });
+    });
   }
 
   private addScrollListeners = debounce(() => {
